@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Polyfill for broader browser compatibility -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<!-- Load MathJax to display LaTeX equations -->
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science - My Portfolio</title>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes full height */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #282c34;
+    color: #ffffff;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 2px -2px gray;
+    position: relative;
+    z-index: 2; /* Ensure header is above other elements */
+}
+
+.header-container {
+    text-align: center;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.sidebar {
+    background-color: #f5f5f5;
+    padding: 15px;
+    padding-top: 150px; /* Add space at the top */
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-left: 3px solid transparent;
+    /*margin-bottom: 5px;
+    /*margin-top: 10px;  /*Add space above each link */
+}
+
+.sidebar nav a:first-child {
+    margin-top: 0; /* Remove margin from the first link, if needed */
+}
+
+
+.content {
+    margin-left: 270px; /* Space for the sidebar */
+    padding: 20px;
+    width: calc(100% - 350px); /* Adjust width to account for the sidebar */
+    flex-grow: 1;
+    overflow: auto; /* Ensure content scrolls if necessary */
+}
+
+
+footer {
+    background-color: #282c34;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    margin-top: auto; /* Push footer to the bottom of the page */
+}
+
+img {
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Container for centering the figure */
+.figure-container {
+    text-align: center;
+    margin: 0 auto;
+    justify-content: flex-end; /* Align caption to the bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Styling for centered images */
+.centered-image {
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+/* Styling for captions */
+.caption {
+    /*font-style: italic;*/
+    color: #555;
+    margin-top: 8px;
+}
+.image-row {
+    display: flex; /* Display images in a row */
+    justify-content: center; /* Center the images horizontally */
+    gap: 20px; /* Space between images */
+}
+
+h2 {
+    border-bottom: 2px solid #282c34; /* Changed from blue to top bar color */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 3px; /* Adjust this value to control the vertical space */
+}
+</style>
+
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Causality Projects: GCRL & ICRL-SM</h1>
+        </div>
+    </header>
+
+    <aside class="sidebar">
+    <nav>
+        <a href="index.html" style="margin-right: 20px;">Home</a>
+        <a href="#Overview">Overview</a>
+        <a href="#causality">Causality</a>
+        <a href="#project_1_gcrl">Project-1: GCRL</a>
+        <a href="#project_2_icrl_sm">Project-2: ICRL-SM</a>
+        <a href="#Tools-and-Technologies">Tools and Technologies</a>
+        <a href="#Links">Links</a>
+    </nav>
+</aside>
+
+
+    <main class="content">
+        <section id="Overview">
+            <h2>Overview</h2>
+            <figure class="figure-container">
+                <img src="images/casality_img.webp" alt="causality" class="centered-image" width="400" height="400">
+                <figcaption class="caption">Causal Representation Learning.</figcaption>
+            </figure>
+            <p>Here I will present two interesting projects with causality and causal representation learning;
+                <b>GCRL</b>: Generative Causal Representation Learning for
+                Out-of-Distribution Motion Forecasting, and <b>ICRL-SM</b>: Implicit Causal Representation Learning via Switchable Mechanism.
+
+        </section>
+
+        <section id="causality">
+            <h2>Causality</h2>
+            <p>In this section, I will explain the fundamentals of causality and causal models required to better
+                understand the ideas of these projects. </p>
+            <h3>Structural Causal Models (SCMs)</h3>
+               <p>
+                Structural Causal Models (SCMs) are a way of describing causal features and their interactions,
+                which are represented by <b>Directed Acyclic Graphs (DAG)</b> (<a href="https://books.google.ca/books?hl=en&lr=&id=I0V2CwAAQBAJ&oi=fnd&pg=PR9&dq=Causal+inference+in+statistics:+A+primer&ots=9Bm3At1Jnn&sig=dxCNyFpSS1ORgsaJgTQJB4NtRMQ#v=onepage&q=Causal%20inference%20in%20statistics%3A%20A%20primer&f=false" target="_blank">Pearl et al., 2016</a>).
+              </p>
+
+            <p>
+                We say that <strong>X</strong> is a direct cause of <strong>Y</strong> when there is a directed edge from <strong>X</strong> to <strong>Y</strong> in the DAG.
+                The cause and effect relation <strong>X → Y</strong> tells us that changing the value of <strong>X</strong> can result in a change
+                in the value of <strong>Y</strong>, but that the reverse is not true.
+            </p>
+            <p>
+                A causal model receives as inputs:
+                <ul>
+                <li>A set of qualitative causal assumptions (<strong>A</strong>)</li>
+                <li>A set of queries concerning the causal relations among variables (<strong>Q</strong>)</li>
+                <li>Experimental or non-experimental data (<strong>D</strong>), presumably consistent with (<strong>A</strong>).</li>
+                </ul>
+            </p>
+            <p>
+                A causal model makes predictions about the <b>behavior</b> of a system. The outputs of a causal model are:
+                <ul>
+                <li> A set of logical implications of (<strong>A</strong>)</li>
+                <li> Data-dependent claims (<strong>C</strong>) represented by the magnitude or likelihoods of the queries (<strong>Q</strong>)</li>
+                <li> A list of testable statistical implications (<strong>T</strong>).</li>
+                </ul>
+            </p>
+            <h3>Causal Variables</h3>
+            <p>
+                In causal analysis, variables are categorized into endogenous and exogenous variables,
+                each playing distinct roles in understanding causal relationships.
+            </p>
+
+            <ul>
+                <li><b>Endogenous Variables:</b>
+                    <p>
+                        Endogenous variables are influenced by other variables within the system.
+                        Their values are determined by interdependencies and causal relationships within the model.
+                        For example, in an economic model, consumer spending (Y) is an endogenous variable influenced by income (X),
+                        where an increase in income generally leads to an increase in spending.
+                    </p>
+                </li>
+                <li><b>Exogenous Variables:</b>
+                    <p>
+                        Exogenous variables are determined outside the system being studied and do not depend on other variables in the model.
+                        They serve as external inputs that can affect endogenous variables.
+                        For instance, in the same economic model, factors like government policy changes or interest rates (X)
+                        can influence income but are not affected by consumer spending.
+                    </p>
+                </li>
+            </ul>
+            <h3>Causal Representation Learning (CRL)</h3>
+            <p>
+                Causal Representation Learning (CRL) is an emerging field within machine learning and artificial intelligence
+                that focuses on learning representations of data that explicitly capture
+                the underlying causal structures and relationships among variables.
+                The goal is to improve understanding and predictions of complex systems by leveraging causal knowledge
+                rather than solely relying on correlations.
+            </p>
+
+            <ul>
+                <li><b>Causality vs. Correlation:</b>
+                    <p>
+                        Traditional machine learning often relies on correlations between variables, which can lead to misleading conclusions.
+                        For example, two variables may be correlated without one causing the other.
+                        CRL aims to identify causal relationships, helping to <b>distinguish true causes from mere associations</b>.
+                    </p>
+                </li>
+                <li><b>Structural Causal Models (SCMs):</b>
+                    <p>
+                        SCMs are a mathematical framework used in CRL to represent causal relationships
+                        through Directed Acyclic Graphs (DAGs). Each node in the graph represents a variable, and directed edges indicate causal influences.
+                        This graphical representation enables clear understanding of <b>how changes in one variable can affect others</b>.
+                    </p>
+                </li>
+                <li><b>Causal Inference:</b>
+                    <p>
+                        CRL incorporates techniques from causal inference, which involves <b>drawing conclusions about causal relationships from data</b>.
+                        This often involves <b>interventions</b> (manipulating variables) and <b>counterfactual reasoning</b>
+                        (considering what would happen under different circumstances).
+                    </p>
+                </li>
+                <li><b>Interventions and Do-Calculus:</b>
+                    <p>
+                        Interventions (denoted as do-operations) are essential for causal analysis.
+                        CRL seeks to learn representations that can effectively simulate the effects of interventions on various variables.
+                        Do-calculus provides a formal framework for reasoning about these interventions.
+                    </p>
+                </li>
+                <li><b>Latent Variables:</b>
+                    <p>
+                        CRL often deals with <b>latent variables—unobserved factors that influence observed data</b>.
+                        By capturing these latent structures, CRL can provide richer, more nuanced representations that enhance the model's predictive power.
+                    </p>
+                </li>
+                <li><b>Implicit vs. Explicit CRL:</b>
+                <ul>
+                    <li><b>Explicit Causal Representation Learning</b> involves direct modeling of causal relationships using known structures, such as SCMs or DAGs.
+                    When the causal graph is known, we can specify relationships directly, enabling accurate causal inference and intervention simulation.</li>
+
+
+                     <li><b>Implicit Causal Representation Learning</b> refers to inferring causal relationships from data without a clearly defined causal graph.
+                    This approach often relies on statistical techniques and causal discovery algorithms to hypothesize causal structures from observed correlations.
+                    The challenge lies in identifying true causal relationships amidst potential spurious associations.</li>
+                </ul>
+                </li>
+            </ul>
+
+
+            <h3>Confounders</h3>
+            In the context of causal graphs, confounders are variables that can influence both the independent variable (the cause)
+            and the dependent variable (the effect), leading to a spurious or misleading association between them.
+            Confounders can create a false impression of a causal relationship between variables that may not actually exist.
+            Confounders are variables that are not included in the causal model but are related to both the independent and dependent variables.
+
+            <ul>
+                <li> <b>Role in Causal Inference:</b> Confounders can obscure or exaggerate the true causal relationship between variables,
+                    making it challenging to accurately identify and quantify causal effects.</li>
+                <li> <b>Identification:</b> To correctly infer causal relationships, it's crucial to identify and control
+                    for confounders in the analysis. This often involves statistical techniques or domain knowledge to account for these variables.</li>
+                <li><b>Example:</b> Suppose you are studying the effect of exercise on weight loss. If you don’t account for diet,
+                    which influences both exercise habits and weight loss, you might incorrectly attribute changes in weight solely
+                    to exercise when diet also plays a significant role. In this case, diet is a confounder.</li>
+                <li> <b>Adjustment:</b> In causal graphs, confounders are usually represented and accounted for to ensure that
+                    the relationships between variables are accurately estimated. Techniques such as stratification, regression,
+                    or matching can be used to adjust for confounding effects.</li>
+            </ul>
+            <h3>Backdoor Criterion</h3>
+            <p>
+                The backdoor criterion is a fundamental concept in causal inference, particularly when using Structural Causal Models (SCMs) and Directed Acyclic Graphs (DAGs).
+                It provides a method to identify a set of variables that, when controlled for, can help estimate the causal effect of one variable on another,
+                effectively eliminating confounding.
+            </p>
+
+            <ul>
+                <li><b>Definition:</b>
+                    <p>
+                        The backdoor criterion states that a set of variables
+                        <i>Z</i> satisfies the backdoor criterion relative to two variables
+                        <i>X</i> and <i>Y</i> if:
+                        <ul>
+                            <li><i>Z</i> blocks all backdoor paths from <i>X</i> to <i>Y</i> (i.e., paths that go into <i>X</i> and then to <i>Y</i>).</li>
+                            <li><i>Z</i> does not include any descendant of <i>X</i>.</li>
+                        </ul>
+                    </p>
+                </li>
+
+                <li><b>Backdoor Paths:</b>
+                    <p>
+                        A backdoor path is a path that connects <i>X</i> to <i>Y</i> that goes backwards through
+                        other variables (i.e., it starts with <i>X</i> and then moves to a variable that leads back to <i>Y</i>).
+                        Backdoor paths can introduce confounding bias in estimating the causal effect from <i>X</i> to <i>Y</i>.
+                    </p>
+                </li>
+
+                <li><b>Causal Effect Estimation:</b>
+                    <p>
+                        By controlling for the variables in <i>Z</i> that satisfy the backdoor criterion,
+                        you can estimate the causal effect of <i>X</i> on <i>Y</i> using the expression
+                        <i>p(Y | do(X))</i>, which represents the distribution of <i>Y</i> when <i>X</i>
+                        is intervened upon (i.e., manipulated directly rather than just observing it).
+                    </p>
+                </li>
+
+                <li><b>Example:</b>
+                    <p>
+                        Consider the following variables in a DAG:
+                        <ul>
+                            <li><i>X</i>: Treatment (e.g., a new medication)</li>
+                            <li><i>Y</i>: Outcome (e.g., health improvement)</li>
+                            <li><i>Z</i>: Confounding variables (e.g., age, pre-existing health conditions)</li>
+                        </ul>
+                        If both <i>Z</i> and another variable <i>S</i> affect both <i>X</i> and <i>Y</i>, then <i>Z</i>
+                    satisfies the backdoor criterion because it can block the backdoor paths from <i>X</i> to <i>Y</i>.
+                    By controlling for <i>Z</i>, you can obtain a more accurate estimate of the causal effect of <i>X</i> on <i>Y</i>.
+                    </p>
+                </li>
+            </ul>
+
+        </section>
+        <section id="project_1_gcrl">
+            <h2>GCRL: Generative CRL for Out-of-Distribution Motion Forecasting</h2>
+            In the first project we propose a novel generative model to address domain shifts in motion prediction tasks.
+            <figure class="figure-container">
+                    <img src="images/causality_gcrl.png" alt="Img" class="centered-image" width="800" height="600">
+                    <figcaption class="caption"> general overview of the proposed method.
+                        The approximate posteriors of the latents are estimated using the encoded past trajectories and
+                        the priors of the latents are calculated using the coupling layers</figcaption>
+            </figure>
+
+            <h3>Causal formalism</h3>
+             <figure class="figure-container">
+                <img src="images/causality_formulation.png" alt="fig2" class="centered-image" width="1000" height="525">
+                <figcaption class="caption">
+                    Figure (2) Our proposed causal formalism. The proposed causal model (center). Filled circles
+                    are observed variables and empty shapes are the unobserved variables.
+                    X and Y represent past trajectories and future trajectories to be predicted, respectively.
+                    Z represents invariant features common across domains, such as physical laws, while
+                    S represents variant features specific to each environment, such as motion styles.
+                    Finally, E is the selection variable. Conditioning on E allows us to switch between environments.
+            </figcaption>
+            </figure>
+
+            <p>Figure (2) illustrates our proposed causal formalism for this project. Shown by figure (2) (center), we assume a known
+                SCM, and two causal variables, which affect trajectories of the pedestrians:</p>
+            <ul>
+                <li><b>Invariant</b> features do not vary across domains but can influence the trajectories of the pedestrians.
+                    These features can be associated with physical laws, traffic laws, social norms, and etc.</li>
+                <li><b>Variant</b> features vary across domains and can be associated with the motion styles of the pedestrians in
+                    an environment </li>.
+            </ul>
+            <p>Moreover, we consider four <b>endogenous variables</b> for different representations:</p>
+            <ul>
+                <li><b>S</b> for variant features (unobserved/latent)</li>
+                <li><b>Z</b> for invariant features (unobserved/latent)</li>
+                <li><b>X</b> for past trajectories (observed)</li>
+                <li><b>Y</b> for future trajectories (observed)</li>
+            </ul>
+            <p>We also introduce an additional <b>exogenous variable</b> shown by <b>E</b> as the selection variable to account for the changing factors in each environment.
+                The selection variable acts as an identifier of an environment.
+                In other words, we assume that all members of the dataset are sampled from a parent distribution over X, Y , and E.</p>
+            <p>Furthermore, we assume that the proposed model is <b>causally sufficient</b>
+                where it explains all the dependencies without adding further causal variables.</p>
+
+            <p>Knowing the context of our causal model, the following conditions must be satisfied, which results in the
+                edges formation of the causal graph:</p>
+            <ul>
+                <li>There should be an edge from S to X and Y because
+                    motion styles can influence the speed of the pedestrians.</li>
+                <li>There should be an edge from Z to X and Y because
+                social norms can influence how closely pedestrians move
+                    next to each other.</li>
+                <li>There should be an edge from X to Y because the
+                location in the past determines where the pedestrian is
+                    going to be in the future.</li>
+                <li>S varies in each domain, hence, there should be an
+                edge from selection variable E to S to account for all the
+                    changing factors in each domain.</li>
+            </ul>
+
+
+            <h3>Learning latent variables</h3>
+            As shown by Figure (2), S and Z confound the causal effect of observed variables X and Y. Therefore,
+            we need to eliminate the <b>confounding effect</b> by using the <b>backdoor criterion</b>, and computing the causal effect
+            of X on Y as p(Y|do(X)).
+
+            <h3>Loss function</h3>
+            Our final objetive function is as follows:
+           <p style="text-align: center;">
+            \( \text{loss} = \max_{p,q} \, \mathbb{E}_{p^*(x,y)} \left[ \log q(y|x) + \frac{1}{q(y|x)} \, \mathbb{E}_{q(s|x), q(z|x)} \left[p(y|x,s,z) \log\left(\frac{p(x|s,z) \, p(s) \, p(z)}{q(s|x) \, q(z|x)}\right)\right] \right] \)
+            </p>
+
+            <p>where the loss is designed to address the following objectives if the optimal loss obtained:</p>
+            <ol>
+                <li>To minimize the distance between ground-truth future trajectories Y and predicted
+                    future trajectories via maximizing the log likelihood posterior \(\log q(y|x)\).</li>
+                <li>To eliminate the confounding effect by estimating the causal effect of X on Y through
+                    \(\log q(y|x) = \mathbb{E}_{q(s|x), q(z|x)} p(y|x,s,z) = p(y|do(x)) \)</li>
+                <li> Reconstruction of the past trajectories X through maximizing \(\log(x|s,z)\) </li>
+                <li>Invariant representation learning through maximizing \(\log {\frac{p(z)}{q(z|x)}}\). Possible if q(z|x) = p(z) which means posterior equals prior.</li>
+                <li>Variant representation learning through maximizing \(\log {\frac{p(s)}{q(s|x)}}\). Possible if q(s|x) = p(s) which means posterior equals prior.</li>
+            </ol>
+            <p>As discussed earlier latent variable S varies in each domain, so is domain-specific.
+                Therefore, we model its prior with a Gaussian Mixture Model GMM,
+                which are proven to be identifiable. Moreover, GMMs are universal approximators,
+                hence, \(q(s|x)\) will be capable of producing arbitrary variant features</p>
+            <p>On the other hand latent variable Z is invariant and is the same in all domains,
+                so we model its prior with a single Gaussian distribution.</p>
+        <h3>Domain Adaptation</h3>
+            <p>After the model is trained using our objective function, \(q(z|x)\) will generate representations with
+            a single Gaussian distribution and \(q(s|x)\) will generate representations with a Gaussian Mixture Model (GMM) distribution.
+            Therefore, all representations generated by \(q(z|x)\) will be in the same range, whereas the representations of \(q(s|x)\)
+                will form clusters, each modeled by a component of the GMM. </p>
+
+            <h4> What needs fine-tuning? </h4>
+            <p>Since S can be interpreted as a weighted sum of the representations learnt from different environments
+                of the training domains, which may be used in the test domains as well. Depending on how related the test domains are
+                to the training domains, we may need to fine-tune the components of the S prior (GMM) to obtain a new prior for S.
+                The models to predict future trajectories \(p(y|x, s, z)\) and to reconstruct past trajectories \(p(x|s, z)\)
+                also needs to be fine-tuned as the samples of \(q(s|x)\) will be updated.
+                Thus, we fine-tune \(p(y|x, s, z)\), \(p(x|s, z)\), \(q(s|x)\) and p(s).</p>
+
+            <h4> What needs no fine-tuning? </h4>
+            <p>Since Z is invariant, we can directly transfer it to the new domain without any fine-tuning.
+               Thus \(p(z)\), and \(q(z|x)\) do not require fine-tuning, so they can be arbitrary complex.
+
+            <h4> How to conduct inference? </h4>
+                To fine-tune the model at inference time, we reuse the loss function without
+                the regularizing Z posterior by omitting \(q(z|x)\). Eventually, \(q(s|x)\) will be driven towards
+                the new prior and compensate for the domain shift in the test domain.
+
+            <h3>Experiments</h3>
+
+            <h4>1-Robustness</h4>
+            We add a third dimension to the coordinates of pedestrian to measure observation noise and is modeled as:
+            <p style="text-align: center;">
+            \(\gamma_t := (\dot{x}_{t+\delta t} - \dot{x}_t)^2 + (\dot{y}_{t+\delta t} - \dot{y}_t)^2\)
+            </p>
+            <p style="text-align: center;">
+                \(\sigma_t := \alpha(\gamma_t + 1)\)
+            </p>
+            <p>
+            where \(\dot{x}_t = x_{t+1} - x_t\) and \(\dot{y}_t = y_{t+1} - y_t\) reflect the velocity of
+                the pedestrians within the temporal window length of \(\delta t = 8\), and \(\alpha\) is the noise intensity.
+                For the training domains, \(\alpha \in \{1, 2, 4, 8\}\) while for the test domain, \(\alpha \in \{8, 16, 32, 64\}\).
+                The test domain is the eth environment for this experiment.
+                The results in <b>Table 1</b> <a href="https://proceedings.mlr.press/v202/shirahmad-gale-bagi23a/shirahmad-gale-bagi23a.pdf" target="_blank">Gale Bagi et al., 2023</a>.
+                demonstrate the robustness of our method against observation noise
+                while performing comparably with other motion forecasting models for low \(\alpha\).
+            </p>
+
+            <h4>2-Domain Generalization</h4>
+            <p>
+                To test domain generalization capabilities of GCRL, we consider the Minimum Separation Distances (MSD)
+                in the training and test domains are \(\{0.1, 0.3, 0.5\}\) and \(\{0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8\}\) meters, respectively.
+                As illustrated in <b>Figure 6</b> <a href="https://proceedings.mlr.press/v202/shirahmad-gale-bagi23a/shirahmad-gale-bagi23a.pdf" target="_blank">Gale Bagi et al., 2023</a>,
+                our method is more robust to domain shifts compared to baseline, and it is achieving slightly better ADE,
+                which is 8.8% on average. For OOD-Inter cases, where the test domain shift falls within the range of
+                training domain shifts (e.g., test domain shift = 0.4), GCRL remains reusable as ADE shows insensitivity to these shifts.
+                However, for OOD-Extra cases, where test domain shifts lie outside the range of training domain shifts,
+                the model requires fine-tuning to maintain performance.
+            </p>
+
+            <h4>3-Domain Adaptation</h4>
+            <p>
+                To evaluate the efficiency of our proposed method for knowledge transfer using a synthetic dataset
+                under an OOD-Extra case. We train both baseline and GCRL with a consistent setup and
+                fine-tune various model components using a limited number of batches from the test domain.
+                Each batch contains 64 samples, resulting in fine-tuning with sample sizes of \(\{1, 2, 3, 4, 5, 6\} × 64\).
+                For baseline, we fine-tune with the optimal settings reported in their paper.
+                For GCRL, we fine-tune the components \( p(y|x, s, z) \), \( p(x|s, z) \), \( p(s) \), and \( q(s|x) \).
+            </p>
+            <p>
+                As illustrated in <b>Figure 7</b> <a href="https://proceedings.mlr.press/v202/shirahmad-gale-bagi23a/shirahmad-gale-bagi23a.pdf" target="_blank">Gale Bagi et al., 2023</a>,
+                GCRL adapts to the new environment more rapidly and demonstrates greater robustness
+                to OOD-Extra shifts compared to baseline, improving evaluation metric by an average of 34.3% over baseline.
+            </p>
+
+            <h4>4-Generative Bonus </h4>
+            <p>
+                Since GCRL is a generative approach, we can generate multiple future trajectories per sample and select
+                the best of them to tackle the multi-modality of trajectories. Therefore, we use a hyper-parameter N in
+                testing to determine the number of generated trajectories per sample.
+                <b>Figure 4</b> <a href="https://proceedings.mlr.press/v202/shirahmad-gale-bagi23a/shirahmad-gale-bagi23a.pdf" target="_blank">Gale Bagi et al., 2023</a>
+                illustrates the significant impact that a generative approach can have in the performance. According to
+                <b>Figure 5</b> <a href="https://proceedings.mlr.press/v202/shirahmad-gale-bagi23a/shirahmad-gale-bagi23a.pdf" target="_blank">Gale Bagi et al., 2023</a>
+                the qualitative results also suggest that a generative approach can be useful in motion forecasting as
+                it is able to generate diverse trajectories.
+            </p>
+        </section>
+
+        <section id="project_2_icrl_sm">
+            <h2>ICRL-SM: Implicit CRL via Switchable Mechanism</h2>
+            <p>In the second problem we address implicit causal representation learning in the presence of soft intervention
+                by using switch variable.</p>
+            <figure class="figure-container">
+                    <img src="images/causality_icrl_sm.png" alt="Img" class="centered-image" width="800" height="600">
+                    <figcaption class="caption">The architecture processes pre-intervention observations X,
+                        post-intervention observations \(\tilde X\), and their differences \(X − \tilde X\) (intervention displacement),
+                        encoding them into latent representations. Each encoder outputs the mean (M) and variance (V) of
+                        a probability distribution function. By sampling from these distributions, we obtain pre-intervention exogenous variables E,
+                        post-intervention exogenous variables \(\tilde E\), and the causal mechanism switch variable V .
+                        The exogenous variables are derived from the corresponding pre- and post-intervention encodings,
+                        while V is obtained from the encoding of the differences between X and \(\tilde X\).
+                        The pre- and post-intervention exogenous variables are then passed through two fully connected (FC) layers,
+                        which predict the scale and location parameters. These predicted scale and location parameters,
+                        together with the post-intervention exogenous variables and the causal mechanism switch variable,
+                        are utilized in the solution function to compute the post-intervention causal variables \(\tilde Z\).
+                        Here, N denotes the total number of causal variables.</figcaption>
+            </figure>
+
+            <h3>Problem formulation</h3>
+            <p>Learning causal representations from observational and interventional data, especially when
+            ground-truth structural causal graph (SCM) are unknown, is quite challenging.
+                There are two main approaches to causal representation learning in the absence of ground-truth causal graph.
+
+            <h4>Explicit CRL</h4>
+                <p>Explicit Latent Causal Models (ELCMs) starts with an initial known causal graph structure reflecting our understanding of
+                the relationships between variables, which is informed by domain knowledge, prior research, or theoretical considerations.
+                This initial graph indicates potential causal relationships among variables,
+                even if the exact strength and direction of these relationships remain unquantified.
+                Accompanying this graph is an adjacency matrix that contains initial estimates of causal relationships,
+                    represented as zeros for no direct relationship or other values indicating the strength of influence.</p>
+
+                <p>During training, the model refines the parameters associated with the graph's edges
+                    using observed data to estimate coefficients that quantify the causal relationships.
+                    As the model learns, it adjusts the parameters in the adjacency matrix to improve its fit to
+                    the observed data while maintaining the specified structure. </p>
+
+                    <p>The training process incorporates conditions to ensure identifiability, aiming to achieve
+                an optimal graph structure that accurately identifies causal relationships from the data.
+                Upon completion of training, the model may refine the initial graph structure based on the learned parameters,
+                        which can result in modifications to the edges or directions of causation.</p>
+            <h4>Implicit CRL</h4>
+            <p>In Implicit Latent Causal Models (ILCMs), the absence of a predefined causal graph means that the model does not start
+                with explicit knowledge about how variables are related causally.
+                Instead, the model relies on observed data to infer the underlying causal mechanisms.
+                This process often involves statistical techniques and causal discovery algorithms that analyze correlations
+                and dependencies within the data to hypothesize causal relationships.</p>
+
+            <p>The solution function learned during this process represents the causal representation of the variables involved.
+                This function encapsulates the cause-and-effect relationships identified from the data, allowing for
+                the prediction of outcomes based on interventions or changes in certain variables.
+
+            <p>However, unlike explicit CRL, where the aim is to refine a causal graph and adjacency matrix,
+                implicit CRL focuses on estimating the effects of <b>interventions</b> without explicitly modeling the causal structure.
+                The primary challenge in implicit CRL is to ensure that the learned relationships are valid and robust
+                against potential confounding factors or spurious associations present in the data.
+                The goal is to identify true causal effects that can be reliably used for prediction and decision-making,
+                even in the absence of a clear graphical representation of the underlying causal system.</p>
+
+            <h4>Implicit CRL via Interventions</h4>
+            <p>Implicit causal representation learning (CRL) typically utilizes two types of interventional data:
+                hard and soft interventions. In real-world scenarios, soft interventions are often more practical,
+                as hard interventions require fully controlled environments.
+                While the literature extensively studies implicit CRL with hard interventions,
+                soft interventions offer a different approach by indirectly influencing the causal mechanisms
+                rather than directly altering a causal variable.
+                However, the nuanced nature of soft interventions poses additional challenges in accurately
+                learning causal models.</p>
+
+
+            <h3>Hard vs Soft Intervention</h3>
+             <figure class="figure-container">
+                    <img src="images/causality_intv.png" alt="Img" class="centered-image" width="600" height="400">
+                    <figcaption class="caption">Hard vs Soft Intervention.</figcaption>
+            </figure>
+
+            <p>
+                In a causal model, an intervention is a deliberate action to manipulate one or more variables to observe
+                its impact on others, revealing causal relationships. Interventions can be categorized based on the level of control:
+                hard and soft interventions.
+            </p>
+            <p>
+                <strong>hard intervention</strong> It directly sets the value of a causal variable, represented as do(Z = z),
+                completely isolating the variable from the influence of its ancestral nodes.</p>
+
+                <p><strong>Example:</strong>
+                Suppose we are trying to understand the causal relationship
+                between different types of diets and weight loss.
+                    If the government or an authority were to intervene and enforce a mandatory low-carb diet through legal
+                means, this would constitute a hard intervention. In this scenario, regulations would be implemented, prohibiting the
+                consumption of specific carbohydrate-containing foods. Regulatory agencies would be established to oversee and
+                ensure adherence to the low-carb diet mandate, taking actions such as removing prohibited foods from the market,
+                restricting their import and production, and so on. Individuals caught consuming banned foods would be subject to
+                fines, legal repercussions, or other penalties.
+            </p>
+            <p>
+                <strong>soft intervention</strong> It indirectly modifies a variable by changing its
+                conditional distribution, \(p(Z|Z_{pa}) \rightarrow \tilde{p}(Z|Z_{pa})\), allowing it to still be
+                influenced by its parent nodes. This means the post-intervention value of \(\tilde Z\) is still
+                influenced by its causal parents. As a result, the solution function \(\tilde s\) for the causal
+                variable is affected by the intervention, making it harder to identify the causal mechanisms involved.</p>
+
+                <p><strong>Example:</strong> Suppose we are trying to understand the causal relationship
+                between different types of diets and weight loss. The soft intervention in this scenario could be
+                a switch from a regular diet to a low-carb diet. Switching to a low-carb diet is a voluntary choice
+                made by the individual and there are no external forces or regulations compelling them to make this change (non-coercive).
+                The intervention involves a modification of the individual’s diet rather than a complete disruption since
+                they are adjusting the proportion of macronutrients (fats, proteins, and carbs) they consume,
+                which is less disruptive than a radical change in eating habits (gradual modification).
+            </p>
+
+            <h3>Switchable Mechanism</h3>
+            <p>In hard intervention we are fully certain that changes in casual variables are direct result of intervention. While
+            Soft interventions provide fewer constraints on the causal graph structure than hard interventions.
+                This is because the connections to parental variables remain intact, leading to ambiguity in determining
+                the causal relationships. </p>
+
+            <h4>Data Augmentation</h4>
+            <p>If our model include a data augmentation step that adds the intervention displacement \(\tilde x - x\)
+                as an <b>observed feature</b>. This feature directly captures the full effect of the soft intervention in the observation space,
+                making it easier to analyze its impact.</p>
+
+            <h4>Application of Switch Variable</h4>
+            <p>The switch variable allows the model to <b>transition to the pre-intervention causal mechanisms</b>
+                when analyzing post-intervention data.
+                In the post-intervention condition, our goal is to learn the representation of each causal variable \(p(\tilde z)\).
+                While soft interventions maintain the ancestral connections to a causal variable (implying we should learn
+                \(p(\tilde z|e_{pa})\)), these connections remain unknown due to the implicit nature of our learning method.
+                To address this challenge, we model the post-intervention causal variable using its only known parent,
+                which is its own exogenous variable, represented as \(p(\tilde z|e_{pa})\).
+
+                The switch variable helps isolate changes in the intrinsic characteristics of each causal variable,
+                encapsulated within its own exogenous variable.
+                This improves the model's ability to learn causal relationships accurately.</p>
+
+            <h4>Modulated Form of V</h4>
+            <p>A modulated version of V is used in each causal variable’s solution function.
+                The nonlinear function \(h_i: V \rightarrow R\) allows the model to account
+                for variations in the parental sets of all causal variables.
+                The equation \(z_i = s_i(e_i; e_{/i}) = s_i(e_i; e_{/i}, h_i(v))\) illustrates how the switch
+                variable \(V_i \in R\) is incorporated into the solution functions for each causal variable \(Z_i\).</p>
+
+            <h4>Augmented Implicit Causal Model</h4>
+            <p>The inclusion of switch variables in the solution functions leads to the concept of an augmented implicit causal model.
+                This model is designed to enhance the learning of causal relationships, especially in the context of soft interventions.</p>
+
+            <p>A solution function using a location-scale noise models, which defines an invertible diffeomorphism is
+            formulated as follows:</p>
+
+                <p style="text-align: center;">
+                    \( z_i = \tilde{s}_i(\tilde{e}_i; e_{/i}, h_i(v)) = \frac{\tilde{e}_i - (\text{loci}(e_{/i}) + h_i(v))} {\text{scale}_i(e_{/i})} \)
+                </p>
+            <h3>Experiments</h3>
+
+        </section>
+
+         <section id="Tools-and-Technologies">
+            <h2>Tools and Technologies</h2>
+            <p>This section discusses the design and implementation of the project.</p>
+
+            <h3>Data Visualization</h3>
+            <p>Utilized various libraries for data visualization:</p>
+            <ul>
+                <li>Matplotlib</li>
+                <li>Seaborn</li>
+                <li>Plotly</li>
+                <li>Visdom</li>
+            </ul>
+
+        </section>
+
+
+        <section id="Links">
+        <h2>Links</h2>
+        <p>Overview of the links related to the projects:</p>
+        <ul>
+            <p><strong>Version Control Systems:</strong>
+                <ul>
+                    <li><a href="https://github.com/sshirahmad/GCRL" target="_blank">GCRL GitHub Page</a></li>
+                </ul>
+            </p>
+            <p><strong>Research Article Platforms:</strong>
+                <ul>
+                    <li><a href="https://proceedings.mlr.press/v202/shirahmad-gale-bagi23a.html" target="_blank">GCRL Paper</a></li>
+                   <li><a href="https://arxiv.org/abs/2402.11124" target="_blank">ICRL-SM Paper</a></li>
+                </ul>
+            </p>
+        </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Zahra Gharaee. All rights reserved.</p>
+    </footer>
+</body>
+</html>

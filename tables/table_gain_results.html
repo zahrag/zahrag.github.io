@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approach Performance Comparison</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td.approach {
+            text-align: left; /* Left-align text in the "Approach" column */
+        }
+        caption {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Performance Comparison for Different Approaches using Micro-Averaged F1-Score</caption>
+        <thead>
+            <tr>
+                <th>Approach</th>
+                <th>Transductive Supervised</th>
+                <th>Transductive Unsupervised</th>
+                <th>Inductive Supervised</th>
+                <th>Inductive Unsupervised</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="approach">Random Baseline</td>
+                <td>0.20</td>
+                <td>0.20</td>
+                <td>0.20</td>
+                <td>0.20</td>
+            </tr>
+            <tr>
+                <td class="approach">Raw Features</td>
+                <td>0.59</td>
+                <td>0.59</td>
+                <td>0.49</td>
+                <td>0.49</td>
+            </tr>
+            <tr>
+                <td class="approach">GCN <a href="https://arxiv.org/abs/1609.02907"
+                   target="_blank">Kipf et al. (2017)</a></td>
+                <td>0.58</td>
+                <td>0.60</td>
+                <td>0.43</td>
+                <td><b>0.61</b></td>
+            </tr>
+            <tr>
+                <td class="approach">GraphSAGE-MEAN <a href="https://arxiv.org/abs/1706.02216"
+                   target="_blank">Hamilton et al. (2017)</a></td>
+                <td>0.62</td>
+                <td>0.67</td>
+                <td><b>0.60</b></td>
+                <td>0.60</td>
+            </tr>
+            <tr>
+                <td class="approach">GraphSAGE-MEANPOOL <a href="https://arxiv.org/abs/1706.02216"
+                   target="_blank">Hamilton et al. (2017)</a></td>
+                <td><b>0.81</b></td>
+                <td>0.69</td>
+                <td>0.45</td>
+                <td><b>0.61</b></td>
+            </tr>
+            <tr>
+                <td class="approach">GraphSAGE-MAXPOOL <a href="https://arxiv.org/abs/1706.02216"
+                   target="_blank">Hamilton et al. (2017)</a></td>
+                <td>0.80</td>
+                <td>0.68</td>
+                <td>0.44</td>
+                <td>0.55</td>
+            </tr>
+            <tr>
+                <td class="approach">GraphSAGE-LSTM <a href="https://arxiv.org/abs/1706.02216"
+                   target="_blank">Hamilton et al. (2017)</a></td>
+                <td><b>0.81</b></td>
+                <td>0.69</td>
+                <td>0.45</td>
+                <td>0.59</td>
+            </tr>
+            <tr>
+                <td class="approach">GAT <a href="https://arxiv.org/abs/1710.10903"
+                   target="_blank">Velickovic et al. (2018)</a></td>
+                <td>0.75</td>
+                <td>0.69</td>
+                <td>0.43</td>
+                <td>0.51</td>
+            </tr>
+            <tr>
+                <td class="approach">GIN <a href="https://arxiv.org/abs/1810.00826"
+                   target="_blank">Xu et al. (2018)</a></td>
+                <td>0.78</td>
+                <td>0.69</td>
+                <td>0.46</td>
+                <td>0.47</td>
+            </tr>
+            <tr>
+                <td class="approach"><b>GAIN (ours)</b></td>
+                <td><b>0.81</b></td>
+                <td><b>0.71</b></td>
+                <td><b>0.59</b></td>
+                <td>0.56</td>
+            </tr>
+            <tr>
+                <td class="approach">% gain over Baseline</td>
+                <td>37%</td>
+                <td>20%</td>
+                <td>22%</td>
+                <td>24%</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

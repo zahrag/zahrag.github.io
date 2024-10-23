@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Comparison Table</title>
+    <style>
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin: 20px auto; /* Centers the table horizontally */
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td.approach {
+            text-align: left; /* Left-align text in the "Approach" column */
+        }
+        caption {
+            margin: 10px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Table II: Performance comparison of models regarding score and other metrics. The average is calculated per metric and shows the stability of the training for each of the T*D* settings. The values shown in the parenthesis for Score and Dist are the standard deviations of the models. Offroad, Otherlane, and Either are calculated with a threshold of 20% for each time-step.</caption>
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>Type</th> <!-- New column for Average/Best -->
+                <th>Off-Road &darr;</th>
+                <th>Other-Lane &darr;</th>
+                <th>Either &darr;</th>
+                <th>Success &uarr;</th>
+                <th>No Collision &uarr;</th>
+                <th>Score &uarr;</th>
+                <th>Dist [m] &uarr;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="approach" rowspan="2">TGDG (ours) </td>
+                <td>Average</td> <!-- Added type -->
+                <td>0.0%</td>
+                <td>11.1%</td>
+                <td>11.1%</td>
+                <td>96.8%</td>
+                <td>84.1%</td>
+                <td>0.90 (±0.07)</td>
+                <td>11132 (±703)</td>
+            </tr>
+            <tr>
+                <td>Best</td> <!-- Added type -->
+                <td>0.0%</td>
+                <td>2.4%</td>
+                <td>2.4%</td>
+                <td>100.0%</td>
+                <td>100.0%</td>
+                <td>0.99</td>
+                <td>11168</td>
+            </tr>
+            <tr>
+                <td class="approach" rowspan="2">TGDE (ours)</td>
+                <td>Average</td> <!-- Added type -->
+                <td>0.1%</td>
+                <td>11.6%</td>
+                <td>11.7%</td>
+                <td>89.0%</td>
+                <td>80.8%</td>
+                <td>0.86 (±0.073)</td>
+                <td>11392 (±232)</td>
+            </tr>
+            <tr>
+                <td>Best</td> <!-- Added type -->
+                <td>0.0%</td>
+                <td>2.5%</td>
+                <td>2.5%</td>
+                <td>100.0%</td>
+                <td>100.0%</td>
+                <td>0.99</td>
+                <td>11119</td>
+            </tr>
+            <tr>
+                <td class="approach" rowspan="2">TEDE (ours)</td>
+                <td>Average</td> <!-- Added type -->
+                <td>11.4%</td>
+                <td>29.8%</td>
+                <td>37.9%</td>
+                <td>34.5%</td>
+                <td>73.4%</td>
+                <td>0.57 (±0.3)</td>
+                <td>10209 (±1950)</td>
+            </tr>
+            <tr>
+                <td>Best</td> <!-- Added type -->
+                <td>0.0%</td>
+                <td>17.5%</td>
+                <td>17.5%</td>
+                <td>100.0%</td>
+                <td>100.0%</td>
+                <td>0.94</td>
+                <td>11227</td>
+            </tr>
+            <tr>
+                <td class="approach" rowspan="2">TEDG (ours)</td>
+                <td>Average</td> <!-- Added type -->
+                <td>11.5%</td>
+                <td>25.8%</td>
+                <td>36.3%</td>
+                <td>33.3%</td>
+                <td>78.3%</td>
+                <td>0.58 (±0.3)</td>
+                <td>11437 (±2201)</td>
+            </tr>
+            <tr>
+                <td>Best</td> <!-- Added type -->
+                <td>0.0%</td>
+                <td>22.7%</td>
+                <td>22.7%</td>
+                <td>100.0%</td>
+                <td>100.0%</td>
+                <td>0.92</td>
+                <td>11238</td>
+            </tr>
+            <tr>
+                <td class="approach">RL <a href="https://proceedings.mlr.press/v78/dosovitskiy17a.html" target="_blank">Dosovitskiy et. al (2017)</a></td>
+                <td></td> <!-- Empty for last two rows -->
+                <td>42.4%</td>
+                <td>21.0%</td>
+                <td>52.4%</td>
+                <td>41.7%</td>
+                <td>50.0%</td>
+                <td>0.46</td>
+                <td>8787</td>
+            </tr>
+            <tr>
+                <td class="approach">IL <a href="https://ieeexplore.ieee.org/abstract/document/8460487?casa_token=Wenyoudp72kAAAAA:_p1ZaEL09t5Ef3jVsUYHt-9f7ux9GU8tIWb8AOVAw-zZ8jNOKtnSuxwx8dX3PRIVzkZziPys" target="_blank">Codevilla et. al (2018)</a></td>
+                <td></td> <!-- Empty for last two rows -->
+                <td>8.3%</td>
+                <td>0.7%</td>
+                <td>8.4%</td>
+                <td>86.9%</td>
+                <td>90.5%</td>
+                <td>0.90</td>
+                <td>11293</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

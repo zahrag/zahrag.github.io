@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td.attribute {
+            text-align: left;
+        }
+        caption {
+            margin: 10px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <caption>BIOSCAN-5M taxonomic and BIN categories distribution. For each attribute, we show the value which occurs most often in the dataset and the least populated value (in the event of a tie, we show an exemplar selected at random).</caption>
+    <thead>
+        <tr>
+            <th rowspan="2">Attributes</th>
+            <th rowspan="2">Categories</th>
+            <th colspan="2">Most populated</th>
+            <th colspan="2">Least populated</th>
+            <th rowspan="2">Mean</th>
+            <th rowspan="2">Median</th>
+            <th rowspan="2">Std. Dev.</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Name</th>
+            <th>Size</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="attribute"><span style="color: green;">phylum </span></td>
+            <td>1</td>
+            <td>Arthropoda</td>
+            <td>5,150,850</td>
+            <td>Arthropoda</td>
+            <td>5,150,850</td>
+            <td>5,150,850.0</td>
+            <td>5,150,850.0</td>
+            <td>0.0</td>
+        </tr>
+        <tr>
+            <td class="attribute"><span style="color: green;">class </span></td>
+            <td>10</td>
+            <td>Insecta</td>
+            <td>5,038,818</td>
+            <td>Ostracoda</td>
+            <td>7</td>
+            <td>514,683.7</td>
+            <td>369.0</td>
+            <td>1,508,192.8</td>
+        </tr>
+        <tr>
+            <td class="attribute"><span style="color: green;">order </span></td>
+            <td>55</td>
+            <td>Diptera</td>
+            <td>3,675,317</td>
+            <td>Cumacea</td>
+            <td>1</td>
+            <td>93,363.4</td>
+            <td>172.0</td>
+            <td>495,969.5</td>
+        </tr>
+        <tr>
+            <td class="attribute"><span style="color: green;">family </span></td>
+            <td>934</td>
+            <td>Cecidomyiidae</td>
+            <td>938,928</td>
+            <td>Pyrgodesmidae</td>
+            <td>1</td>
+            <td>5,281.3</td>
+            <td>63.5</td>
+            <td>45,321.1</td>
+        </tr>
+        <tr>
+            <td class="attribute"><span style="color: green;">subfamily </span></td>
+            <td>1,542</td>
+            <td>Metopininae</td>
+            <td>323,146</td>
+            <td>Bombyliinae</td>
+            <td>1</td>
+            <td>953.7</td>
+            <td>23.0</td>
+            <td>9,092.8</td>
+        </tr>
+        <tr>
+            <td class="attribute"><span style="color: green; font-style: italic;">genus </span></td>
+            <td>7,605</td>
+            <td>Megaselia</td>
+            <td>200,268</td>
+            <td>chalMalaise9590</td>
+            <td>1</td>
+            <td>161.3</td>
+            <td>6.0</td>
+            <td>2,492.2</td>
+        </tr>
+        <tr>
+            <td class="attribute"><span style="color: green; font-style: italic;">species </span></td>
+            <td>22,622</td>
+            <td>Psychoda sp. 11GMK</td>
+            <td>7,694</td>
+            <td>Microcephalops sp. China3</td>
+            <td>1</td>
+            <td>20.9</td>
+            <td>2.0</td>
+            <td>139.5</td>
+        </tr>
+        <tr>
+            <td class="attribute"><span style="color: purple;">dna_bin </span></td>
+            <td>324,411</td>
+            <td>BOLD:AEO1530</td>
+            <td>35,458</td>
+            <td>BOLD:ADT1070</td>
+            <td>1</td>
+            <td>15.8</td>
+            <td>2.0</td>
+            <td>146.4</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

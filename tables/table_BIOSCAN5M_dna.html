@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DNA Barcode Statistics Table</title>
+    <style>
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td.gen {
+            text-align: left;
+        }
+        caption {
+            margin: 10px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <caption>The DNA barcode statistics for different taxonomic ranks from the BIOSCAN-5M dataset are presented,
+        including the mean, median, standard deviation and average Shannon Diversity Index (SDI) of identical DNA barcodes
+        across subgroups (categories) within taxonomic ranks. Additionally, the mean and standard deviation of
+        pairwise DNA barcode sequence distances, aggregated across subgroups at each taxonomic rank, are also reported.</caption>
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th colspan="5" style="text-align:center;">Unique Barcodes</th>
+            <th colspan="2" style="text-align:center;">Barcodes Distance</th>
+        </tr>
+        <tr>
+            <th>Attributes</th>
+            <th>Categories</th>
+            <th>Count</th>
+            <th>Mean</th>
+            <th>Median</th>
+            <th>Std. Dev.</th>
+            <th>Ave. SDI</th>
+            <th>Mean</th>
+            <th>Std. Dev.</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="gen"><span style="color: green;">phylum </span></td>
+            <td>1</td>
+            <td>2,486,492</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>13.71</td>
+            <td>158</td>
+            <td>42</td>
+        </tr>
+        <tr>
+            <td class="gen"><span style="color: green;">class </span></td>
+            <td>10</td>
+            <td>2,482,891</td>
+            <td>248,289</td>
+            <td>177</td>
+            <td>725,237</td>
+            <td>5.93</td>
+            <td>166</td>
+            <td>103</td>
+        </tr>
+        <tr>
+            <td class="gen"><span style="color: green;">order </span></td>
+            <td>55</td>
+            <td>2,474,855</td>
+            <td>44,997</td>
+            <td>57</td>
+            <td>225,098</td>
+            <td>4.89</td>
+            <td>128</td>
+            <td>53</td>
+        </tr>
+        <tr>
+            <td class="gen"><span style="color: green;">family </span></td>
+            <td>934</td>
+            <td>2,321,301</td>
+            <td>2,485</td>
+            <td>46</td>
+            <td>19,701</td>
+            <td>3.76</td>
+            <td>90</td>
+            <td>46</td>
+        </tr>
+        <tr>
+            <td class="gen"><span style="color: green;">subfamily </span></td>
+            <td>1,542</td>
+            <td>657,639</td>
+            <td>426</td>
+            <td>17</td>
+            <td>3,726</td>
+            <td>2.97</td>
+            <td>78</td>
+            <td>51</td>
+        </tr>
+        <tr>
+            <td class="gen"><span style="color: green; font-style: italic;">genus </span></td>
+            <td>7,605</td>
+            <td>531,109</td>
+            <td>70</td>
+            <td>5</td>
+            <td>1,061</td>
+            <td>1.82</td>
+            <td>50</td>
+            <td>39</td>
+        </tr>
+        <tr>
+            <td class="gen"><span style="color: green; font-style: italic;">species </span></td>
+            <td>22,622</td>
+            <td>202,260</td>
+            <td>9</td>
+            <td>2</td>
+            <td>37</td>
+            <td>1.01</td>
+            <td>17</td>
+            <td>18</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

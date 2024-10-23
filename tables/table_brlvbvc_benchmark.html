@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Evaluation Table</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto; /* Centers the table horizontally */
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td.type {
+            text-align: left; /* Left-align text in the "Approach" column */
+        }
+        caption {
+            margin: 10px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>TABLE III: Performance evaluation in the (CoRL2017) Carla benchmark for Town02. The table shows average km driven
+            between infractions per class (MP, IL, and RL are evaluated in
+            <a href="https://proceedings.mlr.press/v78/dosovitskiy17a.html" target="_blank">Dosovitskiy et. al (2017)</a>).
+            The total number of km might differ. The best performing models are shown in <b>Bold</b>.</caption>
+        <thead>
+            <tr>
+                <td class="type"></td>
+                <td colspan="7"><b>New Town</b></td>
+                <td colspan="7"><b>New Town & New Weather</b></td>
+            </tr>
+            <tr>
+                <th>Infraction Type</th>
+                <th>MP</th>
+                <th>IL</th>
+                <th>RL</th>
+                <th>TGDG</th>
+                <th>TEDE</th>
+                <th>TEDG</th>
+                <th>TGDE</th>
+                <th>MP</th>
+                <th>IL</th>
+                <th>RL</th>
+                <th>TGDG</th>
+                <th>TEDE</th>
+                <th>TEDG</th>
+                <th>TGDE</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td class="type">Opposite lane &uarr;</td>
+                <td>0.45</td>
+                <td>1.12</td>
+                <td>0.23</td>
+                <td>2.14</td>
+                <td>0.18</td>
+                <td>0.24</td>
+                <td><b>4.10</b></td>
+                <td>0.40</td>
+                <td>0.78</td>
+                <td>0.21</td>
+                <td>2.13</td>
+                <td>0.18</td>
+                <td>0.25</td>
+                <td><b>2.93</b></td>
+            </tr>
+            <tr>
+                <td class="type">Sidewalk &uarr;</td>
+                <td>0.46</td>
+                <td>0.76</td>
+                <td>0.43</td>
+                <td>0.40</td>
+                <td><b>10.24</b></td>
+                <td>9.80</td>
+                <td>0.11</td>
+                <td>0.43</td>
+                <td>0.81</td>
+                <td>0.48</td>
+                <td>0.39</td>
+                <td>6.64</td>
+                <td><b>9.80</b></td>
+                <td>0.10</td>
+            </tr>
+            <tr>
+                <td class="type">Collision-static &uarr;</td>
+                <td>0.44</td>
+                <td>0.40</td>
+                <td>0.23</td>
+                <td><b>2.52</b></td>
+                <td>2.16</td>
+                <td>2.18</td>
+                <td>0.55</td>
+                <td>0.45</td>
+                <td>0.28</td>
+                <td>0.25</td>
+                <td><b>3.55</b></td>
+                <td>1.53</td>
+                <td>3.27</td>
+                <td>0.79</td>
+            </tr>
+            <tr>
+                <td class="type">Collision-vehicle &uarr;</td>
+                <td>0.51</td>
+                <td><b>0.59</b></td>
+                <td>0.41</td>
+                <td>0.34</td>
+                <td>0.22</td>
+                <td>0.27</td>
+                <td>0.38</td>
+                <td><b>0.47</b></td>
+                <td>0.44</td>
+                <td>0.37</td>
+                <td>0.33</td>
+                <td>0.26</td>
+                <td>0.24</td>
+                <td>0.34</td>
+            </tr>
+            <tr>
+                <td class="type">Collision-pedestrian &uarr;</td>
+                <td>1.40</td>
+                <td>1.88</td>
+                <td><b>2.55</b></td>
+                <td>1.40</td>
+                <td>1.20</td>
+                <td>1.35</td>
+                <td>0.53</td>
+                <td>1.46</td>
+                <td>1.41</td>
+                <td><b>2.99</b></td>
+                <td>1.39</td>
+                <td>0.69</td>
+                <td>1.13</td>
+                <td>1.31</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

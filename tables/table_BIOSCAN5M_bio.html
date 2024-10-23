@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Records Summary</title>
+    <style>
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td.attr {
+            text-align: left;
+        }
+        caption {
+            margin: 10px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <caption>Summary statistics of dataset records by taxonomic rank.</caption>
+    <thead>
+        <tr>
+            <th>Attributes</th>
+            <th>Imbalance Ratio (IR) <span style="color: blue;">BIOSCAN-5M</span></th>
+            <th>Categories <span style="color: blue;">BIOSCAN-5M</span></th>
+            <th>Labelled <span style="color: blue;">BIOSCAN-5M</span></th>
+            <th>Labelled (%) <span style="color: blue;">BIOSCAN-5M</span></th>
+            <th>Categories <span style="color: green;">BIOSCAN-1M</span></th>
+            <th>Labelled <span style="color: green;">BIOSCAN-1M</span></th>
+            <th>Labelled (%) <span style="color: green;">BIOSCAN-1M</span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="attr"><span style="color: green;">phylum </span></td>
+            <td>1</td>
+            <td>1</td>
+            <td>5,150,850</td>
+            <td>100.0</td>
+            <td>1</td>
+            <td>1,128,313</td>
+            <td>100.0</td>
+        </tr>
+        <tr>
+            <td class="attr"><span style="color: green;">class </span></td>
+            <td>719,831</td>
+            <td>10</td>
+            <td>5,146,837</td>
+            <td>99.9</td>
+            <td>1</td>
+            <td>1,128,313</td>
+            <td>100.0</td>
+        </tr>
+        <tr>
+            <td class="attr"><span style="color: green;">order </span></td>
+            <td>3,675,317</td>
+            <td>55</td>
+            <td>5,134,987</td>
+            <td>99.7</td>
+            <td>16</td>
+            <td>1,128,313</td>
+            <td>100.0</td>
+        </tr>
+        <tr>
+            <td class="attr"><span style="color: green;">family </span></td>
+            <td>938,928</td>
+            <td>934</td>
+            <td>4,932,774</td>
+            <td>95.8</td>
+            <td>491</td>
+            <td>1,112,968</td>
+            <td>98.6</td>
+        </tr>
+        <tr>
+            <td class="attr"><span style="color: green; ">subfamily </span></td>
+            <td>323,146</td>
+            <td>1,542</td>
+            <td>1,472,548</td>
+            <td>28.6</td>
+            <td>760</td>
+            <td>265,492</td>
+            <td>23.5</td>
+        </tr>
+        <tr>
+            <td class="attr"><span style="color: green; font-style: italic;">genus </span></td>
+            <td>200,268</td>
+            <td>7,605</td>
+            <td>1,226,765</td>
+            <td>23.8</td>
+            <td>3,441</td>
+            <td>254,096</td>
+            <td>22.5</td>
+        </tr>
+        <tr>
+            <td class="attr"><span style="color: green; font-style: italic;">species </span></td>
+            <td>7,694</td>
+            <td>22,622</td>
+            <td>473,094</td>
+            <td>9.2</td>
+            <td>8,355</td>
+            <td>84,397</td>
+            <td>7.5</td>
+        </tr>
+        <tr>
+            <td class="attr"><span style="color: purple;">dna_bin </span></td>
+            <td>35,458</td>
+            <td>324,411</td>
+            <td>5,137,441</td>
+            <td>99.7</td>
+            <td>91,918</td>
+            <td>1,128,313</td>
+            <td>100.0</td>
+        </tr>
+        <tr>
+            <td class="attr"><span style="color: purple;">dna_barcode </span></td>
+            <td>3,743</td>
+            <td>2,486,492</td>
+            <td>5,150,850</td>
+            <td>100.0</td>
+            <td>552,629</td>
+            <td>1,128,313</td>
+            <td>100.0</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

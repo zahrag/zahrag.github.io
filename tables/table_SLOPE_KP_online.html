@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table 2</title>
+    <style>
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin: 20px auto; /* Centers the table horizontally */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td.approach {
+            text-align: left; /* Left-align text in the "Approach" column */
+        }
+        caption {
+            margin: 10px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Table 2: Davis Jaccard Mean, Recall, and Decay for the YouTubeVos and Davis Datasets.
+            All birds are detected and tracked by the LWL tracker, and the corresponding image is cropped using
+            the bounding box predicted by the tracker for each bird. The cropped patch is processed by a
+            pretrained mesh reconstruction model for camera pose prediction, solving the perspective-n-point
+            problem by employing keypoint correspondences.</caption>
+        <thead>
+            <tr>
+                <th>Method</th>
+                <th>Jaccard-Mean &#8593;</th>
+                <th>Jaccard-Recall &#8593;</th>
+                <th>Jaccard-Decay  &#8595;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="approach">Quaternion <a href="https://arxiv.org/abs/2007.10982" target="_blank">Goel et. al (2020)</a></td>
+                <td>0.45</td>
+                <td>0.48</td>
+                <td>0.020</td>
+            </tr>
+            <tr>
+                <td class="approach">Gram-Schmidt <a href="https://arxiv.org/abs/1812.07035" target="_blank">Zhou et. al (2020)</a></td>
+                <td>0.40</td>
+                <td>0.27</td>
+                <td>0.007</td>
+            </tr>
+            <tr>
+                <td class="approach">SVD <a href="https://arxiv.org/abs/2006.14616" target="_blank">Levinson et. al (2020)</a></td>
+                <td>0.44</td>
+                <td>0.43</td>
+                <td>0.028</td>
+            </tr>
+            <tr>
+                <td class="approach"><b>Keypoint (ours)</b></td>
+                <td>0.45</td>
+                <td>0.53</td>
+                <td>0.018</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

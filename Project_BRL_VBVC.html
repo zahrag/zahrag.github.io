@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Polyfill for broader browser compatibility -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<!-- Load MathJax to display LaTeX equations -->
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science - My Portfolio</title>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes full height */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #282c34;
+    color: #ffffff;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 2px -2px gray;
+    position: relative;
+    z-index: 2; /* Ensure header is above other elements */
+}
+
+.header-container {
+    text-align: center;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.sidebar {
+    background-color: #f5f5f5;
+    padding: 15px;
+    padding-top: 150px; /* Add space at the top */
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-left: 3px solid transparent;
+    /*margin-bottom: 5px;
+    /*margin-top: 10px;  /*Add space above each link */
+}
+
+.sidebar nav a:first-child {
+    margin-top: 0; /* Remove margin from the first link, if needed */
+}
+
+
+.content {
+    margin-left: 270px; /* Space for the sidebar */
+    padding: 20px;
+    width: calc(100% - 350px); /* Adjust width to account for the sidebar */
+    flex-grow: 1;
+    overflow: auto; /* Ensure content scrolls if necessary */
+}
+
+
+footer {
+    background-color: #282c34;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    margin-top: auto; /* Push footer to the bottom of the page */
+}
+
+img {
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Container for centering the figure */
+.figure-container {
+    text-align: center;
+    margin: 0 auto;
+    justify-content: flex-end; /* Align caption to the bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Styling for centered images */
+.centered-image {
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+/* Styling for captions */
+.caption {
+    /*font-style: italic;*/
+    color: #555;
+    margin-top: 8px;
+}
+.image-row {
+    display: flex; /* Display images in a row */
+    justify-content: center; /* Center the images horizontally */
+    gap: 20px; /* Space between images */
+}
+
+h2 {
+    border-bottom: 2px solid #282c34; /* Changed from blue to top bar color */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 3px; /* Adjust this value to control the vertical space */
+}
+</style>
+
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Causality Projects: GCRL & ICRL-SM</h1>
+        </div>
+    </header>
+
+    <aside class="sidebar">
+    <nav>
+        <a href="index.html" style="margin-right: 20px;">Home</a>
+        <a href="#Overview">Overview</a>
+        <a href="#brl">Bayesian RL</a>
+        <a href="#framework">Architecture Design </a>
+        <a href="#experiment">Experiments</a>
+        <a href="#Tools-and-Technologies">Tools and Technologies</a>
+        <a href="#Links">Links</a>
+    </nav>
+</aside>
+
+
+    <main class="content">
+        <section id="Overview">
+            <h2>Overview</h2>
+            <figure class="figure-container">
+                <img src="images/brl_vbvc.webp" alt="brl_vbvc" class="centered-image" width="700" height="700">
+                <figcaption class="caption">Autonomous Driving.</figcaption>
+            </figure>
+            <p>Here, I will present an intriguing project in autonomous driving that bridges the gap from virtual to real-world applications.
+                In this project, I developed a Bayesian Reinforcement Learning framework that leverages visual data
+                from the environment to learn how to control a vehicle within the CARLA simulation.</p>
+        </section>
+
+        <section id="brl">
+            <h2>Bayesian Approach to Reinforcement Learning</h2>
+            <p>In this section, I will explain the fundamentals of the Bayesian approach to reinforcement learning
+                developed in this project. </p>
+            <p>In this section, we present the Bayesian approach to Reinforcement Learning introduced by <cite>[4]</cite>. This framework integrates a Gaussian Mixture Model (GMM) with a reinforcement learning approach.</p>
+
+    <p>We assume that at each time step \(t\), the agent perceives the world through the state
+        \(s_t\) and models the action-conditioned state probability by a GMM with a set of mixture components
+        \(M\). Based on the perceived state, the agent makes a decision and performs an action \(a_t\) from the action set \(A\).
+        The agent’s decision is evaluated by a reward signal \(r_t\), which is used to train the system.</p>
+
+    <p>We assume stochastic variables \(a \in A\) and \(m \in M\) to calculate the conditional probability
+        \(p(a|s_t)\). These probabilities are used to select the best decision at a given state and are estimated as:</p>
+
+    <p style="text-align: center;">
+        \[
+         p(a|s_{t}) ∝ p(a) \sum_{m ∈ M} p(s_{t}|m)p(m|a)
+        \]
+    </p>
+
+    <p>Due to the unknown parameters of the GMM, we use the multivariate t-distribution
+        to estimate \(p(s_t|m)\), the likelihood of the state \(s_t\) given the mixture component \(m\).</p>
+
+    <h3>Estimation of Mixture Component Probability</h3>
+    <p>Next, we estimate the term \(p(m|a)\), the probability of mixture component \(m\) given the action \(a\).
+        This probability is parameterized by a state-action value function \(Q = [q_{m,a}] : (|M| × |A|)\) (where \(| · |\)
+        represents the cardinality of the respective set) and is learned through reinforcement learning.</p>
+
+    <p>To calculate the probabilities \(p(m|a)\) and \(p(a)\), the elements of \(Q\) must be non-negative.
+        Thus, we use the offset:</p>
+
+    <div style="text-align: center;">
+        <p>\( \hat{q} = \frac{| \min{Q}|}{1 + | \min{Q}| - \min{Q}} \) </p>
+    </div>
+
+    <p>The expressions for the probabilities \(p(m|a)\) and \(p(a)\) are as follows:</p>
+
+    <div style="text-align: center;">
+        <p>\( p(m|a) ∝ (q_{m,a} + \hat{q}) \)</p>
+    </div>
+
+    <div style="text-align: center;">
+        <p>\( p(a) ∝ \sum_{m ∈ M} (q_{m,a} + \hat{q}) \)</p>
+    </div>
+
+            <h3>Objective Function</h3>
+    <p>To train the system, a temporal difference learning (TD) approach is used with the loss:</p>
+
+    <div style="text-align: center;">
+        <p>\( TD_{error} = r_t + γQ(a_{t+1}, m_{t+1}) - Q(a_t, m_t) \)</p>
+    </div>
+
+    <p>where \(r_t\) is the reward signal and \(γ\) is the forgetting factor. The term \(a_t\) indicates the action
+        performed at time step \(t\), and \(m_t\) is the most similar component to the state \(s_t\),
+        determined by the \( \ell_{\infty} \) norm between the state \(s_t\) and the mean vectors of the existing mixture components.
+        The term \(a_{t+1}\) denotes the most probable action in the next time step \(t + 1\):</p>
+
+    <div style="text-align: center;">
+        <p>\( a_{t+1} = \arg \max_{a} p(a|s_{t+1}) \)</p>
+    </div>
+
+    <p>The most likely component is \(m_{t+1}\), based on the probability:</p>
+
+    <div style="text-align: center;">
+        <p>\( p(m|a_{t+1}, s_{t+1}) ∝ p(s_{t+1}|m)p(m|a_{t+1}) \)</p>
+    </div>
+
+    <p>Finally, the system parameters are learned by Q-Learning using:</p>
+
+    <div style="text-align: center;">
+        <p>\( Q(m_t, a_t) \leftarrow Q(m_t, a_t) + αw \cdot TD_{\text{error}} \)</p>
+    </div>
+
+    <p>where \(α\) corresponds to a decaying learning rate and \(w\) allows for soft updates despite
+        the greedy choice of component \(m_{t+1}\). To calculate \(w\), the \(TD_{\text{error}}\) is evaluated using two boundaries:
+        a lower threshold \(T_l\), indicating a bad decision, and an upper threshold \(T_u\), indicating a good one:</p>
+
+    <div  style="text-align: center;">
+        <p>\( w = \begin{cases}
+            p(m_t|a_t, s_t), & \text{if } TD_{\text{error}} > T_u \\
+            p(m_t|¬a_t, s_t), & \text{else if } TD_{\text{error}} < T_l \\
+            p(m_t|s_t), & \text{else}
+            \end{cases} \)</p>
+    </div>
+
+    <p>where \{p(m|¬a, s_t)\) is the probability for component \(m\) given that action \(a\) was not performed at state \(s_t\):</p>
+
+    <div  style="text-align: center;">
+        <p>\( p(m|¬a, s_t) ∝ p(s_t|m)(1 - p(m|a)) \)</p>
+    </div>
+
+    <p>To update the parameters, two criteria are used:</p>
+    <ol>
+        <li>Similarity measure \(d_t\) given by the \( \ell_{\infty} \) norm between the state \(s_t\) and the mean vectors of \(m\).</li>
+        <li>Evaluation criterion given by \(TD_{\text{error}} < T_l\) to determine if the action was a bad choice.</li>
+    </ol>
+    </section>
+    <section id="framework">
+    <h2>Architecture Design</h2>
+        In this section I will describe the design and implementation of the proposed model architecture.
+
+
+    <h3>Input Description</h3>
+    <p>
+        We base our input on the semantic segmented input image. The image of the segmentation map is separated into six different regions,
+        for each we calculate a weighted histogram of the class distribution. The number of regions represents basic directional information
+        (three vertical divisions) and distance information (two horizontal divisions) of the scene.
+        This approach can facilitate further studies of how the agent learns to control its attention to each region and
+        if an attention mechanism could improve the performance of the task.
+        To further reduce the dimensionality of the input, the semantic labels are clustered into five categories as:</p>
+
+        <ul>
+            <li>Road</li>
+            <li>Road-line</li>
+            <li>Off-road</li>
+            <li>Static object</li>
+            <li>Dynamic object</li>
+        </ul>
+        <p>The feature vector of each patch is concatenated into a single state-vector. The state-vector is normalized
+        by its \( \ell_{1} \)-norm. Due to the low density of road lines in the semantic segmentation input image,
+            we weighted the class, road lines, by 20 for the histogram calculations.</p>
+
+    <p>In reality, ground-truth is obviously not available, and as a result, we need to estimate the semantic segmentation
+        from available input, such as RGB. For our investigation, we utilize two different types of input data in our experimental setup:
+        the ground truth semantic segmentation input directly from the simulator and the estimated semantic segmentation generated
+        from RGB images by EncNet. The EncNet model is trained offline on images collected from the CARLA simulator.</p>
+
+    <p><strong>EncNet:</strong> We use an EncNet with the ResNet-101 as the backbone architecture on top of which
+        a special module named Context Encoding Module is stacked. The main reason behind the selection of EncNet over other
+        powerful CNNs is because of the availability of pre-trained EncNet weights on the large and diverse ADE20K.
+        In addition, EncNet has low computation complexity compared to CNNs such as PSPNet and DeepLabv3 and
+        provides better inference speed at runtime.</p>
+
+    <h3>Decision Making</h3>
+    <p>During training, the agent applies an epsilon-greedy policy to explore the world and to develop its learned concepts.
+        Our decision-making strategy is designed in a way to increase the exploration at the beginning of learning and
+        to diminish as it progresses. Therefore, the policy is gradually shifting from an epsilon-greedy to a greedy one.
+        When learning converges, the agent primarily exploits its learned concepts for decision-making rather than exploring the world.</p>
+
+    <p>Our behavior policy is implemented in two steps. First, we use a greedy approach to select
+        the greedy action \( a_{gd} = \arg \max_{a} (p(a|s_{t})) \). Second, we sample an action from the distribution:</p>
+    <div style="text-align: center;">
+        <p>
+            \( p_{\pi}(a|s_{t}) =
+            \begin{cases}
+                \frac{1 - \tau}{|A|} + \tau, & \text{if } a = a_{gd} \\
+                \frac{1 - \tau}{|A|}, & \text{else}
+            \end{cases} \)
+        </p>
+    </div>
+    <p>
+        where \( \tau \in [0, 1] \) is an increasing temperature to increase the probability of the greedy action as learning progresses.
+    </p>
+
+    <h3>Reward Design</h3>
+    <p>
+        We select four different reward signals representing important types of failures:
+        <ul>
+        <li>Collision</li>
+        <li>Off-road</li>
+        <li>Opposite-lane</li>
+        <li>Low-speed</li>
+    </ul>
+        These failures generate the reward signal, but only one of them is applied at a time based on its importance:
+    </p>
+    <div style="text-align: center;">
+        <p>
+            \( r =
+            \begin{cases}
+                -r_{k1}, & \text{if Collision} \\
+                -r_{k2} \cdot r_{o}, & \text{else if Off-road} \\
+                -r_{k3} \cdot r_{l}, & \text{else if Opposite-lane} \\
+                r_{\text{speed}}, & \text{else}
+            \end{cases} \)
+        </p>
+    </div>
+    <p>
+        where \( r_{o} \) is calculated as the percentage of the car being off-road, and \( r_{l} \) is the percentage
+        of the car not being in the correct lane. The values of \( r_{o} \) and \( r_{l} \) are received from the CARLA simulator.
+        Finally, \( r_{speed} \) rewards the agent when it drives with a speed \( v_{t} \) relative to the target speed \( v_{target} \)
+        at time step \( t \):
+    </p>
+    <div style="text-align: center;">
+        <p>
+            \( r_{\text{speed}} =
+            \begin{cases}
+                -r_{k4} \cdot \left( \frac{v_{t} - v_{\text{target}}}{v_{\text{target}}} \right)^{2}, & \text{if } v_{t} < 0 \\
+                -r_{k5} \cdot \left( \frac{v_{t} - v_{\text{target}}}{v_{\text{target}}} \right)^{2}, & \text{if } 0 < v_{t} < v_{\text{target}} \\
+                0, & \text{else}
+            \end{cases} \)
+        </p>
+    </div>
+    <p>
+        Additionally, a reward based on the road view, the percentage of the road visible in the image input to the agent,
+        is always applied to align the agent with the road as:
+    </p>
+    <div style="text-align: center;">
+        <p>
+            \( r_{t} = r + r_{\text{road-view}} \)
+        </p>
+    </div>
+
+    <h3>Control Signals</h3>
+    <p>The control signals that the simulator receives are, similarly to a real car, steering, throttle, brake, and a flag
+        for the reverse gear. Our actions are chosen to correspond to four action primitives that are able to fully control
+        the vehicle's velocity and direction, which are:
+        <ul>
+        <li>Drive Forward</li>
+        <li>Right-Turn</li>
+        <li>Left Turn</li>
+        <li>Drive Backward</li>
+    </ul>
+        each corresponding to a certain control signal.</p>
+    </section>
+    <section id="experiment">
+        <h2> Experiments</h2>
+        <p>There are multiple experiments conducted with proposed approach of this project which are presented in
+            <a href="https://arxiv.org/abs/2104.03807" target="_blank">Gharaee et. al (2021)</a>
+            We use four different settings combining training and deployment, each contains nine models and we name them
+            according to the following schedule: </p>
+        <ul>
+            <li><b>TGDG</b>: Training and Deployment w/ Ground-truth.</li>
+            <li><b>TEDE</b>: Training and Deployment w/ Estimate.</li>
+            <li><b>TGDE</b>: Training w/ Ground-truth, Deployment w/ Estimate.</li>
+            <li><b>TEDG</b>: Training w/ Estimate, Deployment w/ Ground-truth.</li>
+        </ul>
+        <p>I present the results of the models evaluated according to the following metrics:</p>
+        <ul>
+            <li><b>Off-Road</b>: Being off-road (e.g, sidewalks).</li>
+            <li><b>Other-Lane</b>: Being in the meeting lane.</li>
+            <li><b>Either</b>: Being off-road or in the meeting lane.</li>
+            <li><b>Success</b>: Accomplished tasks.</li>
+            <li><b>No Collision</b>: Tasks without collisions.</li>
+            <li><b>Score</b>: Average of Either, Success and No Collision.</li>
+            <li><b>Dist</b>: Total distance driven in meter.</li>
+        </ul>
+        <p>In these experiments BRL_VBVC is compared with conditional Imitation Learning (IL) and deep Reinforcement Learning (RL)
+            by using the provided pre-trained models and evaluating them in our validation settings.</p>
+
+        <iframe src="tables/table_brlvbvc.html" style="width: 100%; height: 550px; border: none;"></iframe>
+        <h3>Benchmark results</h3>
+        <p>The benchmark proposed in <a href="https://proceedings.mlr.press/v78/dosovitskiy17a.html" target="_blank">Dosovitskiy et. al (2017)</a>
+            is comprised by four different tasks, driving straight forward, one-turn (left or right), and two navigation tasks
+            with multiple turns, each of them using the full road-network including intersections.
+            All tasks except for the final navigation task are set in a static environment without vehicle and pedestrians
+            while the last one contains multiple instances of each kind. The reported metrics is the average kilometers driven
+            between each type of infraction. Neither our nor the other methods have been trained on the environment in Town02 from
+            the CARLA benchmark.</p>
+        <iframe src="tables/table_brlvbvc_benchmark.html" style="width: 100%; height: 350px; border: none;"></iframe>
+
+    </section>
+
+
+
+     <section id="Tools-and-Technologies">
+        <h2>Tools and Technologies</h2>
+        <p>This section discusses the design and implementation of the project.</p>
+
+         <h3>Simulator</h3>
+         <p>CARLA: https://carla.org/</p>
+
+       <h3>Model Development and Deployment</h3>
+        <p>Tools and libraries used for model development and deployment include:</p>
+        <ul>
+            <li>Python</li>
+            <li>Scikit-learn</li>
+            <li>Numpy</li>
+            <li>json</li>
+            <li>csv</li>
+            <li>scipy</li>
+        </ul>
+       <h3>Data Visualization</h3>
+        <p>Utilized various libraries for data visualization:</p>
+        <ul>
+            <li>Matplotlib</li>
+            <li>Seaborn</li>
+            <li>Plotly</li>
+            <li>Visdom</li>
+        </ul>
+
+    </section>
+
+
+    <section id="Links">
+    <h2>Links</h2>
+    <p>Overview of the links related to the projects:</p>
+    <ul>
+        <p><strong>Version Control Systems:</strong>
+            <ul>
+                <li><a href="https://github.com/zahrag/BRLVBVC" target="_blank">BRL-VBVC GitHub Page</a></li>
+            </ul>
+        </p>
+        <p><strong>Research Article Platforms:</strong>
+            <ul>
+                <li><a href="https://ieeexplore.ieee.org/abstract/document/9412200" target="_blank">IEEE</a></li>
+               <li><a href="https://arxiv.org/abs/2104.03807" target="_blank">Arxiv</a></li>
+            </ul>
+        </p>
+    </ul>
+    </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Zahra Gharaee. All rights reserved.</p>
+    </footer>
+</body>
+</html>

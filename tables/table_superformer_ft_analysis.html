@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Table</title>
+
+</head>
+<table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th colspan="2"><b>Fourier Transform Shape Analysis</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th colspan="2"><b>Amplitude/Magnitude</b></th>
+    </tr>
+    <tr>
+      <td><b>Global Structure</b></td>
+      <td>The amplitude of low-frequency components captures the broad, global features of a shape, such as its overall outline and major curves.</td>
+    </tr>
+    <tr>
+      <td><b>Detailed Representation</b></td>
+      <td>The amplitude of high-frequency components captures finer details, such as textures and small-scale irregularities.</td>
+    </tr>
+    <tr>
+      <td><b>Translation Invariant</b></td>
+      <td>The amplitude, which reflects the strength of each frequency component, remains unchanged regardless of the spatial translation. This means that the essential information about the shape’s frequency content (and thus its general form) remains the same even if the shape is shifted.</td>
+    </tr>
+    <tr>
+      <th colspan="2"><b>Phase</b></th>
+    </tr>
+    <tr>
+      <td><b>Local Features</b></td>
+      <td>The phase of both low and high-frequency components provides information about the spatial arrangement of features within the shape. For instance, it tells how features are positioned relative to each other.</td>
+    </tr>
+    <tr>
+      <td><b>Translation Sensitivity</b></td>
+      <td>Unlike magnitude, phase information is sensitive to translations. This means that when the shape is shifted, the phase values change, which reflects the relative positioning of features but not their overall magnitude. This sensitivity to translation makes phase less useful for tasks where translation invariance is important, such as shape comparison in different positions.</td>
+    </tr>
+    <tr>
+        <th colspan="2"><b>Fourier Transform of shape helps in analyzing and representing the shape features of the superpixel effectively</b></th>
+    </tr>
+    <tr>
+      <td><b>Detail Capture</b></td>
+      <td>The Fourier coefficients provide a compact representation of the contour's shape by capturing both global and local shape characteristics. Unlike raw coordinates, which might be sensitive to noise and variations in sampling density, Fourier coefficients abstract these details into frequency components, offering a more stable and generalizable representation of the shape.</td>
+    </tr>
+    <tr>
+      <td><b>Smooth Representation</b></td>
+      <td>The Fourier Transform effectively smooths out irregularities in the contour, which helps in capturing the fundamental shape properties without being influenced by minute variations or noise.</td>
+    </tr>
+    <tr>
+      <td><b>Translation Invariance: Robustness to Shifts</b></td>
+      <td>The Fourier Transform provides a representation that is inherently translation invariant. This means that shifting the contour in the image space does not affect the Fourier coefficients. In other words, the shape representation remains consistent regardless of the superpixel's position within the image. This property is crucial for applications where the position of the object (or superpixel) should not influence the shape analysis.</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Polyfill for broader browser compatibility -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<!-- Load MathJax to display LaTeX equations -->
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Science - My Portfolio</title>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes full height */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #282c34;
+    color: #ffffff;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 2px -2px gray;
+    position: relative;
+    z-index: 2; /* Ensure header is above other elements */
+}
+
+.header-container {
+    text-align: center;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.sidebar {
+    background-color: #f5f5f5;
+    padding: 15px;
+    padding-top: 150px; /* Add space at the top */
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-left: 3px solid transparent;
+    /*margin-bottom: 5px;
+    /*margin-top: 10px;  /*Add space above each link */
+}
+
+.sidebar nav a:first-child {
+    margin-top: 0; /* Remove margin from the first link, if needed */
+}
+
+
+.content {
+    margin-left: 270px; /* Space for the sidebar */
+    padding: 20px;
+    width: calc(100% - 350px); /* Adjust width to account for the sidebar */
+    flex-grow: 1;
+    overflow: auto; /* Ensure content scrolls if necessary */
+}
+
+
+footer {
+    background-color: #282c34;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    margin-top: auto; /* Push footer to the bottom of the page */
+}
+
+img {
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Container for centering the figure */
+.figure-container {
+    text-align: center;
+    margin: 0 auto;
+    justify-content: flex-end; /* Align caption to the bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Styling for centered images */
+.centered-image {
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+/* Styling for captions */
+.caption {
+    /*font-style: italic;*/
+    color: #555;
+    margin-top: 8px;
+}
+.image-row {
+    display: flex; /* Display images in a row */
+    justify-content: center; /* Center the images horizontally */
+    gap: 20px; /* Space between images */
+}
+
+h2 {
+    border-bottom: 2px solid #282c34; /* Changed from blue to top bar color */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 3px; /* Adjust this value to control the vertical space */
+}
+</style>
+
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Computer Vision Project: SLOPE_KP</h1>
+        </div>
+    </header>
+
+    <aside class="sidebar">
+    <nav>
+        <a href="index.html" style="margin-right: 20px;">Home</a>
+        <a href="#Overview">Overview</a>
+        <a href="#3D-Geometry">3D Geometry Fundamentals</a>
+        <a href="#3D-Rotation">3D Rotation</a>
+        <ul>
+            <li><a href="#Euler">Euler Angles</a></li>
+            <li><a href="#Quat">Quaternions</a></li>
+            <li><a href="#Gram">Gram-Schmidt</a></li>
+            <li><a href="#SVD">SVD Orthogonaliation</a></li>
+        </ul>
+        <a href="#Model-Components">Model Architecture</a>
+        <a href="#Multi-Phase-Training-I">Camera Multiplex</a>
+        <a href="#Multi-Phase-Training-II">Shape & Texture Prediction</a>
+        <a href="#Multi-Phase-Training-III">Keypoint Pose Prediction</a>
+        <a href="#Experiments">Experiments & Results</a>
+        <a href="#Tools-and-Technologies">Tools and Technologies</a>
+        <a href="#Links">Links</a>
+    </nav>
+</aside>
+
+
+    <main class="content">
+        <section id="Overview">
+            <h2>Overview</h2>
+            <figure class="figure-container">
+                <img src="images/slope_kp_img.webp" alt="SLOP-KP" class="centered-image" width="500" height="300">
+                <figcaption class="caption">SLOP-KP: Self-supervised Learning of Object Pose Estimation Using Keypoint Prediction.</figcaption>
+            </figure>
+            <p>The <b>SLOPE_KP: Self-supervised Learning of Object Pose Estimation Using Keypoint Prediction</b> outlines advancements in predicting both <b>object pose (camera perspective)</b>
+                and <b>shape</b> from <b>single images</b>. The key innovation is a novel approach to predicting camera pose
+                using self-supervised learning of keypoints—specific points located on a deformable shape that is typical
+                for a particular object category (like birds, cars, etc.).
+
+            <h4>Key Contributions</h4>
+            <ul>
+                <li> <strong> Keypoint-based Camera Pose Prediction:</strong></li>
+                    <ul>
+                        <li> A deep learning network is designed to predict camera pose by learning keypoints on a deformable, category-specific object (e.g., a bird).</li>
+                        <li> These keypoints are spread across the average shape of the object and are represented uniquely using colors on a texture map.</li>
+                        <li> A heatmap (a visual representation showing where keypoints are) serves as proxy ground-truth data to train the network.
+                            The heatmap helps the network "know" where the keypoints are located on the object.</li>
+                        <li>Once trained, this network can predict keypoints and, subsequently, camera pose during online inference (real-time predictions on new images).</li>
+                    </ul>
+                <li> <strong>3D Object Inference from 2D Images:</strong></li>
+                    <ul>
+                        <li> The method infers 3D information about objects from 2D images or video sequences.</li>
+                        <li> During training, the model receives only a silhouette mask (the object's outline)
+                        from a single frame in a video sequence and a category-specific mean object shape (e.g., the average shape of a bird).</li>
+                        <li> The model learns to predict the camera pose and reconstruct the 3D shape from this minimal information.</li>
+                    </ul>
+                <li> <strong>Datasets and Experiments:</strong></li>
+                    <ul>
+                        <li> The model is trained using the CUB dataset (a dataset of bird images).</li>
+                        <li> It is tested on the CUB dataset, as well as on video datasets like YouTubeVos and Davis, where video frames depict moving objects.</li>
+                        <li> The performance is evaluated using these different datasets, showing the model's capability to work across varied visual inputs, including videos</li>
+                     </ul>
+                </ul>
+
+        </section>
+
+        <section id="3D-Geometry">
+            <h2>3D Geometry Fundamentals</h2>
+            <p>In this section, I will explain the fundamentals of 3D geometry and rendering to provide a clearer
+                understanding of the project and the proposed model. </p>
+
+            <h3> Category-specific Mean Shape </h3>
+            The model's shape serves as a prototypical representation of a category, such as a bird, capturing
+            the essential geometric structure common to that category.
+            This allows the model to generalize across different instances while maintaining the key features that define the category.
+            We have acces to the shape components of the category specific mean shape including Vertices, Faces, UV Vertices,
+            and UV Faces.
+
+            <p></p>
+            <figure class="figure-container">
+                <img src="images/mean_shape_n.png" alt="mean_shape" class="centered-image" width="500" height="500">
+                <figcaption class="caption">Category-specific Mean-shape of Birds.</figcaption>
+            </figure>
+
+            <h3>Shape</h3>
+            The shape of an object is defined by two fundamental components: vertices and faces.
+
+            <h4>Vertices</h4>
+            Vertices represent the 3D points scattered across the surface of the object.
+            These points define the structure and are arranged in a matrix of size \((V, 3)\), where \(V\) is
+            the number of vertices, and each vertex contains three coordinates \((x, y, z)\) representing its position in 3D space.
+
+            <h4>Faces</h4>
+            Faces are typically triangular surfaces formed by connecting three vertices.
+            These triangles collectively form the surface of the object's 3D shape.
+            The faces are organized in a structure of shape \((F, 3)\), where \(F\) represents the number of faces,
+            and each face consists of three vertices.
+
+            <h4>UV Vertices </h4>
+            This is an array containing UV coordinates for each vertex in the 3D model. It usually has the shape
+            \((V, 2)\), where \(V\) is the number of vertices. Each entry contains the UV coordinates \((u, v)\) for a vertex.
+
+            <h4>UV Faces </h4>
+            This is an array that specifies the texture coordinates (UV coordinates) for each face of the 3D model.
+            It defines how the UV coordinates are connected to form faces in the texture space.
+            It has shape of \((F, 3)\) where \(F\) is the number of faces and each entry contains three indices.
+            These indices correspond to vertices in the UV Vertices array, forming triangles or other polygons in the 2D texture space.
+
+            <h3>Texture</h3>
+            <p>Texture refers to the detailed surface information that is applied to a 3D mesh.
+                The texture is essentially a 2D image that gets mapped onto the 3D model to provide visual detail such as colors and patterns.</p>
+
+            <h4>Texture Predictor</h4>
+            <p> First The model’s TextureMapPredictor module outputs the predicted texture map.
+                The texture map is essentially a <b>2D image</b> (or multiple images) that captures the texture details
+                to be applied to the 3D model. The shape of the texture map is \((B, C, H, W)\), where \(B\) is the batch size,
+                \(C\) is the number of color channels (typically 3 for RGB or 2 if predicting flow), and \(H\) and \(W\) are
+                the height and width of the texture image, respectively.
+                The \(H\) and \(W\) dimensions correspond to the \(u\) and \(v\) coordinates in the texture/pixel space.
+                We need a way to map the 2D texture map (image) onto the 3D surface of the model.
+                </p>
+
+            <h4>UV Sampler</h4>
+            <p>Each face of the 3D model is associated with a set of UV coordinates (pixel coordinates of the 2D image)
+                that specify how the texture (image pixels) should be wrapped around the model.
+                The <b>UV Sampler</b> uses these coordinates to determine which parts of the texture (image) correspond
+                to which parts of the 3D surface. The UV Sampler tensor has shape \((F, T, T, 2)\),
+                where \(F\) is the number of faces, \(T\) is the texture size, and 2 is the \((u, v)\) coordinate.
+                Each face has a texture with \((T \times T)\) pixels, and each pixel has a \((u,v)\) coordinate.
+                By sampling these coordinates, the model can fetch the correct color or texture information
+                from the 2D texture map. This process allows the model to apply detailed texture information to the 3D surface.
+            </p>
+
+            <h4>Sampling Results</h4>
+            <p>The result of this sampling is a texture map for each face of the 3D model, which is then used
+                to render or visualize the model. The sampled texture values correspond to the areas of the texture image
+                that should appear on the model’s surface. After sampling, the texture has shape of \((B, F, T, T, C)\)
+                indicating that for each face \(F\) in the 3D model, we get a \((T \times T)\) texture grid,
+                with \(C\) channels of color (3) or flow (2) information.
+            </p>
+
+            <h4>Training Texture Prediction Model</h4>
+            <p>Backpropagation involves updating the Texture Predictor Model, as it is responsible for generating the initial
+            texture map from the input features. The loss is backpropagated to this model, allowing its parameters
+            to be adjusted based on the gradients derived from the loss, thereby enhancing texture prediction accuracy.
+            In contrast, the UV Sampler, which maps 2D texture coordinates to the 3D shape, is crucial for
+            the final rendering but is typically a fixed function or non-learnable component.
+                It does not have parameters that can be optimized, so the loss is not backpropagated to it.</p>
+
+        <h3>Rendering</h3>
+            <p>After obtaining the texture map outputs from the Texture Prediction Model, combined with the UV Sampling module,
+                the resulting texture has the shape \((B, F, T, T, C)\). Along with the predicted vertices reconstructed
+                from the deformations of the mean shape, as predicted by the Shape Model, we now have the
+                3D geometry and corresponding texture of the object necessary for rendering its image.</p>
+
+            <p> However, while the network predicts both the 3D shape and texture, the camera pose remains critical
+                for accurately projecting this 3D data into a 2D image.
+                Without the camera pose, it would be impossible to correctly position, orient, and
+                map the texture of the 3D object onto the 2D image plane from the desired viewpoint.
+                Our rendering function, therefore, takes as input the vertices, faces, 3D texture,
+                and camera pose to generate the final rendered texture and mask.
+            </p>
+
+        </section>
+
+        <section id="3D-Rotation">
+            <h2>3D Rotation</h2>
+            <h3 id="Euler">Euler Angles</h3>
+            <p>I start by a short introduction to rotation. 3D rotation can be shown by three angles:</p>
+                <ul>
+                    <li><b>Azimuth</b><br>
+                        This is the angle of rotation around the vertical axis (often the z-axis in spherical coordinate systems).
+                        It represents the angle in the horizontal plane from a reference direction, typically describing the <b>yaw (left and right)</b> rotation.</li>
+                    <li><b>Elevation</b><br>
+                        This is the angle of rotation around the horizontal axis (often the y-axis or the x-axis depending on convention).
+                        It represents the angle in the vertical plane, effectively changing the <b>pitch (up and down)</b> of the object.</li>
+                    <li><b>Cyclo-Rotation</b><br>
+                        This represents a rotation around the remaining third axis (usually the x-axis in many conventions).
+                        This angle corresponds to <b>roll (tilting)</b> of the object.</li>
+                </ul>
+
+           <h3> Gimbal Lock Phenomenon </h3>
+                <p> In normal situations, the three axes of rotation (pitch, yaw, and roll) are independent,
+                meaning that adjusting one does not affect the others. However, if you rotate the object in such a way
+                that two of these axes align (for example, rotating 90 degrees in pitch), you lose the ability
+                to rotate around one of the original axes. This is what causes gimbal lock: the system becomes "locked"
+                in a way that removes one degree of freedom, and the object can no longer be oriented in certain ways.
+                For example, in an airplane, if you pitch the plane 90 degrees (nose pointing straight up),
+                the yaw and roll axes are now aligned, meaning that trying to adjust yaw will result in roll instead, and vice versa.</p>
+
+
+            <h3>Rotation Matrices and Orthogonality</h3>
+            Rotation matrices are indeed orthogonal matrices:
+            <p> <b>Preservation of Length and Angles:</b>  rotation, by definition, should preserve the magnitude (or length) of
+                vectors and the angles between them. Orthogonal matrices have the property of preserving the dot product between vectors,
+                which guarantees that the vector lengths and angles are unchanged. This is crucial for rotations, as they only change
+                the direction of vectors, not their size or relative orientation.</p>
+
+            <p><b>Invertible</b>Rotation matrices are required to be invertible, so that rotating by an angle and
+                    then rotating by the opposite angle returns the vector to its original position.
+                    Orthogonal matrices satisfy the property \(Q^{-1}=Q^T)=\). This simplifies calculations, as it means
+                that the transpose of the rotation matrix can be used to perform the inverse rotation.</p>
+
+            <p><b>Determinant:</b> The determinant of a rotation matrix is always +1. While orthogonal matrices can have determinants of
+            If the determinant is −1, the matrix represents a reflection rather than a rotation.</p>
+
+            <h3>Orthogonal Matrix</h3>
+            <h4>Transpose Equals Inverse</h4>
+            <p>
+                An orthogonal matrix \( Q \) satisfies the condition:
+            </p>
+            <p style="text-align: center;">
+                $$ Q^T Q = Q Q^T = I $$
+            </p>
+            <p>
+                where \( Q^T \) is the transpose of \( Q \) and \( I \) is the identity matrix. This means that the
+                inverse of \( Q \) is its transpose: \( Q^{-1} = Q^T \).
+            </p>
+
+            <h4>Preserves Lengths and Angles</h4>
+            <p>
+                Multiplying a vector by an orthogonal matrix preserves the vector's length and the angle between vectors.
+                This makes orthogonal matrices useful for transformations that involve rotations and reflections in geometry.
+            </p>
+
+            <h4>Determinant</h4>
+            <p>
+                The determinant of an orthogonal matrix is always \( +1 \) or \( -1 \). If the determinant is \( +1 \),
+                the matrix represents a rotation. If it’s \( -1 \), it represents a reflection.
+            </p>
+
+            <h4>Orthonormal Rows and Columns</h4>
+            <p>
+                <ul>
+                    <li>Each row and each column of an orthogonal matrix is a unit vector.</li>
+                    <li>The rows (and similarly the columns) are orthogonal to each other.</li>
+                </ul>
+            </p>
+
+
+            <h3 id="Quat"> Quaternions </h3>
+            <p> Quaternions <a href="https://arxiv.org/abs/2007.10982" target="_blank">Goel et al. (2020)</a>
+                are a mathematical system that extends complex numbers, and they are often used
+                in 3D graphics and physics to represent rotations in 3D space without suffering from issues like
+                <b>gimbal lock</b>, which can occur with Euler angles (like azimuth, elevation, and cyclo-rotation).
+                Quaternions provide a solution to gimbal lock because they represent rotations in 3D space
+                without relying on three sequential angles. Instead of using Euler angles or a gimbal system,
+                quaternions encode rotation as a single, continuous transformation in 3D space.
+                This avoids the problem of gimbal lock entirely and provides smoother and more stable rotations
+                A quaternion \(q\) has the form:</p>
+
+             <p style="text-align: center;">
+                $$ q = w + xi + yj + zk = (w, \vec{v}) = (w, x, y, z)$$
+                </p>
+
+            where:
+            <ul>
+                <li>\(w\) is the scalar (real part). </li>
+                <li> The scalar part \(w\) is related to the angle of rotation \(\theta\).</li>
+                <li> \(x,y,z\) are the vector (imaginary) components.</li>
+                <li> \(i,j,k\) are the fundamental quaternion units. </li>
+                <li> The vector part \(x, y, z\) defines the axis of rotation.
+                    This is the direction in 3D space around which the rotation occurs.</li>
+            </ul>
+
+            Therefore:
+             <p style="text-align: center;">
+        $$ w = \cos\left(\frac{\theta}{2}\right), \; x = \sin\left(\frac{\theta}{2}\right) v_x, \; y = \sin\left(\frac{\theta}{2}\right) v_y, \; z = \sin\left(\frac{\theta}{2}\right) v_z $$
+            </p>
+
+            where \((v_x, v_y, v_z)\) is the unit vector of the axis of rotation, and \(\theta\) is the rotation angle in radians.
+
+            <h4>Converting Euler Angles to Quaternions </h4>
+            <p> Quaternions for Each Rotation are computed as following:</p>
+        <ul>
+            <li><strong>Azimuth (Rotation around the z-axis)</strong><br>
+
+                <p style="text-align: center;">
+                    \( q_{az} = \left( \cos\left(\frac{az}{2}\right), 0, 0, \sin\left(\frac{az}{2}\right) \right) \)
+                </p>
+            </li>
+            <li><b>Elevation (Rotation around the x-axis)</b>
+                <p style="text-align: center;">
+                    \( q_{el} = \left( \cos\left(\frac{el}{2}\right), \sin\left(\frac{el}{2}\right), 0, 0 \right) \)
+                </p>
+                </li>
+            <li><b>Cyclo-rotation (Rotation around the y-axis)</b>
+                <p style="text-align: center;">
+                    \( q_{rot} = \left( \cos\left(\frac{rot}{2}\right), 0, \sin\left(\frac{rot}{2}\right), 0 \right) \)
+                </p>
+                </li>
+
+            <li><b>Combining Quaternions</b>
+                <p>
+                    The combined quaternion \( q \) is obtained by multiplying these quaternions in the order of the rotation sequence.
+                    Assuming the order of rotations is azimuth (z-axis), elevation (x-axis), and cyclo-rotation (y-axis):
+                </p>
+                <p style="text-align: center;">
+                    \( q = q_{rot} \times (q_{el} \times q_{az}) \)
+                </p>
+                <p>
+                    where \( \times \) denotes quaternion multiplication (Hamilton product).
+                </p>
+            </li>
+        </ul>
+    <h3 id="Gram"> Gram-Schmidt </h3>
+    The 6D rotation representation mapped onto SO(3) using the partial Gram-Schmidt procedure
+            <a href="https://arxiv.org/abs/1812.07035" target="_blank">Zhou et al. (2020)</a> is a method to represent
+            3D rotations more efficiently and robustly than traditional methods like Euler angles or quaternions.
+            Unlike Euler angles, the 6D representation <b>avoids gimbal lock and discontinuities</b>.
+            Moreover, the representation is more numerically <b>stable</b> compared to quaternions, especially when used in
+            optimization tasks (e.g., neural networks), since quaternions require normalization to maintain valid rotations.
+    <ul>
+        <li><strong>6D Representation</strong><br>
+            Instead of using 3 parameters (Euler angles) or 4 (quaternions) to represent a 3D rotation,
+            this method uses a 6D vector. This 6D vector is derived from two orthogonal 3D vectors.
+            These two vectors are then used to construct a rotation matrix.
+        </li>
+
+            <li> <strong>Gram-Schmidt Procedure</strong><br>
+            The Gram-Schmidt process is a method for orthogonalizing a set of vectors.
+            In this case, you begin with the two 3D vectors that form the 6D representation.
+            Using Gram-Schmidt, these two vectors are orthogonalized to form the first two columns of a \(3 \times 3\) rotation matrix.
+            The partial Gram-Schmidt process here focuses on constructing an orthogonal matrix that maps to SO(3) the space of 3D rotations.
+            <ul>
+                <li>The first vector becomes the first column of the rotation matrix. </li>
+                <li>The second vector is orthogonalized relative to the first using the Gram-Schmidt procedure, forming the second column of the matrix.</li>
+                <li>The third column is computed as the cross product of the first two columns to ensure that
+                    the resulting matrix lies in SO(3), i.e., it is a valid rotation matrix.</li>
+            </ul>
+        </li>
+    </ul>
+
+        <h3 id="SVD">Special Orthogonalization Using SVD</h3>
+        <p>The <strong>"special orthogonalization using SVD"</strong> <a href="https://arxiv.org/abs/2006.14616" target="_blank">Levinson et al. (2020)</a>
+            based on a 9D rotation representation,
+            involves mapping a 9-dimensional (9D) vector to the special orthogonal group SO(3),
+            which consists of valid 3D rotation matrices. This process leverages Singular Value Decomposition (SVD)
+            to ensure the resulting matrix is a valid rotation matrix (i.e., it has orthonormal columns and a determinant of 1).
+            The use of SVD ensures that the resulting matrix is <b>orthogonal</b>, which is a requirement for a valid rotation matrix.
+            SVD is a well-established and <b>stable</b> algorithm, making this method robust for tasks that require precise rotation computations.
+            This approach is <b>flexible</b>, and can handle matrices that are initially non-orthogonal, correcting them via the SVD process
+            to ensure they represent a valid rotation.
+        </p>
+
+    <ul>
+        <li><strong>9D Representation</strong><br>
+            The 9D rotation representation consists of a 9D vector reshaped into a \(3 \times 3\) matrix.
+            This matrix may not initially satisfy the constraints required for a valid rotation matrix (i.e., orthogonality and determinant of 1).
+        </li>
+        <li><strong>Special Orthogonalization Using SVD</strong><br>
+            SVD (Singular Value Decomposition) is a factorization technique that decomposes a matrix \(\text{M}\) into three matrices:
+
+             <p style="text-align: center;">
+                    \( \text{M} = \text{U} \sum \text{V} \)
+            </p>
+            where:
+            <ul>
+                <li>\(\text{U}\) and \(\text{V}\) are orthogonal matrices,</li>
+                <li>\(\sum\) is a diagonal matrix containing the singular values (which represent the scaling along each dimension).</li>
+            </ul>
+            In the context of this method, the SVD of the \(3 \times 3\) matrix (constructed from the 9D vector) is performed,
+            and the rotation matrix \(\text{R}\) is constructed by combining the orthogonal matrices \(\text{U}\) and \(\text{V}\).
+            Specifically:
+
+            <p style="text-align: center;">
+                    \( \text{R} = \text{U} \text{V}^{\text{T}} \)
+            </p>
+            This ensures that \(\text{R}\) is a valid orthogonal matrix.
+            <br>
+            Additionally, to guarantee that \(\text{R}\) lies in SO(3) (i.e., that its determinant is +1), an adjustment is made if necessary:
+            <br>
+            If \(det(\text{R}) = -1\), the sign of one of the columns of \(\text{U}\) is flipped to ensure that \(\text{R}\)
+            has a determinant of +1, making it a proper rotation matrix.
+        </li>
+    </ul>
+
+        </section>
+
+        <section id="Model-Components">
+            <h2>Model Architecture</h2>
+            <figure class="figure-container">
+                <img src="images/slope_kp.png" alt="SLOP-KP" class="centered-image" width="700" height="300">
+                <figcaption class="caption">SLOP-KP: Self-supervised Learning of Object Pose Estimation Using Keypoint Prediction.</figcaption>
+            </figure>
+
+            The model architecture has 3 main components:
+            <ul>
+
+            <li><b>Shape Predictor</b> </li>
+            <p>Shape prediction module is composed of N blocks of Convolutional Layers which receives image as input and
+                outputs a tensor of size \(n_{\text{vertices}}\times 3\) representing deformation from a category-specific mean shape.</p>
+
+            <li><b>Texture Predictor</b></li>
+            <p>Texture prediction moduler reconstructs the RGB texture image of the 3D mesh. It applies a texture map predictor network
+                to generate texture maps based on feature maps, and outputs an RGB texture image with dimensions of (\(\text{B}, \text{C}, \text{H}, \text{W}\)). After
+                using UV Sampling to ensure accurate texture application, we obtain texture map with shape (\({B}, {F}, {T}, {T}, {C}\)),
+                indicating that for each face \(F\) in the 3D model, we get a \((T \times T)\) texture grid,
+                with \(C\) channels of color (3) or flow (2) information.
+            </p>
+
+            <li> <b>Camera-pose Predictor</b> </li>
+            <p>The pose is represented using an orthographic camera, parameterized by scale, translation, and rotation.
+                Specifically, one parameter is used for scale, two for translation, and four for rotation,
+                with unit quaternions representing the latter. Instead of directly predicting these parameters,
+                we predict a set of keypoints that correspond to positions on the 3D category-specific mean shape.
+                With these keypoint correspondences, a camera pose optimization algorithm, such as RANSAC
+                <a href="https://dl.acm.org/doi/10.1145/358669.358692" target="_blank">Fisher et al. (1981)</a>,
+                can be applied to determine the camera pose, as described below.</p>
+            </ul>
+
+        </section>
+
+        <section id="Multi-Phase-Training-I">
+            <h2>Phase-I: Camera Multiplex </h2>
+
+            <p>We begin by optimizing a randomly initialized camera multiplex, which represents a distribution over 40 cameras.
+            Each camera is initialized with 6 parameters: 1 for scale, 2 for translation, and 3 for Euler angle rotations representing
+            Azimuth, Elevation and Cyclo-rotation.
+            The goal is to find the camera configuration that best explains the image, considering varying object poses.
+            During this process, the multiplex is pruned down to the 4 best cameras by minimizing a camera update loss,
+            which is computed from the rendered masks and textures (reconstructed image).</p>
+
+        </section>
+
+        <section id="Multi-Phase-Training-II">
+            <h2>Phase-II: Shape and Texture Reconstruction</h2>
+
+            In the next phase, using the pruned multiplex of the 4 best cameras, we train the shape and texture models.
+            The camera multiplex continues to be optimized based on the camera update loss, calculated from the rendered masks,
+            and texture (reconstructed image) until we converge on the single best camera configuration
+            that captures the object's pose most accurately.
+
+            <p>The total loss to train shape and texture is defined as following:</p>
+            <p style="text-align: center;">
+            \( L_{\text{total}} = \sum_{k} p_{k} \left(L_{\text{mask}, k} + L_{\text{pixel}, k}\right) + L_{\text{def}} + L_{\text{lap}}, \)
+            </p>
+
+           <p>Where \(k\) indexes the cameras in the multiplex, and the silhouette mask loss is defined as:</p>
+
+            <p style="text-align: center;">
+                \(L_{\text{mask}, k} = ||S - \tilde{S}_k||_2^2 + \text{dt}(S) \cdot \tilde{S}_k\)
+            </p>
+
+            <p>where \(S\) and \(\tilde{S}_{k}\) are the ground-truth mask and the mask rendered from camera \(k\), respectively.
+                \(dt(S)\) is the unidirectional distance transform of the ground-truth mask.</p>
+            <p><b>Unidirectional distance transform of the ground-truth mask:</b>
+                A distance transform converts a binary mask into a distance map, where each pixel's value represents the minimum distance to the nearest boundary or differently valued pixel (e.g., from foreground to background).Typically, distance transforms are calculated bidirectionally, measuring distances across both foreground-to-background and background-to-foreground transitions.
+                In contrast, a unidirectional distance transform measures distance in only one direction—either from the foreground to the background or vice versa. For example, a unidirectional transform focused on
+                foreground-to-background would measure how far each foreground pixel is from its nearest background pixel.</p>
+           <p> The image reconstruction loss computed from the foreground image is:</p>
+
+            <p style="text-align: center;">
+                \(L_{\text{pixel}, k} = \text{dist}(\tilde{I}_k \odot S, I \odot S)\),
+            </p>
+            where \(I\) and \(\tilde{I}_k\) are the RGB image and the image rendered from camera \(k\).
+            The \( \odot\) denotes the element-wise product.
+
+            <p>A graph-laplacian smoothness prior on the shape that penalizes the vertices \(i\) that are
+                far away from the centroid of their neighboring vertices \(N(i)\):</p>
+            <p style="text-align: center;">
+                \(L_{\text{lap}} =  ||V_i - \frac{1}{|N(i)|} \sum_{j \in N(i)} V_j ||^2\),
+            </p>
+            <p>For deformable objects like birds, it is beneficial to regularize the deformations to avoid arbitrary
+                large deformations from the mean shape by adding the energy term:</p>
+             <p style="text-align: center;">
+                \(L_{\text{def}} =  ||\Delta {V}||\).
+            </p>
+            <p>The probability that a camera \(k\) is the optimal choice is computed using:</p>
+             <p style="text-align: center;">
+                \( p_{k} = \frac{e^{-\frac{L_k}{\sigma}}}{\sum_{j} e^{-\frac{L_j}{\sigma}}}, \)
+            </p>
+            <p>where \(L_{k} = L_{\text{mask}, k} + L_{\text{pixel}, k}\) is the camera update loss. </p>
+
+
+        </section>
+
+        <section id="Multi-Phase-Training-III">
+            <h2>Phase-III: Keypoint Pose Prediction </h2>
+            <p>Finally using the best camera pose optimized by multiplex and trained shape and texture model, the camera pose
+            is predicted.</p>
+            <h3>Solving perspective-n-points by keypoint heatmaps</h3>
+            <p>If object shapes are predicted as variations of a <b>fixed model shape (mean shape)</b> that has a set number of
+                vertices and faces, then each object instance will have vertices that match the same semantic locations on the model.
+                The only difference is their position due to deformation. These vertices can be treated as 3D keypoints.
+                By reducing the number of keypoints through down-sampling and learning them from 2D images,
+                we can use traditional methods, like <b>robust PnP (Perspective-n-Point) estimators</b>
+                <a href="https://arxiv.org/abs/2007.14628" target="_blank">Campbell et al. (2020)</a> to determine the object’s pose.
+            </p>
+
+            <p> First, the object's shape is predicted as a deformation from a mean-shape or model shape, resulting in a new shape represented by 3D points.
+                Next, \(N\) keypoints are randomly and uniformly selected from these 3D points using
+                Farthest Point Sampling <a href="https://arxiv.org/abs/1706.02413" target="_blank">Qi et al. (2017)</a>.
+                Using the best pose from the optimized the camera multiplex, these \(N\) keypoints are projected
+                onto the image plane, resulting in corresponding 2D points.
+                Finally, with these 3D and 2D points, we can solve the perspective-n-point (PnP) problem to estimate
+                the camera's position and orientation relative to the scene.</p>
+
+
+            <h3>Keypoints Prediction Loss</h3>
+            <p style="text-align: center;">
+                \( \theta = \text{arg min}_{\theta} \sum_{i}^{N} S_{w} || S_{h} - F(x_{i}; \theta) ||^2 \),
+            </p>
+            <p>where a weighted least square loss function summed over all \(N\) keypoints applying the proxy ground-truth heatmaps \(S_h\)
+                and the predicted heatmaps by \(F(x_{i}; \theta)\), which is a keypoint prediction network.
+            </p>
+
+            <h3>Keypoints Prediction Network \(F(x_{i}; \theta)\)</h3>
+            <p>The keypoint prediction network consists of two components: the <b>Smooth network</b> and the <b>Border network</b>.
+            The Smooth network includes a channel attention block, which selects discriminative features, and
+            a refinement residual block to enhance the feature map at each stage of the feature extraction process.
+            The Border network amplifies the distinction of features by using a semantic boundary to guide feature learning.
+            To further increase inter-class distinction, the Border network explicitly learns the semantic boundary with supervised guidance.</p>
+
+            <h3>Self-supervision Block</h3>
+            <p>The self-supervision block is developed to train the keypoints prediction network. This module is
+                composed of two functional components \(S_h\) and \(S_w\) to generate a proxy ground-truth heatmaps and a weighting mask, respectively.</p>
+
+            <h4>Rendered Label Texture (\(T_l\))</h4>
+            <p>Due to the limitations in the used version of our renderer, a ground-truth label texture \(T_{\text{gt}}\)
+                is initialized in the local coordinate space of the 3D model. The ground-truth texture data (colors)
+                are created, without considering any external viewpoints (camera pose).
+                To achieve this, a \(C_{\text{map}}\) assigns a unique color to each keypoint.
+                Faces that contain at least one keypoint vertex are then colored according to. </p>
+            <div class="image-row">
+                <figure class="figure-container">
+                    <img src="images/Rock_Wren_0062_189045_image.png" alt="Img" class="centered-image" width="300" height="300">
+                    <figcaption class="caption">Original image.</figcaption>
+                </figure>
+                <figure class="figure-container">
+                    <img src="images/Rock_Wren_0062_189045_gt_colors.png" alt="gt_color" class="centered-image" width="300" height="300">
+                    <figcaption class="caption">Texture rendered \((T_{l})\).  </figcaption>
+                </figure>
+            </div>
+
+            <p>The rendering function projects the ground-truth label_texture \(T_{\text{gt}}\) onto the 3D model from
+                the camera's viewpoint. It applies predicted vertices \(V\) representing the 3D coordinates of the model’s vertices,
+                faces \(F\), which define the connectivity of these vertices to form the model's surface,
+                and camera (best pose of multiplex \(\hat {\pi})\), which specifies the viewpoint and projection parameters.
+                When \(T_{\text{gt}}\) is rendered using this function, it is mapped onto the model according to the camera’s perspective.
+                The resulting output is a rendered texture \(T_{l}\) that visually integrates
+                the <b>color</b> data from \(T_{\text{gt}}\) with the <b>model’s geometry</b>, as observed through the camera:</p>
+            <p style="text-align: center;">
+                \( T_{l} = R (T_{\text{gt}}, F, V, \hat {\pi}) \),
+            </p>
+
+            <h4>Proxy Ground-truth Heatmaps (\(S_h\))</h4>
+            <p>After the completion of Phase-II, we have an optimized multiplex, which gives of the
+            best camera pose, as well as a trained shape reconstruction model, which predicts shape deformation \(\Delta V\), and texture.
+
+            Applying random sampling of the 3D keypoints vertices over the object's predicted shape
+            and best camera pose reconstructed by scale \(s\), translation \(t_{xy}\), and rotation \(r_q\), the 3D keypoints
+            are projected into their 2D correspondences \([u_i, v_i]\). We employed \([x, y]\) as 2D coordinates of the image,
+                and a Gaussian function to model the uncertainty of the locations of the 2D keypoints projections on the heatmap:</p>
+            <p style="text-align: center;font-size: 24px;">
+                \( S_{h} = e^{\frac{-||[x, y] - [u_i, v_i] ||^2}{2 \sigma^2}} \).
+            </p>
+
+            <h4>Weighted Mask (\(S_w\))</h4>
+            <p>The weight mask \(S_w\) is created by sampling colors \(c_{\text{sampled}}\)
+                from the labeled texture \(T_{l}\), with each color corresponding to a
+                2D vertex \([u_i, v_i]\) that has been projected from a 3D keypoint.</p>
+            <p>
+
+            <p style="text-align: center;">
+                \( S_{w} = \delta_{\epsilon}[||c_{\text{sampled}}-C_{\text{map}}||] \),
+            </p>
+            where \(\delta_{\epsilon}[arg]\) is an indicator, which returns 1 if its argument is true, and zero otherwise.
+            The colors in \(C_{\text{map}}\) are chosen to be more than \(\epsilon\) apart, so it always works.
+
+            <figure class="figure-container">
+                <img src="images/SLOPE_KP_fig2.png" alt="fig2" class="centered-image" width="800" height="800">
+                <figcaption class="caption">First row shows original images of 6 different birds of CUB dataset.
+                    Second and third rows show the proxy ground-truth heatmaps and predicted heatmaps
+                    predicted by the keypoints prediction network, respectively.</figcaption>
+            </figure>
+
+        </section>
+
+
+        <section id="Experiments">
+            <h2>Experiments and Results</h2>
+
+            <p>This section presents the experiment conducted with CUB Dataset
+                <a href="https://paperswithcode.com/dataset/cub-200-2011" target="_blank">Wah et al. (2011)</a>.
+
+                    We conducted our experiments to compare four different approaches to rotation representation.
+                    The first is to predict 4D unit quaternions by a CNN.
+                    The second is 6D rotation representation mapped onto SO(3) via a partial Gram-Schmidt procedure.
+                    The third is special orthogonalization using SVD based on 9D rotation representation.
+                The fourth is our approach to camera pose prediction, which trains an intermediate keypoint prediction network.
+
+            </p>
+            <iframe src="tables/table_SLOPE_KP_recon.html" style="width: 100%; height: 350px; border: none;"></iframe>
+
+            <h3>3D Mesh Reconstruction</h3>
+
+            <figure class="figure-container">
+                <img src="images/SLOPE_KP_fig3.png" alt="fig2" class="centered-image" width="1000" height="1000">
+                <figcaption class="caption">
+                    The first row displays the original images of nine different bird species from the CUB dataset.
+                    The second row presents the 3D meshes reconstructed using the ground-truth camera poses provided
+                    by the dataset through Structure from Motion (SfM). The third row showcases the 3D shapes reconstructed
+                    when camera poses are predicted using unit quaternions. Finally, the fourth row illustrates
+                    the 3D shapes obtained using camera poses predicted from keypoint correspondences.</figcaption>
+            </figure>
+
+            <h3>Texture Reconstruction</h3>
+            <figure class="figure-container">
+                <img src="images/SLOPE_KP_fig4.png" alt="fig2" class="centered-image" width="800" height="800">
+                <figcaption class="caption">
+                     The first row displays original images of six different bird species
+                    from the CUB dataset. The second row shows textures reconstructed using the SfM camera poses for rendering.
+                    The third and fourth rows present textures reconstructed with camera poses predicted by
+                    unit quaternions and the keypoint pose trainer, respectively.</figcaption>
+            </figure>
+
+            <h3>Mask Reconstruction</h3>
+            <figure class="figure-container">
+                <img src="images/SLOPE_KP_fig5.png" alt="fig2" class="centered-image" width="800" height="800">
+                <figcaption class="caption">
+                     The first row displays original RGB images of six different bird species
+                    from the CUB dataset. The second row presents the ground-truth masks provided by the dataset.
+                    The third row shows rendered masks using SfM camera poses. The fourth and fifth rows depict reconstructed masks
+                    using camera poses predicted by unit quaternions and keypoint correspondences, respectively.
+                </figcaption>
+            </figure>
+
+            <h3>Image Reconstruction</h3>
+            <figure class="figure-container">
+                <img src="images/SLOPE_KP_fig6.png" alt="fig2" class="centered-image" width="1000" height="1000">
+                <figcaption class="caption">
+                     The first row displays original images of ten different bird species from the CUB dataset.
+                    The second row presents the ground-truth annotations provided by the dataset.
+                    The third and fourth rows show the masks and textures reconstructed using camera poses predicted by keypoints.
+                    The fifth row depicts the 3D shape reconstructed from the camera pose predictions.
+                </figcaption>
+            </figure>
+
+            <h3>Online Inference 3D Object Reconstruction from Videos</h3>
+            We conduct online experiments to infer 3D objects from video sequences with single and multiple objects per image,
+            using the YouTubeVos and Davis datasets <a href="https://arxiv.org/abs/1809.03327" target="_blank">Xu et al. (2018)</a>,
+            and we focus on the bird category.
+            Inferring objects from video sequences is challenging due to varying positions, orientations, and occlusions.
+            We use LWL <a href="https://arxiv.org/abs/2003.11540" target="_blank">Bhat et al. (2020)</a>
+            to compute bounding boxes from the predicted masks.
+            These bounding boxes are used to crop frames and create patches.
+            The image patches are then input to the reconstruction network, which predicts shape, texture, and camera pose.
+            We compare the masks reconstructed by our method and three other approaches against the ground-truth masks.
+            Models are evaluated using three metrics: Jaccard-Mean (mean intersection over union),
+            Jaccard-Recall (mean fraction of values exceeding a threshold), and Jaccard-Decay (performance loss over time).
+
+            <figure class="figure-container">
+                <img src="images/SLOPE_KP_online.png" alt="fig2" class="centered-image" width="800" height="800">
+                <figcaption class="caption">
+                     Online video object reconstruction framework. This example is from the YouTubeVos test set.
+                    The first row shows the original RGB images, and the second row shows the image patches
+                    generated by cropping using predicted bounding boxes from the LWL tracker.
+                    The third row shows the reconstructed shape and texture.
+                </figcaption>
+            </figure>
+            <iframe src="tables/table_SLOPE_KP_online.html" style="width: 100%; height: 300px; border: none;"></iframe>
+
+            <figure class="figure-container">
+                <img src="images/SLOPE_KP_MoU_Bar.png" alt="fig2" class="centered-image" width="700" height="700">
+                <figcaption class="caption">
+                     Mean intersection over union for 22 video sequences of YouTubeVos and Davis test sets.
+                </figcaption>
+            </figure>
+
+             <figure class="figure-container">
+                <img src="images/SLOPE_KP_fig7.png" alt="fig2" class="centered-image" width="1000" height="1000">
+                <figcaption class="caption">
+                     The first row displays original images of 10 birds from the YouTubeVos and Davis video sequences.
+                    The second row presents image patches cropped using the bounding box dimensions predicted by the LWL tracker.
+                    The third and fourth rows show reconstructed textures and masks obtained using a 3D object reconstruction model,
+                    where keypoint correspondences are used to predict the camera poses capturing the images.
+                </figcaption>
+            </figure>
+
+
+
+        </section>
+         <section id="Tools-and-Technologies">
+            <h2>Tools and Technologies</h2>
+            <p>This section discusses the design and implementation of the project.</p>
+
+            <h3>Data Visualization</h3>
+            <p>Utilized various libraries for data visualization:</p>
+            <ul>
+                <li>Matplotlib</li>
+                <li>Seaborn</li>
+                <li>Plotly</li>
+                <li>Visdom</li>
+            </ul>
+            <h3>Model Development and Deployment</h3>
+            <p>Tools and libraries used for model development and deployment include:</p>
+            <ul>
+                <li>TensorFlow</li>
+                <li>Scikit-learn</li>
+                <li>Pytorch</li>
+                <li>Data structures (tensors and linked lists)
+                <li>SoftRas</li>
+                <li>Neural Renderer</li>
+                <li>PyMesh</li>
+                <li>cv2</li>
+                <li>numpy</li>
+                <li>Torchvision</li>
+            </ul>
+
+           <h3>Computing Infrastructure</h3>
+            <p>Infrastructure and environments used include:</p>
+            <ul>
+                <li>Cluster Computing</li>
+                <li>Parallel Computation</li>
+                <li>Swedish National Infrastructure for Computing (SNIC)</li>
+                <li>Virtual Environment</li>
+                <li>Container: Singularity</li>
+            </ul>
+        </section>
+
+
+        <section id="Links">
+        <h2>Links</h2>
+        <p>Overview of the links related to the projects:</p>
+        <ul>
+            <p><strong>Version Control Systems:</strong>
+                <ul>
+                    <li><a href="https://github.com/zahrag/SLOPE-KP" target="_blank">GitHub Page</a></li>
+                </ul>
+            </p>
+            <p><strong>Research Article Platforms:</strong>
+                <ul>
+                    <li><a href="https://arxiv.org/abs/2302.07360" target="_blank">Arxiv</a></li>
+                </ul>
+            </p>
+        </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Zahra Gharaee. All rights reserved.</p>
+    </footer>
+</body>
+</html>

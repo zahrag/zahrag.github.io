@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geographical Locations Table</title>
+    <style>
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td.geo-locations {
+            text-align: left;
+        }
+        caption {
+            margin: 10px 0;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <caption>The statistics for the columns indicating geographical locations where the specimens are collected.</caption>
+    <thead>
+        <tr>
+            <th>Geo locations</th>
+            <th>Categories</th>
+            <th>Labelled</th>
+            <th>Labelled (%)</th>
+            <th>Unlabelled</th>
+            <th>Unlabelled (%)</th>
+            <th>IR</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="geo-locations">country</td>
+            <td>47</td>
+            <td>5,150,842</td>
+            <td>100.00</td>
+            <td>8</td>
+            <td>0.00</td>
+            <td>325,631.6</td>
+        </tr>
+        <tr>
+            <td class="geo-locations">province/state</td>
+            <td>102</td>
+            <td>5,058,718</td>
+            <td>98.21</td>
+            <td>92,132</td>
+            <td>1.79</td>
+            <td>1,243,427.0</td>
+        </tr>
+        <tr>
+            <td class="geo-locations">coord-lat</td>
+            <td>1,394</td>
+            <td>5,149,019</td>
+            <td>99.96</td>
+            <td>1,831</td>
+            <td>0.04</td>
+            <td>556,352.0</td>
+        </tr>
+        <tr>
+            <td class="geo-locations">coord-lon</td>
+            <td>1,489</td>
+            <td>5,149,019</td>
+            <td>99.96</td>
+            <td>1,831</td>
+            <td>0.04</td>
+            <td>618,931.0</td>
+        </tr>
+        <tr>
+            <td class="geo-locations">Location (lat, lon)</td>
+            <td>1,650</td>
+            <td>5,149,019</td>
+            <td>99.96</td>
+            <td>1,831</td>
+            <td>0.04</td>
+            <td>520,792.0</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
