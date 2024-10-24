@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
 <style>
 
@@ -89,72 +91,65 @@ nav ul li a:hover {
 
 
 /*############## Introduction: Name and Download Resume ##########*/
-#intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 30vh; /* Optional: Adjust height for intro section */
-  text-align: center;
-  padding: 20px;
+/* Styling for the About section */
+.about-content {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out the left and right sections */
+    align-items: flex-start; /* Align items to the top */
+    max-width: 1200px; /* Optional: Set a maximum width for the content */
+    margin: 0 auto; /* Center the content */
+    padding: 20px; /* Padding around the content */
 }
 
-
-#intro h1 {
-  font-size: 4em; /* Adjust size for your name */
-  margin: 0;
-  color: #333; /* Optional: Customize name color */
+/* Left side styling (photo and contact info) */
+.about-left {
+    flex: 1; /* Allow this section to take 1 part of the space */
+    text-align: left; /* Align text to the left */
+    margin-right: 20px; /* Add space between left and right sections if needed */
+     margin-left: 0; /* Ensure no left margin */
+    position: relative; /* Allow fine control if needed */
+    left: -300px; /* Shift the photo further left */
 }
 
-.resume-link {
-  margin-top: 10px;
-  font-size: 1.2em; /* Adjust font size for link */
-  text-decoration: none;
-  color: #4682B4; /* Link color */
-  border: 2px solid #4682B4;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover */
+.profile-photo {
+    width: 200px; /* Adjust width of the photo */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 20px; /* Optional: Add rounded corners to the photo */
+    margin-bottom: 15px; /* Space below the photo */
+
 }
 
-.resume-link:hover {
-  /*background-color: #007BFF; /*#007BFF;*/
-  color: white; /* Change color on hover */
+.contact-info p {
+    margin: 5px 0; /* Space between contact info paragraphs */
+
 }
 
-/*############## Full-screen height for About section with background image ##########*/
-#about {
-  /*background-image: url('images/project.jpg'); /* Add background image */
-  background-size: cover; /* Cover the entire section */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent repeating the image */
-  /*background-color: white;  /*#f5f5f5;  Fallback color in case the image doesn't load */
-  padding: 20px;
-  height: 100vh; /* Make About section full screen */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Vertically center content */
-  align-items: center;
-  text-align: center;
-  position: relative; /* Ensure overlay works properly */
+/* Right side styling (skills) */
+.about-right {
+    flex: 3; /* Allow this section to take 2 parts of the space */
+    text-align: left; /* Align text to the left */
 }
 
+.skills-list {
+    list-style-type: disc; /* Use bullet points */
+    padding-left: 20px; /* Space for bullets */
+    margin-left: 0; /* Ensure no left margin */
+    position: relative; /* Allow fine control if needed */
+    left: -200px;
+}
 
-#about h2, #about p {
-  z-index: 2; /* Ensure text appears above the overlay */
-  color: black; /* Change text color for About Me */
+.skills-list li {
+    margin-bottom: 10px; /* Space between skill items */
+    font-size: 1.2em; /* Adjust font size for skills */
+    color: black; /* Text color for skills */
 }
 
 #about h2 {
-  margin-top: 0;
-  font-size: 2em;
+    margin-bottom: 15px; /* Space below the section title */
+    margin-left: 0; /* Ensure no left margin */
+    position: relative; /* Allow fine control if needed */
 }
 
-#about p {
-  max-width: 1500px; /* Optional: Limit paragraph width */
-  margin: 20px auto;
-  font-size: 1.5em; /* Adjust font size for the paragraph */
-}
 
 /*############## Sections ##########*/
 .section-box {
@@ -757,6 +752,61 @@ margin-bottom: 15px;
     font-style: italic; /* Italic style for date */
 }
 
+/* ############### Links ###############*/
+.social-links {
+    display: flex; /* Arrange links horizontally */
+    flex-direction: column; /* Stack links vertically */
+}
+
+.social-links a {
+    margin-top: 10px; /* Space between vertical links */
+    margin-bottom: 10px; /* Space between vertical links */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.0em; /* Adjust font size for text */
+    transition: color 0.3s; /* Smooth transition for hover */
+    display: flex; /* Use flex to align icon and text */
+    align-items: center; /* Center the icon and text vertically */
+}
+
+.social-links a:last-child {
+    margin-bottom: 0; /* Remove bottom margin from the last link */
+}
+
+
+/* Specific link colors */
+.github {
+    color: black; /* Color for GitHub */
+}
+
+.google-scholar {
+    color: black; /* Color for Google Scholar */
+}
+
+.linkedin {
+    color: black; /* Color for LinkedIn */
+}
+
+.orcid {
+    color: black; /* Color for ORCID */
+}
+
+.email {
+    color: black; /* Color for Email */
+}
+
+/* Hover effects */
+.social-links a:hover {
+    opacity: 0.7; /* Slightly dim on hover */
+}
+
+/* Icon styling */
+.social-links i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 1.2em; /* Size of icons */
+}
+
+
+
 
   </style>
 </head>
@@ -771,31 +821,60 @@ margin-bottom: 15px;
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#supervision">Supervisions</a></li>
-        <li><a href="#examiner">Examiners</a></li>
-        <li><a href="#teaching">Teachings</a></li>
+      <li><a href="#examiner">Examiners</a></li>
+      <li><a href="#teaching">Teachings</a></li>
       <li><a href="#certificate">Certificates</a></li>
       <li><a href="#talk">Talks</a></li>
-        <li><a href="#pub">Publications</a></li>
+      <li><a href="#pub">Publications</a></li>
     </ul>
   </nav>
 </header>
 
 <!-- Unified Section with Name, Resume Download, and About Me -->
 <section id="about" class="container">
-  <div class="content-wrapper">
-    <div id="intro">
-      <h1>Zahra Gharaee</h1>
-      <a href="resume/resume_ZahraGharaee.pdf" download class="resume-link">Download Resume</a>
+    <div class="about-content">
+        <div class="about-left">
+            <img src="images/ZahraGharaee.jpeg" alt="Your Name" class="profile-photo">
+            <div class="contact-info">
+                <h2>Zahra Gharaee, Ph.D.</h2>
+                <p>200 University Ave West </p>
+                <p>Waterloo, ON, Canada N2L 3G1</p>
+            </div>
+            <div class="social-links">
+                    <a href="https://github.com/zahrag" target="_blank" class="github">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&hl=sv" target="_blank" class="google-scholar">
+                        <i class="fas fa-user-graduate"></i> Google Scholar
+                    </a>
+                    <a href="https://www.linkedin.com/in/zahragh/" target="_blank" class="linkedin">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://orcid.org/0000-0003-0140-0025" target="_blank" class="orcid">
+                        <i class="fas fa-id-badge"></i> ORCID
+                    </a>
+                    <a href="mailto:zahra.gharaee@gmail.com" class="email">
+                    <i class="fas fa-envelope"></i> Email
+                    </a>
+
+            </div>
+        </div>
+        <div class="about-right">
+            <ul class="skills-list">
+                <h2>About Me </h2>
+                 <li>7+ years of experience in cross-functional teams, leading cross-industry projects across diverse machine learning domains.</li>
+                <li>Demonstrated successful leadership and management in multiple projects, achieving notable outcomes.</li>
+                <li>Expertise in building, debugging, and deploying resilient machine learning and deep learning models.</li>
+                <li>Developed scalable data solutions using TensorFlow and PyTorch, prioritizing usability and feasibility.</li>
+                <li>Released several datasets and code repositories, and published papers at prestigious venues such as NeurIPS and ICML.</li>
+                <li>Developed robust data pipelines for automated data ingestion and preprocessing, significantly improving data accessibility and reducing processing times.</li>
+                <li>Collaborated with multidisciplinary teams, effectively communicating complex concepts to non-technical stakeholders and ensuring alignment on project objectives and deliverables.</li>
+                <li>Actively involved in mentoring and supervising junior researchers on best practices for conducting projects, as well as writing and presenting research outcomes.</li>
+                <li>Served as a reviewer for multiple high-impact journals and conferences, providing constructive feedback to enhance the quality of research submissions and ensuring rigorous academic standards.</li>
+
+            </ul>
+        </div>
     </div>
-    <h2>About Me</h2>
-    <p>I specialize in leading cross-functional teams on cross-industry AI projects, focusing on building and
-        deploying robust machine learning and deep learning models. My experience includes implementing innovative
-        solutions for scalable data and integrating best practices to prioritize usability and feasibility.
-        Proficient in tools like TensorFlow and PyTorch, I excel in managing large-scale datasets, ensuring data quality,
-        and utilizing Git for version control. I am dedicated to delivering actionable insights that align with product
-        strategy and drive process improvements.
-    </p>
-  </div>
 </section>
 
 
@@ -1128,14 +1207,27 @@ margin-bottom: 15px;
 
 
 
+
 <footer>
   <p>&copy; 2024 Zahra Gharaee. All rights reserved.</p>
   <nav>
-    <a href="https://www.linkedin.com/in/zahragh/">Linkedin</a>
-    <a href="https://github.com/zahrag">GitHub</a>
-    <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&hl=sv">GoogleScholar</a>
-    <a href="mailto:zahra.gharaee@gmail.com">Email</a>
+        <a href="https://github.com/zahrag" target="_blank" class="github">
+                        <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&hl=sv" target="_blank" class="google-scholar">
+            <i class="fas fa-user-graduate"></i> Google Scholar
+        </a>
+        <a href="https://www.linkedin.com/in/zahragh/" target="_blank" class="linkedin">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://orcid.org/0000-0003-0140-0025" target="_blank" class="orcid">
+            <i class="fas fa-id-badge"></i> ORCID
+        </a>
+        <a href="mailto:zahra.gharaee@gmail.com" class="email">
+        <i class="fas fa-envelope"></i> Email
+        </a>
   </nav>
+
 </footer>
 
 
