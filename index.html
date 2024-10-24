@@ -134,15 +134,23 @@ nav ul li a:hover {
     list-style-type: disc; /* Use bullet points */
     padding-left: 20px; /* Space for bullets */
     margin-left: 0; /* Ensure no left margin */
+    max-width: 800px; /* Increase the maximum width for alignment */
     position: relative; /* Allow fine control if needed */
+    margin: 0 auto; /* Center the list in its container */
     left: -200px;
 }
 
 .skills-list li {
-    margin-bottom: 10px; /* Space between skill items */
-    font-size: 1.2em; /* Adjust font size for skills */
+    margin-bottom: 20px; /* Increase space between skill items */
+    font-size: 1.1em; /* Adjust font size for skills */
     color: black; /* Text color for skills */
+    width: 100%; /* Make items take full width */
+    display: block; /* Ensure items are block elements */
+    overflow-wrap: break-word; /* Break long words to avoid overflow */
+    text-align: left; /* Align text to the left */
+    line-height: 1; /* Adjust line height for readability */
 }
+
 
 #about h2 {
     margin-bottom: 15px; /* Space below the section title */
