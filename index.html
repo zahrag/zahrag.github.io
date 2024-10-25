@@ -25,6 +25,10 @@ header {
   background: #4682B4; /*   #8470FF*/
   color: #fff;
   text-align: center; /* Center align text within the header */
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 header h1 {
@@ -82,34 +86,30 @@ nav ul li a:hover {
   border-radius: 5px; /* Rounded corners on hover */
 }
 
-/*############## Container for the Intro: name/resume/about me ##########*/
-.container {
-  width: 100%;
-  margin: auto;
-  background-color: lightblue;  /* Change to your desired color */
-}
 
-
-/*############## Introduction: Name and Download Resume ##########*/
+/*############## Introduction ##########*/
 /* Styling for the About section */
+
 .about-content {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space out the left and right sections */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between sections */
     align-items: flex-start; /* Align items to the top */
-    max-width: 1200px; /* Optional: Set a maximum width for the content */
-    margin: 0 auto; /* Center the content */
-    padding: 20px; /* Padding around the content */
+    max-width: 100%; /* Ensure full width usage */
+    margin: 0 auto; /* Center content */
+    padding: 20px;
 }
+
 
 /* Left side styling (photo and contact info) */
 .about-left {
     flex: 1; /* Allow this section to take 1 part of the space */
     text-align: left; /* Align text to the left */
-    margin-right: 20px; /* Add space between left and right sections if needed */
-     margin-left: 0; /* Ensure no left margin */
-    position: relative; /* Allow fine control if needed */
-    left: -300px; /* Shift the photo further left */
+    margin-right: 20px; /* Space between sections */
+    margin-left: 0; /* Ensure no left margin */
+    position: relative;
+    left: 0;
 }
+
 
 .profile-photo {
     width: 200px; /* Adjust width of the photo */
@@ -125,10 +125,11 @@ nav ul li a:hover {
 }
 
 /* Right side styling (skills) */
-.about-right {
+.about-center {
     flex: 3; /* Allow this section to take 2 parts of the space */
     text-align: left; /* Align text to the left */
 }
+
 
 .skills-list {
     list-style-type: disc; /* Use bullet points */
@@ -136,8 +137,7 @@ nav ul li a:hover {
     margin-left: 0; /* Ensure no left margin */
     max-width: 800px; /* Increase the maximum width for alignment */
     position: relative; /* Allow fine control if needed */
-    margin: 0 auto; /* Center the list in its container */
-    left: -200px;
+    left: 0;
 }
 
 .skills-list li {
@@ -150,6 +150,43 @@ nav ul li a:hover {
     text-align: left; /* Align text to the left */
     line-height: 1; /* Adjust line height for readability */
 }
+
+/* Right side styling (expertise) */
+.about-right {
+    flex: 1;
+    text-align: left;
+    margin-left: 20px;
+    width: 100%; /* Ensure full width for the container */
+}
+/* Styling for the expertise list */
+.expertise-list {
+    list-style: none; /* Remove bullet points */
+    padding-left: 0; /* Remove left padding */
+    display: flex; /* Use flexbox to align items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    gap: 10px; /* Add space between the boxes */
+    justify-content: flex-start; /* Align items to the left */
+}
+
+/* Styling for each expertise item */
+.expertise-list li {
+    background-color: #f0f0f0; /* Light grey background */
+    border: 1px solid #dcdcdc; /* Light grey border */
+    padding: 8px 12px; /* Adjust padding inside the box */
+    font-size: 1em; /* Adjust font size */
+    color: #333; /* Dark text color */
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Keep items inline */
+    white-space: nowrap; /* Prevent text from wrapping inside the boxes */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
+}
+
+/* Hover effect on the expertise boxes */
+.expertise-list li:hover {
+    background-color: #e0e0e0; /* Slightly darker grey on hover */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
 
 
 #about h2 {
@@ -165,10 +202,12 @@ nav ul li a:hover {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  margin: 20px auto; /* Center boxes horizontally and add vertical spacing */
-  max-width: 2000px; /* Adjust width as needed */
+  margin: 20px auto; /* Center horizontally and add vertical spacing */
+  max-width: 1800px; /* Make it more responsive */
+  width: 100%; /* Allow it to shrink as needed */
   text-align: left; /* Default text alignment */
 }
+
 
 /* Title styling */
 .section-box h2 {
@@ -867,10 +906,10 @@ margin-bottom: 15px;
 
             </div>
         </div>
-        <div class="about-right">
+        <div class="about-center">
             <ul class="skills-list">
                 <h2>About Me </h2>
-                 <li>7+ years of experience in cross-functional teams, leading cross-industry projects across diverse machine learning domains.</li>
+                <li>7+ years of experience in cross-functional teams, leading cross-industry projects across diverse machine learning domains.</li>
                 <li>Demonstrated successful leadership and management in multiple projects, achieving notable outcomes.</li>
                 <li>Expertise in building, debugging, and deploying resilient machine learning and deep learning models.</li>
                 <li>Developed scalable data solutions using TensorFlow and PyTorch, prioritizing usability and feasibility.</li>
@@ -882,6 +921,41 @@ margin-bottom: 15px;
 
             </ul>
         </div>
+        <div class="about-right">
+            <h2>Skills </h2>
+        <ul class="expertise-list">
+            <li>Problem-Solving</li>
+            <li>Detail Oriented</li>
+            <li>Agile Development</li>
+            <li>Teamwork</li>
+            <li>Collaboration</li>
+            <li>Report and Presentation</li>
+            <li>Research and Development</li>
+            <li> Project Leadership</li>
+            <li>Project Management </li>
+            <li>Accountability</li>
+            <li>GPT</li>
+            <li>Python</li>
+            <li>Pandas</li>
+            <li>Apache Spark (Pyspark)</li>
+            <li>Scikit-learn</li>
+            <li>Docker</li>
+            <li>Singularity</li>
+            <li>Git</li>
+            <li>Pytorch</li>
+            <li>Tensorflow</li>
+            <li>GCP</li>
+            <li>Cloud Computing</li>
+            <li>Matplotlib</li>
+            <li>Plotly</li>
+            <li>Seaborn</li>
+            <li>OpenCV</li>
+            <li>Pillow</li>
+            <li>PIL</li>
+
+            <!-- Add more expertise items here -->
+        </ul>
+    </div>
     </div>
 </section>
 
