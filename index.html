@@ -228,11 +228,12 @@ nav ul li a:hover {
 
 /* Project card image styling */
 .project-card img {
-  width: 100%;
-  height: 225px; /* Fixed height for images */
+  width: 400px; /* Fixed width for images */
+  height: 400px; /* Fixed height for images */
   object-fit: cover; /* Ensures the image fits the space without distortion */
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin: 0 auto; /* Centering the image */
+  display: block; /* Makes the image a block element for centering */
 }
 
 /* Project card heading styling */
@@ -247,52 +248,73 @@ nav ul li a:hover {
   overflow: hidden; /* Hide overflow if the text is too long */
   text-overflow: ellipsis;
 }
+.project-title {
+    text-align: center;
+}
 
 
 /*########## EXPERIENCE ##############*/
-.experience-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-  gap: 20px;
-  padding: 20px 0;
+
+/* Overall Experience Heading */
+h2 {
+    font-size: 2em; /* Larger size for main heading */
+    font-weight: bold; /* Bold for emphasis */
+    color: #333; /* Dark color for visibility */
+    margin-bottom: 20px; /* Space below the heading */
+    text-align: left; /* Center the heading for better aesthetics */
 }
 
-/* Project card styling */
+/* Experience card styling */
 .experience-card {
-  /*background-color: #B0E0E6; /* #F3F3FF Background color of the card */
-  background-color: #f0f0f0; /* Light grey background */
-  border: 1px solid #dcdcdc; /* Light grey border */
-  /*border: 1px solid #ddd;*/
-  border-radius: 10px;
-  padding: 15px;
-  text-align: left; /*center;*/
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-        cursor: pointer; /* Pointer cursor on hover */
-
+    margin-bottom: 30px; /* Space between each experience card */
+    padding: 15px; /* Padding inside each experience card */
+    border: 1px solid #ddd; /* Light border for separation */
+    border-radius: 5px; /* Slight rounding of corners */
 }
 
-/* Project card image styling */
-.experience-card img {
-  width: 100%;
-  height: 225px; /* Fixed height for images */
-  object-fit: cover; /* Ensures the image fits the space without distortion */
-  border-radius: 10px;
-  margin-bottom: 15px;
+/*  card heading styling */
+.experience-card h3.title {
+    font-size: 1.5em; /* Increase size for better distinction */
+    font-weight: 700; /* Make it bold */
+    margin: 10px 0; /* Margin for spacing */
+    color: #4682B4; /* Use a distinct color for titles */
 }
 
-/* Project card heading styling */
-.experience-card h3 {
-  margin: 15px 0 10px;
+/* Date styling */
+.experience-card p.date {
+    font-size: 1.1em; /* Slightly larger for emphasis */
+    color: #666; /* Softer color for secondary text */
+    font-style: italic; /* Italic style for a distinct look */
+    margin: 0.2em 0 0.8em; /* Adjusted margin for spacing */
 }
 
-/* Project card paragraph styling */
-.experience-card p {
-  color: #555;
-  height: 40px; /* Fixed height for descriptions */
-  overflow: hidden; /* Hide overflow if the text is too long */
-  text-overflow: ellipsis;
+/* Lab and location styling */
+.experience-card h3.lab, .experience-card h3.location {
+    font-size: 1.2em; /* Slightly larger */
+    font-weight: 500; /* Medium weight for contrast */
+    color: #444; /* Darker color for better visibility */
+    margin: 0.3em 0; /* Adjusted margin */
 }
 
+/* List styling */
+.experience-card ul {
+    list-style-type: disc; /* Bullet points for sub-items */
+    padding-left: 20px; /* Indentation for list items */
+    margin: 10px 0; /* Margin for spacing */
+}
+
+.experience-card ul li {
+    margin-bottom: 10px; /* Space between list items */
+    color: #555; /* Standard text color */
+}
+
+/* Additional emphasis on strong text */
+.experience-card strong {
+    color: #333; /* Maintain contrast for important terms */
+}
+
+
+/*############ EDUCATION ############*/
 .title {
     font-size: 1.3em;
     font-weight: bold;
@@ -320,8 +342,6 @@ nav ul li a:hover {
     color: #555;
 }
 
-/*############ EDUCATION ############*/
-
 .education-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
@@ -329,7 +349,7 @@ nav ul li a:hover {
   padding: 20px 0;
 }
 
-/* Project card styling */
+/*  card styling */
 .education-card {
   /*background-color: #B0E0E6; /* #F3F3FF Background color of the card */
   /*border: 1px solid #ddd;*/
@@ -341,7 +361,15 @@ nav ul li a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
-/* Project card image styling */
+/*  card heading styling */
+.education-card h3.title {
+    font-size: 1.5em; /* Increase size for better distinction */
+    font-weight: 700; /* Make it bold */
+    margin: 10px 0; /* Margin for spacing */
+    color: #4682B4; /* Use a distinct color for titles */
+}
+
+/*  card image styling */
 .education-card img {
   width: 100%;
   height: 300px; /* Fixed height for images */
@@ -350,12 +378,12 @@ nav ul li a:hover {
   margin-bottom: 15px;
 }
 
-/* Project card heading styling */
+/*  card heading styling */
 .education-card h3 {
   margin: 15px 0 10px;
 }
 
-/* Project card paragraph styling */
+/*  card paragraph styling */
 .education-card p {
   color: #555;
   height: 40px; /* Fixed height for descriptions */
@@ -378,7 +406,7 @@ nav ul li a:hover {
   padding: 20px 0;
 }
 
-/* Project card styling */
+/* card styling */
 .supervision-card {
   background-color: #B0E0E6; /* #F3F3FF Background color of the card */
   border: 1px solid #ddd;
@@ -388,7 +416,7 @@ nav ul li a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
-/* Project card image styling */
+/* card image styling */
 .supervision-card img {
   width: 100%;
   height: 300px; /* Fixed height for images */
@@ -397,12 +425,12 @@ nav ul li a:hover {
   margin-bottom: 15px;
 }
 
-/* Project card heading styling */
+/* card heading styling */
 .supervision-card h3 {
   margin: 15px 0 10px;
 }
 
-/* Project card paragraph styling */
+/* card paragraph styling */
 .supervision-card p {
   color: #555;
   height: 40px; /* Fixed height for descriptions */
@@ -418,7 +446,7 @@ nav ul li a:hover {
   padding: 20px 0;
 }
 
-/* Project card styling */
+/* card styling */
 .examiner-card {
   background-color: #B0E0E6; /* #F3F3FF Background color of the card */
   border: 1px solid #ddd;
@@ -428,7 +456,7 @@ nav ul li a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
-/* Project card image styling */
+/* card image styling */
 .examiner-card img {
   width: 100%;
   height: 300px; /* Fixed height for images */
@@ -437,12 +465,12 @@ nav ul li a:hover {
   margin-bottom: 15px;
 }
 
-/* Project card heading styling */
+/* card heading styling */
 .examiner-card h3 {
   margin: 15px 0 10px;
 }
 
-/* Project card paragraph styling */
+/* card paragraph styling */
 .examiner-card p {
   color: #555;
   height: 40px; /* Fixed height for descriptions */
@@ -458,7 +486,7 @@ nav ul li a:hover {
   padding: 20px 0;
 }
 
-/* Project card styling */
+/* card styling */
 .teaching-card {
   background-color: #B0E0E6; /* #F3F3FF Background color of the card */
   border: 1px solid #ddd;
@@ -468,7 +496,7 @@ nav ul li a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
-/* Project card image styling */
+/* card image styling */
 .teaching-card img {
   width: 100%;
   height: 300px; /* Fixed height for images */
@@ -477,12 +505,12 @@ nav ul li a:hover {
   margin-bottom: 15px;
 }
 
-/* Project card heading styling */
+/* card heading styling */
 .teaching-card h3 {
   margin: 15px 0 10px;
 }
 
-/* Project card paragraph styling */
+/* card paragraph styling */
 .teaching-card p {
   color: #555;
   height: 40px; /* Fixed height for descriptions */
@@ -498,7 +526,7 @@ nav ul li a:hover {
   padding: 20px 0;
 }
 
-/* Project card styling */
+/*  card styling */
 .talk-card {
    /*background-color: #B0E0E6; /* #F3F3FF Background color of the card */
   /*border: 1px solid #ddd;*/
@@ -510,7 +538,7 @@ nav ul li a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
-/* Project card image styling */
+/*  card image styling */
 .talk-card img {
   width: 100%;
   height: 300px; /* Fixed height for images */
@@ -519,12 +547,12 @@ nav ul li a:hover {
   margin-bottom: 15px;
 }
 
-/* Project card heading styling */
+/*  card heading styling */
 .talk-card h3 {
   margin: 15px 0 10px;
 }
 
-/* Project card paragraph styling */
+/*  card paragraph styling */
 .talk-card p {
   color: #555;
   height: 40px; /* Fixed height for descriptions */
@@ -540,7 +568,7 @@ nav ul li a:hover {
   padding: 20px 0;
 }
 
-/* Project card styling */
+/*  card styling */
 .certificate-card {
   background-color: #B0E0E6; /* #F3F3FF Background color of the card */
   border: 1px solid #ddd;
@@ -550,7 +578,7 @@ nav ul li a:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
-/* Project card image styling */
+/*  card image styling */
 .certificate-card img {
   width: 100%;
   height: 300px; /* Fixed height for images */
@@ -559,12 +587,12 @@ nav ul li a:hover {
   margin-bottom: 15px;
 }
 
-/* Project card heading styling */
+/*  card heading styling */
 .certificate-card h3 {
   margin: 15px 0 10px;
 }
 
-/* Project card paragraph styling */
+/*  card paragraph styling */
 .certificate-card p {
   color: #555;
   height: 40px; /* Fixed height for descriptions */
@@ -589,6 +617,7 @@ nav ul li a:hover {
     font-size: 18px;
     font-weight: bold;
     margin: 0 0 5px;
+    color:#4682B4;
 }
 
 .pub-authors, .pub-conference {
@@ -622,7 +651,7 @@ nav ul li a:hover {
     text-align: center; /* Center the heading text */
     margin: 0 0 5px 0; /* Space below the heading */
     font-size: 1.1em; /* Slightly larger font size for headings */
-    color: #333; /* Dark text color */
+    color: #4682B4; /* Dark text color */
 }
 
 .skill-item ul {
@@ -811,12 +840,70 @@ nav ul li a:hover {
             <p class="date">02/2022 - 11/2024</p>
             <h3 class="lab">Vision and Image Processing Lab</h3>
             <h3 class="location">University of Waterloo, Waterloo, Canada</h3>
+           <ul>
+        <li>
+            <strong>BIOSCAN Dataset and Benchmark with Centre for Biodiversity Genomics (CBG)</strong>
+            <ul>
+                <li>Led data science projects involving data structures, data solutions, data migration, and data governance.</li>
+                <li>Generated metadata while performing big data analytics and processing.</li>
+                <li>Leveraged vision software and libraries for machine learning applications, including image classification.</li>
+                <li>Released multi-modal datasets; over <strong>1 million</strong>, and over <strong>5 million</strong> on research and data sharing platforms (e.g., Zenodo, Kaggle, and Hugging Face).</li>
+                <li>Released two code repositories on version control systems (e.g., Git) and gained familiarity with AWS.</li>
+                <li>Benchmarked image classification against baselines (ResNet50 and Transformers) by leveraging transfer learning.</li>
+                <li>Fine-tuned backbone models and achieved over 90% accuracy (Micro-F1, Macro-F1) on large-scale datasets.</li>
+                <li>Published articles in <strong>NeurIPS 2023</strong> and <strong>NeurIPS 2024</strong>.</li>
+                <li>For more details, please visit <a href="Project_BIOSCAN_1M.html" class="pub-link">BIOSCAN-1M</a> and <a href="Project_BIOSCAN_5M.html" class="pub-link">BIOSCAN-5M</a></li>
+
+            </ul>
+
+        </li>
+        <li>
+            <strong>Microsoft Media Group</strong>
+            <ul>
+                <li>Authored a paper on video object's relationship detection, which enhanced detection performance by about 4% (IEEE 2023). For more details, please visit <a href="Project_ViDVRD_MoE.html" class="pub-link">MoE-VRD</a></li>
+                <li>Mentored a research project on salient object detection applying Transformers on super-pixels. </li>
+                <li>For more details, please visit <a href="Project_SuperFormer.html" class="pub-link">SuperFormer</a></li>
+            </ul>
+        </li>
+        <li>
+            <strong>Dept. ECE University of Waterloo</strong>
+            <ul>
+                <li>Mentored a project on generative causal inference, which enhanced domain generalization by about 8.8%. </li>
+                <li>Published an article in <strong>ICML 2023</strong>.</li>
+                <li>For more details, please visit <a href="Project_Causality.html" class="pub-link">Causality</a></li>
+            </ul>
+        </li>
+    </ul>
        </div>
         <div class="experience-card">
             <h3 class="title">Postdoc</h3>
             <p class="date">09/2018 - 02/2022</p>
             <h3 class="lab">Computer Vision Lab</h3>
             <h3 class="location">Linköping University, Linköping, Sweden </h3>
+            <ul>
+        <li>
+            Autonomous driving project with WASP and SCANIA
+            <ul>
+                <li>Managed projects on road network graph learning and reinforcement learning for autonomous driving.</li>
+                <li>Developed, debugged, and executed ML experiments in cloud, parallel computing, and bash environments.</li>
+                <li>Enhanced graph representation learning for unsupervised transductive by 2% and supervised inductive by 10%.</li>
+                <li>Collected, curated, and released geospatial data from OpenStreetMap (OSMnx) for 18 Swedish cities.</li>
+                <li>Released two code repositories on Git.</li>
+                <li>Published articles in <strong>Pattern Recognition 2021</strong> and <strong>ICPR 2021</strong>.</li>
+                <li>For more details, please visit <a href="Project_BRL_VBVC.html" class="pub-link">BRL-VBVC</a> and <a href="Project_GAIN.html" class="pub-link">GAIN</a></li>
+
+            </ul>
+        </li>
+        <li>
+            Managed project on object's 3D shape estimation.
+            <ul>
+                <li>Developed and implemented predictive models for self-supervised 3D shape estimation.</li>
+                <li>Enhanced <strong>Mean-IoU about 8%</strong>, and reduced <strong>3D-Angular-Error about 5°</strong> for the CUB dataset.</li>
+                <li>Released code repository on Git.</li>
+                <li>For more details, please visit <a href="Project_SLOPE_KP.html" class="pub-link">SLOPE-KP</a></li>
+            </ul>
+        </li>
+    </ul>
       </div>
 
     </div>
@@ -826,67 +913,67 @@ nav ul li a:hover {
   <h2>Projects</h2>
   <div class="project-grid">
       <div class="project-card">
-          <a href="Project_BIOSCAN_1M.html" class="project-link">
+          <a href="Project_BIOSCAN_1M.html" class="pub-link">
               <img src="images/insect_1M.jpg" alt="BIOSCAN-1M">
-              <h3>BIOSCAN-1M</h3>
+              <h3 class="project-title">BIOSCAN-1M</h3>
           </a>
           <p class="thesis"> <strong>About: </strong>Introducing, studying, and benchmarking the BIOSCAN-1M Insect dataset.</p>
           <p class="thesis"> <strong>Keywords:</strong> Biotechnology, Data Management, Big data analytics, Classification, Transfer Learning.</p>
 
       </div>
       <div class="project-card">
-          <a href="Project_BIOSCAN_5M.html" class="project-link">
+          <a href="Project_BIOSCAN_5M.html" class="pub-link">
               <img src="images/bioscan5m.webp" alt="BIOSCAN-5M">
-              <h3>BIOSCAN-5M</h3>
+              <h3 class="project-title">BIOSCAN-5M</h3>
           </a>
           <p class="thesis"> <strong>About: </strong>Introducing, studying, and benchmarking the BIOSCAN-5M multimodal dataset.</p>
           <p class="thesis"> <strong>Keywords:</strong> Biotechnology, Data Management, Big data analytics, Statistical processing, Feature engineering.</p>
       </div>
       <div class="project-card">
-          <a href="Project_SuperFormer.html" class="project-link">
+          <a href="Project_SuperFormer.html" class="pub-link">
               <img src="images/img_superpixel.png" alt="SuperFormer">
-              <h3>SuperFormer</h3>
+              <h3 class="project-title">SuperFormer</h3>
           </a>
           <p class="thesis"> <strong>About: </strong>A Transformer-based model that leverages superpixels for efficient Salient Object Detection (SOD).</p>
           <p class="thesis"> <strong>Keywords:</strong> Computer Vision, Salient Object Detection, Efficient Model, Fine-tuning.</p>
       </div>
       <div class="project-card">
-          <a href="Project_SLOPE_KP.html" class="project-link">
+          <a href="Project_SLOPE_KP.html" class="pub-link">
               <img src="images/slope_kp_img.webp" alt="SLOPE_KP">
-              <h3>SLOPE-KP</h3>
+              <h3 class="project-title">SLOPE-KP</h3>
           </a>
           <p class="thesis"> <strong>About: </strong>An approach to self-supervised learning of object pose estimation by keypoints prediction.</p>
           <p class="thesis"> <strong>Keywords:</strong> Computer Vision, 3D shape reconstruction, Pose estimation, Self-supervised learning.</p>
       </div>
       <div class="project-card">
-          <a href="Project_ViDVRD_MoE.html" class="project-link">
+          <a href="Project_ViDVRD_MoE.html" class="pub-link">
               <img src="images/ViDVRD_MoE.webp" alt="MoE-VRD">
-              <h3>MoE-VRD</h3>
+              <h3 class="project-title">MoE-VRD</h3>
           </a>
           <p class="thesis"> <strong>About: </strong>An approach to video relationship detection using mixture of experts.</p>
           <p class="thesis"> <strong>Keywords:</strong> Computer Vision, Video relationship detection, Mixture-of-Experts.</p>
       </div>
       <div class="project-card">
-          <a href="Project_GAIN.html" class="project-link">
+          <a href="Project_GAIN.html" class="pub-link">
               <img src="images/gain.webp" alt="GAIN">
-              <h3>GAIN</h3>
+              <h3 class="project-title">GAIN</h3>
           </a>
           <p class="thesis"> <strong>About: </strong>An approach to graph representation learning.</p>
           <p class="thesis"> <strong>Keywords:</strong> Graph convolutional neural networks, Representation learning, Graph classification.</p>
       </div>
 
        <div class="project-card">
-          <a href="Project_Causality.html" class="project-link">
+          <a href="Project_Causality.html" class="pub-link">
               <img src="images/casality_img.webp" alt="Causality">
-              <h3>Causality</h3>
+              <h3 class="project-title">Causality</h3>
           </a>
           <p class="thesis"> <strong>About: </strong>Two approaches to generative and implicit causal representation learning.</p>
            <p class="thesis"> <strong>Keywords:</strong> Causal inference, Generative models, Interventions, Variational autoencoders.</p>
       </div>
       <div class="project-card">
-          <a href="Project_BRL_VBVC.html" class="project-link">
+          <a href="Project_BRL_VBVC.html" class="pub-link">
               <img src="images/brl_vbvc.webp" alt="BRL_VBVC">
-              <h3>Autonomous Driving</h3>
+              <h3 class="project-title">Autonomous Driving</h3>
           </a>
           <p class="thesis"> <strong>About: </strong>An approach to Bayesian Reinforcement Learning of vision-based vehicular control.</p>
           <p class="thesis"> <strong>Keywords:</strong> Autonomous systems, Reinforcement learning, Simulated environment.</p>
@@ -931,20 +1018,20 @@ nav ul li a:hover {
   <h2>Public Speaking</h2>
     <div class="talk-grid">
       <div class="talk-card">
-              <h3><a href="https://wildlabs.net/event/computational-entomology-webinar-iii-processing-liquid-samples" target="_blank">Computational Entomology Webinar III: Processing liquid samples</a> </h3>
+              <h3><a href="https://wildlabs.net/event/computational-entomology-webinar-iii-processing-liquid-samples" class="pub-link" target="_blank">Computational Entomology Webinar III: Processing liquid samples</a> </h3>
           <p class="date">06/2024</p>
           <h3 class="thesis"> <strong>About: </strong>Computer vision and robotic tools to automatically process insect specimens stored in liquid samples.</h3>
           <h3 class="location">Vancouver, Canada</h3>
 
       </div>
         <div class="talk-card">
-              <h3><a href="https://event.fourwaves.com/geobon-2023/pages" target="_blank">GEO BON Global Conference: Monitoring Biodiversity for Action</a></h3>
+              <h3><a href="https://event.fourwaves.com/geobon-2023/pages" class="pub-link" target="_blank">GEO BON Global Conference: Monitoring Biodiversity for Action</a></h3>
             <p class="date">10/2023</p>
            <h3 class="thesis"> <strong>About: </strong>AI for Insect Monitoring.</h3>
             <h3 class="location">Montreal, Canada</h3>
       </div>
         <div class="talk-card">
-              <h3><a href="https://linkopingsciencepark.se/event/liu-game-conference-2018-by-linkopings-universitet/" target="_blank">LiU Game Conference</a></h3>
+              <h3><a href="https://linkopingsciencepark.se/event/liu-game-conference-2018-by-linkopings-universitet/" class="pub-link" target="_blank">LiU Game Conference</a></h3>
             <p class="date">11/2018</p>
             <h3 class="thesis"> <strong>About: </strong>Computer games, visualization and digital experiences.</h3>
             <h3 class="location">Linköping, Sweden</h3>
