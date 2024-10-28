@@ -261,7 +261,7 @@ nav ul li a:hover {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 15px;
-  text-align: center;
+  text-align: left; /*center;*/
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
         cursor: pointer; /* Pointer cursor on hover */
 
@@ -289,6 +289,33 @@ nav ul li a:hover {
   text-overflow: ellipsis;
 }
 
+.title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+.date {
+    font-size: 1em;
+    color: #666;
+    font-style: italic;
+    margin: 0.2em 0 0.8em;
+}
+
+.lab {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #444;
+    margin: 0.5em 0;
+}
+
+.location {
+    font-size: 1em;
+    font-weight: normal;
+    color: #555;
+}
+
 /*############ EDUCATION ############*/
 
 .education-grid {
@@ -304,7 +331,7 @@ nav ul li a:hover {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 15px;
-  text-align: center;
+  text-align: left;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
@@ -330,6 +357,12 @@ nav ul li a:hover {
   text-overflow: ellipsis;
 }
 
+.thesis {
+    font-size: 1em;
+    font-weight: 600;
+    color: #344;
+    margin: 0.5em 0;
+}
 /*############ SUPERVISION ############*/
 
 .supervision-grid {
@@ -465,7 +498,7 @@ nav ul li a:hover {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 15px;
-  text-align: center;
+  text-align: left;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
@@ -747,9 +780,6 @@ nav ul li a:hover {
             <li>Generative AI</li>
             <li>Variational Autoencoders</li>
             <li>3D Shape Reconstruction</li>
-
-
-
             <!-- Add more expertise items here -->
         </ul>
     </div>
@@ -759,26 +789,23 @@ nav ul li a:hover {
   <h2>Experience</h2>
     <div class="experience-grid">
          <div class="experience-card">
-              <h3>Research Associate </h3>
-              <h3>Vision and Image processing Lab </h3>
-              <h3>University of Waterloo, Waterloo, Canada</h3>
-             <h4>2024</h4>
+            <h3 class="title">Research Associate</h3>
+            <p class="date">11/2024 - Current</p>
+            <h3 class="lab">Vision and Image Processing Lab</h3>
+            <h3 class="location">University of Waterloo, Waterloo, Canada</h3>
+        </div>
 
-      </div>
-
-      <div class="experience-card">
-              <h3>Postdoctoral Research Fellow</h3>
-             <h3>Vision and Image processing Lab </h3>
-              <h3> University of Waterloo, Waterloo, Canada</h3>
-          <h4> 2022-2024 </h4>
-
-      </div>
+       <div class="experience-card">
+           <h3 class="title">Research Fellow</h3>
+            <p class="date">02/2022 - 11/2024</p>
+            <h3 class="lab">Vision and Image Processing Lab</h3>
+            <h3 class="location">University of Waterloo, Waterloo, Canada</h3>
+       </div>
         <div class="experience-card">
-              <h3>Postdoc </h3>
-             <h3>Computer Vision Lab </h3>
-             <h3> Linköping University, Linköping, Sweden </h3>
-            <h4> 2018-2022 </h4>
-
+            <h3 class="title">Postdoc</h3>
+            <p class="date">09/2018 - 02/2022</p>
+            <h3 class="lab">Computer Vision Lab</h3>
+            <h3 class="location">Linköping University, Linköping, Sweden </h3>
       </div>
 
     </div>
@@ -852,20 +879,27 @@ nav ul li a:hover {
   <h2>Education</h2>
     <div class="education-grid">
     <div class="education-card">
-              <h3>Ph.D. in Cognitive Science </h3>
-             <h3> Lund University, Sweden </h3>
-        <p><strong>Thesis:</strong> Action in Mind: A Neural Network Approach to Action Recognition and Segmentation.</p>
+             <h3 class="title">Ph.D. in Cognitive Science </h3>
+            <p class="date">03/2014 - 05/2018</p>
+            <h3 class="lab">Lund University Cognitive Science </h3>
+        <h3 class="thesis"><strong>Thesis:</strong> Action in mind: A neural network approach to action recognition and segmentation.</h3>
+        <h3 class="location"> Lund University, Sweden </h3>
+
       </div>
       <div class="education-card">
-              <h3>M.Sc. in Mechatronics</h3>
-              <h3> K.N. Toosi University of Technology, Iran</h3>
-          <p><strong>Thesis:</strong> Attention control learning in Decision Space Using State Estimation.</p>
+              <h3 class="title">M.Sc. in Mechatronics</h3>
+              <p class="date">09/2009 - 02/2012</p>
+              <h3 class="lab">Advanced Process, Automation and Control Research Group</h3>
+              <h3 class="thesis"><strong>Thesis:</strong> Attention control learning in Decision Space Using State Estimation.</h3>
+              <h3 class="location"> K.N. Toosi University of Technology, Iran</h3>
 
       </div>
         <div class="education-card">
-              <h3>B.Sc. in Electrical Engineering </h3>
-              <h3>K.N. Toosi University of Technology, Iran</h3>
-            <p><strong>Thesis:</strong> Design and implementation of a MIMO controller for a quadruple tank system.</p>
+              <h3 class="title">B.Sc. in Electrical Engineering </h3>
+              <p class="date">09/2005 - 09/2009</p>
+            <h3 class="lab">Advanced Process, Automation and Control Research Group</h3>
+            <h3 class="thesis"><strong>Thesis:</strong> Design and implementation of a MIMO controller for a quadruple tank system.</h3>
+            <h3 class="location">K.N. Toosi University of Technology, Iran</h3>
       </div>
 
     </div>
@@ -877,19 +911,23 @@ nav ul li a:hover {
   <h2>Public Speaking</h2>
     <div class="talk-grid">
       <div class="talk-card">
-              <h3><a href="https://wildlabs.net/event/computational-entomology-webinar-iii-processing-liquid-samples" target="_blank">Computational Entomology Webinar III</a> </h3>
-          <h3>Vancouver, Canada</h3>
-          <h4>June - 2024</h4>
+              <h3><a href="https://wildlabs.net/event/computational-entomology-webinar-iii-processing-liquid-samples" target="_blank">Computational Entomology Webinar III: Processing liquid samples</a> </h3>
+          <p class="date">06/2024</p>
+          <h3 class="thesis"> About: Computer vision and robotic tools to automatically process insect specimens stored in liquid samples.</h3>
+          <h3 class="location">Vancouver, Canada</h3>
+
       </div>
         <div class="talk-card">
-              <h3><a href="https://event.fourwaves.com/geobon-2023/pages" target="_blank">GEO BON Global Conference (2023)</a></h3>
-              <h3>Montreal, Canada</h3>
-             <h4>October - 2023</h4>
+              <h3><a href="https://event.fourwaves.com/geobon-2023/pages" target="_blank">GEO BON Global Conference: Monitoring Biodiversity for Action</a></h3>
+            <p class="date">10/2023</p>
+           <h3 class="thesis"> About: AI for Insect Monitoring.</h3>
+            <h3 class="location">Montreal, Canada</h3>
       </div>
         <div class="talk-card">
               <h3><a href="https://linkopingsciencepark.se/event/liu-game-conference-2018-by-linkopings-universitet/" target="_blank">LiU Game Conference</a></h3>
-              <h3>Linköping, Sweden</h3>
-             <h4>November - 2018</h4>
+            <p class="date">11/2018</p>
+            <h3 class="thesis"> About: Computer games, visualization and digital experiences.</h3>
+            <h3 class="location">Linköping, Sweden</h3>
       </div>
     </div>
 </section>
