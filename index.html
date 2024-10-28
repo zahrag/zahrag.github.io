@@ -216,8 +216,10 @@ nav ul li a:hover {
 
 /* Project card styling */
 .project-card {
-  background-color: #B0E0E6; /* #F3F3FF Background color of the card */
-  border: 1px solid #ddd;
+   /*background-color: #B0E0E6; /* #F3F3FF Background color of the card */
+  /*border: 1px solid #ddd;*/
+  background-color: #f0f0f0; /* Light grey background */
+  border: 1px solid #dcdcdc; /* Light grey border */
   border-radius: 10px;
   padding: 15px;
   text-align: center;
@@ -257,8 +259,10 @@ nav ul li a:hover {
 
 /* Project card styling */
 .experience-card {
-  background-color: #B0E0E6; /* #F3F3FF Background color of the card */
-  border: 1px solid #ddd;
+  /*background-color: #B0E0E6; /* #F3F3FF Background color of the card */
+  background-color: #f0f0f0; /* Light grey background */
+  border: 1px solid #dcdcdc; /* Light grey border */
+  /*border: 1px solid #ddd;*/
   border-radius: 10px;
   padding: 15px;
   text-align: left; /*center;*/
@@ -327,8 +331,10 @@ nav ul li a:hover {
 
 /* Project card styling */
 .education-card {
-  background-color: #B0E0E6; /* #F3F3FF Background color of the card */
-  border: 1px solid #ddd;
+  /*background-color: #B0E0E6; /* #F3F3FF Background color of the card */
+  /*border: 1px solid #ddd;*/
+  background-color: #f0f0f0; /* Light grey background */
+  border: 1px solid #dcdcdc; /* Light grey border */
   border-radius: 10px;
   padding: 15px;
   text-align: left;
@@ -494,8 +500,10 @@ nav ul li a:hover {
 
 /* Project card styling */
 .talk-card {
-  background-color: #B0E0E6; /* #F3F3FF Background color of the card */
-  border: 1px solid #ddd;
+   /*background-color: #B0E0E6; /* #F3F3FF Background color of the card */
+  /*border: 1px solid #ddd;*/
+  background-color: #f0f0f0; /* Light grey background */
+  border: 1px solid #dcdcdc; /* Light grey border */
   border-radius: 10px;
   padding: 15px;
   text-align: left;
@@ -565,40 +573,43 @@ nav ul li a:hover {
 }
 
 /*############ PUBLICATION ############*/
+/* CSS Styles */
 .pub-list {
-    list-style-type: none; /* Remove default list styles */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margin */
+    list-style-type: none;
+    padding: 0;
 }
 
-/* Publication item styles */
 .pub-list li {
-    margin-bottom: 10px; /* Spacing between publications */
-    padding: 10px; /* Padding for each list item */
-    background-color: #B0E0E6; /* Optional: background for each item */
-    border-radius: 5px; /* Rounded corners for items */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    margin-bottom: 20px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
 }
 
-/* Link styling */
-.pub-list li a {
-    text-decoration: none; /* Remove underline from links */
-    color: #007BFF; /* Change link color */
+.pub-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 5px;
 }
 
-.pub-list li a:hover {
-    text-decoration: underline; /* Underline on hover */
+.pub-authors, .pub-conference {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin: 5px 0;
 }
 
-/* Title styling */
-.pub-list li strong {
-    font-size: 1.2em; /* Larger font for titles */
+.pub-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* Date styling */
-.pub-list li em {
-    font-style: italic; /* Italic style for date */
+.pub-link:hover {
+    text-decoration: underline;
 }
+
 /*################ Skills ##############*/
 
 /* New styles for the skills items */
@@ -936,63 +947,62 @@ nav ul li a:hover {
 <section id="pub">
 <h2>Selected Publications</h2>
     <ul class="pub-list">
+            <li>
+                <h3 class="pub-title">BIOSCAN-5M: A Multimodal Dataset for Insect Biodiversity</h3>
+                <p class="pub-authors"><strong>Authors:</strong> Zahra Gharaee, Scott C Lowe, ZeMing Gong, Pablo Millan Arias, Nicholas Pellegrino, Austin T Wang, Joakim Bruslund Haurum, Iuliia Zarubiieva, Lila Kari, Dirk Steinke, Graham W Taylor, Paul Fieguth, Angel X Chang</p>
+                <p class="pub-conference"><em>Advances in Neural Information Processing Systems (NeurIPS)</em>, 2024.</p>
+                <a href="https://arxiv.org/abs/2406.12723" target="_blank" class="pub-link">View Publication</a>
+            </li>
+            <li>
+                <h3 class="pub-title">A Step Towards Worldwide Biodiversity Assessment: The Bioscan-1M Insect Dataset</h3>
+                <p class="pub-authors"> <strong>Authors:</strong> Zahra Gharaee, ZeMing Gong, Nicholas Pellegrino, Iuliia Zarubiieva, Joakim Bruslund Haurum,
+                Scott Lowe, Jaclyn McKeown, Chris Ho, Joschka McLeod, Yi-Yun Wei, Jireh Agda, Sujeevan Ratnasingham,
+                    Dirk Steinke, Angel Chang, Graham W Taylor, Paul Fieguth </p>
+                <p class="pub-conference"><em>Advances in Neural Information Processing Systems (NeurIPS)</em>, 2023. </p>
+                <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/87dbbdc3a685a97ad28489a1d57c45c1-Abstract-Datasets_and_Benchmarks.html" target="_blank" class="pub-link"> View Publication</a>
+            </li>
         <li>
-            <strong>BIOSCAN-5M: A Multimodal Dataset for Insect Biodiversity</strong>. <br>
-            Authors: Zahra Gharaee, Scott C Lowe, ZeMing Gong, Pablo Millan Arias, Nicholas Pellegrino, Austin T Wang,
-            Joakim Bruslund Haurum, Iuliia Zarubiieva, Lila Kari, Dirk Steinke, Graham W Taylor, Paul Fieguth, Angel X Chang <br>
-            <em>Advances in Neural Information Processing Systems (NeurIPS)</em>, 2024. <br>
-            <a href="https://arxiv.org/abs/2406.12723" target="_blank">View Publication</a>
-        </li>
-        <li>
-            <strong>A Step Towards Worldwide Biodiversity Assessment: The Bioscan-1M Insect Dataset</strong>. <br>
-            Authors: Zahra Gharaee, ZeMing Gong, Nicholas Pellegrino, Iuliia Zarubiieva, Joakim Bruslund Haurum,
-            Scott Lowe, Jaclyn McKeown, Chris Ho, Joschka McLeod, Yi-Yun Wei, Jireh Agda, Sujeevan Ratnasingham,
-            Dirk Steinke, Angel Chang, Graham W Taylor, Paul Fieguth <br>
-            <em>Advances in Neural Information Processing Systems (NeurIPS)</em>, 2023. <br>
-            <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/87dbbdc3a685a97ad28489a1d57c45c1-Abstract-Datasets_and_Benchmarks.html" target="_blank">View Publication</a>
-        </li>
-        <li>
-            <strong>Generative Causal Representation Learning for Out-of-Distribution Motion Forecasting</strong>. <br>
-            Authors: Shayan Shirahmad Gale Bagi, Zahra Gharaee, Oliver Schulte, Mark Crowley <br>
-            <em>International Conference on Machine Learning (ICML)</em>, 2023. <br>
-            <a href="https://proceedings.mlr.press/v202/shirahmad-gale-bagi23a.html" target="_blank">View Publication</a>
+            <h3 class="pub-title">Generative Causal Representation Learning for Out-of-Distribution Motion Forecasting</h3>
+            <p class="pub-authors"><strong>Authors:</strong> Shayan Shirahmad Gale Bagi, Zahra Gharaee, Oliver Schulte, Mark Crowley </p>
+            <p class="pub-conference"><em>International Conference on Machine Learning (ICML)</em>, 2023. </p>
+            <a href="https://proceedings.mlr.press/v202/shirahmad-gale-bagi23a.html" target="_blank" class="pub-link">View Publication</a>
         </li>
          <li>
-            <strong>Video Relationship Detection Using Mixture of Experts</strong>. <br>
-            Authors: Ala Shaabana, Zahra Gharaee, Paul Fieguth <br>
-            <em>IEEE Access</em>, 2023. <br>
-            <a href="https://ieeexplore.ieee.org/abstract/document/10070773" target="_blank">View Publication</a>
+            <h3 class="pub-title"> Video Relationship Detection Using Mixture of Experts</h3>
+             <p class="pub-authors"><strong>Authors:</strong> Ala Shaabana, Zahra Gharaee, Paul Fieguth </p>
+             <p class="pub-conference"><em>IEEE Access</em>, 2023. </p>
+            <a href="https://ieeexplore.ieee.org/abstract/document/10070773" target="_blank" class="pub-link">View Publication</a>
         </li>
         <li>
-            <strong>Self-supervised Learning of Object Pose Estimation Using Keypoint Prediction</strong>. <br>
-            Authors: Zahra Gharaee, Felix Järemo Lawin, Per-Erik Forssén <br>
-            <em>arXiv preprint arXiv:2302.07360</em>, 2023. <br>
-            <a href="https://arxiv.org/abs/2302.07360" target="_blank">View Publication</a>
+            <h3 class="pub-title"> Self-supervised Learning of Object Pose Estimation Using Keypoint Prediction</h3>
+            <p class="pub-authors"><strong>Authors:</strong> Zahra Gharaee, Felix Järemo Lawin, Per-Erik Forssén </p>
+            <p class="pub-conference"><em>arXiv preprint arXiv:2302.07360</em>, 2023. </p>
+            <a href="https://arxiv.org/abs/2302.07360" target="_blank" class="pub-link">View Publication</a>
         </li>
          <li>
-            <strong>Graph Representation Learning for Road Type Classification</strong>. <br>
-            Authors: Zahra Gharaee, Shreyas Kowshik, Oliver Stromann, Michael Felsberg <br>
-            <em>Pattern Recognition</em>, 2021. <br>
-            <a href="https://www.sciencedirect.com/science/article/pii/S0031320321003617" target="_blank">View Publication</a>
+             <h3 class="pub-title">Graph Representation Learning for Road Type Classification</h3>
+             <p class="pub-authors"><strong>Authors:</strong> Zahra Gharaee, Shreyas Kowshik, Oliver Stromann, Michael Felsberg </p>
+             <p class="pub-conference"><em>Pattern Recognition</em>, 2021. </p>
+            <a href="https://www.sciencedirect.com/science/article/pii/S0031320321003617" target="_blank" class="pub-link">View Publication</a>
         </li>
          <li>
-            <strong>A Bayesian Approach to Reinforcement Learning of Vision-Based Vehicular Control</strong>. <br>
-            Authors: Zahra Gharaee, Karl Holmquist, Linbo He, Michael Felsberg <br>
-            <em>2020 25th International Conference on Pattern Recognition (ICPR)</em>, 2021. <br>
-            <a href="https://ieeexplore.ieee.org/abstract/document/9412200" target="_blank">View Publication</a>
+             <h3 class="pub-title">A Bayesian Approach to Reinforcement Learning of Vision-Based Vehicular Control</h3>
+             <p class="pub-authors"><strong>Authors:</strong> Zahra Gharaee, Karl Holmquist, Linbo He, Michael Felsberg </p>
+             <p class="pub-conference"><em>25th International Conference on Pattern Recognition (ICPR)</em>, 2021. </p>
+            <a href="https://ieeexplore.ieee.org/abstract/document/9412200" target="_blank" class="pub-link">View Publication</a>
         </li>
 
         <li>
-            <strong>Hierarchical Growing Grid Networks for Skeleton Based Action Recognition</strong>. <br>
-            Authors: Zahra Gharaee <br>
-            <em>Cognitive Systems Research</em>, 2020. <br>
-            <a href="https://www.sciencedirect.com/science/article/pii/S1389041720300243" target="_blank">View Publication</a>
+            <h3 class="pub-title">Hierarchical Growing Grid Networks for Skeleton Based Action Recognition</h3>
+            <p class="pub-authors"><strong>Authors:</strong> Zahra Gharaee </p>
+            <p class="pub-conference"><em>Cognitive Systems Research</em>, 2020. </p>
+            <a href="https://www.sciencedirect.com/science/article/pii/S1389041720300243" target="_blank" class="pub-link">View Publication</a>
         </li>
         <li>
-            <strong>First and Second Order Dynamics in a Hierarchical SOM System for Action Recognition</strong>. <br>
-            Authors: Zahra Gharaee, Peter Gärdenfors, Magnus Johnsson <br>
-            <em>Applied Soft Computing</em>, 2017. <br>
-            <a href="https://www.sciencedirect.com/science/article/abs/pii/S1568494617303502" target="_blank">View Publication</a>
+            <h3 class="pub-title">First and Second Order Dynamics in a Hierarchical SOM System for Action Recognition</h3>
+            <p class="pub-authors"><strong>Authors:</strong> Zahra Gharaee, Peter Gärdenfors, Magnus Johnsson </p>
+            <p class="pub-conference"><em>Applied Soft Computing</em>, 2017. </p>
+            <a href="https://www.sciencedirect.com/science/article/abs/pii/S1568494617303502" target="_blank" class="pub-link">View Publication</a>
         </li>
     </ul>
 </section>
