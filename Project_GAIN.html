@@ -314,30 +314,34 @@ li {
          <section id="Experiments">
             <h2>Experiments</h2>
              <p><strong>Feature Attributes</strong> of the input graph nodes:</p>
-             <li>The length of road segments with 1 dimension.</li>
-              <li> The midpoint coordinates of adjacent start and end nodes in longitude and latitude with 2 dimensions.</li>
-               <li> The geometry sampled to a fixed-length vector of 20 equally distanced points.</li>
-                along the length of road segments, which is subtracted by the midpoint coordinate
-             (i.e. 20 longitudinal and latitudinal distances from the midpoint) and is
-                composed of 40 dimensions.</li>
-               <li> The one-hot-encoding of the speed limits with 13 and 15 standard values for
-                transductive and inductive tasks, respectively.</li>
-            <p></p>
+             <ul>
+                 <li>The length of road segments with 1 dimension.</li>
+                 <li> The midpoint coordinates of adjacent start and end nodes in longitude and latitude with 2 dimensions.</li>
+                 <li> The geometry sampled to a fixed-length vector of 20 equally distanced points.</li>
+                      along the length of road segments, which is subtracted by the midpoint coordinate (i.e. 20 longitudinal and latitudinal distances from the midpoint) and is
+                      composed of 40 dimensions.</li>
+                 <li> The one-hot-encoding of the speed limits with 13 and 15 standard values for
+                    transductive and inductive tasks, respectively.</li>
+             </ul>
              <p><strong>Ground-truth labels</strong>:</p>
-             <li>Class (1): Highway, yes, primary, secondary, motorway-link, trunk-link, primary-link, secondary-link.</li>
-             <li>Class (2): Tertiary, tertiary-link.</li>
-             <li>Class (3): Road, planned, unclassified (minor roads of lower classification than tertiary).</li>
-             <li>Class (4): Residential.</li>
-             <li>Class (5): Living-street</li>
-            <p></p>
+             <ul>
+                 <li>Class (1): Highway, yes, primary, secondary, motorway-link, trunk-link, primary-link, secondary-link.</li>
+                 <li>Class (2): Tertiary, tertiary-link.</li>
+                 <li>Class (3): Road, planned, unclassified (minor roads of lower classification than tertiary).</li>
+                 <li>Class (4): Residential.</li>
+                 <li>Class (5): Living-street</li>
+             </ul>
              <p><strong>Learning Paradigm</strong>:</p>
-             <li>Supervised</li>
-              <li>Unsupervised</li>
-            <p></p>
+             <ul>
+                 <li>Supervised</li>
+                 <li>Unsupervised</li>
+             </ul>>
 
              <p><strong>Tasks</strong>:</p>
-             <li>Train, Validation, and Test Samples in One City Graph</li>
-              <li>Different City Graphs for Train, Validation, and Test</li>
+             <ul>
+                  <li>Transductive: Train, Validation, and Test Samples in One City Graph</li>
+                  <li>Inductive: Different City Graphs for Train, Validation, and Test</li>
+             </ul>
              <iframe src="tables/table_gain_trans_ind.html" style="width: 100%; height: 180px; border: none;"></iframe>
 
              <p><strong>Exhaustive Grid Search </strong></p>
