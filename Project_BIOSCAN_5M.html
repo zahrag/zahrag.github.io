@@ -387,6 +387,12 @@ li {
             text (keys). The cosine similarity is used to find the closest key embedding, and the corresponding
                 taxonomic label is used to classify the query.</p>
 
+            <p> We report top-1 macro accuracy (%) on the test set using different amounts of pre-training data
+                (1 million vs. 5 million records from BIOSCAN-5M) and various combinations of aligned embeddings (image, DNA, and text)
+                during contrastive training. Our results include accuracy for image-to-image, DNA-to-DNA, and image-to-DNA query-key combinations.
+                As a baseline, we provide the results without contrastive learning (no alignment).
+                We report accuracy separately for seen and unseen species, along with the harmonic mean (H.M.) between these values.</p>
+
             <figure class="figure-container">
                     <img src="images/bioscan_clip.png" alt="BS-5M-bert" class="centered-image" width="730" height="730">
                     <figcaption class="caption">BIOSCAN-CLIBD model. </figcaption>
