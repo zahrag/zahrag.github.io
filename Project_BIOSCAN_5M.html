@@ -325,6 +325,37 @@ li {
 
         <section id="ML-Benchmark">
             <h2>ML Benchmark</h2>
+            <h3>Data Partition</h3>
+            <ul>
+                <li><b>Seen:</b> Samples whose species label is an established scientific name of a species. Used in
+                closed world settings.</li>
+                <ul>
+                    <li>train</li>
+                    <li>val</li>
+                    <li>test</li>
+                </ul>
+                <li><b>Unseen:</b> labelled with an established scientific name for the genus, and a uniquely identifying placeholder name for the species.
+                Used in open world settings.</li>
+                 <ul>
+                    <li>key_unseen</li>
+                    <li>val_unseen</li>
+                    <li>test_unseen</li>
+                </ul>
+                <li><b>Heldout:</b> labelled with a placeholder genus and species name. Used in novelty detection.</li>
+                 <ul>
+                    <li>other_heldout</li>
+                </ul>
+                <li><b>Unknown:</b> samples without a species label.
+                Used in self- and semi-supervised learning.</li>
+                 <ul>
+                    <li>pretrain</li>
+                </ul>
+            </ul>
+            <figure class="figure-container">
+                    <img src="images/split_plot.png" alt="split" class="centered-image" width="500" height="500">
+                    <figcaption class="caption">Data split distribution to facilitate closed world and open world settings. </figcaption>
+            </figure>
+
             <h3>Barcode-BERT: DNA Sequence Classification</h3>
             <p>Two stages of the proposed semi-supervised learning set-up based on BarcodeBERT <a href="https://arxiv.org/abs/2311.02401" target="_blank">Arias et al. (2023)</a>.
             (1) Pretraining: DNA sequences are tokenized using non-overlapping k-mers and 50% of the tokens
@@ -348,19 +379,36 @@ li {
                     <img src="images/bioscan_zsc_n1.png" alt="BS-5M-bert" class="centered-image" width="730" height="730">
                     <figcaption class="caption">Zero-shot clustering. </figcaption>
                 </figure>
-            <h3>BIOSCAN-CLIP: Multi-modal Contrastive Learning</h3>
-            <p>Our experiments using the BIOSCAN-CLIP <a href="https://arxiv.org/abs/2405.17537" target="_blank">Gong et al. (2024)</a> are conducted in two steps. (1) Training:
+            <h3>BIOSCAN-CLIBD: Multi-modal Contrastive Learning</h3>
+            <p>Our experiments using the BIOSCAN-CLIBD <a href="https://arxiv.org/abs/2405.17537" target="_blank">Gong et al. (2024)</a> are conducted in two steps. (1) Training:
             Multiple modalities, including RGB images, textual taxonomy, and DNA sequences, are encoded
             separately, and trained using a contrastive loss function. (2) Inference: Image vs DNA embedding
             is used as a query, and compared to the embeddings obtained from a database of image, DNA and
             text (keys). The cosine similarity is used to find the closest key embedding, and the corresponding
                 taxonomic label is used to classify the query.</p>
 
-            <p>The results are presented in <a href="https://arxiv.org/abs/2406.12723" target="_blank">Gharaee et al. (2024)</a></p>
             <figure class="figure-container">
                     <img src="images/bioscan_clip.png" alt="BS-5M-bert" class="centered-image" width="730" height="730">
-                    <figcaption class="caption">BIOSCAN-CLIP model. </figcaption>
-                </figure>
+                    <figcaption class="caption">BIOSCAN-CLIBD model. </figcaption>
+            </figure>
+            <h4>BIOSCAN-CLIBD predicting <b>orders</b></h4>
+            <figure class="figure-container">
+                    <img src="images/bar_Order.png" alt="split" class="centered-image" width="1000" height="1000">
+            </figure>
+            <h4>BIOSCAN-CLIBD predicting <b>families</b></h4>
+             <figure class="figure-container">
+                    <img src="images/bar_Family.png" alt="BS-5M-bert" class="centered-image" width="1000" height="1000">
+            </figure>
+            <h4>BIOSCAN-CLIBD predicting <b>genus</b></h4>
+             <figure class="figure-container">
+                    <img src="images/bar_Genus.png" alt="BS-5M-bert" class="centered-image" width="1000" height="1000">
+            </figure>
+            <p></p>
+            <h4>BIOSCAN-CLIBD predicting <b>species</b></h4>
+             <figure class="figure-container">
+                    <img src="images/bar_Species.png" alt="BS-5M-bert" class="centered-image" width="1000" height="1000">
+            </figure>
+            <p>The results details are presented in <a href="https://arxiv.org/abs/2406.12723" target="_blank">Gharaee et al. (2024)</a></p>
         </section>
 
 
