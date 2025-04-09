@@ -184,8 +184,14 @@ nav ul li a:hover {
 /* Hover effect on the expertise boxes */
 .expertise-list li:hover {
     background-color: #e0e0e0; /* Slightly darker grey on hover */
-    cursor: pointer; /* Pointer cursor on hover */
+    /*cursor: pointer; /* Pointer cursor on hover */
 }
+/* If to remove cursor effect
+.expertise-list li {
+    user-select: none;    /* Prevent text selection */
+/*    pointer-events: none; /* Prevent interaction (click, drag) */
+/*}*/
+
 
 
 #about h2 {
@@ -679,6 +685,41 @@ h2 {
 }
 
 
+/*################ Certificates ##############*/
+
+/* New styles for the skills items */
+.skill-item {
+    display: flex; /* Flexbox for vertical stacking of heading and list */
+    flex-direction: column; /* Stack the heading and list vertically */
+}
+
+.skill-item h4 {
+    text-align: center; /* Center the heading text */
+    margin: 0 0 5px 0; /* Space below the heading */
+    font-size: 1.1em; /* Slightly larger font size for headings */
+    color: #4682B4; /* Dark text color */
+}
+
+.skill-item ul {
+    list-style-type: disc; /* Use bullet points */
+    padding-left: 20px; /* Indentation for the list */
+    margin: 0; /* Remove default margin */
+    text-align: center; /* Center align the list items if desired */
+}
+
+.skill-item li {
+    margin-bottom: 3px; /* Space between list items */
+    font-size: 0.9em; /* Slightly smaller font size */
+    color: #555; /* Color for list items */
+    text-align: center; /* Center align text in list items if desired */
+}
+
+/* Hover effect on the expertise boxes */
+.skill-list li:hover {
+    background-color: #e0e0e0; /* Slightly darker grey on hover */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
 
 /* ############### Links ###############*/
 .social-links {
@@ -747,8 +788,9 @@ h2 {
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
-      <li><a href="#talk">Talks</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#certificate">Certificates</a></li>
+      <li><a href="#talk">Talks</a></li>
       <li><a href="#pub">Publications</a></li>
 
     </ul>
@@ -762,8 +804,7 @@ h2 {
             <img src="images/ZahraGharaee.jpeg" alt="Your Name" class="profile-photo">
             <div class="contact-info">
                 <h2>Zahra Gharaee, Ph.D.</h2>
-                <p>200 University Ave West </p>
-                <p>Waterloo, ON, Canada N2L 3G1</p>
+                <p>Toronto, ON, Canada</p>
             </div>
             <div class="social-links">
 
@@ -810,11 +851,13 @@ h2 {
             <li>Biotechnology</li>
             <li>Neural Networks </li>
             <li>Deep Learning </li>
+            <li>LLMs</li>
             <li>Computer Vision</li>
             <li>Pattern Recognition</li>
             <li>Feature Engineering</li>
             <li>Big Data Analytics</li>
             <li>Statistical Processing</li>
+            <li>Data Science</li>
             <li>Supervised Learning</li>
             <li>Classification</li>
             <li>Unsupervised Learning</li>
@@ -832,89 +875,108 @@ h2 {
 <section id="experience">
   <h2>Experience</h2>
     <div class="experience-grid">
-         <div class="experience-card">
-            <h3 class="title">Research Associate</h3>
-            <p class="date">11/2024 - Current</p>
-            <h3 class="lab">Vision and Image Processing Lab (VIP)</h3>
-            <h3 class="location">University of Waterloo, Waterloo, Canada</h3>
-        </div>
-
-       <div class="experience-card">
-           <h3 class="title">Research Fellow</h3>
-            <p class="date">02/2022 - 11/2024</p>
-            <h3 class="lab">Vision and Image Processing Lab (VIP)</h3>
-            <h3 class="location">University of Waterloo, Waterloo, Canada</h3>
-           <ul>
-        <li>
-            <strong>Releasing and Benchmarking Multimodal Datasets for ML Applications</strong>
+    <!-- Research Associate Card -->
+    <div class="experience-card">
+        <h3 class="title">Research Associate</h3>
+        <p class="date">11/2024 - Current</p>
+        <p class="lab">Vision and Image Processing Lab (VIP)</p>
+        <p class="location">University of Waterloo, Waterloo, Canada</p>
+        <section class="tasks">
+            <h4>Key Contributions</h4>
             <ul>
-                <li>Collaborative projects across multiple partners.</li>
-                <li>Led data science projects involving data structures, data solutions, data migration, and data governance.</li>
-                <li>Generated metadata while performing big data analytics and processing.</li>
-                <li>Leveraged vision software and libraries for machine learning applications, including image classification.</li>
-                <li>Released multi-modal datasets; over 1 million, and over 5 million on research and data sharing platforms (e.g., Zenodo, Kaggle, and Hugging Face).</li>
-                <li>Released two code repositories on version control systems (e.g., Git) and gained familiarity with AWS.</li>
-                <li>Benchmarked image classification against baselines (ResNet50 and Transformers) by leveraging transfer learning.</li>
-                <li>Fine-tuned backbone models and achieved over 90% accuracy (Micro-F1, Macro-F1) on large-scale datasets.</li>
-                <li>Published articles in NeurIPS 2023 and NeurIPS 2024.</li>
-                <li>For more details, please visit <a href="#projects" class="pub-link">BIOSCAN-1M</a> and <a href="#projects" class="pub-link">BIOSCAN-5M</a></li>
-
+                <li>Leading the application of machine learning models for image classification and processing.</li>
+                <li>Developing multimodal datasets for various AI applications.</li>
+                <li>Collaborating with cross-functional teams to enhance research quality and outcomes.</li>
             </ul>
+        </section>
+    </div>
 
-        </li>
-        <li>
-            <strong>Image and Video Processing</strong>
+    <!-- Research Fellow Card -->
+    <div class="experience-card">
+        <h3 class="title">Research Fellow</h3>
+        <p class="date">02/2022 - 11/2024</p>
+        <p class="lab">Vision and Image Processing Lab (VIP)</p>
+        <p class="location">University of Waterloo, Waterloo, Canada</p>
+        <section class="tasks">
+            <h4>Releasing and Benchmarking Multimodal Datasets for ML Applications</h4>
             <ul>
-                <li>In collaboration with the Microsoft Media Group.</li>
-                <li>Authored a paper on video object's relationship detection, which enhanced detection performance by about 4% (IEEE 2023). </li>
-                <li>Mentored research project about applying Transformers on super-pixels for efficient salient object detection (SOD). </li>
-                <li>For more details, please visit <a href="#projects" class="pub-link">MoE-VRD</a> and <a href="#projects" class="pub-link">SuperFormer</a></li>
+                <li>Collaborated with multiple partners on large-scale multimodal datasets.</li>
+                <li>Led data science projects involving data structures, migration, and governance.</li>
+                <li>Released datasets (>1 million) on research platforms like Zenodo, Kaggle, and Hugging Face.</li>
+                <li>Benchmarked image classification models (ResNet50, Transformers) and achieved over 90% accuracy.</li>
+                <li>Published articles in NeurIPS 2023 and 2024.</li>
             </ul>
-        </li>
-        <li>
-            <strong>Causality</strong>
+            <p>For more details, visit:
+                <a href="#projects" class="pub-link">BIOSCAN-1M</a> &
+                <a href="#projects" class="pub-link">BIOSCAN-5M</a>
+            </p>
+        </section>
+
+        <section class="tasks">
+            <h4>Image and Video Processing</h4>
             <ul>
-                <li>In collaboration with the Department of ECE University of Waterloo.</li>
-                <li>Mentored a project on generative causal inference, which enhanced domain generalization by about 8.8%. </li>
-                <li>Published an article in ICML 2023.</li>
-                <li>For more details, please visit <a href="#projects" class="pub-link">Causality</a></li>
+                <li>Collaborated with the Microsoft Media Group on video object detection.</li>
+                <li>Authored a paper on enhancing detection performance by ~4% (IEEE 2023).</li>
+                <li>Mentored a research project applying Transformers to super-pixels for efficient salient object detection.</li>
             </ul>
-        </li>
-    </ul>
-       </div>
-        <div class="experience-card">
-            <h3 class="title">Postdoc</h3>
-            <p class="date">09/2018 - 02/2022</p>
-            <h3 class="lab">Computer Vision Lab (CVL)</h3>
-            <h3 class="location">Linköping University, Linköping, Sweden </h3>
+            <p>For more details, visit:
+                <a href="#projects" class="pub-link">MoE-VRD</a> &
+                <a href="#projects" class="pub-link">SuperFormer</a>
+            </p>
+        </section>
+
+        <section class="tasks">
+            <h4>Causality Research</h4>
             <ul>
-        <li>
-            <strong>Autonomous driving from virtual to the real-world</strong>
+                <li>Collaborated with the Department of ECE, University of Waterloo.</li>
+                <li>Mentored a project on generative causal inference, enhancing domain generalization by 8.8%.</li>
+                <li>Published research in ICML 2023.</li>
+            </ul>
+            <p>For more details, visit:
+                <a href="#projects" class="pub-link">Causality</a>
+            </p>
+        </section>
+    </div>
+</div>
+
+        <div class="experience-grid">
+    <!-- Postdoc Card -->
+    <div class="experience-card">
+        <h3 class="title">Postdoc</h3>
+        <p class="date">09/2018 - 02/2022</p>
+        <p class="lab">Computer Vision Lab (CVL)</p>
+        <p class="location">Linköping University, Linköping, Sweden</p>
+        <section class="tasks">
+            <h4>Autonomous Driving from Virtual to Real-World</h4>
             <ul>
-                <li>In collaboration with the WASP and SCANIA</li>
-                <li>Managed projects on road network graph learning and reinforcement learning for autonomous driving.</li>
-                <li>Developed, debugged, and executed ML experiments in cloud, parallel computing, and bash environments.</li>
-                <li>Enhanced graph representation learning for unsupervised transductive by 2% and supervised inductive by 10%.</li>
-                <li>Collected, curated, and released geospatial data from OpenStreetMap (OSMnx) for 18 Swedish cities.</li>
+                <li>Collaborated with WASP and SCANIA on autonomous driving research.</li>
+                <li>Managed projects focusing on road network graph learning and reinforcement learning.</li>
+                <li>Developed, debugged, and executed ML experiments using cloud, parallel computing, and bash environments.</li>
+                <li>Enhanced graph representation learning for unsupervised transductive tasks by 2% and supervised inductive tasks by 10%.</li>
+                <li>Curated and released geospatial data from OpenStreetMap (OSMnx) for 18 Swedish cities.</li>
                 <li>Released two code repositories on Git.</li>
                 <li>Published articles in Pattern Recognition 2021 and ICPR 2021.</li>
-                <li>For more details, please visit <a href="#projects" class="pub-link">BRL-VBVC</a> and <a href="#projects" class="pub-link">GAIN</a></li>
-
             </ul>
-        </li>
-        <li>
-            <strong>Single-image reconstruction of 3D shape, texture, and camera pose</strong>
+            <p>For more details, visit:
+                <a href="#projects" class="pub-link">BRL-VBVC</a> &
+                <a href="#projects" class="pub-link">GAIN</a>
+            </p>
+        </section>
+
+        <section class="tasks">
+            <h4>Single-Image Reconstruction of 3D Shape, Texture, and Camera Pose</h4>
             <ul>
                 <li>Developed and implemented predictive models for self-supervised 3D shape estimation.</li>
-                <li>Enhanced Mean-IoU about 8%, and reduced 3D-Angular-Error of the pose about 5° for the CUB dataset.</li>
+                <li>Improved Mean-IoU by 8% and reduced 3D-Angular-Error of the pose by 5° for the CUB dataset.</li>
                 <li>Released code repository on Git.</li>
-                <li>For more details, please visit <a href="#projects" class="pub-link">SLOPE-KP</a></li>
             </ul>
-        </li>
-    </ul>
-      </div>
-
+            <p>For more details, visit:
+                <a href="#projects" class="pub-link">SLOPE-KP</a>
+            </p>
+        </section>
     </div>
+</div>
+
 </section>
 
 <section id="projects">
@@ -1021,32 +1083,6 @@ h2 {
 </section>
 
 
-
-<section id="talk">
-  <h2>Public Speaking</h2>
-    <div class="talk-grid">
-      <div class="talk-card">
-              <h3><a href="https://wildlabs.net/event/computational-entomology-webinar-iii-processing-liquid-samples" class="pub-link" target="_blank">Computational Entomology Webinar III: Processing liquid samples</a> </h3>
-          <p class="date">06/2024</p>
-          <h3 class="thesis"> <strong>About: </strong>Computer vision and robotic tools to automatically process insect specimens stored in liquid samples.</h3>
-          <h3 class="location">Vancouver, Canada</h3>
-
-      </div>
-        <div class="talk-card">
-              <h3><a href="https://event.fourwaves.com/geobon-2023/pages" class="pub-link" target="_blank">GEO BON Global Conference: Monitoring Biodiversity for Action</a></h3>
-            <p class="date">10/2023</p>
-           <h3 class="thesis"> <strong>About: </strong>AI for Insect Monitoring.</h3>
-            <h3 class="location">Montreal, Canada</h3>
-      </div>
-        <div class="talk-card">
-              <h3><a href="https://linkopingsciencepark.se/event/liu-game-conference-2018-by-linkopings-universitet/" class="pub-link" target="_blank">LiU Game Conference</a></h3>
-            <p class="date">11/2018</p>
-            <h3 class="thesis"> <strong>About: </strong>Computer games, visualization and digital experiences.</h3>
-            <h3 class="location">Linköping, Sweden</h3>
-      </div>
-    </div>
-</section>
-
 <section id="skills">
     <h2>Skills</h2>
     <ul class="expertise-list">
@@ -1082,7 +1118,7 @@ h2 {
 
      <li>
         <div class="skill-item">
-            <h4>Natural Language Processing</h4>
+            <h4>Large Language Models (LLMs)</h4>
             <ul>
                 <li>GPT</li>
                 <li>BERT</li>
@@ -1176,6 +1212,48 @@ h2 {
 </section>
 
 
+<section id="certificate">
+  <h2>Certificates</h2>
+    <div class="talk-grid">
+      <div class="talk-card">
+              <h3><a href="https://www.coursera.org/account/accomplishments/verify/O3XPS45R7QMX" class="pub-link" target="_blank">Generative AI with Large Language Models</a> </h3>
+          <p class="date">04/2025</p>
+          <h3 class="thesis"> <strong>Skills: </strong>LLMs, GenAI, AWS, Python</h3>
+          <h3 class="location">Issued by DeepLearning.AI and Amazon Web Services via Coursera.</h3>
+          <ul>
+              <li>Gain foundational knowledge, practical skills, and a functional understanding of how generative AI works</li>
+              <li>Dive into the latest research on Gen AI to understand how companies are creating value with cutting-edge technology</li>
+              <li>Instruction from expert AWS AI practitioners who actively build and deploy AI in business use-cases today</li>
+          </ul>
+      </div>
+    </div>
+</section>
+
+<section id="talk">
+  <h2>Public Speaking</h2>
+    <div class="talk-grid">
+      <div class="talk-card">
+              <h3><a href="https://wildlabs.net/event/computational-entomology-webinar-iii-processing-liquid-samples" class="pub-link" target="_blank">Computational Entomology Webinar III: Processing liquid samples</a> </h3>
+          <p class="date">06/2024</p>
+          <h3 class="thesis"> <strong>About: </strong>Computer vision and robotic tools to automatically process insect specimens stored in liquid samples.</h3>
+          <h3 class="location">Vancouver, Canada</h3>
+
+      </div>
+        <div class="talk-card">
+              <h3><a href="https://event.fourwaves.com/geobon-2023/pages" class="pub-link" target="_blank">GEO BON Global Conference: Monitoring Biodiversity for Action</a></h3>
+            <p class="date">10/2023</p>
+           <h3 class="thesis"> <strong>About: </strong>AI for Insect Monitoring.</h3>
+            <h3 class="location">Montreal, Canada</h3>
+      </div>
+        <div class="talk-card">
+              <h3><a href="https://linkopingsciencepark.se/event/liu-game-conference-2018-by-linkopings-universitet/" class="pub-link" target="_blank">LiU Game Conference</a></h3>
+            <p class="date">11/2018</p>
+            <h3 class="thesis"> <strong>About: </strong>Computer games, visualization and digital experiences.</h3>
+            <h3 class="location">Linköping, Sweden</h3>
+      </div>
+    </div>
+</section>
+
 <section id="pub">
 <h2>Selected Publications</h2>
     <ul class="pub-list">
@@ -1238,7 +1316,6 @@ h2 {
         </li>
     </ul>
 </section>
-
 
 
 
