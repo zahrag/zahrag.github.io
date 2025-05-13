@@ -213,55 +213,58 @@ nav ul li a:hover {
 }
 
 /*############## Project ##########*/
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 20px;
-  padding: 20px 0;
-}
-
-/* Project card styling */
 .project-card {
-   /*background-color: #B0E0E6; /* #F3F3FF Background color of the card */
-  /*border: 1px solid #ddd;*/
-  background-color: #f0f0f0; /* Light grey background */
-  border: 1px solid #dcdcdc; /* Light grey border */
-  border-radius: 10px;
+  display: flex;
+  align-items: flex-start; /* aligns top of image and text */
+  gap: 20px; /* adds space between image and text */
+  margin-bottom: 30px;
   padding: 15px;
-  text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-  height: 560px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-/* Project card image styling */
+/* Image */
 .project-card img {
-  width: 100%; /*400px; /* Fixed width for images */
-  height: 100%; /*400px; /* Fixed height for images */
-  object-fit: cover; /* Ensures the image fits the space without distortion */
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 10px;
-  margin: 0 auto; /* Centering the image */
-  display: block; /* Makes the image a block element for centering */
+  flex-shrink: 0;
 }
 
-/* Project card heading styling */
-.project-card h3 {
-  margin: 15px 0 10px;
+/* Text content */
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Project card paragraph styling */
-.project-card p {
-  color: #555;
-  height: 40px; /* Fixed height for descriptions */
-  overflow: hidden; /* Hide overflow if the text is too long */
-  text-overflow: ellipsis;
-}
+/* Title */
 .project-title {
-    text-align: center;
-}
-.project-card kw {
-    font-size: 1em; /* Adjust font size */
+  font-size: 1.3em;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: #4682B4;
 }
 
+.project-title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Paragraphs */
+.project-content p {
+  color: #555;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+
+/* Center title if needed globally */
+.project-title {
+  text-align: center;
+}
 
 /*########## EXPERIENCE ##############*/
 
@@ -981,74 +984,83 @@ h2 {
 
 <section id="projects">
   <h2>Projects</h2>
-  <div class="project-grid">
-      <div class="project-card">
-          <a href="Project_BIOSCAN_1M.html" class="pub-link">
-              <img src="images/insect_1M.jpg" alt="BIOSCAN-1M">
-              <h3 class="project-title">BIOSCAN-1M</h3>
-          </a>
-          <p class="thesis"> <strong>About: </strong>Introducing, studying, and benchmarking the BIOSCAN-1M Insect dataset.</p>
-          <p class="kw"> <strong>Keywords:</strong> Biotechnology, Data management, Big data analytics, Classification, Transfer Learning.</p>
 
+     <div class="project-card">
+      <img src="images/insect_1M.jpg" alt="BIOSCAN-1M">
+      <div class="project-content">
+            <h3 class="project-title"> <a href="Project_BIOSCAN_1M.html" class="pub-link">BIOSCAN-1M</a> </h3>
+            <p class="thesis"> <strong>About:</strong> Introducing, studying, and benchmarking the BIOSCAN-1M Insect dataset.</p>
+            <p class="kw"> <strong>Keywords:</strong> Biotechnology, Data management, Big data analytics, Classification, Transfer Learning. </p>
       </div>
-      <div class="project-card">
-          <a href="Project_BIOSCAN_5M.html" class="pub-link">
-              <img src="images/bioscan5m.webp" alt="BIOSCAN-5M">
-              <h3 class="project-title">BIOSCAN-5M</h3>
-          </a>
-          <p class="thesis"> <strong>About: </strong>Introducing, studying, and benchmarking the BIOSCAN-5M multimodal dataset.</p>
-          <p class="kw"> <strong>Keywords:</strong> Biotechnology, Data management, Big data analytics, Statistical processing, Feature engineering.</p>
-      </div>
-      <div class="project-card">
-          <a href="Project_SuperFormer.html" class="pub-link">
-              <img src="images/img_superpixel.png" alt="SuperFormer">
-              <h3 class="project-title">SuperFormer</h3>
-          </a>
-          <p class="thesis"> <strong>About: </strong>A Transformer-based model that leverages superpixels for efficient Salient Object Detection (SOD).</p>
-          <p class="kw"> <strong>Keywords:</strong> Computer vision, Salient object detection, Efficient model, Fine-tuning.</p>
-      </div>
-      <div class="project-card">
-          <a href="Project_SLOPE_KP.html" class="pub-link">
-              <img src="images/slope_kp_img.webp" alt="SLOPE_KP">
-              <h3 class="project-title">SLOPE-KP</h3>
-          </a>
-          <p class="thesis"> <strong>About: </strong>An approach to self-supervised learning of object pose estimation by keypoints prediction.</p>
-          <p class="kw"> <strong>Keywords:</strong> Computer vision, 3D shape reconstruction, Pose estimation, 3D rotation. </p>
-      </div>
-      <div class="project-card">
-          <a href="Project_ViDVRD_MoE.html" class="pub-link">
-              <img src="images/ViDVRD_MoE.webp" alt="MoE-VRD">
-              <h3 class="project-title">MoE-VRD</h3>
-          </a>
-          <p class="thesis"> <strong>About: </strong>An approach to video relationship detection using mixture of experts.</p>
-          <p class="kw"> <strong>Keywords:</strong> Computer Vision, Video relationship detection, Mixture of experts.</p>
-      </div>
-      <div class="project-card">
-          <a href="Project_GAIN.html" class="pub-link">
-              <img src="images/gain.webp" alt="GAIN">
-              <h3 class="project-title">GAIN</h3>
-          </a>
-          <p class="thesis"> <strong>About: </strong>An approach to graph representation learning.</p>
-          <p class="kw"> <strong>Keywords:</strong> Graph convolutional neural networks, Representation learning,  Geospatial data analysis.</p>
-      </div>
+    </div>
 
-       <div class="project-card">
-          <a href="Project_Causality.html" class="pub-link">
-              <img src="images/casality_img.webp" alt="Causality">
-              <h3 class="project-title">Causality</h3>
-          </a>
-          <p class="thesis"> <strong>About: </strong>Two approaches to generative and implicit causal representation learning.</p>
-           <p class="kw"> <strong>Keywords:</strong> Causal inference, Generative models, Interventions, Variational autoencoders.</p>
+
+    <div class="project-card">
+      <img src="images/bioscan5m.webp" alt="BIOSCAN-5M">
+      <div class="project-content">
+            <h3 class="project-title"> <a href="Project_BIOSCAN_5M.html" class="pub-link">BIOSCAN-5M</a> </h3>
+            <p class="thesis"> <strong>About: </strong>Introducing, studying, and benchmarking the BIOSCAN-5M multimodal dataset.</p>
+            <p class="kw"> <strong>Keywords:</strong> Biotechnology, Data management, Big data analytics, Statistical processing, Feature engineering.</p>
       </div>
-      <div class="project-card">
-          <a href="Project_BRL_VBVC.html" class="pub-link">
-              <img src="images/brl_vbvc.webp" alt="BRL_VBVC">
-              <h3 class="project-title">Autonomous Driving</h3>
-          </a>
-          <p class="thesis"> <strong>About: </strong>An approach to Bayesian Reinforcement Learning of vision-based vehicular control.</p>
-          <p class="kw"> <strong>Keywords:</strong> Autonomous systems, Reinforcement learning, Simulated environment.</p>
+    </div>
+
+
+    <div class="project-card">
+      <img src="images/img_superpixel.png" alt="SuperFormer">
+      <div class="project-content">
+            <h3 class="project-title"> <a href="Project_SuperFormer.html" class="pub-link">SuperFormer</a> </h3>
+            <p class="thesis"> <strong>About: </strong>A Transformer-based model that leverages superpixels for efficient Salient Object Detection (SOD).</p>
+            <p class="kw"> <strong>Keywords:</strong> Computer vision, Salient object detection, Efficient model, Fine-tuning.</p>
       </div>
-  </div>
+    </div>
+
+     <div class="project-card">
+      <img src="images/slope_kp_img.webp" alt="SLOPE-KP">
+      <div class="project-content">
+            <h3 class="project-title"> <a href="Project_SLOPE_KP.html" class="pub-link">SLOPE-KP</a> </h3>
+            <p class="thesis"> <strong>About: </strong>An approach to self-supervised learning of object pose estimation by keypoints prediction.</p>
+            <p class="kw"> <strong>Keywords:</strong> Computer vision, 3D shape reconstruction, Pose estimation, 3D rotation. </p>
+      </div>
+    </div>
+
+
+     <div class="project-card">
+      <img src="images/ViDVRD_MoE.webp" alt="MoE-VRD">
+      <div class="project-content">
+            <h3 class="project-title"> <a href="Project_ViDVRD_MoE.html" class="pub-link">MOE-VRD</a> </h3>
+            <p class="thesis"> <strong>About: </strong>An approach to video relationship detection using mixture of experts.</p>
+            <p class="kw"> <strong>Keywords:</strong> Computer Vision, Video relationship detection, Mixture of experts.</p>
+      </div>
+    </div>
+
+
+    <div class="project-card">
+      <img src="images/gain.webp" alt="GAIN">
+      <div class="project-content">
+            <h3 class="project-title"> <a href="Project_GAIN.html" class="pub-link">GAIN</a> </h3>
+              <p class="thesis"> <strong>About: </strong>An approach to graph representation learning.</p>
+             <p class="kw"> <strong>Keywords:</strong> Graph convolutional neural networks, Representation learning,  Geospatial data analysis.</p>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <img src="images/casality_img.webp" alt="Causality">
+      <div class="project-content">
+            <h3 class="project-title"> <a href="Project_Causality.html" class="pub-link">Causality</a> </h3>
+            <p class="thesis"> <strong>About: </strong>Two approaches to generative and implicit causal representation learning.</p>
+            <p class="kw"> <strong>Keywords:</strong> Causal inference, Generative models, Interventions, Variational autoencoders.</p>
+      </div>
+    </div>
+
+   <div class="project-card">
+      <img src="images/brl_vbvc.webp" alt="BRL-VBVC">
+      <div class="project-content">
+            <h3 class="project-title"> <a href="Project_BRL_VBVC.html" class="pub-link">BRL-VBVC</a> </h3>
+            <p class="thesis"> <strong>About: </strong>An approach to Bayesian Reinforcement Learning of vision-based vehicular control.</p>
+            <p class="kw"> <strong>Keywords:</strong> Autonomous systems, Reinforcement learning, Simulated environment.</p>
+      </div>
+    </div>
+
 </section>
 
 
