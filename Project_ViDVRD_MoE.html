@@ -11,7 +11,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science - My Portfolio</title>
+    <title>MoE-VRD Portfolio</title>
 <style>
 
 body {
@@ -83,14 +83,11 @@ header {
 
 
 footer {
-    background-color: #282c34;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    position: relative;
-    margin-top: auto; /* Push footer to the bottom of the page */
-}
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #aaa;
+    }
 
 img {
     height: auto;
@@ -129,16 +126,16 @@ img {
 }
 
 h2 {
-    border-bottom: 2px solid #282c34; /* Changed from blue to top bar color */
+    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
-
-h3 {
+h4 {
     border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
     padding-bottom: 5px;
     margin-bottom: 20px;
 }
+
 
 li {
     margin-bottom: 3px; /* Adjust this value to control the vertical space */
@@ -146,314 +143,323 @@ li {
 </style>
 
 </head>
-<body>
-    <header>
-        <div class="header-container">
-            <h1>Computer Vision Project: MoE-VRD</h1>
-        </div>
-    </header>
 
-    <aside class="sidebar">
+<body>
+  <header>
+    <h1>Computer Vision Project: MoE-VRD</h1>
+  </header>
+
+  <aside class="sidebar">
     <nav>
-        <a href="index.html" style="margin-right: 20px;">Home</a>
-        <a href="#Overview">Overview</a>
-        <a href="#VRD">Video Relationship Detection</a>
-        <a href="#MoE">Mixture-of-Experts</a>
-        <a href="#MoE-VRD">MoE-VRD Architecture</a>
-        <a href="#Experiments">Experiments & Results</a>
-        <a href="#Tools-and-Technologies">Tools and Technologies</a>
-        <a href="#Links">Links</a>
+      <a href="index.html" style="margin-right: 20px;">Home</a>
+      <a href="#description">Project Description</a>
+      <a href="#contributions">Key Contributions</a>
+      <a href="#tools">Tools & Technologies</a>
+      <a href="#code">Code / Git</a>
+      <a href="#research">Research / Paper</a>
+      <a href="#presentation">Presentation</a>
+      <a href="#additional-context"> Additional Context</a>
+      <ul>
+        <li><a href="#VRD"> Video Relationship Detection</a></li>
+        <li><a href="#MoE"> Sparsely Gated Mixture-of-Experts</a></li>
+        <li><a href="#MoE-VRD"> Video Relationship Detection by Mixture-of-Experts</a></li>
+        <li><a href="#Experiments"> Experiments & Results</a></li>
+
+      </ul>
     </nav>
-</aside>
+  </aside>
 
 
     <main class="content">
-        <section id="Overview">
-            <h2>Overview</h2>
-            <figure class="figure-container">
+    <section id="description">
+      <h2>Project Description</h2>
+      <figure class="figure-container">
                 <img src="images/ViDVRD_MoE.webp" alt="SLOP-KP" class="centered-image" width="500" height="500">
                 <figcaption class="caption">\(< \text{The human} >\) \(< \text{kicks} >\) \(< \text{the ball} >\).</figcaption>
-            </figure>
-            <p>The <b>ViDVRD-MoE: Video Relationship Detection Using Mixture of Experts</b> outlines advancements in
-                detecting the relationship in visual data (e.g., videos). There is a significant computational and
-                inference gap in connecting vision and language, complicating the identification of objects that
-                agents act upon and their linguistic representation. Additionally, classifiers trained using a single,
-                monolithic neural network often lack stability and generalization.
-                To address these challenges, MoE-VRD, a novel approach to visual relationship detection
-                that utilizes a mixture of experts. MoE-VRD identifies relationships through language triplets in
-                the form of \( < \text{subject}, \text{predicate}, \text{object}>\) tuples, enhancing action recognition between subjects and objects.
-                Unlike traditional monolithic networks, MoE-VRD employs multiple small expert models whose outputs are aggregated.
-                Each expert specializes in visual relationship learning and object tagging.
-                By leveraging a sparsely-gated mixture of experts, MoE-VRD enables conditional
-                computation and significantly increases neural network capacity without adding to computational complexity.
+      </figure>
+        <b>ViDVRD-MoE: Video Relationship Detection Using Mixture of Experts</b> introduces a novel approach for detecting
+                relationships in video data by addressing key challenges at the intersection of vision and language.
+                Traditional monolithic classifiers often struggle with generalization and stability,
+                particularly in capturing object interactions and their linguistic representations. MoE-VRD tackles
+                this by using a mixture of lightweight expert models, each specialized in visual relationship learning
+                and object tagging. Relationships are expressed as language triplets (\(<\)subject, predicate, object\(>\)),
+                enhancing action recognition between entities. Through sparsely-gated conditional computation,
+                MoE-VRD boosts model capacity without increasing computational complexity.
             </p>
+    </section>
 
-        </section>
+<section id="contributions">
+  <h2>Key Contributions</h2>
+    <ul>
+    <li>Developed a framework for contextualizing visual data through textual descriptions by identifying actions in scenes and modeling relationships between subjects and objects.</li>
+        <li>Collaborated with cross-industry, multi-partner teams, including Microsoft Media Group, on video analysis and image processing research.</li>
+        <li>Participated in regular meetings with the industry partner (Microsoft Media Group) to align project goals with their needs and communicate our capabilities.</li>
+        <li>Attended weekly project meetings to present progress, exchange ideas, and provide feedback to other research teams.</li>
+        <li>Evaluated and refined the MoE-VRD architecture and implementation for improved scene understanding.</li>
+        <li>Reviewed experimental design and reported key findings.</li>
+        <li>Led major revisions and served as the corresponding author, rewriting the article and presentation for publication.</li>
+        <li>Conducted a comprehensive literature review to strengthen the research context and support dissemination.</li>
+    </ul>
+</section>
 
-        <section id="VRD">
-            <h2>Video Relationship Detection</h2>
-            <p>In this section, I will explain the fundamentals of the video relationship detection approach utilized in
-                our model architecture. </p>
-             <p></p>
-            <figure class="figure-container">
-                <img src="images/VRD_new.png" alt="mean_shape" class="centered-image" width="1000" height="700">
-                <figcaption class="caption">Video Visual Relationship Detection Module.</figcaption>
-            </figure>
+    <section id="tools">
+      <h2>Tools & Technologies</h2>
+    <ul>
+      <li>Python, PyTorch, TensorFlow, Pandas, NumPy, Torchvision </li>
+      <li>OpenCV, scikit-learn, PIL (Pillow)</li>
+      <li>Matplotlib (mpl_toolkits), Seaborn, Plotly</li>
+    </ul>
+    </section>
 
-            <h3> Problem Formulation </h3>
-            <p>Assume a set of three entities \( \mathbb{E} = \{e_1, e_2, e_3\} \), which represent Subject \(e_1\), predicate
-            \(e_2\), and object \(e_3\), with their corresponding features \( \mathbb{F} = \{f_{e_1}, f_{e_2}, f_{e_3}\} \)
-            to build the language triplet \( < \text{subject}, \text{predicate}, \text{object}>\). We model the problem of
-                video visual relationship detection as the joint probability of:</p>
-            <p style="text-align: center;">
-            \( \text{P}(< e_1, e_2, e_3 > | < f_{e_1}, f_{e_2}, f_{e_3} >)  \),
-            </p>
-
-            <p>where we factorized this joint probability as follows:</p>
-
-            <p style="text-align: center;">
-            \( \text{P}(e_1| f_{e_1}, e_2, e_3) \cdot \text{P}(e_2| f_{e_2}, e_1, e_3) \cdot \text{P}(e_3| f_{e_3}, e_1, e_2) \),
-            </p>
-            <p>to aid in inference time when there is ambiguous visual information, since the classes of any two components
-                imply a preference over the class of the third. Each of these three conditional probabilities is
-                modelled by a classifier consisting of a <b>visual predictor</b> and a <b>preferential predictor</b>.</p>
-
-            <p>The visual predictor is a deep neural network, which learns visual patterns of the subject, predicate, and object.
-                The preferential predictor applies learnable dependency tensors to refine the
-                prediction of one variable conditioned on the values of the other two:</p>
-
-            <p style="text-align: center;">
-                \[
-                e_{pr} = \left\{
-                \begin{aligned}
-                \text{P}(e_1| f_{e_1}, e_2, e_3) &= \Phi (\text{V}_{e_1} \cdot f_{e_1}) + p_{e_2} \cdot \text{W}_{e_1} \cdot p_{e_3} \\
-                \text{P}(e_2| f_{e_2}, e_1, e_3) &= \Phi (\text{V}_{e_2} \cdot f_{e_2}) + p_{e_1} \cdot \text{W}_{e_2} \cdot p_{e_3} \\
-                \text{P}(e_3| f_{e_3}, e_1, e_2) &= \Phi (\text{V}_{e_3} \cdot f_{e_3}) + p_{e_1} \cdot \text{W}_{e_3} \cdot p_{e_2}
-                \end{aligned}
-                \right\}
-                \]
-            </p>
-
-            <p>where \(\text{V}_{e_1}\), \(\text{V}_{e_2}\), and \(\text{V}_{e_3}\) are the learnable weights of
-                the visual predictors. In our case study, the weights of the subject and object classifiers are shared, thus
-            \(\text{V}_{e_1} = \text{V}_{e_2}\). On the other hand, for preferential prediction \(\text{W}_{e_1}\), \(\text{W}_{e_2}\),
-                and \(\text{W}_{e_3}\) model the dependency of one class over the other two, separately parametrized for each classifier.
-                \(\Phi\) represents the nonlinear activation, here implemented by a \(\text{Softmax}\) function for the subject and object classes,
-                and a \(\text{Sigmoid}\) function for the predicate class.  </p>
-
-        </section>
-
-         <section id="MoE">
-            <h2>Sparsely Gated Mixture-of-Experts</h2>
-             <p>Our MoE-VRD The MoE consists of a set of N expert networks \(\text{E}_1, \text{E}_2, ..., \text{E}_N\)
-             and one gating network, G, whose output is a sparse binary N -dimensional vector.
-             The experts are themselves identical feed-forward neural networks, each with their own parameters. </p>
-              <figure class="figure-container">
-                <img src="images/MoE.png" alt="mean_shape" class="centered-image" width="900" height="500">
-                <figcaption class="caption">Sparsely Gated Mixture-of-Experts Module.</figcaption>
-            </figure>
-             <p>Given an input \(x\), the output of the ith expert’s function is denoted as \(E_i(x)\).
-                 These N outputs are combined in the MoE layer as:</p>
-             <p style="text-align: center;">
-                \( y = \sum_{i=1}^{N} G(x)_i \cdot E_i(x) \),
-            </p>
-             <p>where \(G(x)_i\) represents the output of the gating network. The sparsity in computation, one of
-                 the key strengths of the MoE approach, is realized by the explicit sparsity of the gating output:
-             </p>
-             <p style="text-align: center;">
-                \( G(x)_i = 0 \quad \text{for most} \quad i \),
-            </p>
-             <p>where if  \( G(x)_i = 0 \) the corresponding expert is eliminated from learning procedure.</p>
-             <p> We adopt a single–layer gating function:</p>
-
-             <p style="text-align: center;">
-                \[
-                G(x)_i = \text{Softmax}\left( {\text{top}_{K}}  \left( \text{W}^{i}_{g} \cdot x + N_g (\text{W}^{i}_{n} \cdot x) \right)  \right),
-                \]
-            </p>
-             <p>where \(\text{top}_K\) selects the K largest values (the best experts), and \(\text{W}^{i}_{g}\) and
-                 \(\text{W}^{i}_{n}\) are trainable gating and noise weight matrices, respectively, which are parametrized for each expert i.
-                 Since the number of samples sent to the gating layer is discrete, and therefore not applicable to
-                 back-propagation, the inclusion of the noise term Ng (x) allows for a smooth estimate of the number
-                 of samples used for each expert in each batch, thus allowing for the back-propagation of gradients. </p>
-
-             <p>The noise function is defined as:</p>
-
-             <p style="text-align: center;">
-                \[
-                 \text{N}_g (x) = \text{StandardNormal}() · \text{Softplus}(x), \quad \text{where} \quad \text{Softplus}(x) = \frac{1}{\beta}
-                 \text{log}(1 + \beta x)
-                \]
-            </p>
-             <p>where \(\text{Softplus}\) is a smooth approximation of the \(\text{ReLU}\) function to constrain the output to be positive.</p>
-             <p>Moreover, an importance term is considered in the overall loss to address imbalances resulting from
-                 the <b>self-reinforcing effect</b> <a href="https://ieeexplore.ieee.org/abstract/document/9362270" target="_blank">Lu et. al (2021)</a>, which occurs when certain favoured experts are trained more rapidly
-                 and thus are selected even more by the gating network.</p>
-             <p>The importance loss is calculated as follows:</p>
-             <p style="text-align: center;">
-                \[
-                 L_{\text{importance}} (x) = \alpha \left( \text{CV}(g) + \text{CV}(l) \right),
-                \]
-            </p>
-             <p>where \(\alpha\) is a hand-tuned scaling factor, g is the batch-wise sum of gate values (over batch B):</p>
-             <p style="text-align: center;">
-                \[
-                 g = \sum_{x\in B} G(x).
-                \]
-            </p>
-             <p>The load \(l\) the load, summed over the positive gate values is computed as:</p>
-              <p style="text-align: center;">
-                \[
-                 l = \sum_{x\in B, g>0} G(x),
-                \]
-            </p>
-             <p>Finally, we applied \(\text{CV}(·)\), the coefficient of variation:</p>
-              <p style="text-align: center;">
-                \[
-                 \text{CV} = \frac{\text{var}(x)}{\text{mean}(x)^2 + \epsilon},
-                \]
-            </p>
-             to encourage experts to have a more balanced (equal) importance.
-       </section>
-         <section id="MoE-VRD">
-            <h2>Video Relationship Detection Using Mixture-of-Experts</h2>
-             Finally, we have the full model architecture of MoE-VRD.
-             <figure class="figure-container">
-                <img src="images/MoE_VRD.png" alt="moe_vrd" class="centered-image" width="900" height="500">
-                <figcaption class="caption">Video Relationship Detection Using Mixture-of-Experts.</figcaption>
-            </figure>
-             <h3>Object Tracklet Proposals</h3>
-             <p>We employ Seq-NMS <a href="https://arxiv.org/abs/1602.08465" target="_blank">Han et. al (2016)</a>
-                 to generate object tracklet proposals as a pre-processing step for the relational classifier experts.
-                 For frame-level object detection, we use a Faster-RCNN with an Inception-ResNet backbone
-                 <a href="https://ojs.aaai.org/index.php/aaai/article/view/11231" target="_blank">Szegedy, et. al (2017)</a>,
-                 pretrained on the Open Images dataset, providing a robust, generic object detector. Bounding boxes and
-                 corresponding region features are then extracted, and Seq-NMS compacts these into a set of
-                 object tracklets that serve as inputs to the expert neural networks.</p>
-             <h3>Feature Extraction</h3>
-             <p>Applying the object tracklet proposals, we generate two types of features: Visual Features and Relative Positional Features.</p>
-             <h4>Visual Features</h4>
-             <p>To generate the visual features \(f\), the bounding boxes are applied to extract the pretrained deep visual features
-                 of the subject and object entities, and the predicate’s visual feature is computed through a concatenation
-                 of the subject and object visual feature vectors.</p>
-             <h4>Relative Positional Features</h4>
-             <p>We extract a relative positional feature to represent the spatio-temporal relationship between the entities.
-                 For each pair of object tracklets, the algorithm computes the relative distance between the subject and object
-                 by encoding the spatial and temporal relative positional feature:</p>
-              <p style="text-align: center;">
-                \[
-                 f^{p}_{r} = \left[ \frac{x^{p}_{e_1}-x^{p}_{e_3}}{x^{p}_{e_3}}, \frac{y^{p}_{e_1}-y^{p}_{e_3}}{y^{p}_{e_3}}, \text{log}\frac{w^{p}_{e_1}}{w^{p}_{e_3}}, \text{log}\frac{h^{p}_{e_1}}{h^{p}_{e_3}}, \text{log}\frac{w^{p}_{e_1} h^{p}_{e_1}}{w^{p}_{e_3} h^{p}_{e_3}}, \frac{t^{p}_{e_1}-t^{p}_{e_3}}{30} \right],
-                \]
-            </p>
-             <p>where \(p \in [b, e]\) represents the beginning or ending bounding box, characterized
-                 by coordinates \((x, y)\), width \(w\), height \(h\), and time \(t\) for subject \(e_1\) and object \(e_3\) .
-                 A feed-forward network is used to fuse the subject’s and object’s visual features \(f_{e_1}\) , \(f_{e_3}\)
-                 with the relative positional features of the beginning and ending bounding boxes \(f^{b}_r\) , \(f^{e}_r\) ,
-                 where the relative positional feature \(f^{p}_r\) provides the expert with additional information to recognize visual relationships.</p>
-
-
-            <p>In summary, each encapsulated expert consists of an object predictor, a subject predictor, and a predicate predictor —
-            each of which is a basic feed-forward network, allowing for a set of modestly-sized, nimble experts to speed up training
-            and inference, when compared to an equivalent single monolithic network.</p>
-             </section>
-
-         <section id="Experiments">
-            <h2>Experiments and Results</h2>
-
-             <h3>Datasets</h3>
-             <p>We used two VidVRD benchmark datasets:</p>
-             <ul>
-                 <li><b>ImageNet-VidVRD</b> <a href="https://dl.acm.org/doi/abs/10.1145/3123266.3123380" target="_blank">Shang et. al (2017)</a>:
-                     is the first dataset for video visual relation detection. It consists of 1,000 videos,
-                     which are manually annotated with video relation instances.</li>
-                 <li><b>VidOR </b><a href="https://dl.acm.org/doi/abs/10.1145/3323873.3325056" target="_blank">Shang et. al (2019)</a>:
-                     is a recently-released large-scale benchmark, which contains 10,000 social media videos.</li>
-             </ul>
-             <h3>Evaluation Metrics</h3>
-             <p>In object detection, two key tasks must be addressed: localization and classification.
-             Localization involves determining the precise position of an object, such as its bounding box,
-                 while classification identifies the object’s category or type.</p>
-             <p>In object detection, precision and recall are typically calculated using a specified Intersection over Union (IoU) threshold,
-                 which quantifies the overlap between predicted and actual bounding boxes. When the IoU for
-                 a predicted bounding box exceeds this threshold, the prediction is classified as a true positive;
-                 otherwise, it is a false positive. Metrics such as Recall@50 evaluate recall at an IoU threshold of 50%,
-                 permitting bounding boxes to overlap by at least 50%. Other metrics, like Recall@100 and Precision@10,
-                 are similarly defined based on their respective thresholds.</p>
-
-             <p>To evaluate how well the mixture of experts detects ground truth relation instances in each test video,
-                 we use two types of metrics: relation tagging and relation detection.
-                 <ul>
-
-             <li><b>Relation tagging</b> assesses the precision of detected relation triplets without considering
-                    their spatio-temporal accuracy. This metric simply checks if the relation was detected, ignoring precise
-                 timing or spatial details. Tagging performance is measured by Precision@1 (P@1), Precision@5 (P@5), and Precision@10 (P@10).</li>
-
-                 <li><b>Relation detection</b>, on the other hand, considers both the relation triplet and the trajectories
-                     of the subject and object. A detected relation instance is only correct if it matches the
-                     ground-truth relation instance and the volumetric Intersection-over-Union (vIoU) of both
-                     subject and object trajectories exceeds a threshold of 50%. This performance is quantified
-                     using Mean Average Precision (mAP), Recall@50 (R@50), and Recall@100 (R@100).</li>
-                 </ul>
-            <p>All experiments are repeated ten times with varied random seeds for each expert, and we report the mean and standard deviation scores for each metric.</p>
-             <h3>Multi-expert Performance</h3>
-             <p>Our proposed MoE-VRD with \(K = 2\) and a total of \(N = 10\) experts,experts significantly outperforms
-             state-of-the-art approaches on the ImageNet-VidVRD dataset across all evaluation criteria.
-             The substantial performance boost is directly attributed to the mixture-of-experts strategy.
-             Notably, the performance of our individual expert is comparable to the VidVRD-II method,
-                 as demonstrated in Table 1. The symbol "−" indicates that no corresponding results were reported for those entries.</p>
-             <iframe src="tables/table_MoE_VRD.html" style="width: 100%; height: 1100px; border: none;"></iframe>
-
-             <figure class="figure-container">
-                <img src="images/moe_vrd_result.png" alt="moe_vrd" class="centered-image" width="900" height="500">
-                <figcaption class="caption">\(\text{mAP}\) of the MoE-VRD approach having \(N = 10\) experts,
-                    as a function of K during training. Note that performance drops after \(K = 2\); due to
-                    the averaging nature of the architecture before the final output, such that well-performing experts
-                    may become drowned out by more poorly performing peers if K is set too large.</figcaption>
-            </figure>
-
-
-
-
-        </section>
-         <section id="Tools-and-Technologies">
-            <h2>Tools and Technologies</h2>
-            <p>This section discusses the design and implementation of the project.</p>
-
-            <h3>Data Visualization</h3>
-            <p>Utilized various libraries for data visualization:</p>
-            <ul>
-                <li>Matplotlib</li>
-                <li>Plotly</li>
-            </ul>
-            <h3>Model Development and Deployment</h3>
-            <p>Tools and libraries used for model development and deployment include:</p>
-            <ul>
-                <li>TensorFlow</li>
-                <li>Scikit-learn</li>
-                <li>Pytorch</li>
-                <li>numpy</li>
-                <li>Torchvision</li>
-            </ul>
-        </section>
-
-
-        <section id="Links">
-        <h2>Links</h2>
-        <p>Overview of the links related to the projects:</p>
+    <section id="code">
+      <h2>Code / Git</h2>
         <ul>
-            <p><strong>Version Control Systems:</strong>
-                <ul>
-                    <li><a href="https://github.com/shibshib/Moe-VRD" target="_blank">GitHub Page</a></li>
-                </ul>
-            </p>
-            <p><strong>Research Article Platforms:</strong>
-                <ul>
-                    <li><a href="https://ieeexplore.ieee.org/abstract/document/10070773" target="_blank">IEEE</a></li>
-            <li><a href="https://arxiv.org/abs/2403.03994" target="_blank">Arxiv</a></li>
-                </ul>
-            </p>
+       <li><a href="https://github.com/shibshib/Moe-VRD" target="_blank">GitHub Page</a></li>
         </ul>
-        </section>
+    </section>
+
+    <section id="research">
+      <h2>Research / Paper</h2>
+        <ul>
+        <li><a href="https://ieeexplore.ieee.org/abstract/document/10070773" target="_blank">IEEE</a></li>
+        <li><a href="https://arxiv.org/abs/2403.03994" target="_blank">Arxiv</a></li>
+        </ul>
+    </section>
+
+    <section id="presentation">
+      <h2>Presentation</h2>
+        <ul>
+        <li>Microsoft Media group & Dept. of Systems Design Engineering, University of Waterloo</li>
+        </ul>
+    </section>
+
+
+
+<section id="additional-context" >
+    <h2>Additional Context </h2>
+<section id="VRD">
+    <h3>Video Relationship Detection</h3>
+    <p>In this section, I will explain the fundamentals of the video relationship detection approach utilized in
+        our model architecture. </p>
+     <p></p>
+    <figure class="figure-container">
+        <img src="images/VRD_new.png" alt="mean_shape" class="centered-image" width="1000" height="700">
+        <figcaption class="caption">Video Visual Relationship Detection Module.</figcaption>
+    </figure>
+
+    <h4> Problem Formulation </h4>
+    <p>Assume a set of three entities \( \mathbb{E} = \{e_1, e_2, e_3\} \), which represent Subject \(e_1\), predicate
+    \(e_2\), and object \(e_3\), with their corresponding features \( \mathbb{F} = \{f_{e_1}, f_{e_2}, f_{e_3}\} \)
+    to build the language triplet \( < \text{subject}, \text{predicate}, \text{object}>\). We model the problem of
+        video visual relationship detection as the joint probability of:</p>
+    <p style="text-align: center;">
+    \( \text{P}(< e_1, e_2, e_3 > | < f_{e_1}, f_{e_2}, f_{e_3} >)  \),
+    </p>
+
+    <p>where we factorized this joint probability as follows:</p>
+
+    <p style="text-align: center;">
+    \( \text{P}(e_1| f_{e_1}, e_2, e_3) \cdot \text{P}(e_2| f_{e_2}, e_1, e_3) \cdot \text{P}(e_3| f_{e_3}, e_1, e_2) \),
+    </p>
+    <p>to aid in inference time when there is ambiguous visual information, since the classes of any two components
+        imply a preference over the class of the third. Each of these three conditional probabilities is
+        modelled by a classifier consisting of a <b>visual predictor</b> and a <b>preferential predictor</b>.</p>
+
+    <p>The visual predictor is a deep neural network, which learns visual patterns of the subject, predicate, and object.
+        The preferential predictor applies learnable dependency tensors to refine the
+        prediction of one variable conditioned on the values of the other two:</p>
+
+    <p style="text-align: center;">
+        \[
+        e_{pr} = \left\{
+        \begin{aligned}
+        \text{P}(e_1| f_{e_1}, e_2, e_3) &= \Phi (\text{V}_{e_1} \cdot f_{e_1}) + p_{e_2} \cdot \text{W}_{e_1} \cdot p_{e_3} \\
+        \text{P}(e_2| f_{e_2}, e_1, e_3) &= \Phi (\text{V}_{e_2} \cdot f_{e_2}) + p_{e_1} \cdot \text{W}_{e_2} \cdot p_{e_3} \\
+        \text{P}(e_3| f_{e_3}, e_1, e_2) &= \Phi (\text{V}_{e_3} \cdot f_{e_3}) + p_{e_1} \cdot \text{W}_{e_3} \cdot p_{e_2}
+        \end{aligned}
+        \right\}
+        \]
+    </p>
+
+    <p>where \(\text{V}_{e_1}\), \(\text{V}_{e_2}\), and \(\text{V}_{e_3}\) are the learnable weights of
+        the visual predictors. In our case study, the weights of the subject and object classifiers are shared, thus
+    \(\text{V}_{e_1} = \text{V}_{e_2}\). On the other hand, for preferential prediction \(\text{W}_{e_1}\), \(\text{W}_{e_2}\),
+        and \(\text{W}_{e_3}\) model the dependency of one class over the other two, separately parametrized for each classifier.
+        \(\Phi\) represents the nonlinear activation, here implemented by a \(\text{Softmax}\) function for the subject and object classes,
+        and a \(\text{Sigmoid}\) function for the predicate class.  </p>
+
+</section>
+
+ <section id="MoE">
+    <h3>Sparsely Gated Mixture-of-Experts</h3>
+     <p>Our MoE-VRD The MoE consists of a set of N expert networks \(\text{E}_1, \text{E}_2, ..., \text{E}_N\)
+     and one gating network, G, whose output is a sparse binary N -dimensional vector.
+     The experts are themselves identical feed-forward neural networks, each with their own parameters. </p>
+      <figure class="figure-container">
+        <img src="images/MoE.png" alt="mean_shape" class="centered-image" width="900" height="500">
+        <figcaption class="caption">Sparsely Gated Mixture-of-Experts Module.</figcaption>
+    </figure>
+     <p>Given an input \(x\), the output of the ith expert’s function is denoted as \(E_i(x)\).
+         These N outputs are combined in the MoE layer as:</p>
+     <p style="text-align: center;">
+        \( y = \sum_{i=1}^{N} G(x)_i \cdot E_i(x) \),
+    </p>
+     <p>where \(G(x)_i\) represents the output of the gating network. The sparsity in computation, one of
+         the key strengths of the MoE approach, is realized by the explicit sparsity of the gating output:
+     </p>
+     <p style="text-align: center;">
+        \( G(x)_i = 0 \quad \text{for most} \quad i \),
+    </p>
+     <p>where if  \( G(x)_i = 0 \) the corresponding expert is eliminated from learning procedure.</p>
+     <p> We adopt a single–layer gating function:</p>
+
+     <p style="text-align: center;">
+        \[
+        G(x)_i = \text{Softmax}\left( {\text{top}_{K}}  \left( \text{W}^{i}_{g} \cdot x + N_g (\text{W}^{i}_{n} \cdot x) \right)  \right),
+        \]
+    </p>
+     <p>where \(\text{top}_K\) selects the K largest values (the best experts), and \(\text{W}^{i}_{g}\) and
+         \(\text{W}^{i}_{n}\) are trainable gating and noise weight matrices, respectively, which are parametrized for each expert i.
+         Since the number of samples sent to the gating layer is discrete, and therefore not applicable to
+         back-propagation, the inclusion of the noise term Ng (x) allows for a smooth estimate of the number
+         of samples used for each expert in each batch, thus allowing for the back-propagation of gradients. </p>
+
+     <p>The noise function is defined as:</p>
+
+     <p style="text-align: center;">
+        \[
+         \text{N}_g (x) = \text{StandardNormal}() · \text{Softplus}(x), \quad \text{where} \quad \text{Softplus}(x) = \frac{1}{\beta}
+         \text{log}(1 + \beta x)
+        \]
+    </p>
+     <p>where \(\text{Softplus}\) is a smooth approximation of the \(\text{ReLU}\) function to constrain the output to be positive.</p>
+     <p>Moreover, an importance term is considered in the overall loss to address imbalances resulting from
+         the <b>self-reinforcing effect</b> <a href="https://ieeexplore.ieee.org/abstract/document/9362270" target="_blank">Lu et. al (2021)</a>, which occurs when certain favoured experts are trained more rapidly
+         and thus are selected even more by the gating network.</p>
+     <p>The importance loss is calculated as follows:</p>
+     <p style="text-align: center;">
+        \[
+         L_{\text{importance}} (x) = \alpha \left( \text{CV}(g) + \text{CV}(l) \right),
+        \]
+    </p>
+     <p>where \(\alpha\) is a hand-tuned scaling factor, g is the batch-wise sum of gate values (over batch B):</p>
+     <p style="text-align: center;">
+        \[
+         g = \sum_{x\in B} G(x).
+        \]
+    </p>
+     <p>The load \(l\) the load, summed over the positive gate values is computed as:</p>
+      <p style="text-align: center;">
+        \[
+         l = \sum_{x\in B, g>0} G(x),
+        \]
+    </p>
+     <p>Finally, we applied \(\text{CV}(·)\), the coefficient of variation:</p>
+      <p style="text-align: center;">
+        \[
+         \text{CV} = \frac{\text{var}(x)}{\text{mean}(x)^2 + \epsilon},
+        \]
+    </p>
+     to encourage experts to have a more balanced (equal) importance.
+</section>
+ <section id="MoE-VRD">
+    <h3>Video Relationship Detection Using Mixture-of-Experts</h3>
+     Finally, we have the full model architecture of MoE-VRD.
+     <figure class="figure-container">
+        <img src="images/MoE_VRD.png" alt="moe_vrd" class="centered-image" width="900" height="500">
+        <figcaption class="caption">Video Relationship Detection Using Mixture-of-Experts.</figcaption>
+    </figure>
+     <h4>Object Tracklet Proposals</h4>
+     <p>We employ Seq-NMS <a href="https://arxiv.org/abs/1602.08465" target="_blank">Han et. al (2016)</a>
+         to generate object tracklet proposals as a pre-processing step for the relational classifier experts.
+         For frame-level object detection, we use a Faster-RCNN with an Inception-ResNet backbone
+         <a href="https://ojs.aaai.org/index.php/aaai/article/view/11231" target="_blank">Szegedy, et. al (2017)</a>,
+         pretrained on the Open Images dataset, providing a robust, generic object detector. Bounding boxes and
+         corresponding region features are then extracted, and Seq-NMS compacts these into a set of
+         object tracklets that serve as inputs to the expert neural networks.</p>
+     <h4>Feature Extraction</h4>
+     <p>Applying the object tracklet proposals, we generate two types of features: Visual Features and Relative Positional Features.</p>
+     <h4>Visual Features</h4>
+     <p>To generate the visual features \(f\), the bounding boxes are applied to extract the pretrained deep visual features
+         of the subject and object entities, and the predicate’s visual feature is computed through a concatenation
+         of the subject and object visual feature vectors.</p>
+     <h4>Relative Positional Features</h4>
+     <p>We extract a relative positional feature to represent the spatio-temporal relationship between the entities.
+         For each pair of object tracklets, the algorithm computes the relative distance between the subject and object
+         by encoding the spatial and temporal relative positional feature:</p>
+      <p style="text-align: center;">
+        \[
+         f^{p}_{r} = \left[ \frac{x^{p}_{e_1}-x^{p}_{e_3}}{x^{p}_{e_3}}, \frac{y^{p}_{e_1}-y^{p}_{e_3}}{y^{p}_{e_3}}, \text{log}\frac{w^{p}_{e_1}}{w^{p}_{e_3}}, \text{log}\frac{h^{p}_{e_1}}{h^{p}_{e_3}}, \text{log}\frac{w^{p}_{e_1} h^{p}_{e_1}}{w^{p}_{e_3} h^{p}_{e_3}}, \frac{t^{p}_{e_1}-t^{p}_{e_3}}{30} \right],
+        \]
+    </p>
+     <p>where \(p \in [b, e]\) represents the beginning or ending bounding box, characterized
+         by coordinates \((x, y)\), width \(w\), height \(h\), and time \(t\) for subject \(e_1\) and object \(e_3\) .
+         A feed-forward network is used to fuse the subject’s and object’s visual features \(f_{e_1}\) , \(f_{e_3}\)
+         with the relative positional features of the beginning and ending bounding boxes \(f^{b}_r\) , \(f^{e}_r\) ,
+         where the relative positional feature \(f^{p}_r\) provides the expert with additional information to recognize visual relationships.</p>
+
+
+    <p>In summary, each encapsulated expert consists of an object predictor, a subject predictor, and a predicate predictor —
+    each of which is a basic feed-forward network, allowing for a set of modestly-sized, nimble experts to speed up training
+    and inference, when compared to an equivalent single monolithic network.</p>
+     </section>
+
+ <section id="Experiments">
+    <h3>Experiments and Results</h3>
+
+     <h4>Datasets</h4>
+     <p>We used two VidVRD benchmark datasets:</p>
+     <ul>
+         <li><b>ImageNet-VidVRD</b> <a href="https://dl.acm.org/doi/abs/10.1145/3123266.3123380" target="_blank">Shang et. al (2017)</a>:
+             is the first dataset for video visual relation detection. It consists of 1,000 videos,
+             which are manually annotated with video relation instances.</li>
+         <li><b>VidOR </b><a href="https://dl.acm.org/doi/abs/10.1145/3323873.3325056" target="_blank">Shang et. al (2019)</a>:
+             is a recently-released large-scale benchmark, which contains 10,000 social media videos.</li>
+     </ul>
+     <h4>Evaluation Metrics</h4>
+     <p>In object detection, two key tasks must be addressed: localization and classification.
+     Localization involves determining the precise position of an object, such as its bounding box,
+         while classification identifies the object’s category or type.</p>
+     <p>In object detection, precision and recall are typically calculated using a specified Intersection over Union (IoU) threshold,
+         which quantifies the overlap between predicted and actual bounding boxes. When the IoU for
+         a predicted bounding box exceeds this threshold, the prediction is classified as a true positive;
+         otherwise, it is a false positive. Metrics such as Recall@50 evaluate recall at an IoU threshold of 50%,
+         permitting bounding boxes to overlap by at least 50%. Other metrics, like Recall@100 and Precision@10,
+         are similarly defined based on their respective thresholds.</p>
+
+     <p>To evaluate how well the mixture of experts detects ground truth relation instances in each test video,
+         we use two types of metrics: relation tagging and relation detection.
+         <ul>
+
+     <li><b>Relation tagging</b> assesses the precision of detected relation triplets without considering
+            their spatio-temporal accuracy. This metric simply checks if the relation was detected, ignoring precise
+         timing or spatial details. Tagging performance is measured by Precision@1 (P@1), Precision@5 (P@5), and Precision@10 (P@10).</li>
+
+         <li><b>Relation detection</b>, on the other hand, considers both the relation triplet and the trajectories
+             of the subject and object. A detected relation instance is only correct if it matches the
+             ground-truth relation instance and the volumetric Intersection-over-Union (vIoU) of both
+             subject and object trajectories exceeds a threshold of 50%. This performance is quantified
+             using Mean Average Precision (mAP), Recall@50 (R@50), and Recall@100 (R@100).</li>
+         </ul>
+    <p>All experiments are repeated ten times with varied random seeds for each expert, and we report the mean and standard deviation scores for each metric.</p>
+     <h4>Multi-expert Performance</h4>
+     <p>Our proposed MoE-VRD with \(K = 2\) and a total of \(N = 10\) experts,experts significantly outperforms
+     state-of-the-art approaches on the ImageNet-VidVRD dataset across all evaluation criteria.
+     The substantial performance boost is directly attributed to the mixture-of-experts strategy.
+     Notably, the performance of our individual expert is comparable to the VidVRD-II method,
+         as demonstrated in Table 1. The symbol "−" indicates that no corresponding results were reported for those entries.</p>
+     <iframe src="tables/table_MoE_VRD.html" style="width: 100%; height: 1100px; border: none;"></iframe>
+
+     <figure class="figure-container">
+        <img src="images/moe_vrd_result.png" alt="moe_vrd" class="centered-image" width="900" height="500">
+        <figcaption class="caption">\(\text{mAP}\) of the MoE-VRD approach having \(N = 10\) experts,
+            as a function of K during training. Note that performance drops after \(K = 2\); due to
+            the averaging nature of the architecture before the final output, such that well-performing experts
+            may become drowned out by more poorly performing peers if K is set too large.</figcaption>
+    </figure>
+ </section>
+</section>
+
     </main>
 
     <footer>
