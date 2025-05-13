@@ -11,7 +11,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science - My Portfolio</title>
+    <title>BRL-VBVC Portfolio</title>
 <style>
 
 body {
@@ -83,14 +83,11 @@ header {
 
 
 footer {
-    background-color: #282c34;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    position: relative;
-    margin-top: auto; /* Push footer to the bottom of the page */
-}
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #aaa;
+    }
 
 img {
     height: auto;
@@ -134,7 +131,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-h3 {
+h4 {
     border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
     padding-bottom: 5px;
     margin-bottom: 20px;
@@ -155,20 +152,28 @@ li {
 
     <aside class="sidebar">
     <nav>
-        <a href="index.html" style="margin-right: 20px;">Home</a>
-        <a href="#Overview">Overview</a>
-        <a href="#brl">Bayesian RL</a>
-        <a href="#framework">Architecture Design </a>
-        <a href="#experiment">Experiments</a>
-        <a href="#Tools-and-Technologies">Tools and Technologies</a>
-        <a href="#Links">Links</a>
+      <a href="index.html" style="margin-right: 20px;">Home</a>
+      <a href="#description">Project Description</a>
+      <a href="#contributions">Key Contributions</a>
+      <a href="#tools">Tools & Technologies</a>
+      <a href="#code">Code / Git</a>
+      <a href="#research">Research / Paper</a>
+      <a href="#presentation">Presentations</a>
+      <a href="#additional-context"> Additional Context</a>
+      <ul>
+        <li><a href="#brl">Bayesian RL</a></li>
+        <li><a href="#framework">Architecture Design </a></li>
+        <li><a href="#experiment">Experiments & Results</a></li>
+
+      </ul>
     </nav>
-</aside>
+  </aside>
+
 
 
     <main class="content">
-        <section id="Overview">
-            <h2>Overview</h2>
+        <section id="description">
+            <h2>Project Description</h2>
             <figure class="figure-container">
                 <img src="images/brl_vbvc.webp" alt="brl_vbvc" class="centered-image" width="700" height="700">
                 <figcaption class="caption">Autonomous Driving.</figcaption>
@@ -178,8 +183,55 @@ li {
                 from the environment to learn how to control a vehicle within the CARLA simulation.</p>
         </section>
 
+
+   <section id="contributions">
+  <h2>Key Contributions</h2>
+  <ul>
+    <li>Co-led the multi-partner WASP-NTU research project, aligning academic innovation with real-world challenges in autonomous driving.</li>
+    <li>Mentored a PhD student in research direction, methodology, and publication, resulting in shared authorship of a peer-reviewed article
+        (<a href="https://liu.diva-portal.org/smash/record.jsf?pid=diva2%3A1740415&dswid=6980" target="_blank">Holmquist, K. 2023</a>).</li>
+    <li>Developed a vision-based framework for autonomous driving using reinforcement learning techniques.</li>
+    <li>Designed and implemented the model architecture, conducted experiments in the CARLA simulator, and presented findings at the ICPR 2020 conference.</li>
+    <li>Evaluated model performance using the <a href="https://proceedings.mlr.press/v78/dosovitskiy17a.html" target="_blank">CARLA benchmark (Dosovitskiy et al., 2017)</a>, addressing tasks of increasing complexity and testing generalization to unseen environments, with metrics reported in kilometers per infraction.</li>
+  </ul>
+</section>
+
+    <section id="tools">
+      <h2>Tools & Technologies</h2>
+    <ul>
+      <li>CARLA simulator: https://carla.org/ </li>
+      <li>Python, Scikit-learn, Numpy, Scipy, CSV, JSON </li>
+      <li>Matplotlib, Seaborn, Plotly, Visdom </li>
+    </ul>
+    </section>
+
+    <section id="code">
+      <h2>Code / Git</h2>
+        <ul>
+        <li><a href="https://github.com/zahrag/BRLVBVC" target="_blank">BRL-VBVC GitHub Page</a></li>
+        </ul>
+    </section>
+
+    <section id="research">
+      <h2>Research / Paper</h2>
+        <ul>
+        <li><a href="https://ieeexplore.ieee.org/abstract/document/9412200" target="_blank">IEEE</a></li>
+        <li><a href="https://arxiv.org/abs/2104.03807" target="_blank">Arxiv</a></li>
+        </ul>
+    </section>
+
+    <section id="presentation">
+      <h2>Presentations</h2>
+        <ul>
+        <li><a href="https://www.computer.org/csdl/proceedings-article/icpr/2021/09412200/1tmk41XjnvG" target="_blank">Proceedings of ICPR 2021</a></li>
+        </ul>
+    </section>
+
+
+    <section id="additional-context">
+            <h2>Additional Context</h2>
         <section id="brl">
-            <h2>Bayesian Approach to Reinforcement Learning</h2>
+            <h3>Bayesian Approach to Reinforcement Learning</h3>
             <p>In this section, I will explain the fundamentals of the Bayesian approach to reinforcement learning
                 developed in this project. </p>
             <p>In this section, we present the Bayesian approach to Reinforcement Learning introduced by <cite>[4]</cite>. This framework integrates a Gaussian Mixture Model (GMM) with a reinforcement learning approach.</p>
@@ -201,7 +253,7 @@ li {
     <p>Due to the unknown parameters of the GMM, we use the multivariate t-distribution
         to estimate \(p(s_t|m)\), the likelihood of the state \(s_t\) given the mixture component \(m\).</p>
 
-    <h3>Estimation of Mixture Component Probability</h3>
+    <h4>Estimation of Mixture Component Probability</h4>
     <p>Next, we estimate the term \(p(m|a)\), the probability of mixture component \(m\) given the action \(a\).
         This probability is parameterized by a state-action value function \(Q = [q_{m,a}] : (|M| × |A|)\) (where \(| · |\)
         represents the cardinality of the respective set) and is learned through reinforcement learning.</p>
@@ -276,11 +328,11 @@ li {
     </ol>
     </section>
     <section id="framework">
-    <h2>Architecture Design</h2>
+    <h3>Architecture Design</h3>
         In this section I will describe the design and implementation of the proposed model architecture.
 
 
-    <h3>Input Description</h3>
+    <h4>Input Description</h4>
     <p>
         We base our input on the semantic segmented input image. The image of the segmentation map is separated into six different regions,
         for each we calculate a weighted histogram of the class distribution. The number of regions represents basic directional information
@@ -311,7 +363,7 @@ li {
         In addition, EncNet has low computation complexity compared to CNNs such as PSPNet and DeepLabv3 and
         provides better inference speed at runtime.</p>
 
-    <h3>Decision Making</h3>
+    <h4>Decision Making</h4>
     <p>During training, the agent applies an epsilon-greedy policy to explore the world and to develop its learned concepts.
         Our decision-making strategy is designed in a way to increase the exploration at the beginning of learning and
         to diminish as it progresses. Therefore, the policy is gradually shifting from an epsilon-greedy to a greedy one.
@@ -332,17 +384,17 @@ li {
         where \( \tau \in [0, 1] \) is an increasing temperature to increase the probability of the greedy action as learning progresses.
     </p>
 
-    <h3>Reward Design</h3>
+    <h4>Reward Design</h4>
     <p>
-        We select four different reward signals representing important types of failures:
+        We select four different reward signals representing important types of failures:</p>
         <ul>
         <li>Collision</li>
         <li>Off-road</li>
         <li>Opposite-lane</li>
         <li>Low-speed</li>
     </ul>
-        These failures generate the reward signal, but only one of them is applied at a time based on its importance:
-    </p>
+        <p>These failures generate the reward signal, but only one of them is applied at a time based on its importance:</p>
+
     <div style="text-align: center;">
         <p>
             \( r =
@@ -380,7 +432,7 @@ li {
         </p>
     </div>
 
-    <h3>Control Signals</h3>
+    <h4>Control Signals</h4>
     <p>The control signals that the simulator receives are, similarly to a real car, steering, throttle, brake, and a flag
         for the reverse gear. Our actions are chosen to correspond to four action primitives that are able to fully control
         the vehicle's velocity and direction, which are:
@@ -393,7 +445,7 @@ li {
         each corresponding to a certain control signal.</p>
     </section>
     <section id="experiment">
-        <h2> Experiments</h2>
+        <h3> Experiments & Results</h3>
         <p>There are multiple experiments conducted with proposed approach of this project which are presented in
             <a href="https://arxiv.org/abs/2104.03807" target="_blank">Gharaee et. al (2021)</a>
             We use four different settings combining training and deployment, each contains nine models and we name them
@@ -418,7 +470,7 @@ li {
             by using the provided pre-trained models and evaluating them in our validation settings.</p>
 
         <iframe src="tables/table_brlvbvc.html" style="width: 100%; height: 550px; border: none;"></iframe>
-        <h3>Benchmark results</h3>
+        <h4>Benchmark results</h4>
         <p>The benchmark proposed in <a href="https://proceedings.mlr.press/v78/dosovitskiy17a.html" target="_blank">Dosovitskiy et. al (2017)</a>
             is comprised by four different tasks, driving straight forward, one-turn (left or right), and two navigation tasks
             with multiple turns, each of them using the full road-network including intersections.
@@ -428,57 +480,9 @@ li {
             the CARLA benchmark.</p>
         <iframe src="tables/table_brlvbvc_benchmark.html" style="width: 100%; height: 350px; border: none;"></iframe>
 
+        </section>
     </section>
-
-
-
-     <section id="Tools-and-Technologies">
-        <h2>Tools and Technologies</h2>
-        <p>This section discusses the design and implementation of the project.</p>
-
-         <h3>Simulator</h3>
-         <p>CARLA: https://carla.org/</p>
-
-       <h3>Model Development and Deployment</h3>
-        <p>Tools and libraries used for model development and deployment include:</p>
-        <ul>
-            <li>Python</li>
-            <li>Scikit-learn</li>
-            <li>Numpy</li>
-            <li>json</li>
-            <li>csv</li>
-            <li>scipy</li>
-        </ul>
-       <h3>Data Visualization</h3>
-        <p>Utilized various libraries for data visualization:</p>
-        <ul>
-            <li>Matplotlib</li>
-            <li>Seaborn</li>
-            <li>Plotly</li>
-            <li>Visdom</li>
-        </ul>
-
-    </section>
-
-
-    <section id="Links">
-    <h2>Links</h2>
-    <p>Overview of the links related to the projects:</p>
-    <ul>
-        <p><strong>Version Control Systems:</strong>
-            <ul>
-                <li><a href="https://github.com/zahrag/BRLVBVC" target="_blank">BRL-VBVC GitHub Page</a></li>
-            </ul>
-        </p>
-        <p><strong>Research Article Platforms:</strong>
-            <ul>
-                <li><a href="https://ieeexplore.ieee.org/abstract/document/9412200" target="_blank">IEEE</a></li>
-               <li><a href="https://arxiv.org/abs/2104.03807" target="_blank">Arxiv</a></li>
-            </ul>
-        </p>
-    </ul>
-    </section>
-    </main>
+</main>
 
     <footer>
         <p>&copy; 2024 Zahra Gharaee. All rights reserved.</p>
