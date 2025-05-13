@@ -11,7 +11,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science - My Portfolio</title>
+    <title>GAIN Portfolio</title>
 <style>
 
 body {
@@ -83,14 +83,11 @@ header {
 
 
 footer {
-    background-color: #282c34;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    position: relative;
-    margin-top: auto; /* Push footer to the bottom of the page */
-}
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #aaa;
+    }
 
 img {
     height: auto;
@@ -129,12 +126,13 @@ img {
 }
 
 h2 {
-    border-bottom: 2px solid #282c34; /* Changed from blue to top bar color */
+    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-h3 {
+
+h4 {
     border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
     padding-bottom: 5px;
     margin-bottom: 20px;
@@ -143,6 +141,10 @@ h3 {
 li {
     margin-bottom: 3px; /* Adjust this value to control the vertical space */
 }
+@media (max-width: 768px) {
+      .sidebar { display: none; }
+      .content { margin-left: 0; padding: 100px 20px 20px; }
+    }
 </style>
 
 </head>
@@ -154,47 +156,103 @@ li {
     </header>
 
     <aside class="sidebar">
-        <nav>
-            <a href="index.html" style="margin-right: 20px;">Home</a>
-            <a href="#Overview">Overview</a>
-            <a href="#Road Network Graphs">Road Network Graphs</a>
-            <a href="#Line Graph">Line Graph</a>
-            <a href="#Neighborhood Sampling">Neighborhood Sampling</a>
-            <a href="#GAIN">GAIN</a>
-            <a href="#Loss Function">Loss Function</a>
-            <a href="#Experiments">Experiments</a>
-            <a href="#Results">Results</a>
-            <a href="#Tools-and-Technologies">Tools and Technologies</a>
-            <a href="#Links">Links</a>
-        </nav>
-    </aside>
+    <nav>
+      <a href="index.html" style="margin-right: 20px;">Home</a>
+      <a href="#description">Project Description</a>
+      <a href="#contributions">Key Contributions</a>
+      <a href="#tools">Tools & Technologies</a>
+      <a href="#code">Code / Git</a>
+      <a href="#research">Research / Paper</a>
+      <a href="#presentation">Presentations</a>
+      <a href="#additional-context"> Additional Context</a>
+      <ul>
+        <li><a href="#Road Network Graphs"> Road Network Graphs</a></li>
+        <li><a href="#Line Graph"> Line Graph </a></li>
+        <li><a href="#Neighborhood Sampling"> Neighborhood Sampling </a></li>
+        <li><a href="#GAIN"> GAIN</a></li>
+        <li><a href="#Loss Function"> Loss Function</a></li>
+        <li><a href="#Experiments"> Experiments</a></li>
+          <li><a href="#Results"> Results</a></li>
+      </ul>
+    </nav>
+  </aside>
 
     <main class="content">
 
-        <section id="Overview">
+        <section id="description">
+                  <h2>Project Description</h2>
             <figure class="figure-container">
                 <img src="images/gain.webp" alt="GAIN Project" class="centered-image" width="800" height="700">
                 <figcaption class="caption">Road Network Graphs.</figcaption>
             </figure>
-            <h2>Overview</h2>
             <p>
                <p>In this project, we propose a novel learning-based approach, <strong>GAIN</strong>, for graph representations of road networks. GAIN is applied to a <strong>realistic graph dataset composed of road networks from 17 Swedish cities, sourced from OpenStreetMap (OSMnx)</strong>.</p>
-
-                <p>The key developments and implementations of this project include:</p>
-
-                <ul class="bullet-points">
-                    <li><strong>Curating and Releasing a Realistic Dataset:</strong> A useful and realistic graph dataset of road networks has been curated and made available, encompassing data from 17 Swedish cities.</li>
-                    <li><strong>Developing a Learning Paradigm:</strong> We have developed a learning paradigm for road networks in realistic urban environments to achieve accurate road type classification.</li>
-                    <li><strong>Introducing Line Graph Transformation:</strong> We propose the use of line graph transformation to incorporate qualitative road segment features into the learning process, enhancing representation quality.</li>
-                    <li><strong>Implementing Neighborhood Sampling:</strong> A neighborhood sampling approach has been proposed, focusing on nodes within both local and global topological neighborhoods for improved learning.</li>
-                    <li><strong>Proposing GAIN for Aggregation:</strong> We introduce the Graph Attention Isomorphism Network (GAIN) for novel aggregation and compare its performance with various state-of-the-art methods in road network graph representation learning.</li>
-                </ul>
-              </ul>
-            </p>
         </section>
 
+
+  <section id="contributions">
+  <h2>Key Contributions</h2>
+  <ul>
+    <li>Co-led a cross-industry collaborative research project with SCANIA, aligning academic innovations with real-world challenges in urban mobility and infrastructure.</li>
+    <li>Curated and preprocessed a large-scale vector-space road network dataset from OpenStreetMap for 17 Swedish cities.</li>
+    <li>Conceptualized and implemented a novel graph learning framework for road type classification in complex urban environments.</li>
+    <li>Initiated and evaluated graph transformations and sampling strategies under transductive and inductive learning settings to improve model generalization across diverse urban layouts.</li>
+    <li>Designed the full system architecture and led the end-to-end development, experimentation, and evaluation pipeline.</li>
+    <li>Executed an exhaustive grid search on a compute cluster to identify optimal model configurations for transductive and inductive tasks.</li>
+    <li>Mentored a PhD student, guiding research direction, methodology, and publication, with shared authorship in a peer-reviewed article
+        (<a href="https://liu.diva-portal.org/smash/record.jsf?pid=diva2%3A1647474&dswid=7689" target="_blank">Stromann, O. 2022</a>).</li>
+    <li>Presented technical results in regular meetings with industry partner, SCANIA and communicated results to both academic and industrial stakeholders.</li>
+  <li>Drove the research dissemination process, resulting in a peer-reviewed publication in <i>Pattern Recognition</i>.</li>
+
+  </ul>
+</section>
+
+    <section id="tools">
+      <h2>Tools & Technologies</h2>
+    <ul>
+      <li>Python, TensorFlow, Numpy </li>
+      <li>OSMnx</li>
+      <li>OpenCV, scikit-learn</li>
+      <li>Matplotlib, Seaborn, Plotly</li>
+      <li>NetworkX </li>
+      <li>Shapely </li>
+      <li>Container (Singularity, Docker)</li>
+      <li>Cluster Computing, Parallel Computation</li>
+      <li>Virtual Environment, Bash Environment</li>
+      <li>Swedish National Infrastructure for Computing (SNIC)</li>
+
+    </ul>
+    </section>
+
+    <section id="code">
+      <h2>Code / Git</h2>
+        <ul>
+        <li><a href="https://github.com/zahrag/GAIN" target="_blank">GitHub Page</a></li>
+        </ul>
+    </section>
+
+    <section id="research">
+      <h2>Research / Paper</h2>
+        <ul>
+         <li><a href="https://arxiv.org/abs/2107.07791" target="_blank">Arxiv</a></li>
+         <li><a href="https://www.sciencedirect.com/science/article/pii/S0031320321003617#fig0002" target="_blank">Pattern Recognition</a></li>
+        </ul>
+    </section>
+
+    <section id="presentation">
+      <h2>Presentations</h2>
+        <ul>
+        <li>Vision and Image processing Lab (VIP) Dept. of System Design Engineering University of Waterloo </li>
+        <li>Computer Vision Lab (CVL) Dept. of Electrical Engineering University of Linköping </li>
+        </ul>
+    </section>
+
+
+
+        <section id="additional-context">
+            <h2>Additional Context</h2>
         <section id="Road Network Graphs">
-            <h2>Road Network Graphs</h2>
+            <h3>Road Network Graphs</h3>
             <p>We utilized <b>Open Street Map (OSMnx)</b>
                 <a href="https://www.sciencedirect.com/science/article/abs/pii/S0198971516303970"
                    target="_blank">Geoff Boeing (2017)</a>, which is a powerful Python library designed
@@ -220,9 +278,8 @@ li {
 
 
         </section>
-
         <section id="Line Graph">
-            <h2>Line Graph</h2>
+            <h3>Line Graph</h3>
             <p> <b>Line graph</b> transformation is a concept used in graph theory and network analysis.
                 It involves converting a given graph into its line graph, which provides a different perspective
                 on the relationships between the graph’s edges. Line graph's vertices represent edges of the original graph
@@ -241,7 +298,8 @@ li {
                 </figure>
             </div>
 
-            <p> <b>Why Line Graph?</b>
+            <h4>Why Line Graph?</h4>
+                <ul>
                 <li>
                 Road network graphs consider road segments as graph edges and
                 crossroads, junctions, and intersections as graph vertices.
@@ -253,11 +311,11 @@ li {
                 <li>Conventional graph representation learning models apply the features describe merely the
                     vertices and not the edges for learning.
                 </li>
-            </p>
+            </ul>
         </section>
 
         <section id="Neighborhood Sampling">
-            <h2>Neighborhood Sampling</h2>
+            <h3>Neighborhood Sampling</h3>
             <p>
             We apply both local and global neighborhoods to provide nodes with two perspectives:
             the local view captures information from nearby neighbors within a fixed radius,
@@ -273,7 +331,7 @@ li {
         </section>
 
         <section id="GAIN">
-            <h2>GAIN: Graph Attention Isomorphism Network</h2>
+            <h3>GAIN: Graph Attention Isomorphism Network</h3>
             <p>GAIN introduces a novel aggregation approach by applying attention and a summation operation to combine
                 the representation vectors of neighboring nodes \(\forall u \in N(v) \) at each learning iteration \(k\).
                 These vectors are weighted by attention scores \(a_{v,u}\) and then integrated into the sampled
@@ -291,7 +349,7 @@ li {
         </section>
 
         <section id="Loss Function">
-            <h2>Loss Function</h2>
+            <h3>Loss Function</h3>
             <p><strong>Supervised Learning</strong></p>
             <p>For supervised learning, ground-truth road type labels of graph vertices are used for calculating
                 a cross-entropy loss function for our multi-class road type classification problem.
@@ -312,7 +370,7 @@ li {
         </section>
 
          <section id="Experiments">
-            <h2>Experiments</h2>
+            <h3>Experiments</h3>
              <p><strong>Feature Attributes</strong> of the input graph nodes:</p>
              <ul>
                  <li>The length of road segments with 1 dimension.</li>
@@ -352,75 +410,15 @@ li {
         </section>
 
          <section id="Results">
-            <h2>Results</h2>
+            <h3>Results</h3>
              <p>The Micro-Averaged F1-Score is employed to select the top-performing model from those trained
                  through our exhaustive grid search. This selected model is then used to evaluate the performance
                  of GAIN during inference.</p>
              <iframe src="tables/table_gain_results.html" style="width: 100%; height: 500px; border: none;"></iframe>
         </section>
 
-        <section id="Tools-and-Technologies">
-            <h2>Tools and Technologies</h2>
-            <p>This section provides an overview of the tools and technologies used in the design, development, and implementation of the project.</p>
+    </section>
 
-            <h3>Data Processing Pipeline</h3>
-            <p>The pipeline encompasses the following stages:</p>
-            <ul>
-                <li>Data Curation</li>
-                <li>Data Generation</li>
-                <li>Feature Engineering</li>
-                <li>Data Storage</li>
-                <li>Data Access</li>
-            </ul>
-
-            <h3>Data Visualization</h3>
-            <p>Libraries used for data visualization include:</p>
-            <ul>
-                <li>Matplotlib</li>
-                <li>Seaborn</li>
-                <li>Plotly</li>
-            </ul>
-
-            <h3>Model Development and Deployment</h3>
-            <p>Tools and libraries used for model development and deployment include:</p>
-            <ul>
-                <li>TensorFlow</li>
-                <li>Scikit-learn</li>
-                <li>NetworkX</li>
-                <li>OSMnx</li>
-                <li>Shapely</li>
-                <li>NumPy</li>
-                <li>Matplotlib (Pyplot)</li>
-            </ul>
-
-            <h3>Computing Infrastructure</h3>
-            <p>Infrastructure and environments used include:</p>
-            <ul>
-                <li>Cluster Computing</li>
-                <li>Parallel Computation</li>
-                <li>Swedish National Infrastructure for Computing (SNIC)</li>
-                <li>Virtual Environment</li>
-                <li>Container: Singularity</li>
-            </ul>
-        </section>
-
-        <section id="Links">
-        <h2>Links</h2>
-        <p>Overview of the links related to the projects:</p>
-        <ul>
-            <p><strong>Version Control Systems:</strong>
-                <ul>
-                    <li><a href="https://github.com/zahrag/GAIN" target="_blank">GitHub Page</a></li>
-                </ul>
-            </p>
-            <p><strong>Research Article Platforms:</strong>
-                <ul>
-                    <li><a href="https://arxiv.org/abs/2107.07791" target="_blank">Arxiv</a></li>
-                    <li><a href="https://www.sciencedirect.com/science/article/pii/S0031320321003617#fig0002" target="_blank">Pattern Recognition</a></li>
-                </ul>
-            </p>
-        </ul>
-        </section>
     </main>
 
     <footer>
