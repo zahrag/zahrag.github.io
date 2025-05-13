@@ -89,7 +89,6 @@ nav ul li a:hover {
 
 /*############## Introduction ##########*/
 /* Styling for the About section */
-
 .about-content {
     display: flex; /* Flexbox for layout */
     justify-content: space-between; /* Space between sections */
@@ -126,72 +125,20 @@ nav ul li a:hover {
 
 /* Right side styling  */
 .about-center {
-    flex: 3; /* Allow this section to take 2 parts of the space */
-    text-align: left; /* Align text to the left */
+    flex: 3; /* Can be reduced later if not needed */
+    text-align: left;
+    font-size: 1em; /* Increase font size */
+    line-height: 2; /* Increase line spacing */
 }
 
-
-.bio-list {
-    list-style-type: disc; /* Use bullet points */
-    padding-left: 20px; /* Space for bullets */
-    margin-left: 0; /* Ensure no left margin */
-    max-width: 800px; /* Increase the maximum width for alignment */
-    position: relative; /* Allow fine control if needed */
-    left: 0;
-}
-
-.bio-list li {
-    margin-bottom: 20px; /* Increase space between bio items */
-    font-size: 1.1em; /* Adjust font size for bio */
-    color: #444; /* Text color for bio */
-    width: 100%; /* Make items take full width */
-    display: block; /* Ensure items are block elements */
-    overflow-wrap: break-word; /* Break long words to avoid overflow */
-    text-align: left; /* Align text to the left */
-    line-height: 1; /* Adjust line height for readability */
-}
 
 /* Right side styling (expertise) */
 .about-right {
     flex: 1;
     text-align: left;
     margin-left: 20px;
-    width: 100%; /* Ensure full width for the container */
+    /*width: 100%; /* Ensure full width for the container */
 }
-/* Styling for the expertise list */
-.expertise-list {
-    list-style: none; /* Remove bullet points */
-    padding-left: 0; /* Remove left padding */
-    display: flex; /* Use flexbox to align items */
-    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
-    gap: 10px; /* Add space between the boxes */
-    justify-content: flex-start; /* Align items to the left */
-}
-
-/* Styling for each expertise item */
-.expertise-list li {
-    background-color: #f0f0f0; /* Light grey background */
-    border: 1px solid #dcdcdc; /* Light grey border */
-    padding: 8px 12px; /* Adjust padding inside the box */
-    font-size: 1em; /* Adjust font size */
-    color: #333; /* Dark text color */
-    border-radius: 10px; /* Rounded corners */
-    display: inline-block; /* Keep items inline */
-    white-space: nowrap; /* Prevent text from wrapping inside the boxes */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
-}
-
-/* Hover effect on the expertise boxes */
-.expertise-list li:hover {
-    background-color: #e0e0e0; /* Slightly darker grey on hover */
-    /*cursor: pointer; /* Pointer cursor on hover */
-}
-/* If to remove cursor effect
-.expertise-list li {
-    user-select: none;    /* Prevent text selection */
-/*    pointer-events: none; /* Prevent interaction (click, drag) */
-/*}*/
-
 
 
 #about h2 {
@@ -199,6 +146,26 @@ nav ul li a:hover {
     margin-left: 0; /* Ensure no left margin */
     position: relative; /* Allow fine control if needed */
 }
+
+.name-title {
+    font-size: 1.8em; /* Largest font for name */
+    margin: 0;
+    font-weight: bold;
+}
+
+.degree-title {
+    font-size: 1.3em; /* Medium font for degree */
+    margin: 20px 0 0 0; /* Increased top margin for more space */
+    font-weight: normal;
+}
+
+.location {
+    font-size: 1em; /* Smallest font for location */
+    margin-top: 25px; /* Increased top margin for more space */
+    color: #555; /* Optional: soft color for less emphasis */
+}
+
+
 
 
 /*############## Bullet points styling ##########*/
@@ -362,16 +329,12 @@ h2 {
   padding: 20px 0;
 }
 
-/*  card styling */
+
 .education-card {
-  /*background-color: #B0E0E6; /* #F3F3FF Background color of the card */
-  /*border: 1px solid #ddd;*/
-  background-color: #f0f0f0; /* Light grey background */
-  border: 1px solid #dcdcdc; /* Light grey border */
-  border-radius: 10px;
-  padding: 15px;
-  text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    margin-bottom: 30px; /* Space between each experience card */
+    padding: 15px; /* Padding inside each experience card */
+    border: 1px solid #ddd; /* Light border for separation */
+    border-radius: 5px; /* Slight rounding of corners */
 }
 
 /*  card heading styling */
@@ -405,11 +368,13 @@ h2 {
 }
 
 .thesis {
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 500;
     color: #344;
     margin: 0.5em 0;
+    line-height: 1.6; /* or try 1.5, 1.8, or even a unit like 24px */
 }
+
 /*############ SUPERVISION ############*/
 
 .supervision-grid {
@@ -653,6 +618,39 @@ h2 {
 }
 
 /*################ Skills ##############*/
+/* Styling for the expertise list */
+.expertise-list {
+    list-style: none; /* Remove bullet points */
+    padding-left: 0; /* Remove left padding */
+    display: flex; /* Use flexbox to align items */
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    gap: 10px; /* Add space between the boxes */
+    justify-content: flex-start; /* Align items to the left */
+}
+
+/* Styling for each expertise item */
+.expertise-list li {
+    /*background-color: #f0f0f0; /* Light grey background */
+    border: 1px solid #dcdcdc; /* Light grey border */
+    padding: 8px 12px; /* Adjust padding inside the box */
+    font-size: 1em; /* Adjust font size */
+    color: #333; /* Dark text color */
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Keep items inline */
+    white-space: nowrap; /* Prevent text from wrapping inside the boxes */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
+}
+
+/* Hover effect on the expertise boxes */
+.expertise-list li:hover {
+    background-color: #e0e0e0; /* Slightly darker grey on hover */
+    /*cursor: pointer; /* Pointer cursor on hover */
+}
+/* If to remove cursor effect
+.expertise-list li {
+    user-select: none;    /* Prevent text selection */
+/*    pointer-events: none; /* Prevent interaction (click, drag) */
+/*}*/
 
 /* New styles for the skills items */
 .skill-item {
@@ -687,61 +685,39 @@ h2 {
     cursor: pointer; /* Pointer cursor on hover */
 }
 
-
-/*################ Certificates ##############*/
-
-/* New styles for the skills items */
-.skill-item {
-    display: flex; /* Flexbox for vertical stacking of heading and list */
-    flex-direction: column; /* Stack the heading and list vertically */
-}
-
-.skill-item h4 {
-    text-align: center; /* Center the heading text */
-    margin: 0 0 5px 0; /* Space below the heading */
-    font-size: 1.1em; /* Slightly larger font size for headings */
-    color: #4682B4; /* Dark text color */
-}
-
-.skill-item ul {
-    list-style-type: disc; /* Use bullet points */
-    padding-left: 20px; /* Indentation for the list */
-    margin: 0; /* Remove default margin */
-    text-align: center; /* Center align the list items if desired */
-}
-
-.skill-item li {
-    margin-bottom: 3px; /* Space between list items */
-    font-size: 0.9em; /* Slightly smaller font size */
-    color: #555; /* Color for list items */
-    text-align: center; /* Center align text in list items if desired */
-}
-
-/* Hover effect on the expertise boxes */
-.skill-list li:hover {
-    background-color: #e0e0e0; /* Slightly darker grey on hover */
-    cursor: pointer; /* Pointer cursor on hover */
-}
 
 
 /* ############### Links ###############*/
+
 .social-links {
-    display: flex; /* Arrange links horizontally */
-    flex-direction: column; /* Stack links vertically */
+    display: flex;               /* Arrange links horizontally */
+    flex-wrap: wrap;            /* Allow wrapping if needed */
+    gap: 50px;                  /* Space between items */
+    margin-top: 20px;           /* Optional spacing above the section */
+    align-items: center;
 }
 
 .social-links a {
-    margin-top: 10px; /* Space between vertical links */
-    margin-bottom: 10px; /* Space between vertical links */
-    text-decoration: none; /* Remove underline */
-    font-size: 1.0em; /* Adjust font size for text */
-    transition: color 0.3s; /* Smooth transition for hover */
-    display: flex; /* Use flex to align icon and text */
-    align-items: center; /* Center the icon and text vertically */
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
 }
 
 .social-links a:last-child {
     margin-bottom: 0; /* Remove bottom margin from the last link */
+}
+
+/* Hover effects */
+.social-links a:hover {
+    opacity: 0.7; /* Slightly dim on hover */
+}
+
+/* Icon styling */
+.social-links i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 1.2em; /* Size of icons */
 }
 
 
@@ -764,17 +740,6 @@ h2 {
 
 .email {
     color: black; /* Color for Email */
-}
-
-/* Hover effects */
-.social-links a:hover {
-    opacity: 0.7; /* Slightly dim on hover */
-}
-
-/* Icon styling */
-.social-links i {
-    margin-right: 8px; /* Space between icon and text */
-    font-size: 1.2em; /* Size of icons */
 }
 
 
@@ -802,297 +767,45 @@ h2 {
 
 <!-- Unified Section with Name, Resume Download, and About Me -->
 <section id="about">
-    <div class="about-content">
-        <div class="about-left">
-            <img src="images/ZahraGharaee.jpeg" alt="Your Name" class="profile-photo">
-            <div class="contact-info">
-                <h2>Zahra Gharaee, Ph.D.</h2>
-                <p>Toronto, ON, Canada</p>
-            </div>
-            <div class="social-links">
+  <div class="about-content">
 
-                 <a href="mailto:zahra.gharaee@gmail.com" class="footer">
-                <i class="fas fa-envelope"></i> Email
-                </a>
-                 <a href="resume/resume_ZahraGharaee.pdf" class="footer" target="_blank">
-                    <i class="fas fa-file-pdf"></i> Resume
-                </a>
-                <a href="https://github.com/zahrag" target="_blank" class="footer">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&hl=sv" target="_blank" class="footer">
-                    <i class="fas fa-user-graduate"></i> Google Scholar
-                </a>
-                <a href="https://www.linkedin.com/in/zahragh/" target="_blank" class="footer">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://orcid.org/0000-0003-0140-0025" target="_blank" class="footer">
-                    <i class="fas fa-id-badge"></i> ORCID
-                </a>
-            </div>
-        </div>
-        <div class="about-center">
-            <ul class="bio-list">
-                <h2>About me </h2>
-                <li>7+ years of experience in cross-functional teams, leading cross-industry projects across diverse machine learning domains.</li>
-                <li>Demonstrated successful leadership and management in multiple projects, achieving notable outcomes.</li>
-                <li>Expertise in building, debugging, and deploying resilient machine learning and deep learning models.</li>
-                <li>Developed scalable data solutions using TensorFlow and PyTorch, prioritizing usability and feasibility.</li>
-                <li>Released several datasets and code repositories, and published papers at prestigious venues such as NeurIPS and ICML.</li>
-                <li>Developed robust data pipelines for automated data ingestion and preprocessing, significantly improving data accessibility and reducing processing times.</li>
-                <li>Collaborated with multidisciplinary teams, effectively communicating complex concepts to non-technical stakeholders and ensuring alignment on project objectives and deliverables.</li>
-                <li>Actively involved in mentoring and supervising junior researchers on best practices for conducting projects, as well as writing and presenting research outcomes.</li>
-                <li>Served as a reviewer for multiple high-impact journals and conferences, providing constructive feedback to enhance the quality of research submissions and ensuring rigorous academic standards.</li>
-
-            </ul>
-        </div>
-        <div class="about-right">
-            <h2>Expertise </h2>
-        <ul class="expertise-list">
-            <li>Machine learning</li>
-            <li>Artificial Intelligence</li>
-            <li>Biotechnology</li>
-            <li>Neural Networks </li>
-            <li>Deep Learning </li>
-            <li>LLMs</li>
-            <li>Computer Vision</li>
-            <li>Pattern Recognition</li>
-            <li>Feature Engineering</li>
-            <li>Big Data Analytics</li>
-            <li>Statistical Processing</li>
-            <li>Data Science</li>
-            <li>Supervised Learning</li>
-            <li>Classification</li>
-            <li>Unsupervised Learning</li>
-            <li>Clustering</li>
-            <li>Graph Convolutional Networks</li>
-            <li>Causal Inference</li>
-            <li>Generative AI</li>
-            <li>Variational Autoencoders</li>
-            <li>3D Shape Reconstruction</li>
-            <!-- Add more expertise items here -->
-        </ul>
-    </div>
-    </div>
-</section>
-<section id="experience">
-  <h2>Experience</h2>
-    <div class="experience-grid">
-    <!-- Research Associate Card -->
-    <div class="experience-card">
-        <h3 class="title">Research Associate</h3>
-        <p class="date">11/2024 - Current</p>
-        <p class="lab">Vision and Image Processing Lab (VIP)</p>
-        <p class="location">University of Waterloo, Waterloo, Canada</p>
-        <section class="tasks">
-            <h4>Key Contributions</h4>
-            <ul>
-                <li>Leading the application of machine learning models for image classification and processing.</li>
-                <li>Developing multimodal datasets for various AI applications.</li>
-                <li>Collaborating with cross-functional teams to enhance research quality and outcomes.</li>
-            </ul>
-        </section>
+    <!-- Left Side: Photo and Links -->
+    <div class="about-left">
+      <img src="images/ZahraGharaee.jpeg" alt="Zahra Gharaee" class="profile-photo">
+      <div class="contact-info">
+        <h1 class="name-title">Zahra Gharaee</h1>
+        <h2 class="degree-title">Ph.D. in Cognitive Science</h2>
+        <p class="location-title">Toronto, ON, Canada</p>
+      </div>
     </div>
 
-    <!-- Research Fellow Card -->
-    <div class="experience-card">
-        <h3 class="title">Research Fellow</h3>
-        <p class="date">02/2022 - 11/2024</p>
-        <p class="lab">Vision and Image Processing Lab (VIP)</p>
-        <p class="location">University of Waterloo, Waterloo, Canada</p>
-        <section class="tasks">
-            <h4>Releasing and Benchmarking Multimodal Datasets for ML Applications</h4>
-            <ul>
-                <li>Collaborated with multiple partners on large-scale multimodal datasets.</li>
-                <li>Led data science projects involving data structures, migration, and governance.</li>
-                <li>Released datasets (>1 million) on research platforms like Zenodo, Kaggle, and Hugging Face.</li>
-                <li>Benchmarked image classification models (ResNet50, Transformers) and achieved over 90% accuracy.</li>
-                <li>Published articles in NeurIPS 2023 and 2024.</li>
-            </ul>
-            <p>For more details, visit:
-                <a href="#projects" class="pub-link">BIOSCAN-1M</a> &
-                <a href="#projects" class="pub-link">BIOSCAN-5M</a>
-            </p>
-        </section>
 
-        <section class="tasks">
-            <h4>Image and Video Processing</h4>
-            <ul>
-                <li>Collaborated with the Microsoft Media Group on video object detection.</li>
-                <li>Authored a paper on enhancing detection performance by ~4% (IEEE 2023).</li>
-                <li>Mentored a research project applying Transformers to super-pixels for efficient salient object detection.</li>
-            </ul>
-            <p>For more details, visit:
-                <a href="#projects" class="pub-link">MoE-VRD</a> &
-                <a href="#projects" class="pub-link">SuperFormer</a>
-            </p>
-        </section>
-
-        <section class="tasks">
-            <h4>Causality Research</h4>
-            <ul>
-                <li>Collaborated with the Department of ECE, University of Waterloo.</li>
-                <li>Mentored a project on generative causal inference, enhancing domain generalization by 8.8%.</li>
-                <li>Published research in ICML 2023.</li>
-            </ul>
-            <p>For more details, visit:
-                <a href="#projects" class="pub-link">Causality</a>
-            </p>
-        </section>
+    <!-- Right Side: About Me Text -->
+    <div class="about-center">
+      <h2>About me</h2>
+      <p>
+        I am a machine learning professional with over seven years of experience leading cross-industry projects and working in cross-functional teams.
+        I specialize in building, debugging, and deploying resilient machine learning and deep learning models, with a strong focus on scalability, usability, and practical impact.
+        My work has led to the release of widely used datasets and open-source tools, and I have published at top-tier venues such as NeurIPS and ICML.
+        I have designed robust data pipelines that streamline data ingestion and preprocessing, significantly improving data accessibility and efficiency.
+        I thrive in collaborative environments, where I communicate technical ideas clearly to diverse stakeholders and align project goals across teams.
+        I actively mentor junior researchers and contribute to the broader research community by reviewing for high-impact journals and conferences.
+        Above all, I am passionate about continuous learning and enjoy exploring novel ideas that push the boundaries of what's possible with machine learning.
+      </p>
+        <!-- Social links now shown horizontally here -->
+  <div class="social-links">
+    <a href="mailto:zahra.gharaee@gmail.com" class="footer"><i class="fas fa-envelope"></i> Email</a>
+    <a href="resume/resume_ZahraGharaee.pdf" class="footer" target="_blank"><i class="fas fa-file-pdf"></i> Resume</a>
+    <a href="https://github.com/zahrag" target="_blank" class="footer"><i class="fab fa-github"></i> GitHub</a>
+    <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&hl=sv" target="_blank" class="footer"><i class="fas fa-user-graduate"></i> Google Scholar</a>
+    <a href="https://www.linkedin.com/in/zahragh/" target="_blank" class="footer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="https://orcid.org/0000-0003-0140-0025" target="_blank" class="footer"><i class="fas fa-id-badge"></i> ORCID</a>
+  </div>
     </div>
-</div>
 
-    <div class="experience-grid">
-    <!-- Postdoc Card -->
-    <div class="experience-card">
-        <h3 class="title">Postdoc</h3>
-        <p class="date">09/2018 - 02/2022</p>
-        <p class="lab">Computer Vision Lab (CVL)</p>
-        <p class="location">Linköping University, Linköping, Sweden</p>
-        <section class="tasks">
-            <h4>Autonomous Driving from Virtual to Real-World</h4>
-            <ul>
-                <li>Collaborated with WASP and SCANIA on autonomous driving research.</li>
-                <li>Managed projects focusing on road network graph learning and reinforcement learning.</li>
-                <li>Developed, debugged, and executed ML experiments using cloud, parallel computing, and bash environments.</li>
-                <li>Enhanced graph representation learning for unsupervised transductive tasks by 2% and supervised inductive tasks by 10%.</li>
-                <li>Curated and released geospatial data from OpenStreetMap (OSMnx) for 18 Swedish cities.</li>
-                <li>Released two code repositories on Git.</li>
-                <li>Published articles in Pattern Recognition 2021 and ICPR 2021.</li>
-            </ul>
-            <p>For more details, visit:
-                <a href="#projects" class="pub-link">BRL-VBVC</a> &
-                <a href="#projects" class="pub-link">GAIN</a>
-            </p>
-        </section>
-
-        <section class="tasks">
-            <h4>Single-Image Reconstruction of 3D Shape, Texture, and Camera Pose</h4>
-            <ul>
-                <li>Developed and implemented predictive models for self-supervised 3D shape estimation.</li>
-                <li>Improved Mean-IoU by 8% and reduced 3D-Angular-Error of the pose by 5° for the CUB dataset.</li>
-                <li>Released code repository on Git.</li>
-            </ul>
-            <p>For more details, visit:
-                <a href="#projects" class="pub-link">SLOPE-KP</a>
-            </p>
-        </section>
-    </div>
-</div>
-
+  </div>
 </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-
-     <div class="project-card">
-      <img src="images/insect_1M.jpg" alt="BIOSCAN-1M">
-      <div class="project-content">
-            <h3 class="project-title"> <a href="Project_BIOSCAN_1M.html" class="pub-link">BIOSCAN-1M</a> </h3>
-            <p class="thesis"> <strong>About:</strong> Introducing, studying, and benchmarking the BIOSCAN-1M Insect dataset.</p>
-            <p class="kw"> <strong>Keywords:</strong> Biotechnology, Data management, Big data analytics, Classification, Transfer Learning. </p>
-      </div>
-    </div>
-
-
-    <div class="project-card">
-      <img src="images/bioscan5m.webp" alt="BIOSCAN-5M">
-      <div class="project-content">
-            <h3 class="project-title"> <a href="Project_BIOSCAN_5M.html" class="pub-link">BIOSCAN-5M</a> </h3>
-            <p class="thesis"> <strong>About: </strong>Introducing, studying, and benchmarking the BIOSCAN-5M multimodal dataset.</p>
-            <p class="kw"> <strong>Keywords:</strong> Biotechnology, Data management, Big data analytics, Statistical processing, Feature engineering.</p>
-      </div>
-    </div>
-
-
-    <div class="project-card">
-      <img src="images/img_superpixel.png" alt="SuperFormer">
-      <div class="project-content">
-            <h3 class="project-title"> <a href="Project_SuperFormer.html" class="pub-link">SuperFormer</a> </h3>
-            <p class="thesis"> <strong>About: </strong>A Transformer-based model that leverages superpixels for efficient Salient Object Detection (SOD).</p>
-            <p class="kw"> <strong>Keywords:</strong> Computer vision, Salient object detection, Efficient model, Fine-tuning.</p>
-      </div>
-    </div>
-
-     <div class="project-card">
-      <img src="images/slope_kp_img.webp" alt="SLOPE-KP">
-      <div class="project-content">
-            <h3 class="project-title"> <a href="Project_SLOPE_KP.html" class="pub-link">SLOPE-KP</a> </h3>
-            <p class="thesis"> <strong>About: </strong>An approach to self-supervised learning of object pose estimation by keypoints prediction.</p>
-            <p class="kw"> <strong>Keywords:</strong> Computer vision, 3D shape reconstruction, Pose estimation, 3D rotation. </p>
-      </div>
-    </div>
-
-
-     <div class="project-card">
-      <img src="images/ViDVRD_MoE.webp" alt="MoE-VRD">
-      <div class="project-content">
-            <h3 class="project-title"> <a href="Project_ViDVRD_MoE.html" class="pub-link">MOE-VRD</a> </h3>
-            <p class="thesis"> <strong>About: </strong>An approach to video relationship detection using mixture of experts.</p>
-            <p class="kw"> <strong>Keywords:</strong> Computer Vision, Video relationship detection, Mixture of experts.</p>
-      </div>
-    </div>
-
-
-    <div class="project-card">
-      <img src="images/gain.webp" alt="GAIN">
-      <div class="project-content">
-            <h3 class="project-title"> <a href="Project_GAIN.html" class="pub-link">GAIN</a> </h3>
-              <p class="thesis"> <strong>About: </strong>An approach to graph representation learning.</p>
-             <p class="kw"> <strong>Keywords:</strong> Graph convolutional neural networks, Representation learning,  Geospatial data analysis.</p>
-      </div>
-    </div>
-
-    <div class="project-card">
-      <img src="images/casality_img.webp" alt="Causality">
-      <div class="project-content">
-            <h3 class="project-title"> <a href="Project_Causality.html" class="pub-link">Causality</a> </h3>
-            <p class="thesis"> <strong>About: </strong>Two approaches to generative and implicit causal representation learning.</p>
-            <p class="kw"> <strong>Keywords:</strong> Causal inference, Generative models, Interventions, Variational autoencoders.</p>
-      </div>
-    </div>
-
-   <div class="project-card">
-      <img src="images/brl_vbvc.webp" alt="BRL-VBVC">
-      <div class="project-content">
-            <h3 class="project-title"> <a href="Project_BRL_VBVC.html" class="pub-link">BRL-VBVC</a> </h3>
-            <p class="thesis"> <strong>About: </strong>An approach to Bayesian Reinforcement Learning of vision-based vehicular control.</p>
-            <p class="kw"> <strong>Keywords:</strong> Autonomous systems, Reinforcement learning, Simulated environment.</p>
-      </div>
-    </div>
-
-</section>
-
-
-<section id="education">
-  <h2>Education</h2>
-    <div class="education-grid">
-    <div class="education-card">
-             <h3 class="title">Ph.D. in Cognitive Science </h3>
-            <p class="date">03/2014 - 05/2018</p>
-                <h3 class="thesis"><strong>Thesis:</strong> Action in mind: A neural network approach to action recognition and segmentation.</h3>
-            <h3 class="lab">Lund University Cognitive Science (LUCS) </h3>
-        <h3 class="location"> Lund University, Sweden </h3>
-
-      </div>
-      <div class="education-card">
-              <h3 class="title">M.Sc. in Mechatronics</h3>
-              <p class="date">09/2009 - 02/2012</p>
-             <h3 class="thesis"><strong>Thesis:</strong> Attention control learning in Decision Space Using State Estimation.</h3>
-              <h3 class="lab">Advanced Process, Automation and Control Research Group (APAC)</h3>
-              <h3 class="location"> K.N. Toosi University of Technology, Iran</h3>
-
-      </div>
-        <div class="education-card">
-              <h3 class="title">B.Sc. in Electrical Engineering </h3>
-              <p class="date">09/2005 - 09/2009</p>
-            <h3 class="thesis"><strong>Thesis:</strong> Design and implementation of a MIMO controller for a quadruple tank system.</h3>
-            <h3 class="lab">Advanced Process, Automation and Control Research Group (APAC)</h3>
-            <h3 class="location">K.N. Toosi University of Technology, Iran</h3>
-      </div>
-
-    </div>
-</section>
 
 
 <section id="skills">
@@ -1127,21 +840,43 @@ h2 {
             </ul>
         </div>
     </li>
-
+    <li>
+        <div class="skill-item">
+            <h4>Transformers</h4>
+            <ul>
+                <li>SWIN</li>
+                <li>DETR</li>
+                <li>ViT</li>
+            </ul>
+        </div>
+    </li>
      <li>
         <div class="skill-item">
             <h4>Large Language Models (LLMs)</h4>
             <ul>
                 <li>GPT</li>
                 <li>BERT</li>
-                <li>Transformers</li>
+                <li>Flan-T5</li>
             </ul>
         </div>
     </li>
     <li>
+  <div class="skill-item">
+    <h4>Fine-tuning & Reinforcement Learning</h4>
+    <ul>
+      <li>PEFT LoRA</li>
+      <li>RLHF</li>
+      <li>PPO</li>
+    </ul>
+  </div>
+</li>
+
+
+    <li>
         <div class="skill-item">
-            <h4>Cloud Computing</h4>
+            <h4>Cloud Computing & Storage</h4>
             <ul>
+                <li>AWS</li>
                 <li>GCP</li>
                 <li>Digital Research Alliance of Canada</li>
                 <li>SNIC</li>
@@ -1223,11 +958,187 @@ h2 {
 </ul>
 </section>
 
+<section id="experience">
+  <h2>Experience</h2>
+    <div class="education-grid">
+    <div class="education-card">
+             <h3 class="title">Research Associate </h3>
+            <p class="date">11/2024 - current</p>
+            <h3 class="lab">Vision and Image Processing Lab (VIP), Dept. of Systems Design Engineering</h3>
+            <h3 class="location">University of Waterloo, Waterloo, Canada</h3>
+            <h3 class="thesis">
+              <strong>Projects:</strong>
+              <a href="#BIOSCAN-5M" class="pub-link">BIOSCAN-5M</a> &bull;
+              <a href="#SuperFormer" class="pub-link">SuperFormer</a>
+              </h3>
+            <h3 class="thesis">
+              <strong>Expertise:</strong>
+              LLMs - Generative AI - Big Data Analytics - Biotechnology - Data Science
+              </h3>
+
+
+      </div>
+      <div class="education-card">
+              <h3 class="title">Research Fellow</h3>
+              <p class="date">02/2022 - 11/2024</p>
+              <h3 class="lab">Vision and Image Processing Lab (VIP), Systems Design Engineering</h3>
+              <h3 class="location">University of Waterloo, Waterloo, Canada</h3>
+              <h3 class="thesis">
+                  <strong>Projects:</strong>
+                  <a href="#BIOSCAN-1M" class="pub-link">BIOSCAN-1M</a> &bull;
+                  <a href="#Causality" class="pub-link">Causality</a> &bull;
+                  <a href="#MoE-VRD" class="pub-link">MoE-VRD</a>
+                  </h3>
+              <h3 class="thesis">
+                  <strong>Expertise:</strong>
+                  Biotechnology - Data Science - Statistical Processing - Causal Inference - Video Analysis
+              </h3>
+
+      </div>
+        <div class="education-card">
+              <h3 class="title">Postdoc </h3>
+              <p class="date">09/2018 - 02/2022</p>
+            <h3 class="lab">Computer Vision Lab (CVL), Dept. of Electrical engineering</h3>
+            <h3 class="location">Linköping University, Linköping, Sweden</h3>
+            <h3 class="thesis">
+              <strong>Projects:</strong>
+              <a href="#SLOPE-KP" class="pub-link">SLOPE-KP</a> &bull;
+              <a href="#GAIN" class="pub-link">GAIN</a> &bull;
+              <a href="#BRL-VBVC" class="pub-link">BRL-VBVC</a>
+              </h3>
+             <h3 class="thesis">
+                  <strong>Expertise:</strong>
+                  Graph Neural Networks - Computer Vision - 3D Shape Reconstruction - Reinforcement Learning
+              </h3>
+      </div>
+
+    </div>
+</section>
+
+
+
+<section id="projects">
+  <h2>Projects</h2>
+
+
+    <div class="project-card" id="BIOSCAN-5M">
+      <img src="images/bioscan5m.webp" alt="BIOSCAN-5M">
+      <div class="project-content">
+            <h3 class="project-title"> BIOSCAN-5M </h3>
+            <p class="thesis"> <strong>About: </strong>Led the creation of a 5M-image multimodal dataset with standardized metadata, scalable preprocessing, and Hugging Face integration. Enabled robust ML experimentation, multimodal benchmarking, and large-scale taxonomic and statistical analysis.</p>
+            <p class="thesis"> <strong>Keywords:</strong> Biotechnology - Data science - Statistical processing, Supervised learning - Unsupervised learning - BERT - CLIP - Contrastive learning - Zero-shot clustering</p>
+            <a href="Project_BIOSCAN_5M.html" target="_blank" class="pub-link">View Project</a>
+      </div>
+    </div>
+
+<div class="project-card" id="SuperFormer">
+  <img src="images/img_superpixel.png" alt="SuperFormer">
+  <div class="project-content">
+        <h3 class="project-title"> SuperFormer </h3>
+        <p class="thesis"> <strong>About: </strong>A Transformer-based model that leverages superpixels for efficient Salient Object Detection (SOD).</p>
+        <p class="thesis"> <strong>Keywords:</strong> SWIN Transformer - Multimodal feature Representation - Efficient salient object detection - Fine-tuning - Pre-training - Fourier transformers</p>
+      <a href="Project_SuperFormer.html" target="_blank" class="pub-link">View Project</a>
+  </div>
+</div>
+
+ <div class="project-card" id="BIOSCAN-1M">
+      <img src="images/insect_1M.jpg" alt="BIOSCAN-1M">
+      <div class="project-content">
+            <h3 class="project-title"> BIOSCAN-1M </h3>
+            <p class="thesis"> <strong>About:</strong> Developed a large-scale, taxonomy-aware insect image dataset with automated ML pipelines, robust model benchmarking (ResNet50, ViT), and reproducible evaluation across diverse experimental settings.</p>
+            <p class="thesis"> <strong>Keywords:</strong> Biotechnology - Data science - Vision transformers - Object detection - Big data analytics - Fine-tuning - Transfer Learning </p>
+            <a href="Project_BIOSCAN_1M.html" target="_blank" class="pub-link">View Project</a>
+      </div>
+    </div>
+
+ <div class="project-card" id="Causality">
+      <img src="images/casality_img.webp" alt="Causality">
+      <div class="project-content">
+            <h3 class="project-title"> Causality </h3>
+            <p class="thesis"> <strong>About: </strong>Two approaches to generative and implicit causal representation learning.</p>
+            <p class="thesis"> <strong>Keywords:</strong> Causal inference - Representation learning - Generative models - Domain Adaptation - Domain generalization - Interventions - Variational autoencoders</p>
+            <a href="Project_Causality.html" target="_blank" class="pub-link">View Project</a>
+      </div>
+    </div>
+<div class="project-card" id="MoE-VRD">
+  <img src="images/ViDVRD_MoE.webp" alt="MoE-VRD">
+  <div class="project-content">
+    <h3 class="project-title"> MoE-VRD </h3>
+    <p class="thesis"> <strong>About: </strong>Collaborated with Microsoft Media Group on modeling subject-object interactions in visual scenes. Developed and refined a framework for action recognition and scene understanding.</p>
+    <p class="thesis"> <strong>Keywords:</strong> Computer Vision - Scene graph generation - Video relationship detection - Mixture of experts</p>
+    <a href="Project_ViDVRD_MoE.html" target="_blank" class="pub-link">View Project</a>
+  </div>
+</div>
+
+<div class="project-card" id="SLOPE-KP">
+      <img src="images/slope_kp_img.webp" alt="SLOPE-KP">
+      <div class="project-content">
+            <h3 class="project-title"> SLOPE-KP </h3>
+            <p class="thesis"> <strong>About: </strong>Co-led a project on 3D shape reconstruction and pose prediction from single images using self-supervised learning. Developed and evaluated a keypoint-based pipeline across static and dynamic datasets, achieving notable gains in accuracy and generalization.</p>
+            <p class="thesis"> <strong>Keywords:</strong> Computer vision - 3D shape reconstruction - Pose estimation - 3D Rotation </p>
+          <a href="Project_SLOPE_KP.html" target="_blank" class="pub-link">View Project</a>
+      </div>
+    </div>
+
+    <div class="project-card" id="GAIN">
+      <img src="images/gain.webp" alt="GAIN">
+      <div class="project-content">
+            <h3 class="project-title"> GAIN </h3>
+              <p class="thesis"> <strong>About: </strong>An approach to graph representation learning.</p>
+             <p class="thesis"> <strong>Keywords:</strong> Graph neural networks - Representation learning -  Geospatial data analysis - Classification - Road network graphs - Urban infrastructure</p>
+             <a href="Project_GAIN.html" target="_blank" class="pub-link">View Project</a>
+      </div>
+    </div>
+
+
+   <div class="project-card" id="BRL-VBVC">
+      <img src="images/brl_vbvc.webp" alt="BRL-VBVC">
+      <div class="project-content">
+            <h3 class="project-title"> BRL-VBVC </h3>
+            <p class="thesis"> <strong>About: </strong>An approach to Bayesian Reinforcement Learning of vision-based vehicular control.</p>
+            <p class="thesis"> <strong>Keywords:</strong> Autonomous systems - Reinforcement learning - Simulated environment - Semantic segmentation - Bayesian RL </p>
+            <a href="Project_BRL_VBVC.html" target="_blank" class="pub-link">View Project</a>
+      </div>
+    </div>
+
+</section>
+
+
+<section id="education">
+  <h2>Education</h2>
+    <div class="education-grid">
+    <div class="education-card">
+             <h3 class="title">Ph.D. in Cognitive Science </h3>
+            <p class="date">03/2014 - 05/2018</p>
+                <h3 class="thesis"><strong>Thesis:</strong> Action in mind: A neural network approach to action recognition and segmentation.</h3>
+            <h3 class="lab">Lund University Cognitive Science (LUCS) </h3>
+        <h3 class="location"> Lund University, Sweden </h3>
+
+      </div>
+      <div class="education-card">
+              <h3 class="title">M.Sc. in Mechatronics</h3>
+              <p class="date">09/2009 - 02/2012</p>
+             <h3 class="thesis"><strong>Thesis:</strong> Attention control learning in Decision Space Using State Estimation.</h3>
+              <h3 class="lab">Advanced Process, Automation and Control Research Group (APAC)</h3>
+              <h3 class="location"> K.N. Toosi University of Technology, Iran</h3>
+
+      </div>
+        <div class="education-card">
+              <h3 class="title">B.Sc. in Electrical Engineering </h3>
+              <p class="date">09/2005 - 09/2009</p>
+            <h3 class="thesis"><strong>Thesis:</strong> Design and implementation of a MIMO controller for a quadruple tank system.</h3>
+            <h3 class="lab">Advanced Process, Automation and Control Research Group (APAC)</h3>
+            <h3 class="location">K.N. Toosi University of Technology, Iran</h3>
+      </div>
+
+    </div>
+</section>
+
 
 <section id="certificate">
   <h2>Certificates</h2>
-    <div class="talk-grid">
-      <div class="talk-card">
+    <div class="education-grid">
+      <div class="education-card">
               <h3><a href="https://www.coursera.org/account/accomplishments/verify/O3XPS45R7QMX" class="pub-link" target="_blank">Generative AI with Large Language Models</a> </h3>
           <p class="date">04/2025</p>
           <h3 class="thesis"> <strong>Skills: </strong>LLMs, GenAI, AWS, Python</h3>
@@ -1243,21 +1154,21 @@ h2 {
 
 <section id="talk">
   <h2>Public Speaking</h2>
-    <div class="talk-grid">
-      <div class="talk-card">
+    <div class="education-grid">
+      <div class="education-card">
               <h3><a href="https://wildlabs.net/event/computational-entomology-webinar-iii-processing-liquid-samples" class="pub-link" target="_blank">Computational Entomology Webinar III: Processing liquid samples</a> </h3>
           <p class="date">06/2024</p>
           <h3 class="thesis"> <strong>About: </strong>Computer vision and robotic tools to automatically process insect specimens stored in liquid samples.</h3>
           <h3 class="location">Vancouver, Canada</h3>
 
       </div>
-        <div class="talk-card">
+        <div class="education-card">
               <h3><a href="https://event.fourwaves.com/geobon-2023/pages" class="pub-link" target="_blank">GEO BON Global Conference: Monitoring Biodiversity for Action</a></h3>
             <p class="date">10/2023</p>
            <h3 class="thesis"> <strong>About: </strong>AI for Insect Monitoring.</h3>
             <h3 class="location">Montreal, Canada</h3>
       </div>
-        <div class="talk-card">
+        <div class="education-card">
               <h3><a href="https://linkopingsciencepark.se/event/liu-game-conference-2018-by-linkopings-universitet/" class="pub-link" target="_blank">LiU Game Conference</a></h3>
             <p class="date">11/2018</p>
             <h3 class="thesis"> <strong>About: </strong>Computer games, visualization and digital experiences.</h3>
