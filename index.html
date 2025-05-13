@@ -188,6 +188,8 @@ nav ul li a:hover {
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+
 }
 
 /* Image */
@@ -250,6 +252,8 @@ h2 {
     padding: 15px; /* Padding inside each experience card */
     border: 1px solid #ddd; /* Light border for separation */
     border-radius: 5px; /* Slight rounding of corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+
 }
 
 /*  card heading styling */
@@ -335,6 +339,8 @@ h2 {
     padding: 15px; /* Padding inside each experience card */
     border: 1px solid #ddd; /* Light border for separation */
     border-radius: 5px; /* Slight rounding of corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+
 }
 
 /*  card heading styling */
@@ -548,11 +554,10 @@ h2 {
 
 /*  card styling */
 .certificate-card {
-  background-color: #B0E0E6; /* #F3F3FF Background color of the card */
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 15px;
-  text-align: center;
+  text-align: left;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
 }
 
@@ -572,10 +577,18 @@ h2 {
 
 /*  card paragraph styling */
 .certificate-card p {
+  font-size: 1.1em; /* Increased font size of the description */
   color: #555;
-  height: 40px; /* Fixed height for descriptions */
-  overflow: hidden; /* Hide overflow if the text is too long */
-  text-overflow: ellipsis;
+  height: auto; /* Allow the text to expand */
+  margin: 5px 0; /* Added vertical spacing between paragraphs */
+  line-height: 1.8; /* Increased line height for better spacing */
+  overflow: visible; /* Show full description */
+}
+
+/* Style for list items (if any) inside the certificate */
+.certificate-card ul li {
+  font-size: 1em;  /* Increase the font size for list items */
+  line-height: 1.6;  /* Increase the space between lines in the list */
 }
 
 /*############ PUBLICATION ############*/
@@ -688,61 +701,39 @@ h2 {
 
 
 /* ############### Links ###############*/
-
-.social-links {
-    display: flex;               /* Arrange links horizontally */
-    flex-wrap: wrap;            /* Allow wrapping if needed */
-    gap: 50px;                  /* Space between items */
-    margin-top: 20px;           /* Optional spacing above the section */
-    align-items: center;
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.social-links a {
-    text-decoration: none;
-    font-size: 1em;
-    transition: color 0.3s;
-    display: flex;
-    align-items: center;
+.social-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
-.social-links a:last-child {
-    margin-bottom: 0; /* Remove bottom margin from the last link */
+.social-card:hover {
+  transform: translateY(-4px); /* Slight lift on hover */
 }
 
-/* Hover effects */
-.social-links a:hover {
-    opacity: 0.7; /* Slightly dim on hover */
+.social-card a {
+  text-decoration: none;
+  color: #1a73e8;
+  font-size: 1.1em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Icon styling */
-.social-links i {
-    margin-right: 8px; /* Space between icon and text */
-    font-size: 1.2em; /* Size of icons */
+.social-card i {
+  margin-right: 8px;
+  font-size: 1.3em;
 }
-
-
-/* Specific link colors */
-.github {
-    color: black; /* Color for GitHub */
-}
-
-.google-scholar {
-    color: black; /* Color for Google Scholar */
-}
-
-.linkedin {
-    color: black; /* Color for LinkedIn */
-}
-
-.orcid {
-    color: black; /* Color for ORCID */
-}
-
-.email {
-    color: black; /* Color for Email */
-}
-
-
 
   </style>
 </head>
@@ -793,14 +784,15 @@ h2 {
         Above all, I am passionate about continuous learning and enjoy exploring novel ideas that push the boundaries of what's possible with machine learning.
       </p>
         <!-- Social links now shown horizontally here -->
-  <div class="social-links">
-    <a href="mailto:zahra.gharaee@gmail.com" class="footer"><i class="fas fa-envelope"></i> Email</a>
-    <a href="resume/resume_ZahraGharaee.pdf" class="footer" target="_blank"><i class="fas fa-file-pdf"></i> Resume</a>
-    <a href="https://github.com/zahrag" target="_blank" class="footer"><i class="fab fa-github"></i> GitHub</a>
-    <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&hl=sv" target="_blank" class="footer"><i class="fas fa-user-graduate"></i> Google Scholar</a>
-    <a href="https://www.linkedin.com/in/zahragh/" target="_blank" class="footer"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    <a href="https://orcid.org/0000-0003-0140-0025" target="_blank" class="footer"><i class="fas fa-id-badge"></i> ORCID</a>
-  </div>
+      <div class="social-grid">
+      <div class="social-card"><a href="mailto:zahra.gharaee@gmail.com"><i class="fas fa-envelope"></i> Email</a></div>
+      <div class="social-card"><a href="resume/resume_ZahraGharaee.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Resume</a></div>
+      <div class="social-card"><a href="https://github.com/zahrag" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
+      <div class="social-card"><a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&hl=sv" target="_blank"><i class="fas fa-user-graduate"></i> Google Scholar</a></div>
+      <div class="social-card"><a href="https://www.linkedin.com/in/zahragh/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
+      <div class="social-card"><a href="https://orcid.org/0000-0003-0140-0025" target="_blank"><i class="fas fa-id-badge"></i> ORCID</a></div>
+    </div>
+
     </div>
 
   </div>
@@ -1137,8 +1129,8 @@ h2 {
 
 <section id="certificate">
   <h2>Certificates</h2>
-    <div class="education-grid">
-      <div class="education-card">
+    <div class="certificate-grid">
+      <div class="certificate-card">
               <h3><a href="https://www.coursera.org/account/accomplishments/verify/O3XPS45R7QMX" class="pub-link" target="_blank">Generative AI with Large Language Models</a> </h3>
           <p class="date">04/2025</p>
           <h3 class="thesis"> <strong>Skills: </strong>LLMs, GenAI, AWS, Python</h3>
