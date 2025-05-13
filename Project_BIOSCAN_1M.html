@@ -11,7 +11,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science - My Portfolio</title>
+    <title>BIOSCAN-1M Portfolio</title>
 <style>
 
 body {
@@ -83,14 +83,11 @@ header {
 
 
 footer {
-    background-color: #282c34;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-    position: relative;
-    margin-top: auto; /* Push footer to the bottom of the page */
-}
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #aaa;
+    }
 
 img {
     height: auto;
@@ -129,12 +126,13 @@ img {
 }
 
 h2 {
-    border-bottom: 2px solid #282c34; /* Changed from blue to top bar color */
+    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-h3 {
+
+h4 {
     border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
     padding-bottom: 5px;
     margin-bottom: 20px;
@@ -143,87 +141,113 @@ h3 {
 li {
     margin-bottom: 3px; /* Adjust this value to control the vertical space */
 }
+@media (max-width: 768px) {
+      .sidebar { display: none; }
+      .content { margin-left: 0; padding: 100px 20px 20px; }
+    }
 </style>
-
 </head>
 
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Data Science Project: BIOSCAN-1M</h1>
-        </div>
-    </header>
+  <header>
+    <h1>Data Science Project: BIOSCAN-1M</h1>
+  </header>
 
-    <aside class="sidebar">
-        <nav>
-            <a href="index.html" style="margin-right: 20px;">Home</a>
-            <a href="#Overview">Overview</a>
-            <a href="#Data-Curation-Governance">Data Curation-Governance</a>
-            <a href="#ETL">ETL/ELT</a>
-            <a href="#Statistical Analytics">Statistical Analytics</a>
-            <a href="#ML-Benchmark">ML Benchmark</a>
-            <a href="#Deployment">Deployment</a>
-            <a href="#Tools-and-Technologies">Tools and Technologies</a>
-            <a href="#Links">Links</a>
-        </nav>
-    </aside>
+  <aside class="sidebar">
+    <nav>
+      <a href="index.html" style="margin-right: 20px;">Home</a>
+      <a href="#description">Project Description</a>
+      <a href="#contributions">key Contributions</a>
+      <a href="#tools">Tools & Technologies</a>
+      <a href="#code">Code / Git</a>
+      <a href="#research">Research / Paper</a>
+      <a href="#presentation">Presentations</a>
+      <a href="#links">Links & Resources</a>
+      <a href="#additional-context"> Additional Context</a>
+      <ul>
+        <li><a href="#stats"> Statistical Analysis</a></li>
+        <li><a href="#ML-Benchmark"> ML Benchmarks</a></li>
+        <li><a href="#Deployment"> Deployment</a></li>
 
-    <main class="content">
-        <section id="Overview">
-            <h2>Overview</h2>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+       <section id="description">
+                 <h2>Project Description</h2>
             <figure class="figure-container">
-                <img src="images/BIOSCAN_1M.png" alt="BIOSCAN_1M" class="centered-image" width="1200" height="500">
-                <figcaption class="caption">BIOSCAN-1M Dataset Sample.</figcaption>
+                <img src="images/BIOSCAN_1M.png" alt="BIOSCAN-1M"  width="1500" height="800">
+                <figcaption class="caption">Sample image from BIOSCAN-1M Dataset</figcaption>
             </figure>
-            <p>In this project, a large-scale new dataset of over one million samples was introduced.
-                Each sample includes a high-quality microscopic RGB image, a DNA nucleotide barcode sequence, and a Barcode Index Number.</p>
-            <ul>
-                <li>Composed of both structured (CSV metadata) and unstructured (images, text) data types.</li>
-                <li>Structured metadata is in JSON-LD and CSV formats, including taxonomy classification labels, DNA nucleotide sequences, and Barcode Index Numbers.</li>
-                <li>Unstructured data is organized into chunks of 10,000 images per directory for the original-full size images,
-                    cropped images, resized-original images, and resized-cropped images.</li>
-                <li>Images organized into directories were then stored in HDF5 and ZIP formats.</li>
-                <li>Data was uploaded to Google Drive and other platforms such as Zenodo, Kaggle, and Hugging Face.</li>
-            </ul>
-        </section>
+        <p>BIOSCAN-1M is a large-scale dataset combining over 1 million RGB microscopic images with metadata such as DNA barcode sequences and taxonomy. It supports biodiversity and AI research through multimodal learning.</p>
+    </section>
 
-        <section id="Data-Curation-Governance">
-            <h2>Data Curation-Governance</h2>
-            <p>Data curation involved the collection, organization, and maintenance of data to ensure its quality and accessibility. The key tasks included:</p>
-            <ul>
-                <li><strong>Data Validation</strong>: Ensuring data accuracy and consistency.</li>
-                <li><strong>Data Cleaning</strong>: Removing errors and inconsistencies from the dataset.</li>
-                <li><strong>Data Enrichment</strong>: Enhancing the dataset with additional relevant information.</li>
-                <li><strong>Data Documentation</strong>: Providing detailed descriptions and metadata.</li>
-            </ul>
-        </section>
+  <section id="contributions">
+  <h2>Key Contributions</h2>
+  <ul>
+    <li>Led dataset design and governance, defining taxonomy-aware sampling strategies and class-balanced, stratified splits for small, medium, and large dataset variants.</li>
+    <li>Developed robust ETL pipelines for large-scale image preprocessing (cropping, resizing, HDF5 conversion) and metadata structuring (CSV, JSON-LD) to support downstream ML tasks.</li>
+    <li>Implemented and automated the full ML pipeline, from data preparation through model training and benchmarking, using cloud-hosted storage and reproducible configurations.</li>
+    <li>Fine-tuned ResNet50 and Vision Transformer (ViT) backbones using transfer learning for multi-class classification, evaluating model performance across 72 controlled experiments.</li>
+    <li>Benchmarked classification models with systematic variation of task type, architecture, loss function, and random seed to assess robustness and generalization.</li>
+    <li>Ensured reproducibility and experimental rigor through repeated runs and standardized evaluation metrics, including accuracy, F1-score, confusion matrices, and tabular summaries.</li>
+  </ul>
+</section>
 
-        <section id="ETL">
-            <h2>ETL/ELT: Extract-Transform-Load</h2>
-            <p><strong>Data Migration:</strong></p>
-            <ul>
-                <li>Performed using Google Cloud Platform (GCP) libraries, including:
-                    <ul>
-                        <li>Google API Client</li>
-                        <li>PyDrive</li>
-                        <li>Requests</li>
-                        <li>Google-auth</li>
-                    </ul>
-                </li>
-            </ul>
-            <p><strong>Data Transformation:</strong></p>
-            <ul>
-                <li>Cleaned and standardized data samples into a fixed format (e.g., JPEG images).</li>
-                <li>Removed corrupted samples using Python libraries such as PIL, Pillow, OpenCV, and Pandas.</li>
-                <li>Cropping images using Detection Transformer (DETR). <a href="https://arxiv.org/abs/2005.12872" target="_blank">Carion et al. (2020)</a></li>
-                <li>Resizing images to 256 on their shorter side.</li>
-            </ul>
 
-        </section>
+    <section id="tools">
+      <h2>Tools & Technologies</h2>
+    <ul>
+      <li>Python, PyTorch, Pandas, NumPy</li>
+      <li>h5py, CSV, JSON, Pickle, Hugging Face Datasets</li>
+      <li>Google API Client, PyDrive, Requests, google-auth</li>
+      <li>Transformers (e.g., ViT, DetrFeatureExtractor), timm</li>
+      <li>OpenCV, scikit-learn, PIL (Pillow)</li>
+      <li>Matplotlib, Seaborn, Plotly</li>
+      <li>Cluster Computing, Parallel Computation</li>
+      <li>Virtual Environment, Bash Environment</li>
+      <li>Digital Research Alliance of Canada</li>
+    </ul>
+    </section>
 
-        <section id="Statistical Analytics">
-            <h2>Statistical Analytics</h2>
+    <section id="code">
+      <h2>Code / Git</h2>
+        <ul>
+      <li><a href="https://github.com/bioscan-ml/BIOSCAN-1M" target="_blank">GitHub Repository</a></li>
+        </ul>
+    </section>
 
+    <section id="research">
+      <h2>Research / Paper</h2>
+        <ul>
+      <li><a href="https://arxiv.org/abs/2307.10455" target="_blank">Paper</a></li>
+        </ul>
+    </section>
+
+    <section id="presentation">
+      <h2>Presentations</h2>
+        <ul>
+        <li><a href="https://neurips.cc/virtual/2023/poster/73549" target="_blank">Proceedings of NeurIPS 2023</a></li>
+        </ul>
+    </section>
+
+      <section id="links">
+          <h2>Links & Resources</h2>
+                <ul>
+                    <li><a href="https://drive.google.com/drive/u/1/folders/1kD9cXuQ1FdL30etp7sjy_Gs_NAAJ3EXI" target="_blank">Google Drive</a></li>
+                    <li><a href="https://huggingface.co/datasets/Gharaee/BIOSCAN_1M_Insect_Dataset" target="_blank">Hugging Face</a></li>
+                    <li><a href="https://zenodo.org/records/8030065" target="_blank">Zenodo</a></li>
+                    <li><a href="https://www.kaggle.com/datasets/zahragharaee/bioscan-1m-insect-dataset" target="_blank">Kaggle</a></li>
+                </ul>
+      </section>
+
+
+     <section id="additional-context">
+      <h2>Additional Context</h2>
+
+      <section id="stats">
+         <h3>Statistical Analysis</h3>
          <p><strong>Fine-Grained Classification</strong></p>
          <p>Fine-grained classification involves distinguishing between classes that are very similar to each other,
             often requiring detailed and nuanced feature analysis. In taxonomic classification, this concept
@@ -257,12 +281,10 @@ li {
                     shows poor performance on the minority classes. Addressing this imbalance is crucial
                     for ensuring the model's effectiveness across all classes.</p>
             <iframe src="tables/table_BIOSCAN_1M_stats.html" style="width: 100%; height: 280px; border: none;"></iframe>
-
-
         </section>
 
         <section id="ML-Benchmark">
-            <h2>ML Benchmark</h2>
+            <h3>ML Benchmarks</h3>
             <p>This section outlines the machine learning benchmark tasks and results for the BIOSCAN-1M dataset. The benchmarks were designed to evaluate classification performance at different taxonomy levels and dataset sizes.</p>
             <h3>Data Sampling</h3>
             <p>The BIOSCAN-1M dataset was sampled in the following ways:</p>
@@ -286,9 +308,9 @@ li {
                 </ul>
 
             </ul>
-            <h3>Stratified Class-Based Split</h3>
+            <h4>Stratified Class-Based Split</h4>
             <p>Data samples for each dataset size were split into train (70%), validation (10%), and test (20%) sets using a class-based mechanism to ensure consistent data distributions across all sets.</p>
-            <h3>Multi-class Classification</h3>
+            <h4>Multi-class Classification</h4>
             <p>Two image-based classification benchmark experiments were designed and conducted on all three sized datasets:</p>
             <ul>
                 <li><strong>Insect-Order:</strong> 16 classes.</li>
@@ -298,14 +320,14 @@ li {
                 <img src="images/BIOSCAN_Fig2_upd3.png" alt="Class distribution" class="centered-image" width="1000" height="1000">
                 <figcaption class="caption">Class distribution of the two sampled datasets.</figcaption>
             </figure>
-            <h3>Transfer Learning</h3>
+            <h4>Transfer Learning</h4>
             <p>Dataset was fine-tuned utilizing two pretrained backbone models to facilitate transfer learning:
                 <ul>
                     <li><strong>ResNet50:</strong> A deep residual learning framework for image recognition. <a href="https://arxiv.org/abs/1512.03385" target="_blank">He et al. (2016)</a></li>
                     <li><strong>Vision Transformer (ViT-B/16-224):</strong> A transformer-based model for image classification. <a href="https://arxiv.org/abs/2010.11929" target="_blank">Dosovitskiy et al. (2020)</a></li>
                 </ul>
             </p>
-            <h3>Robustness and Generalizability</h3>
+            <h4>Robustness and Generalizability</h4>
                 <p>To ensure the robustness and generalizability of the models, each experiment was repeated
                     with 3 different random seeds. This approach allows us to account for the impact of randomness in our results.
                     The total number of experiments conducted is given by:
@@ -314,7 +336,7 @@ li {
             <p>To see the results these experiments with mean and standard deviation please visit <b>Tables A3-A4</b> <a href="https://arxiv.org/abs/2307.10455" target="_blank">Gharaee et al. (2023)</a>.</p>
 
 
-            <h3>Evaluation</h3>
+            <h4>Evaluation</h4>
              <p>The model with the best performance on the validation set is selected and used for test experiments.
                  The metrics used for the evaluation are as follows:
                 </p>
@@ -324,7 +346,7 @@ li {
                 <li><strong>Macro-F1 Score:</strong> The macro-averaged F1 score, which computes the F1 score for each class and then averages these scores, giving equal weight to each class.</li>
                 <li><strong>Loss:</strong> Monitored during training and evaluated post-training to measure the effectiveness of the model’s learning.</li>
             </ul>
-            <h3>Findings and Results</h3>
+            <h4>Findings and Results</h4>
             <p>The results indicate that:</p>
             <ul>
                 <li><strong>Cross-Entropy:</strong> Generally performed better achieving higher accuracy.</li>
@@ -347,105 +369,18 @@ li {
         </section>
 
         <section id="Deployment">
-            <h2>Deployment</h2>
+            <h3>Deployment</h3>
             <p>The model trained on BIOSCAN-1M datasets are stored in project's Google Drive folder.
                The pretrained models, and its AI-based tool are utilized by biologists at the
                 Centre for Biodiversity Genomics (CBG) to streamline biological taxonomy classification.
                 Traditionally performed by human experts, this process is costly, and time-consuming.
             </p>
         </section>
-
-         <section id="Tools-and-Technologies">
-            <h2>Tools and Technologies</h2>
-            <p>This section discusses the design and implementation of the project.</p>
-
-            <h3>Data Processing Pipeline</h3>
-            <p>The pipeline includes stages for:</p>
-            <ul>
-                <li>Data Ingestion</li>
-                <li>Data Validation</li>
-                <li>Data Transformation</li>
-                <li>Data Storage</li>
-                <li>Data Access</li>
-                <li>Feature Engineering</li>
-            </ul>
-         <h3>Data Migration</h3>
-            <ul>
-                <li>Google API Client</li>
-                <li>PyDrive</li>
-                <li>Requests</li>
-                <li>Google-auth</li>
-            </ul>
-          <h3>Data Structure</h3>
-            <ul>
-                <li>Arrays</li>
-                <li>Lists</li>
-                <li>Stacks</li>
-                <li>Dictionaries</li>
-            </ul>
-            <h3>Data Visualization</h3>
-            <p>Utilized various libraries for data visualization:</p>
-            <ul>
-                <li>Matplotlib</li>
-                <li>Seaborn</li>
-                <li>Plotly</li>
-            </ul>
-            <h3>Model Development and Deployment</h3>
-            <p>Tools and libraries used for model development and deployment include:</p>
-            <ul>
-                <li>TensorFlow</li>
-                <li>Scikit-learn</li>
-                <li>Pytorch</li>
-                <li>transformers (DetrFeatureExtractor)</li>
-                <li>h5py</li>
-                <li>Pandas</li>
-                <li>csv</li>
-                <li>jason</li>
-                <li>PIL</li>
-                <li>pickle</li>
-                <li>timm</li>
-                <li>shutil</li>
-            </ul>
-
-            <h3>Computing Infrastructure</h3>
-            <p>Infrastructure and environments used include:</p>
-            <ul>
-                <li>Google Cloud Platform</li>
-                <li>Digital Research Alliance of Canada</li>
-                <li>Virtual Environment</li>
-            </ul>
-        </section>
-
-
-        <section id="Links">
-        <h2>Links</h2>
-        <p>Overview of the links related to the projects:</p>
-        <ul>
-            <p><strong>Version Control Systems:</strong>
-                <ul>
-                    <li><a href="https://github.com/bioscan-ml/BIOSCAN-1M" target="_blank">GitHub Page</a></li>
-                </ul>
-            </p>
-            <p><strong>Dataset and Code Sharing Platforms:</strong>
-                <ul>
-                    <li><a href="https://drive.google.com/drive/u/1/folders/1kD9cXuQ1FdL30etp7sjy_Gs_NAAJ3EXI" target="_blank">Google Drive</a></li>
-                    <li><a href="https://huggingface.co/datasets/Gharaee/BIOSCAN_1M_Insect_Dataset" target="_blank">Hugging Face</a></li>
-                    <li><a href="https://zenodo.org/records/8030065" target="_blank">Zenodo</a></li>
-                    <li><a href="https://www.kaggle.com/datasets/zahragharaee/bioscan-1m-insect-dataset" target="_blank">Kaggle</a></li>
-                </ul>
-            </p>
-            <p><strong>Research Article Platforms:</strong>
-                <ul>
-                    <li><a href="https://arxiv.org/abs/2307.10455" target="_blank">Arxiv</a></li>
-                    <li><a href="https://neurips.cc/virtual/2023/poster/73549" target="_blank">Proceedings of NeurIPS 2023</a></li>
-                </ul>
-            </p>
-        </ul>
-        </section>
-    </main>
+    </section>
 
     <footer>
-        <p>&copy; 2024 Zahra Gharaee. All rights reserved.</p>
+      &copy; 2025 Zahra Gharaee. All rights reserved.
     </footer>
+  </main>
 </body>
 </html>
