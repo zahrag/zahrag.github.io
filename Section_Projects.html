@@ -328,8 +328,7 @@ h2 {
 
 .education-grid {
   display: grid;
-  /*grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));*/
-  grid-template-columns: 1fr; /* only one column per row */
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   gap: 20px;
   padding: 20px 0;
 }
@@ -752,217 +751,116 @@ h2 {
 <header>
   <nav>
     <ul>
-      <li><a href="#about">About me</a></li>
-      <li><a href="#skills">Skills</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html">Skills</a></li>
       <li><a href="Section_Expriences.html">Experience</a></li>
       <li><a href="Section_Projects.html">Projects</a></li>
       <li><a href="Section_Educations.html">Education</a></li>
       <li><a href="Section_Certificates.html">Certificates</a></li>
       <li><a href="Section_Talks.html">Talks</a></li>
       <li><a href="Section_Publications.html">Publications</a></li>
-      <li><a href="Section_Teachings.html">Teaching & Supervisions</a></li>
-
 
     </ul>
   </nav>
 </header>
 
-<!-- Unified Section with Name, Resume Download, and About Me -->
-<section id="about">
-  <div class="about-content">
 
-    <!-- Left Side: Photo and Links -->
-    <div class="about-left">
-      <img src="images/ZahraGharaee.jpeg" alt="Zahra Gharaee" class="profile-photo">
-      <div class="contact-info">
-        <h1 class="name-title">Zahra Gharaee</h1>
-        <h2 class="degree-title">Ph.D. in Cognitive Science</h2>
-        <p class="location-title">Toronto, ON, Canada</p>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+
+    <div class="project-card" id="BIOSCAN-5M">
+      <img src="images/bioscan5m.webp" alt="BIOSCAN-5M">
+      <div class="project-content">
+            <h3 class="project-title"> BIOSCAN-5M </h3>
+            <p class="thesis"> <strong>About: </strong>Led the creation of a 5M-image multimodal dataset with standardized metadata, scalable preprocessing, and Hugging Face integration. Enabled robust ML experimentation, multimodal benchmarking, and large-scale taxonomic and statistical analysis.</p>
+            <p class="thesis"> <strong>Keywords:</strong> Biotechnology - Data science - Statistical processing, Supervised learning - Unsupervised learning - BERT - CLIP - Contrastive learning - Zero-shot clustering</p>
+            <a href="Project_BIOSCAN_5M.html" target="_blank" class="pub-link">View Project</a>
+      </div>
+    </div>
+
+<div class="project-card" id="SuperFormer">
+  <img src="images/img_superpixel.png" alt="SuperFormer">
+  <div class="project-content">
+        <h3 class="project-title"> SuperFormer </h3>
+        <p class="thesis"> <strong>About: </strong>A Transformer-based model that leverages superpixels for efficient Salient Object Detection (SOD).</p>
+        <p class="thesis"> <strong>Keywords:</strong> SWIN Transformer - Multimodal feature Representation - Efficient salient object detection - Fine-tuning - Pre-training - Fourier transformers</p>
+      <a href="Project_SuperFormer.html" target="_blank" class="pub-link">View Project</a>
+  </div>
+</div>
+
+ <div class="project-card" id="BIOSCAN-1M">
+      <img src="images/insect_1M.jpg" alt="BIOSCAN-1M">
+      <div class="project-content">
+            <h3 class="project-title"> BIOSCAN-1M </h3>
+            <p class="thesis"> <strong>About:</strong> Developed a large-scale, taxonomy-aware insect image dataset with automated ML pipelines, robust model benchmarking (ResNet50, ViT), and reproducible evaluation across diverse experimental settings.</p>
+            <p class="thesis"> <strong>Keywords:</strong> Biotechnology - Data science - Vision transformers - Object detection - Big data analytics - Fine-tuning - Transfer Learning </p>
+            <a href="Project_BIOSCAN_1M.html" target="_blank" class="pub-link">View Project</a>
+      </div>
+    </div>
+
+ <div class="project-card" id="Causality">
+      <img src="images/causality_1.png" alt="Causality">
+      <div class="project-content">
+            <h3 class="project-title"> Causality </h3>
+            <p class="thesis"> <strong>About: </strong>Two approaches to generative and implicit causal representation learning.</p>
+            <p class="thesis"> <strong>Keywords:</strong> Causal inference - Representation learning - Generative models - Domain Adaptation - Domain generalization - Interventions - Variational autoencoders</p>
+            <a href="Project_Causality.html" target="_blank" class="pub-link">View Project</a>
+      </div>
+    </div>
+<div class="project-card" id="MoE-VRD">
+  <img src="images/ViDVRD_MoE.webp" alt="MoE-VRD">
+  <div class="project-content">
+    <h3 class="project-title"> MoE-VRD </h3>
+    <p class="thesis"> <strong>About: </strong>Collaborated with Microsoft Media Group on modeling subject-object interactions in visual scenes. Developed and refined a framework for action recognition and scene understanding.</p>
+    <p class="thesis"> <strong>Keywords:</strong> Computer Vision - Scene graph generation - Video relationship detection - Mixture of experts</p>
+    <a href="Project_ViDVRD_MoE.html" target="_blank" class="pub-link">View Project</a>
+  </div>
+</div>
+
+<div class="project-card" id="SLOPE-KP">
+      <img src="images/slope_kp_img.webp" alt="SLOPE-KP">
+      <div class="project-content">
+            <h3 class="project-title"> SLOPE-KP </h3>
+            <p class="thesis"> <strong>About: </strong>Co-led a project on 3D shape reconstruction and pose prediction from single images using self-supervised learning. Developed and evaluated a keypoint-based pipeline across static and dynamic datasets, achieving notable gains in accuracy and generalization.</p>
+            <p class="thesis"> <strong>Keywords:</strong> Computer vision - 3D shape reconstruction - Pose estimation - 3D Rotation </p>
+          <a href="Project_SLOPE_KP.html" target="_blank" class="pub-link">View Project</a>
+      </div>
+    </div>
+
+    <div class="project-card" id="GAIN">
+      <img src="images/gain.webp" alt="GAIN">
+      <div class="project-content">
+            <h3 class="project-title"> GAIN </h3>
+              <p class="thesis"> <strong>About: </strong>An approach to graph representation learning.</p>
+             <p class="thesis"> <strong>Keywords:</strong> Graph neural networks - Representation learning -  Geospatial data analysis - Classification - Road network graphs - Urban infrastructure</p>
+             <a href="Project_GAIN.html" target="_blank" class="pub-link">View Project</a>
       </div>
     </div>
 
 
-    <!-- Right Side: About Me Text -->
-    <div class="about-center">
-      <h2>About me</h2>
-      <p>
-        I am a machine learning professional with over seven years of experience leading cross-industry projects and working in cross-functional teams.
-        I specialize in building, debugging, and deploying resilient machine learning and deep learning models, with a strong focus on scalability, usability, and practical impact.
-        My work has led to the release of widely used datasets and open-source tools, and I have published at top-tier venues such as NeurIPS and ICML.
-        I have designed robust data pipelines that streamline data ingestion and preprocessing, significantly improving data accessibility and efficiency.
-        I thrive in collaborative environments, where I communicate technical ideas clearly to diverse stakeholders and align project goals across teams.
-        I actively mentor junior researchers and contribute to the broader research community by reviewing for high-impact journals and conferences.
-        Above all, I am passionate about continuous learning and enjoy exploring novel ideas that push the boundaries of what's possible with machine learning.
-      </p>
-        <!-- Social links now shown horizontally here -->
-      <div class="social-grid">
-      <div class="social-card"><a href="mailto:zahra.gharaee@gmail.com"><i class="fas fa-envelope"></i> Email</a></div>
-      <div class="social-card"><a href="resume/resume_ZahraGharaee.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Resume</a></div>
-      <div class="social-card"><a href="https://github.com/zahrag" target="_blank"><i class="fab fa-github"></i> GitHub</a></div>
-      <div class="social-card"><a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&hl=sv" target="_blank"><i class="fas fa-user-graduate"></i> Google Scholar</a></div>
-      <div class="social-card"><a href="https://www.linkedin.com/in/zahragh/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></div>
-      <div class="social-card"><a href="https://orcid.org/0000-0003-0140-0025" target="_blank"><i class="fas fa-id-badge"></i> ORCID</a></div>
-      <div class="social-card"><a href="https://huggingface.co/Gharaee" target="_blank"> <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" class="social-icon" />Hugging Face</a></div>
+   <div class="project-card" id="BRL-VBVC">
+      <img src="images/brl_vbvc.webp" alt="BRL-VBVC">
+      <div class="project-content">
+            <h3 class="project-title"> BRL-VBVC </h3>
+            <p class="thesis"> <strong>About: </strong>An approach to Bayesian Reinforcement Learning of vision-based vehicular control.</p>
+            <p class="thesis"> <strong>Keywords:</strong> Autonomous systems - Reinforcement learning - Simulated environment - Semantic segmentation - Bayesian RL </p>
+            <a href="Project_BRL_VBVC.html" target="_blank" class="pub-link">View Project</a>
+      </div>
     </div>
 
+    <div class="project-card" id="HAR">
+      <img src="images/hr2.png" alt="HAR">
+      <div class="project-content">
+            <h3 class="project-title"> Human Action Recognition </h3>
+            <p class="thesis"> <strong>About: </strong>Self-supervised Learning of 3D Skeleton Based Human Action Recognition.</p>
+            <p class="thesis"> <strong>Keywords:</strong> Action Recognition - Action Kinematics - Self-organizing Maps - Growing Grid Networks - Online Action Recognition </p>
+            <a href="Project_ActionRecognition.html" target="_blank" class="pub-link">View Project</a>
+      </div>
     </div>
 
-  </div>
 </section>
-
-
-
-<section id="skills">
-    <h2>Skills</h2>
-    <ul class="expertise-list">
-    <li>
-        <div class="skill-item">
-            <h4>Programming Languages</h4>
-            <ul>
-                <li>Python</li>
-                <li>C++</li>
-            </ul>
-        </div>
-    </li>
-        <li>
-        <div class="skill-item">
-            <h4>Big Data Analysis</h4>
-            <ul>
-                <li>Pandas</li>
-                <li>Apache Spark (Pyspark)</li>
-            </ul>
-
-        </div>
-    </li>
-    <li>
-        <div class="skill-item">
-            <h4>Machine Learning Frameworks</h4>
-            <ul>
-                <li>Scikit-learn</li>
-                <li>Pytorch</li>
-                <li>TensorFlow</li>
-            </ul>
-        </div>
-    </li>
-    <li>
-        <div class="skill-item">
-            <h4>Transformers</h4>
-            <ul>
-                <li>SWIN</li>
-                <li>DETR</li>
-                <li>ViT</li>
-            </ul>
-        </div>
-    </li>
-     <li>
-        <div class="skill-item">
-            <h4>Large Language Models (LLMs)</h4>
-            <ul>
-                <li>GPT</li>
-                <li>BERT</li>
-                <li>Flan-T5</li>
-            </ul>
-        </div>
-    </li>
-    <li>
-  <div class="skill-item">
-    <h4>Fine-tuning & Reinforcement Learning</h4>
-    <ul>
-      <li>PEFT LoRA</li>
-      <li>RLHF</li>
-      <li>PPO</li>
-    </ul>
-  </div>
-</li>
-
-
-    <li>
-        <div class="skill-item">
-            <h4>Cloud Computing & Storage</h4>
-            <ul>
-                <li>AWS</li>
-                <li>GCP</li>
-                <li>Digital Research Alliance of Canada</li>
-                <li>SNIC</li>
-            </ul>
-        </div>
-    </li>
-     <li>
-    <div class="skill-item">
-        <h4>Computer Vision</h4>
-        <ul>
-            <li>OpenCV</li>
-            <li>Pillow</li>
-            <li>PIL</li>
-        </ul>
-    </div>
-    </li>
-    <li>
-    <div class="skill-item">
-        <h4>Graph & Spatial Data Processing</h4>
-        <ul>
-            <li>NetworkX</li>
-            <li>OSMnx</li>
-            <li>Shapely</li>
-        </ul>
-    </div>
-    </li>
-    <li>
-        <div class="skill-item">
-            <h4>Data Visualization</h4>
-            <ul>
-                <li>Matplotlib</li>
-                <li>Plotly</li>
-                <li>Seaborn</li>
-            </ul>
-        </div>
-    </li>
-    <li>
-        <div class="skill-item">
-            <h4>Version Control Framework</h4>
-            <ul>
-                <li>Git</li>
-            </ul>
-        </div>
-    </li>
-    <li>
-        <div class="skill-item">
-            <h4>Containerization</h4>
-            <ul>
-                <li>Docker</li>
-                <li>Singularity</li>
-            </ul>
-        </div>
-    </li>
-    <li>
-        <div class="skill-item">
-            <h4>Simulator</h4>
-            <ul>
-                <li>CARLA</li>
-                <li>Webots</li>
-            </ul>
-        </div>
-    </li>
-     <li>
-        <div class="skill-item">
-            <h4>Soft Skills</h4>
-            <ul>
-                <li>Problem-Solving</li>
-                <li>Detail Oriented</li>
-                <li>Agile Development</li>
-                <li>Teamwork</li>
-                <li>Report and Presentation</li>
-                <li>Project Leadership</li>
-                <li>Project Management</li>
-                <li>Accountability</li>
-                <li>Collaboration</li>
-            </ul>
-        </div>
-    </li>
-</ul>
-</section>
-
-
 
 
 <footer>
