@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Polyfill for broader browser compatibility -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<!-- Load MathJax to display LaTeX equations -->
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIOSCAN-5M Portfolio</title>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes full height */
+    line-height: 1.6;
+}
+
+header {
+    background-color: #282c34;
+    color: #ffffff;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 2px -2px gray;
+    position: relative;
+    z-index: 2; /* Ensure header is above other elements */
+}
+
+.header-container {
+    text-align: center;
+}
+
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.sidebar {
+    background-color: #f5f5f5;
+    padding: 15px;
+    padding-top: 150px; /* Add space at the top */
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-left: 3px solid transparent;
+    /*margin-bottom: 5px;
+    /*margin-top: 10px;  /*Add space above each link */
+}
+
+.sidebar nav a:first-child {
+    margin-top: 0; /* Remove margin from the first link, if needed */
+}
+
+
+.content {
+    margin-left: 270px; /* Space for the sidebar */
+    padding: 20px;
+    width: calc(100% - 350px); /* Adjust width to account for the sidebar */
+    flex-grow: 1;
+    overflow: auto; /* Ensure content scrolls if necessary */
+}
+
+
+footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #aaa;
+    }
+
+img {
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Container for centering the figure */
+.figure-container {
+    text-align: center;
+    margin: 0 auto;
+    justify-content: flex-end; /* Align caption to the bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Styling for centered images */
+.centered-image {
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+/* Styling for captions */
+.caption {
+    /*font-style: italic;*/
+    color: #555;
+    margin-top: 8px;
+}
+.image-row {
+    display: flex; /* Display images in a row */
+    justify-content: center; /* Center the images horizontally */
+    gap: 20px; /* Space between images */
+}
+
+h2 {
+    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+
+h4 {
+    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 3px; /* Adjust this value to control the vertical space */
+}
+@media (max-width: 768px) {
+      .sidebar { display: none; }
+      .content { margin-left: 0; padding: 100px 20px 20px; }
+    }
+</style>
+</head>
+
+<body>
+  <header>
+    <h1>Bioinformatics Project: Barcode-Metric</h1>
+  </header>
+
+  <aside class="sidebar">
+    <nav>
+      <a href="index.html" style="margin-right: 20px;">Home</a>
+      <a href="#description">Project Description</a>
+      <a href="#contributions">Key Contributions</a>
+      <a href="#tools">Tools & Technologies</a>
+      <a href="#code">Code / Git</a>
+      <a href="#research">Research / Paper</a>
+      <a href="#additional-context"> Additional Context</a>
+      <ul>
+        <li><a href="#sdi"> SDI</a></li>
+        <li><a href="#dl-dist"> Damerau–Levenshtein</a></li>
+        <li><a href="#pair-wise-dist"> Pair-wise Distance</a></li>
+        <li><a href="#illustration"> Illustrations</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section id="description">
+              <h2>Project Description</h2>
+    <figure class="figure-container">
+                <img src="images/barcodemetric.png" alt="barcodemetric"  width="600" height="400">
+                <figcaption class="caption">DNA Nucleotide Barcode Sequence</figcaption>
+            </figure>
+        <p>
+         This project provides tools for analyzing DNA nucleotide barcode sequences derived from the
+            <a href="Project_BIOSCAN_1M.html"><strong>BIOSCAN-1M</strong></a> and <a href="Project_BIOSCAN_5M.html"><strong>BIOSCAN-5M</strong></a> datasets.
+            The data is hierarchically structured by taxonomic ranks—from phylum down to species—where each rank contains
+            subgroups of identical barcode sequences. The project enables statistical analysis of DNA barcode variation
+            across taxonomy to support biodiversity and bioinformatics research.
+        </p>
+    </section>
+
+  <section id="contributions">
+  <h2>Key Contributions</h2>
+  <ul>
+    <li>Processed and analyzed DNA barcode data from BIOSCAN-1M and BIOSCAN-5M across hierarchical taxonomic ranks.</li>
+
+    <li>Computed Shannon Diversity Index (SDI) to quantify genetic richness and evenness within taxonomic subgroups.</li>
+
+    <li>Measured genetic similarity using pairwise Damerau–Levenshtein distances on aligned DNA barcode sequences.</li>
+
+    <li>Implemented subgroup filtering, random sampling, and alignment strategies to support large-scale analysis.</li>
+
+    <li>Developed dual pipelines using Pandas for small datasets and Apache Spark (PySpark) for multi-million–record datasets.</li>
+
+    <li>Aggregated statistical summaries (mean, median, standard deviation) of diversity and distance metrics across taxonomic levels.</li>
+
+    <li>Applied interquartile range (IQR)–based analysis to characterize distribution spread and identify variability and outliers.</li>
+
+    <li>Generated distribution plots and boxplots to visualize SDI and pairwise distance statistics across taxonomic ranks.</li>
+
+    <li>Enabled reusable outputs (Parquet files and DataFrames) for downstream bioinformatics and ML workflows.</li>
+  </ul>
+    </section>
+
+    <section id="tools">
+      <h2>Tools & Technologies</h2>
+    <ul>
+      <li>Python, PyTorch, TensorFlow, Pandas, NumPy, PySpark (pyspark.sql) </li>
+      <li>h5py, CSV, JSON, Pickle, Parquet, DataFrames</li>
+      <li>Matplotlib (mpl_toolkits), Seaborn, Plotly</li>
+      <li>Cluster Computing, Parallel Computation</li>
+      <li>Virtual Environment, Bash Environment</li>
+      <li>Digital Research Alliance of Canada</li>
+    </ul>
+    </section>
+
+    <section id="code">
+      <h2>Code / Git</h2>
+        <ul>
+        <li><a href="https://github.com/zahrag/barcodemetrics" target="_blank">BarcodeMetrics</a></li>
+        </ul>
+    </section>
+
+    <section id="research">
+      <h2>Research / Paper</h2>
+        <ul>
+        <li><a href="https://arxiv.org/abs/2406.12723" target="_blank">Paper</a></li>
+        </ul>
+    </section>
+
+
+<section id="additional-context">
+  <h2>Additional Context</h2>
+
+
+  <h3>DNA Barcode Sequence</h3>
+  <p>
+    A DNA barcode sequence represents the ordered arrangement of the four nucleotides—
+    Adenine (A), Thymine (T), Cytosine (C), and Guanine (G)—within a specific gene region,
+    commonly the mitochondrial <em>cytochrome c oxidase subunit I (COI)</em> gene.
+  </p>
+
+  <pre style="background-color:#f4f4f4; padding:10px; border-radius:5px; overflow:auto;">
+    TTTATATTTTATTTTTGGAGCATGATCAGGAATAGTTGGAACTTCAATAAGTTTATTAATTCGAACAGAATTAAG...
+  </pre>
+
+    <section id="sdi">
+      <h3>Shannon Diversity Index (SDI)</h3>
+      <p>
+        The Shannon Diversity Index (SDI) quantifies genetic diversity by accounting for both:
+      </p>
+      <ul>
+        <li><strong>Richness</strong>: Number of unique DNA barcode sequences</li>
+        <li><strong>Evenness</strong>: Distribution of samples across those barcodes</li>
+      </ul>
+
+      <p>
+        Higher SDI values indicate greater genetic diversity with more evenly distributed barcodes,
+        while lower values suggest dominance by a small number of barcodes.
+      </p>
+
+      <p><strong>Definition:</strong></p>
+      <p style="text-align: center;">
+      \( \mathrm{SDI}_T = -\sum_{i=1}^{N} p_i \log_2(p_i) \)
+    </p>
+
+      <ul>
+        <li><em>N</em> is the number of unique barcodes in subgroup <em>T</em></li>
+        <li><em>p<sub>i</sub></em> is the proportion of samples with the <em>i</em>-th barcode</li>
+      </ul>
+    </section>
+
+    <section id="dl-dist">
+      <h3>Damerau–Levenshtein Distance for DNA Barcodes</h3>
+      <p>
+        The Damerau–Levenshtein distance measures sequence similarity by counting the minimum number
+        of edit operations—insertions, deletions, substitutions, and adjacent transpositions—
+        required to transform one DNA barcode into another.
+      </p>
+
+      <p>
+        Average pairwise distances are computed across taxonomic ranks using the following procedure:
+      </p>
+      <ul>
+        <li>Subgroups with fewer than 4 unique sequences are excluded</li>
+        <li>Subgroups with more than 1,000 sequences are randomly sampled to 1,000</li>
+        <li>Sequences are aligned using <strong>MAFFT</strong></li>
+        <li>Pairwise distances are computed using the Damerau–Levenshtein metric</li>
+        <li>Mean and standard deviation are aggregated across subgroups at each taxonomic rank</li>
+      </ul>
+    </section>
+
+    <section id="pair-wise-dist">
+      <h3>Pairwise Distance Calculation</h3>
+      <p>
+        The repository provides two implementations for computing pairwise DNA barcode distances:
+      </p>
+      <ul>
+        <li><strong>Pandas</strong> — suitable for small to medium-sized datasets</li>
+        <li><strong>Apache Spark (PySpark)</strong> — optimized for large-scale datasets such as BIOSCAN-5M</li>
+      </ul>
+
+      <p>
+        <em>Note:</em> For optimal performance, experiments should be conducted in two phases,
+        selecting the appropriate implementation based on dataset size.
+      </p>
+    </section>
+</section>
+
+      <section id="illustration">
+          <p>The visualization summarizes the distribution of SDI and pairwise distances across taxonomic ranks.
+          Each boxplot displays the Interquartile Range (IQR)—the range between the 25th percentile (Q1) and the 75th percentile (Q3)—capturing
+              the central 50% of the data. The median (Q2) is shown as a line inside the box.
+              Whiskers extend up to 1.5 times the IQR from Q1 and Q3, indicating data spread and helping to identify potential outliers.</p>
+
+       <h3>Distributions of SDI across taxonomic ranks</h3>
+       <figure class="figure-container">
+                <img src="images/sdi_distributions.png" alt="barcodemetric"  width="800" height="400">
+                <figcaption class="caption">DNA Nucleotide Barcode Sequence</figcaption>
+        </figure>
+
+       <h3>Distributions of pairwise distance across subgroups of class</h3>
+       <figure class="figure-container">
+                <img src="images/class_distance_distribution.png" alt="barcodemetric"  width="800" height="400">
+                <figcaption class="caption">DNA Nucleotide Barcode Sequence</figcaption>
+        </figure>
+
+      <h3>Distributions of pairwise distance across subgroups of order</h3>
+       <figure class="figure-container">
+                <img src="images/order_distance_distribution.png" alt="barcodemetric"  width="800" height="400">
+                <figcaption class="caption">DNA Nucleotide Barcode Sequence</figcaption>
+        </figure>
+
+
+
+
+
+    <footer>
+      &copy; 2025 Zahra Gharaee. All rights reserved.
+    </footer>
+  </main>
+</body>
+</html>
