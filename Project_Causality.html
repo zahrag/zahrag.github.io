@@ -161,8 +161,12 @@ li {
       <a href="#presentation">Presentations</a>
       <a href="#additional-context"> Additional Context</a>
       <ul>
-        <li><a href="#causality"> Causality Fundamentals</a></li>
-        <li><a href="#project_1_gcrl"> GCRL Project</a></li>
+          <li><a href="#scms"> SCMs</a></li>
+          <li><a href="#causal-variables"> Causal Variables</a></li>
+          <li><a href="#crl"> CRL</a></li>
+          <li><a href="#confounders"> Confounders</a></li>
+          <li><a href="#backdoor-criterion"> Backdoor Criterion</a></li>
+          <li><a href="#project_1_gcrl"> GCRL Project</a></li>
 
       </ul>
     </nav>
@@ -218,12 +222,11 @@ li {
 
   <section id="additional-context">
   <h2>Additional Context</h2>
-
-        <section id="causality">
-            <h3>Causality Fundamentals</h3>
             <p>In this section, I will explain the fundamentals of causality and causal models required to better
                 understand the ideas of these projects. </p>
-            <h4>Structural Causal Models (SCMs)</h4>
+
+            <section id="scms">
+            <h3>Structural Causal Models (SCMs)</h3>
                <p>
                 Structural Causal Models (SCMs) are a way of describing causal features and their interactions,
                 which are represented by <b>Directed Acyclic Graphs (DAG)</b> (<a href="https://books.google.ca/books?hl=en&lr=&id=I0V2CwAAQBAJ&oi=fnd&pg=PR9&dq=Causal+inference+in+statistics:+A+primer&ots=9Bm3At1Jnn&sig=dxCNyFpSS1ORgsaJgTQJB4NtRMQ#v=onepage&q=Causal%20inference%20in%20statistics%3A%20A%20primer&f=false" target="_blank">Pearl et al., 2016</a>).
@@ -251,8 +254,10 @@ li {
                 <li> Data-dependent claims (<strong>C</strong>) represented by the magnitude or likelihoods of the queries (<strong>Q</strong>)</li>
                 <li> A list of testable statistical implications (<strong>T</strong>).</li>
                 </ul>
+            </section>
 
-            <h4>Causal Variables</h4>
+            <section id="causal-variables">
+            <h3>Causal Variables</h3>
             <p>
                 In causal analysis, variables are categorized into endogenous and exogenous variables,
                 each playing distinct roles in understanding causal relationships.
@@ -276,7 +281,10 @@ li {
                     </p>
                 </li>
             </ul>
-            <h4>Causal Representation Learning (CRL)</h4>
+            </section>
+
+            <section id="crl">
+            <h3>Causal Representation Learning (CRL)</h3>
             <p>
                 Causal Representation Learning (CRL) is an emerging field within machine learning and artificial intelligence
                 that focuses on learning representations of data that explicitly capture
@@ -332,9 +340,10 @@ li {
                 </ul>
                 </li>
             </ul>
+            </section>
 
-
-            <h4>Confounders</h4>
+            <section id="confounders">
+            <h3>Confounders</h3>
             In the context of causal graphs, confounders are variables that can influence both the independent variable (the cause)
             and the dependent variable (the effect), leading to a spurious or misleading association between them.
             Confounders can create a false impression of a causal relationship between variables that may not actually exist.
@@ -352,7 +361,10 @@ li {
                     the relationships between variables are accurately estimated. Techniques such as stratification, regression,
                     or matching can be used to adjust for confounding effects.</li>
             </ul>
-            <h4>Backdoor Criterion</h4>
+            </section>
+
+            <section id="backdoor-criterion">
+            <h3>Backdoor Criterion</h3>
             <p>
                 The backdoor criterion is a fundamental concept in causal inference, particularly when using Structural Causal Models (SCMs) and Directed Acyclic Graphs (DAGs).
                 It provides a method to identify a set of variables that, when controlled for, can help estimate the causal effect of one variable on another,
