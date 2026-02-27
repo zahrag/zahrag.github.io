@@ -131,7 +131,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-h4 {
+h3 {
     border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
     padding-bottom: 5px;
     margin-bottom: 20px;
@@ -146,7 +146,7 @@ li {
 <body>
     <header>
         <div class="header-container">
-            <h1>Causality Projects: GCRL & ICRL-SM</h1>
+            <h1>Causal Representation Learning: GCRL</h1>
         </div>
     </header>
 
@@ -163,7 +163,6 @@ li {
       <ul>
         <li><a href="#causality"> Causality Fundamentals</a></li>
         <li><a href="#project_1_gcrl"> GCRL Project</a></li>
-        <li><a href="#project_2_icrl_sm"> ICRL-SM Project</a></li>
 
       </ul>
     </nav>
@@ -178,10 +177,8 @@ li {
                 <img src="images/causality.png" alt="causality" class="centered-image" width="400" height="400">
                 <figcaption class="caption">Causal Representation Learning.</figcaption>
             </figure>
-            <p>Here I will present two interesting projects with causality and causal representation learning;
-                <b>GCRL</b>: Generative Causal Representation Learning for
-                Out-of-Distribution Motion Forecasting, and <b>ICRL-SM</b>: Implicit Causal Representation Learning via Switchable Mechanism.
-
+            <p>Here I will present an interesting project with causality and causal representation learning;
+                <b>GCRL</b>: Generative Causal Representation Learning for Out-of-Distribution Motion Forecasting.
         </section>
 
 
@@ -196,14 +193,6 @@ li {
       </ul>
     </section>
 
-
-    <section id="tools">
-      <h2>Tools & Technologies</h2>
-    <ul>
-    <li>Matplotlib, Seaborn, Plotly</li>
-    </ul>
-    </section>
-
     <section id="code">
       <h2>Code / Git</h2>
         <ul>
@@ -215,7 +204,6 @@ li {
       <h2>Research / Paper</h2>
         <ul>
            <li><a href="https://arxiv.org/abs/2302.08635" target="_blank">GCRL Paper</a></li>
-           <li><a href="https://arxiv.org/abs/2402.11124" target="_blank">ICRL-SM Paper</a></li>
         </ul>
     </section>
 
@@ -228,7 +216,7 @@ li {
 
 
 
-        <section id="additional-context">
+  <section id="additional-context">
   <h2>Additional Context</h2>
 
         <section id="causality">
@@ -591,161 +579,6 @@ li {
             </p>
         </section>
 
-        <section id="project_2_icrl_sm">
-            <h3>ICRL-SM: Implicit CRL via Switchable Mechanism</h3>
-            <p>In the second problem we address implicit causal representation learning in the presence of soft intervention
-                by using switch variable.</p>
-            <figure class="figure-container">
-                    <img src="images/causality_icrl_sm.png" alt="Img" class="centered-image" width="800" height="600">
-                    <figcaption class="caption">The architecture processes pre-intervention observations X,
-                        post-intervention observations \(\tilde X\), and their differences \(X − \tilde X\) (intervention displacement),
-                        encoding them into latent representations. Each encoder outputs the mean (M) and variance (V) of
-                        a probability distribution function. By sampling from these distributions, we obtain pre-intervention exogenous variables E,
-                        post-intervention exogenous variables \(\tilde E\), and the causal mechanism switch variable V .
-                        The exogenous variables are derived from the corresponding pre- and post-intervention encodings,
-                        while V is obtained from the encoding of the differences between X and \(\tilde X\).
-                        The pre- and post-intervention exogenous variables are then passed through two fully connected (FC) layers,
-                        which predict the scale and location parameters. These predicted scale and location parameters,
-                        together with the post-intervention exogenous variables and the causal mechanism switch variable,
-                        are utilized in the solution function to compute the post-intervention causal variables \(\tilde Z\).
-                        Here, N denotes the total number of causal variables.</figcaption>
-            </figure>
-
-            <h4>Problem formulation</h4>
-            <p>Learning causal representations from observational and interventional data, especially when
-            ground-truth structural causal graph (SCM) are unknown, is quite challenging.
-                There are two main approaches to causal representation learning in the absence of ground-truth causal graph.
-
-            <h4>Explicit CRL</h4>
-                <p>Explicit Latent Causal Models (ELCMs) starts with an initial known causal graph structure reflecting our understanding of
-                the relationships between variables, which is informed by domain knowledge, prior research, or theoretical considerations.
-                This initial graph indicates potential causal relationships among variables,
-                even if the exact strength and direction of these relationships remain unquantified.
-                Accompanying this graph is an adjacency matrix that contains initial estimates of causal relationships,
-                    represented as zeros for no direct relationship or other values indicating the strength of influence.</p>
-
-                <p>During training, the model refines the parameters associated with the graph's edges
-                    using observed data to estimate coefficients that quantify the causal relationships.
-                    As the model learns, it adjusts the parameters in the adjacency matrix to improve its fit to
-                    the observed data while maintaining the specified structure. </p>
-
-                    <p>The training process incorporates conditions to ensure identifiability, aiming to achieve
-                an optimal graph structure that accurately identifies causal relationships from the data.
-                Upon completion of training, the model may refine the initial graph structure based on the learned parameters,
-                        which can result in modifications to the edges or directions of causation.</p>
-            <h4>Implicit CRL</h4>
-            <p>In Implicit Latent Causal Models (ILCMs), the absence of a predefined causal graph means that the model does not start
-                with explicit knowledge about how variables are related causally.
-                Instead, the model relies on observed data to infer the underlying causal mechanisms.
-                This process often involves statistical techniques and causal discovery algorithms that analyze correlations
-                and dependencies within the data to hypothesize causal relationships.</p>
-
-            <p>The solution function learned during this process represents the causal representation of the variables involved.
-                This function encapsulates the cause-and-effect relationships identified from the data, allowing for
-                the prediction of outcomes based on interventions or changes in certain variables.
-
-            <p>However, unlike explicit CRL, where the aim is to refine a causal graph and adjacency matrix,
-                implicit CRL focuses on estimating the effects of <b>interventions</b> without explicitly modeling the causal structure.
-                The primary challenge in implicit CRL is to ensure that the learned relationships are valid and robust
-                against potential confounding factors or spurious associations present in the data.
-                The goal is to identify true causal effects that can be reliably used for prediction and decision-making,
-                even in the absence of a clear graphical representation of the underlying causal system.</p>
-
-            <h4>Implicit CRL via Interventions</h4>
-            <p>Implicit causal representation learning (CRL) typically utilizes two types of interventional data:
-                hard and soft interventions. In real-world scenarios, soft interventions are often more practical,
-                as hard interventions require fully controlled environments.
-                While the literature extensively studies implicit CRL with hard interventions,
-                soft interventions offer a different approach by indirectly influencing the causal mechanisms
-                rather than directly altering a causal variable.
-                However, the nuanced nature of soft interventions poses additional challenges in accurately
-                learning causal models.</p>
-
-
-            <h4>Hard vs Soft Intervention</h4>
-             <figure class="figure-container">
-                    <img src="images/causality_intv.png" alt="Img" class="centered-image" width="600" height="400">
-                    <figcaption class="caption">Hard vs Soft Intervention.</figcaption>
-            </figure>
-
-            <p>
-                In a causal model, an intervention is a deliberate action to manipulate one or more variables to observe
-                its impact on others, revealing causal relationships. Interventions can be categorized based on the level of control:
-                hard and soft interventions.
-            </p>
-            <p>
-                <strong>hard intervention</strong> It directly sets the value of a causal variable, represented as do(Z = z),
-                completely isolating the variable from the influence of its ancestral nodes.</p>
-
-                <p><strong>Example:</strong>
-                Suppose we are trying to understand the causal relationship
-                between different types of diets and weight loss.
-                    If the government or an authority were to intervene and enforce a mandatory low-carb diet through legal
-                means, this would constitute a hard intervention. In this scenario, regulations would be implemented, prohibiting the
-                consumption of specific carbohydrate-containing foods. Regulatory agencies would be established to oversee and
-                ensure adherence to the low-carb diet mandate, taking actions such as removing prohibited foods from the market,
-                restricting their import and production, and so on. Individuals caught consuming banned foods would be subject to
-                fines, legal repercussions, or other penalties.
-            </p>
-            <p>
-                <strong>soft intervention</strong> It indirectly modifies a variable by changing its
-                conditional distribution, \(p(Z|Z_{pa}) \rightarrow \tilde{p}(Z|Z_{pa})\), allowing it to still be
-                influenced by its parent nodes. This means the post-intervention value of \(\tilde Z\) is still
-                influenced by its causal parents. As a result, the solution function \(\tilde s\) for the causal
-                variable is affected by the intervention, making it harder to identify the causal mechanisms involved.</p>
-
-                <p><strong>Example:</strong> Suppose we are trying to understand the causal relationship
-                between different types of diets and weight loss. The soft intervention in this scenario could be
-                a switch from a regular diet to a low-carb diet. Switching to a low-carb diet is a voluntary choice
-                made by the individual and there are no external forces or regulations compelling them to make this change (non-coercive).
-                The intervention involves a modification of the individual’s diet rather than a complete disruption since
-                they are adjusting the proportion of macronutrients (fats, proteins, and carbs) they consume,
-                which is less disruptive than a radical change in eating habits (gradual modification).
-            </p>
-
-            <h4>Switchable Mechanism</h4>
-            <p>In hard intervention we are fully certain that changes in casual variables are direct result of intervention. While
-            Soft interventions provide fewer constraints on the causal graph structure than hard interventions.
-                This is because the connections to parental variables remain intact, leading to ambiguity in determining
-                the causal relationships. </p>
-
-            <h4>Data Augmentation</h4>
-            <p>If our model include a data augmentation step that adds the intervention displacement \(\tilde x - x\)
-                as an <b>observed feature</b>. This feature directly captures the full effect of the soft intervention in the observation space,
-                making it easier to analyze its impact.</p>
-
-            <h4>Application of Switch Variable</h4>
-            <p>The switch variable allows the model to <b>transition to the pre-intervention causal mechanisms</b>
-                when analyzing post-intervention data.
-                In the post-intervention condition, our goal is to learn the representation of each causal variable \(p(\tilde z)\).
-                While soft interventions maintain the ancestral connections to a causal variable (implying we should learn
-                \(p(\tilde z|e_{pa})\)), these connections remain unknown due to the implicit nature of our learning method.
-                To address this challenge, we model the post-intervention causal variable using its only known parent,
-                which is its own exogenous variable, represented as \(p(\tilde z|e_{pa})\).
-
-                The switch variable helps isolate changes in the intrinsic characteristics of each causal variable,
-                encapsulated within its own exogenous variable.
-                This improves the model's ability to learn causal relationships accurately.</p>
-
-            <h4>Modulated Form of V</h4>
-            <p>A modulated version of V is used in each causal variable’s solution function.
-                The nonlinear function \(h_i: V \rightarrow R\) allows the model to account
-                for variations in the parental sets of all causal variables.
-                The equation \(z_i = s_i(e_i; e_{/i}) = s_i(e_i; e_{/i}, h_i(v))\) illustrates how the switch
-                variable \(V_i \in R\) is incorporated into the solution functions for each causal variable \(Z_i\).</p>
-
-            <h4>Augmented Implicit Causal Model</h4>
-            <p>The inclusion of switch variables in the solution functions leads to the concept of an augmented implicit causal model.
-                This model is designed to enhance the learning of causal relationships, especially in the context of soft interventions.</p>
-
-            <p>A solution function using a location-scale noise models, which defines an invertible diffeomorphism is
-            formulated as follows:</p>
-
-                <p style="text-align: center;">
-                    \( z_i = \tilde{s}_i(\tilde{e}_i; e_{/i}, h_i(v)) = \frac{\tilde{e}_i - (\text{loci}(e_{/i}) + h_i(v))} {\text{scale}_i(e_{/i})} \)
-                </p>
-
-        </section>
     </section>
     </main>
 
