@@ -1,428 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Polyfill for broader browser compatibility -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-<!-- Load MathJax to display LaTeX equations -->
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GAIN Portfolio</title>
-<style>
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes full height */
-    line-height: 1.6;
-}
-
-header {
-    background-color: #282c34;
-    color: #ffffff;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 2px -2px gray;
-    position: relative;
-    z-index: 2; /* Ensure header is above other elements */
-}
-
-.header-container {
-    text-align: center;
-}
-
-.header-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.sidebar {
-    background-color: #f5f5f5;
-    padding: 15px;
-    padding-top: 150px; /* Add space at the top */
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.sidebar nav a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-    border-left: 3px solid transparent;
-    /*margin-bottom: 5px;
-    /*margin-top: 10px;  /*Add space above each link */
-}
-
-.sidebar nav a:first-child {
-    margin-top: 0; /* Remove margin from the first link, if needed */
-}
-
-
-.content {
-    margin-left: 270px; /* Space for the sidebar */
-    padding: 20px;
-    width: calc(100% - 350px); /* Adjust width to account for the sidebar */
-    flex-grow: 1;
-    overflow: auto; /* Ensure content scrolls if necessary */
-}
-
-
-footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #aaa;
-    }
-
-img {
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Container for centering the figure */
-.figure-container {
-    text-align: center;
-    margin: 0 auto;
-    justify-content: flex-end; /* Align caption to the bottom */
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* Styling for centered images */
-.centered-image {
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-}
-
-/* Styling for captions */
-.caption {
-    /*font-style: italic;*/
-    color: #555;
-    margin-top: 8px;
-}
-.image-row {
-    display: flex; /* Display images in a row */
-    justify-content: center; /* Center the images horizontally */
-    gap: 20px; /* Space between images */
-}
-
-h2 {
-    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-
-h4 {
-    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
-li {
-    margin-bottom: 3px; /* Adjust this value to control the vertical space */
-}
-@media (max-width: 768px) {
-      .sidebar { display: none; }
-      .content { margin-left: 0; padding: 100px 20px 20px; }
-    }
-</style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAIN · Zahra Gharaee</title>
+<meta name="description" content="GAIN: graph representation learning for road type classification across 17 Swedish cities. Pattern Recognition 2021.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Graph Neural Network (GNN): GAIN</h1>
-        </div>
-    </header>
 
-    <aside class="sidebar">
-    <nav>
-      <a href="index.html" style="margin-right: 20px;">Home</a>
-      <a href="#description">Project Description</a>
-      <a href="#contributions">Key Contributions</a>
-      <a href="#tools">Tools & Technologies</a>
-      <a href="#code">Code / Git</a>
-      <a href="#research">Research / Paper</a>
-      <a href="#presentation">Presentations</a>
-      <a href="#additional-context"> Additional Context</a>
-      <ul>
-        <li><a href="#Road Network Graphs"> Road Network Graphs</a></li>
-        <li><a href="#Line Graph"> Line Graph </a></li>
-        <li><a href="#Neighborhood Sampling"> Neighborhood Sampling </a></li>
-        <li><a href="#GAIN"> GAIN</a></li>
-        <li><a href="#Loss Function"> Loss Function</a></li>
-        <li><a href="#Experiments"> Experiments</a></li>
-          <li><a href="#Results"> Results</a></li>
-      </ul>
-    </nav>
+<nav class="site-nav">
+  <div class="nav-wrap nav-in">
+    <a href="index.html" class="wordmark-nav">Zahra <em>Gharaee</em></a>
+    <div class="nav-center nav-links">
+      <a href="index.html" class="active">Projects</a>
+      <a href="teaching.html" target="_blank" rel="noopener">Talks and teaching</a>
+      <a href="index.html#publications">Publications</a>
+    </div>
+    <a href="https://zahragharaee.com/" class="nav-cta" target="_blank" rel="noopener">zahragharaee.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+    <button class="burger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
+
+<header class="wrap p-head">
+  <h1 class="rv">GAIN</h1>
+  <p class="lede rv">Graph Attention Isomorphism Network: graph representation learning that classifies road types across the road networks of 17 Swedish cities, developed with industry partner SCANIA.</p>
+  <div class="p-meta rv"><span class="tag venue">Pattern Recognition 2021</span><span class="tag">Graph neural networks</span><span class="tag">Geospatial data</span><span class="tag">Urban mobility</span></div>
+  <div class="p-links rv">
+    <a class="btn btn-primary" href="https://www.sciencedirect.com/science/article/pii/S0031320321003617" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> Paper</a>
+    <a class="btn btn-outline" href="https://github.com/zahrag/GAIN" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+    <a class="btn btn-outline" href="https://arxiv.org/abs/2107.07791" target="_blank" rel="noopener"><i class="fa-solid fa-book-open"></i> arXiv</a>
+  </div>
+
+  <div class="facts rv">
+    <div class="fact"><b>17</b><span>Swedish cities</span></div>
+    <div class="fact"><b>66.6K</b><span>road segments in the graph</span></div>
+    <div class="fact"><b>0.81</b><span>micro-F1, transductive supervised</span></div>
+    <div class="fact"><b>+37%</b><span>over raw road features</span></div>
+  </div>
+</header>
+
+<div class="wrap p-body">
+  <aside class="toc" aria-label="On this page">
+    <a href="#problem">Problem</a>
+    <a href="#proposed-solution">Proposed solution</a>
+    <a href="#findings">Findings</a>
+    <a href="#my-role">My role</a>
+    <a href="#tools">Tools</a>
+    <a href="#resources">Resources</a>
   </aside>
 
-    <main class="content">
+  <div class="content">
+    <section class="block" id="problem">
+      <span class="label">01 · Problem</span>
+      <h2>What kind of road <span class="accent">is this?</span></h2>
+      <h3>The question</h3>
+      <p>Can a model tell what kind of road a street is, from a highway to a living street, by how it connects to the roads around it, even where map labels are missing?</p>
+      <figure class="roadmap"><h4>A street network</h4><svg viewBox="0 0 305 205" aria-hidden="true"><line x1="20" y1="60" x2="110" y2="50" stroke="#16324d" stroke-width="7" stroke-linecap="round"/><line x1="110" y1="50" x2="200" y2="45" stroke="#16324d" stroke-width="7" stroke-linecap="round"/><line x1="200" y1="45" x2="285" y2="55" stroke="#16324d" stroke-width="7" stroke-linecap="round"/><line x1="110" y1="50" x2="110" y2="120" stroke="#5089b5" stroke-width="5.5" stroke-linecap="round"/><line x1="200" y1="45" x2="200" y2="125" stroke="#5089b5" stroke-width="5.5" stroke-linecap="round"/><line x1="110" y1="120" x2="200" y2="125" stroke="#7db0a8" stroke-width="4.5" stroke-linecap="round"/><line x1="200" y1="125" x2="280" y2="168" stroke="#7db0a8" stroke-width="4.5" stroke-linecap="round"/><line x1="110" y1="120" x2="110" y2="182" stroke="#c08a4a" stroke-width="3.5" stroke-linecap="round"/><line x1="200" y1="125" x2="200" y2="182" stroke="#c08a4a" stroke-width="3.5" stroke-linecap="round"/><line x1="110" y1="182" x2="200" y2="182" stroke="#c08a4a" stroke-width="3.5" stroke-linecap="round"/><line x1="35" y1="172" x2="110" y2="182" stroke="#c08a4a" stroke-width="3.5" stroke-linecap="round"/><line x1="200" y1="182" x2="280" y2="168" stroke="#c08a4a" stroke-width="3.5" stroke-linecap="round"/><line x1="110" y1="120" x2="155" y2="152" stroke="#e2c08f" stroke-width="3" stroke-linecap="round"/><line x1="155" y1="152" x2="200" y2="182" stroke="#e2c08f" stroke-width="3" stroke-linecap="round"/><line x1="35" y1="172" x2="110" y2="120" stroke="#b8c6d1" stroke-width="4" stroke-dasharray="6 5" stroke-linecap="round"/><circle cx="72" cy="146" r="11" fill="#fff" stroke="#b85c5c" stroke-width="2"/><text x="72" y="150" text-anchor="middle" font-size="13" font-weight="700" fill="#b85c5c">?</text></svg><p class="rd-key"><span>Highway</span><i style="background:#16324d"></i><i style="background:#5089b5"></i><i style="background:#7db0a8"></i><i style="background:#c08a4a"></i><i style="background:#e2c08f"></i><span>Living street</span></p><figcaption>Each road has one of five types; the grey road is missing its label.</figcaption></figure>
+      <h3>Background</h3>
+      <p>Knowing whether a road is a highway, a residential street or a living street matters for routing, autonomous driving and urban planning. Road type depends not only on a segment's own shape and speed limit, but on how it connects to the network around it, which makes it a natural problem for graph learning.</p>
+      <p>Road networks have been modelled in three ways: procedural methods that grow roads from hand-written rules, example-based methods that extract templates and statistics from real maps, and, most recently, learning-based methods built on deep networks and graphs.</p>
+      <p>Graph neural networks such as GCN, GraphSAGE, GAT and GIN learn a representation for each node by aggregating information from its neighbours. They rely on node features, but in a road network the useful information sits on the edges, the road segments themselves. Earlier work on road graphs, the Relational Fusion Network, used a dual graph for binary speed-limit classification in a single supervised setting.</p>
+      <p>Labels in OpenStreetMap are often missing or wrong, so learning road types without labels, and transferring what is learned from well-labelled cities to sparsely labelled ones, matters in practice.</p>
+    </section>
+    <section class="block" id="proposed-solution">
+      <span class="label">02 · Proposed solution · Method</span>
+      <h2>Attention <span class="accent">meets isomorphism</span></h2>
+      <p>Standard road graphs treat intersections as nodes and roads as edges, but most graph neural networks learn from node features, and intersections carry little information. GAIN flips the representation so that the roads themselves become the nodes.</p>
+      <div class="lgraph"><div class="lg"><h4>Road graph</h4><svg viewBox="0 0 305 205" aria-hidden="true"><line x1="20" y1="60" x2="110" y2="50" stroke="#16324d" stroke-width="7" stroke-linecap="round"/><line x1="110" y1="50" x2="200" y2="45" stroke="#16324d" stroke-width="7" stroke-linecap="round"/><line x1="200" y1="45" x2="285" y2="55" stroke="#16324d" stroke-width="7" stroke-linecap="round"/><line x1="110" y1="50" x2="110" y2="120" stroke="#5089b5" stroke-width="5.5" stroke-linecap="round"/><line x1="200" y1="45" x2="200" y2="125" stroke="#5089b5" stroke-width="5.5" stroke-linecap="round"/><line x1="110" y1="120" x2="200" y2="125" stroke="#7db0a8" stroke-width="4.5" stroke-linecap="round"/><line x1="200" y1="125" x2="280" y2="168" stroke="#7db0a8" stroke-width="4.5" stroke-linecap="round"/><line x1="110" y1="120" x2="110" y2="182" stroke="#c08a4a" stroke-width="3.5" stroke-linecap="round"/><line x1="200" y1="125" x2="200" y2="182" stroke="#c08a4a" stroke-width="3.5" stroke-linecap="round"/><line x1="110" y1="182" x2="200" y2="182" stroke="#c08a4a" stroke-width="3.5" stroke-linecap="round"/><line x1="35" y1="172" x2="110" y2="182" stroke="#c08a4a" stroke-width="3.5" stroke-linecap="round"/><line x1="200" y1="182" x2="280" y2="168" stroke="#c08a4a" stroke-width="3.5" stroke-linecap="round"/><line x1="110" y1="120" x2="155" y2="152" stroke="#e2c08f" stroke-width="3" stroke-linecap="round"/><line x1="155" y1="152" x2="200" y2="182" stroke="#e2c08f" stroke-width="3" stroke-linecap="round"/><circle cx="20" cy="60" r="6" fill="#fff" stroke="#16324d" stroke-width="2"/><circle cx="110" cy="50" r="6" fill="#fff" stroke="#16324d" stroke-width="2"/><circle cx="200" cy="45" r="6" fill="#fff" stroke="#16324d" stroke-width="2"/><circle cx="285" cy="55" r="6" fill="#fff" stroke="#16324d" stroke-width="2"/><circle cx="110" cy="120" r="6" fill="#fff" stroke="#16324d" stroke-width="2"/><circle cx="200" cy="125" r="6" fill="#fff" stroke="#16324d" stroke-width="2"/><circle cx="35" cy="172" r="6" fill="#fff" stroke="#16324d" stroke-width="2"/><circle cx="110" cy="182" r="6" fill="#fff" stroke="#16324d" stroke-width="2"/><circle cx="200" cy="182" r="6" fill="#fff" stroke="#16324d" stroke-width="2"/><circle cx="280" cy="168" r="6" fill="#fff" stroke="#16324d" stroke-width="2"/><circle cx="155" cy="152" r="6" fill="#fff" stroke="#16324d" stroke-width="2"/></svg><p>Intersections are the dots; roads are the lines between them.</p></div><i class="fa-solid fa-arrow-right lg-arr"></i><div class="lg"><h4>Line graph</h4><svg viewBox="0 0 305 205" aria-hidden="true"><line x1="20" y1="60" x2="110" y2="50" stroke="#e3e9ef" stroke-width="7" stroke-linecap="round"/><line x1="110" y1="50" x2="200" y2="45" stroke="#e3e9ef" stroke-width="7" stroke-linecap="round"/><line x1="200" y1="45" x2="285" y2="55" stroke="#e3e9ef" stroke-width="7" stroke-linecap="round"/><line x1="110" y1="50" x2="110" y2="120" stroke="#e3e9ef" stroke-width="5.5" stroke-linecap="round"/><line x1="200" y1="45" x2="200" y2="125" stroke="#e3e9ef" stroke-width="5.5" stroke-linecap="round"/><line x1="110" y1="120" x2="200" y2="125" stroke="#e3e9ef" stroke-width="4.5" stroke-linecap="round"/><line x1="200" y1="125" x2="280" y2="168" stroke="#e3e9ef" stroke-width="4.5" stroke-linecap="round"/><line x1="110" y1="120" x2="110" y2="182" stroke="#e3e9ef" stroke-width="3.5" stroke-linecap="round"/><line x1="200" y1="125" x2="200" y2="182" stroke="#e3e9ef" stroke-width="3.5" stroke-linecap="round"/><line x1="110" y1="182" x2="200" y2="182" stroke="#e3e9ef" stroke-width="3.5" stroke-linecap="round"/><line x1="35" y1="172" x2="110" y2="182" stroke="#e3e9ef" stroke-width="3.5" stroke-linecap="round"/><line x1="200" y1="182" x2="280" y2="168" stroke="#e3e9ef" stroke-width="3.5" stroke-linecap="round"/><line x1="110" y1="120" x2="155" y2="152" stroke="#e3e9ef" stroke-width="3" stroke-linecap="round"/><line x1="155" y1="152" x2="200" y2="182" stroke="#e3e9ef" stroke-width="3" stroke-linecap="round"/><line x1="65" y1="55" x2="155" y2="48" stroke="#16324d" stroke-width="1.3"/><line x1="65" y1="55" x2="110" y2="85" stroke="#16324d" stroke-width="1.3"/><line x1="155" y1="48" x2="242" y2="50" stroke="#16324d" stroke-width="1.3"/><line x1="155" y1="48" x2="110" y2="85" stroke="#16324d" stroke-width="1.3"/><line x1="155" y1="48" x2="200" y2="85" stroke="#16324d" stroke-width="1.3"/><line x1="242" y1="50" x2="200" y2="85" stroke="#16324d" stroke-width="1.3"/><line x1="110" y1="85" x2="155" y2="122" stroke="#16324d" stroke-width="1.3"/><line x1="110" y1="85" x2="110" y2="151" stroke="#16324d" stroke-width="1.3"/><line x1="110" y1="85" x2="132" y2="136" stroke="#16324d" stroke-width="1.3"/><line x1="200" y1="85" x2="155" y2="122" stroke="#16324d" stroke-width="1.3"/><line x1="200" y1="85" x2="240" y2="146" stroke="#16324d" stroke-width="1.3"/><line x1="200" y1="85" x2="200" y2="154" stroke="#16324d" stroke-width="1.3"/><line x1="155" y1="122" x2="240" y2="146" stroke="#16324d" stroke-width="1.3"/><line x1="155" y1="122" x2="110" y2="151" stroke="#16324d" stroke-width="1.3"/><line x1="155" y1="122" x2="200" y2="154" stroke="#16324d" stroke-width="1.3"/><line x1="155" y1="122" x2="132" y2="136" stroke="#16324d" stroke-width="1.3"/><line x1="240" y1="146" x2="200" y2="154" stroke="#16324d" stroke-width="1.3"/><line x1="240" y1="146" x2="240" y2="175" stroke="#16324d" stroke-width="1.3"/><line x1="110" y1="151" x2="155" y2="182" stroke="#16324d" stroke-width="1.3"/><line x1="110" y1="151" x2="72" y2="177" stroke="#16324d" stroke-width="1.3"/><line x1="110" y1="151" x2="132" y2="136" stroke="#16324d" stroke-width="1.3"/><line x1="200" y1="154" x2="155" y2="182" stroke="#16324d" stroke-width="1.3"/><line x1="200" y1="154" x2="240" y2="175" stroke="#16324d" stroke-width="1.3"/><line x1="200" y1="154" x2="178" y2="167" stroke="#16324d" stroke-width="1.3"/><line x1="155" y1="182" x2="72" y2="177" stroke="#16324d" stroke-width="1.3"/><line x1="155" y1="182" x2="240" y2="175" stroke="#16324d" stroke-width="1.3"/><line x1="155" y1="182" x2="178" y2="167" stroke="#16324d" stroke-width="1.3"/><line x1="240" y1="175" x2="178" y2="167" stroke="#16324d" stroke-width="1.3"/><line x1="132" y1="136" x2="178" y2="167" stroke="#16324d" stroke-width="1.3"/><circle cx="65" cy="55" r="7" fill="#16324d" stroke="#fff" stroke-width="2"/><circle cx="155" cy="48" r="7" fill="#16324d" stroke="#fff" stroke-width="2"/><circle cx="242" cy="50" r="7" fill="#16324d" stroke="#fff" stroke-width="2"/><circle cx="110" cy="85" r="7" fill="#5089b5" stroke="#fff" stroke-width="2"/><circle cx="200" cy="85" r="7" fill="#5089b5" stroke="#fff" stroke-width="2"/><circle cx="155" cy="122" r="7" fill="#7db0a8" stroke="#fff" stroke-width="2"/><circle cx="240" cy="146" r="7" fill="#7db0a8" stroke="#fff" stroke-width="2"/><circle cx="110" cy="151" r="7" fill="#c08a4a" stroke="#fff" stroke-width="2"/><circle cx="200" cy="154" r="7" fill="#c08a4a" stroke="#fff" stroke-width="2"/><circle cx="155" cy="182" r="7" fill="#c08a4a" stroke="#fff" stroke-width="2"/><circle cx="72" cy="177" r="7" fill="#c08a4a" stroke="#fff" stroke-width="2"/><circle cx="240" cy="175" r="7" fill="#c08a4a" stroke="#fff" stroke-width="2"/><circle cx="132" cy="136" r="7" fill="#e2c08f" stroke="#fff" stroke-width="2"/><circle cx="178" cy="167" r="7" fill="#e2c08f" stroke="#fff" stroke-width="2"/></svg><p>Roads become the dots, linked when they share an intersection.</p></div></div>
+      <h3>How it works</h3>
+      <ol class="flow"><li><span class="fl-dot">1</span><b>Flip the graph</b><small>Turn the road graph into its line graph, so roads become nodes.</small></li><li><span class="fl-dot">2</span><b>Describe roads</b><small>Give each road its length, position, shape and speed limit.</small></li><li><span class="fl-dot">3</span><b>Gather neighbours</b><small>Near roads within a radius, and far, related ones by a random walk.</small></li><li><span class="fl-dot">4</span><b>Weigh and sum</b><small>Weight neighbours by attention, sum them, and update the road with a small network.</small></li></ol>
+      <p>GAIN learns with road-type labels (supervised) or without them, using a graph-based loss (unsupervised).</p>
+    </section>
+    <section class="block" id="findings">
+      <span class="label">03 · Findings</span>
+      <h2>Where GAIN <span class="accent">stands</span></h2>
+      <p>Road networks of 17 Swedish cities were taken from OpenStreetMap, each road labelled with one of five types, from highways to living streets. GAIN is tested on one city and on cities it has never seen, with and without labels.</p>
+      <div class="bas"><figure class="ba"><h4>Linköping</h4><div class="ba-pics"><span><img src="images/gain/linkoping-city.webp" alt="Linköping: City" loading="lazy"><em>City</em></span><i class="fa-solid fa-arrow-right"></i><span><img src="images/gain/linkoping-closeup.webp" alt="Linköping: Close-up" loading="lazy"><em>Close-up</em></span></div><figcaption>Roads coloured by type; in the close-up, the line graph is drawn in black.</figcaption></figure></div>
+      <div class="stats"><div class="st-card"><span class="st-label">01 · One city, with labels</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>GAIN</span><div><i class="on" style="width:81.0%"></i></div><b>0.81</b></div><div class="st-bar"><span>Raw</span><div><i class="" style="width:59.0%"></i></div><b>0.59</b></div></div></div><div class="st-big"><span>0.81</span></div><p class="st-cap">F1, level with the best method and 37% above raw road features (0.59)</p><div class="st-second"><b>+37%</b><span>over raw features</span></div><p class="st-cap2">The largest gain of the four settings</p></div><div class="st-card"><span class="st-label">02 · One city, no labels</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>GAIN</span><div><i class="on" style="width:71.0%"></i></div><b>0.71</b></div><div class="st-bar"><span>Next</span><div><i class="" style="width:69.0%"></i></div><b>0.69</b></div></div></div><div class="st-big"><span>0.71</span></div><p class="st-cap">F1, the best of all methods; the next best scores 0.69</p><div class="st-second"><b>+0.12</b><span>over raw features</span></div><p class="st-cap2">Learning from the road graph adds 0.12</p></div><div class="st-card"><span class="st-label">03 · Unseen cities</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>GAIN</span><div><i class="on" style="width:59.0%"></i></div><b>0.59</b></div><div class="st-bar"><span>SAGE</span><div><i class="" style="width:60.0%"></i></div><b>0.60</b></div></div></div><div class="st-big"><span>0.59</span></div><p class="st-cap">F1 with labels on two cities never seen in training; GraphSAGE-mean reaches 0.60</p><div class="st-second"><b>17</b><span>Swedish cities</span></div><p class="st-cap2">Trained on 13, validated on 2, tested on 2</p></div></div>
+      <p class="muted">F1: how well road types are predicted, from 0 to 1; higher is better. A random guess scores 0.20.</p>
+      <h3>GAIN against raw road features</h3>
+      <p>Raw features is a simple baseline: it predicts each road's type from that road alone (its length, position, shape and speed limit) and ignores the roads around it. GAIN also learns from the neighbouring roads. The gap between the two bars shows what the road network adds.</p>
+      <ol class="role">
+        <li><b>One city</b> (transductive): the model learns on one city's road graph, where some roads have their type hidden, and is tested on those hidden roads in the same city.</li>
+        <li><b>New cities</b> (inductive): the model learns on 13 cities and is tested on 2 other cities it has never seen.</li>
+        <li><b>Labels</b> (supervised): road types are given during training.</li>
+        <li><b>No labels</b> (unsupervised): no road types are given; the model learns only from how roads connect.</li>
+      </ol>
+      <div class="columns"><p class="cl-head"><span>F1 in each setting</span><span class="cl-key"><b class="sw"></b>GAIN<b class="sw b"></b>Raw features</span></p><div class="cl-plot"><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>0.81</em><i style="height:81.0%"></i></div><div class="cl-one b"><em>0.59</em><i style="height:59.0%"></i></div></div><span>One city · labels</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>0.71</em><i style="height:71.0%"></i></div><div class="cl-one b"><em>0.59</em><i style="height:59.0%"></i></div></div><span>One city · no labels</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>0.59</em><i style="height:59.0%"></i></div><div class="cl-one b"><em>0.49</em><i style="height:49.0%"></i></div></div><span>New cities · labels</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>0.56</em><i style="height:56.0%"></i></div><div class="cl-one b"><em>0.49</em><i style="height:49.0%"></i></div></div><span>New cities · no labels</span></div></div></div>
+      <p class="muted">Values from the paper's results table.</p>
+    </section>
+    <section class="block" id="my-role">
+      <span class="label">04 · My role</span>
+      <h2>What I <span class="accent">led</span></h2>
+      <ol class="role">
+        <li><b>Co-led the project with SCANIA</b>, aligning research with real-world challenges in mobility and infrastructure.</li>
+        <li><b>Curated the dataset</b>: a large-scale road network collection from OpenStreetMap for 17 Swedish cities.</li>
+        <li><b>Conceived and built GAIN</b>, designing the full architecture and leading development, experiments and evaluation.</li>
+        <li><b>Explored graph transformations and sampling</b> in transductive and inductive settings, with an exhaustive grid search.</li>
+        <li><b>Mentored a PhD student</b>, with shared authorship in a peer-reviewed article.</li>
+        <li><b>Presented to academic and industry partners</b> and drove publication in Pattern Recognition.</li>
+      </ol>
+    </section>
+    <section class="block" id="tools">
+      <span class="label">05 · Tools</span>
+      <h2>Built <span class="accent">with</span></h2>
+      <div class="tools"><span>Python</span><span>TensorFlow</span><span>NumPy</span><span>OSMnx</span><span>NetworkX</span><span>Shapely</span><span>OpenCV</span><span>scikit-learn</span><span>Matplotlib</span><span>Seaborn</span><span>Plotly</span><span>Docker</span><span>Singularity</span><span>SNIC</span></div>
+    </section>
+    <section class="block" id="resources">
+      <span class="label">06 · Resources</span>
+      <h2>Code <span class="accent">and papers</span></h2>
+      <div class="res">
+        <a href="https://www.sciencedirect.com/science/article/pii/S0031320321003617" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines lead"></i><span><b>Paper</b><small>Pattern Recognition 2021</small></span></a>
+        <a href="https://arxiv.org/abs/2107.07791" target="_blank" rel="noopener"><i class="fa-solid fa-book-open lead"></i><span><b>arXiv</b><small>2107.07791</small></span></a>
+        <a href="https://github.com/zahrag/GAIN" target="_blank" rel="noopener"><i class="fa-brands fa-github lead"></i><span><b>Code</b><small>zahrag/GAIN</small></span></a>
+        <a href="https://liu.diva-portal.org/smash/record.jsf?pid=diva2%3A1647474&amp;dswid=7689" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap lead"></i><span><b>PhD thesis</b><small>Stromann, 2022</small></span></a>
+        <a href="https://www.sciencedirect.com/science/article/abs/pii/S0198971516303970" target="_blank" rel="noopener"><i class="fa-solid fa-link lead"></i><span><b>OSMnx</b><small>Boeing, 2017</small></span></a>
+      </div>
+    </section>
+  </div>
+</div>
 
-        <section id="description">
-                  <h2>Project Description</h2>
-            <figure class="figure-container">
-                <img src="images/gain.webp" alt="GAIN Project" class="centered-image" width="800" height="700">
-                <figcaption class="caption">Road Network Graphs.</figcaption>
-            </figure>
-            <p>
-               <p>In this project, we propose a novel learning-based approach, <strong>GAIN</strong>, for graph representations of road networks. GAIN is applied to a <strong>realistic graph dataset composed of road networks from 17 Swedish cities, sourced from OpenStreetMap (OSMnx)</strong>.</p>
-        </section>
-
-
-  <section id="contributions">
-  <h2>Key Contributions</h2>
-  <ul>
-    <li>Co-led a cross-industry collaborative research project with SCANIA, aligning academic innovations with real-world challenges in urban mobility and infrastructure.</li>
-    <li>Curated and preprocessed a large-scale vector-space road network dataset from OpenStreetMap for 17 Swedish cities.</li>
-    <li>Conceptualized and implemented a novel graph learning framework for road type classification in complex urban environments.</li>
-    <li>Initiated and evaluated graph transformations and sampling strategies under transductive and inductive learning settings to improve model generalization across diverse urban layouts.</li>
-    <li>Designed the full system architecture and led the end-to-end development, experimentation, and evaluation pipeline.</li>
-    <li>Executed an exhaustive grid search on a compute cluster to identify optimal model configurations for transductive and inductive tasks.</li>
-    <li>Mentored a PhD student, guiding research direction, methodology, and publication, with shared authorship in a peer-reviewed article
-        (<a href="https://liu.diva-portal.org/smash/record.jsf?pid=diva2%3A1647474&dswid=7689" target="_blank">Stromann, O. 2022</a>).</li>
-    <li>Presented technical results in regular meetings with industry partner, SCANIA and communicated results to both academic and industrial stakeholders.</li>
-  <li>Drove the research dissemination process, resulting in a peer-reviewed publication in <i>Pattern Recognition</i>.</li>
-
-  </ul>
+<section class="contact" id="contact">
+  <div class="wrap contact-in">
+    <div class="rv">
+      <span class="label">Contact</span>
+      <h2>Let's <em>Connect.</em></h2>
+      <p class="lead-text">For professional opportunities, collaborations, research, consulting, or general inquiries, feel free to get in touch.</p>
+      <a class="mail" href="mailto:zahra.gharaee@gmail.com"><span class="ic"><i class="fa-regular fa-envelope"></i></span>zahra.gharaee@gmail.com</a>
+    </div>
+    <form class="cform rv" id="cform" novalidate>
+      <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="f-subject">Subject</label><input id="f-subject" name="subject" type="text"></div>
+      <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      <button class="send" type="submit">Send Message <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></button>
+      <p class="form-note" id="form-note" aria-live="polite" data-ok="Your email app should open with the message ready to send." data-error="Please add your name, a valid email and a message."></p>
+    </form>
+  </div>
 </section>
 
-    <section id="tools">
-      <h2>Tools & Technologies</h2>
-    <ul>
-      <li>Python, TensorFlow, Numpy </li>
-      <li>OSMnx</li>
-      <li>OpenCV, scikit-learn</li>
-      <li>Matplotlib, Seaborn, Plotly</li>
-      <li>NetworkX </li>
-      <li>Shapely </li>
-      <li>Container (Singularity, Docker)</li>
-      <li>Cluster Computing, Parallel Computation</li>
-      <li>Virtual Environment, Bash Environment</li>
-      <li>Swedish National Infrastructure for Computing (SNIC)</li>
-
-    </ul>
-    </section>
-
-    <section id="code">
-      <h2>Code / Git</h2>
-        <ul>
-        <li><a href="https://github.com/zahrag/GAIN" target="_blank">GAIN GitHub Page</a></li>
-        </ul>
-    </section>
-
-    <section id="research">
-      <h2>Research / Paper</h2>
-        <ul>
-         <li><a href="https://arxiv.org/abs/2107.07791" target="_blank">Arxiv</a></li>
-         <li><a href="https://www.sciencedirect.com/science/article/pii/S0031320321003617#fig0002" target="_blank">Pattern Recognition</a></li>
-        </ul>
-    </section>
-
-    <section id="presentation">
-      <h2>Presentations</h2>
-        <ul>
-        <li>Vision and Image processing Lab (VIP) Dept. of System Design Engineering University of Waterloo </li>
-        <li>Computer Vision Lab (CVL) Dept. of Electrical Engineering University of Linköping </li>
-        </ul>
-    </section>
-
-
-
-        <section id="additional-context">
-            <h2>Additional Context</h2>
-        <section id="Road Network Graphs">
-            <h3>Road Network Graphs</h3>
-            <p>We utilized <b>Open Street Map (OSMnx)</b>
-                <a href="https://www.sciencedirect.com/science/article/abs/pii/S0198971516303970"
-                   target="_blank">Geoff Boeing (2017)</a>, which is a powerful Python library designed
-                for the easy collection, creation, and analysis of road networks,
-                and it caters to various needs in urban studies and transportation planning.
-
-                <ul class="bullet-points">
-                <li><b>Geospatial Data:</b> OSMnx primarily deals with geospatial data.
-                    It uses geographic coordinates (latitude and longitude) to represent the location of
-                    streets, buildings, and boundaries. The data is spatially referenced and can be visualized on maps.</li>
-                <li><b>Graph Data:</b> The street network data is represented as graphs,
-                    where nodes represent intersections or endpoints, and edges represent streets or road segments.
-                    This graph-based representation is useful for network analysis and route optimization.</li>
-            <li><b>Vector Space:</b> OSMnx does not work with RGB (color) data or remote sensing data.
-                Instead, it focuses on vector data related to street networks.</li>
-              </ul>
-            </p>
-
-            <figure class="figure-container">
-                <img src="images/linkoping-osm.png" alt="Linköping road networks" class="centered-image" width="600" height="600">
-                <figcaption class="caption">Road networks of Linköping, Sweden, sourced from OpenStreetMap.</figcaption>
-            </figure>
-
-
-        </section>
-        <section id="Line Graph">
-            <h3>Line Graph</h3>
-            <p> <b>Line graph</b> transformation is a concept used in graph theory and network analysis.
-                It involves converting a given graph into its line graph, which provides a different perspective
-                on the relationships between the graph’s edges. Line graph's vertices represent edges of the original graph
-                and its edges represent shared vertices.</p>
-
-            <div class="image-row">
-                <figure class="figure-container">
-                    <img src="images/line_graph.jpg" alt="Linkoping road networks" class="centered-image" width="700" height="700">
-                    <figcaption class="caption">(a) Original graph data. (b) Line graph, which is a new graph.</figcaption>
-                </figure>
-                <figure class="figure-container">
-                    <img src="images/line_graph_lin.jpg" alt="Another image description" class="centered-image" width="600" height="600">
-                    <figcaption class="caption">(a) Linköping road networks graph.
-                        (b) A closeup of Linköping road networks represented as a graph with a line graph representation
-                        overlaid in black. Colors represent different ground truth labels of road types.  </figcaption>
-                </figure>
-            </div>
-
-            <h4>Why Line Graph?</h4>
-                <ul>
-                <li>
-                Road network graphs consider road segments as graph edges and
-                crossroads, junctions, and intersections as graph vertices.
-                However, this approach suffers from a limited feature representation of vertices since
-                there are not sufficient features describing crossroads and intersections that are essential
-                    for road network representation.
-                </li>
-
-                <li>Conventional graph representation learning models apply the features describe merely the
-                    vertices and not the edges for learning.
-                </li>
-            </ul>
-        </section>
-
-        <section id="Neighborhood Sampling">
-            <h3>Neighborhood Sampling</h3>
-            <p>
-            We apply both local and global neighborhoods to provide nodes with two perspectives:
-            the local view captures information from nearby neighbors within a fixed radius,
-            while the global view extracts insights from distant, related nodes.
-                This dual representation enhances the learning process and improves node representations.
-            </p>
-
-            <p> To generate the second view as mentioned above, we developed a global <b>unbiased random walk</b>
-                with fixed radius double the size of local random walk.
-                All topological neighbors visible to a node through both views are then mixed and shuffled to be used
-                for training the system.
-            </p>
-        </section>
-
-        <section id="GAIN">
-            <h3>GAIN: Graph Attention Isomorphism Network</h3>
-            <p>GAIN introduces a novel aggregation approach by applying attention and a summation operation to combine
-                the representation vectors of neighboring nodes \(\forall u \in N(v) \) at each learning iteration \(k\).
-                These vectors are weighted by attention scores \(a_{v,u}\) and then integrated into the sampled
-                node's representation \(h_v\), scaled by epsilon \(\epsilon\), which can be either a fixed or learnable parameter.
-                This method ensures that the node prioritizes its neighbors
-                based on their significance, as indicated by the attention weights, while using the summation
-                over attention heads for aggregation: </p>
-
-                <p style="text-align: center;">
-                $$ h_v^k = \text{MLP}^k \left( (1 + \epsilon^k) \cdot h_v^{\prime (k-1)} + \sigma \sum_{u \in N(v)} a_{v,u}^{k-1} \cdot h_u^{\prime (k-1)} \right) $$
-                </p>
-            <p>where MLP is the multi-layer perceptron, and \(h_u^{\prime} = W^{\prime} \cdot h_u\) shows the linear transformation of node \(u\) into a higher
-            representation space applying weight matrix \(W^{\prime}\). \(\sigma\) can be a non-linearity (ELU) or the Identity function.
-                \(N(v)\) is the neighborhood of node \(v\).
-        </section>
-
-        <section id="Loss Function">
-            <h3>Loss Function</h3>
-            <p><strong>Supervised Learning</strong></p>
-            <p>For supervised learning, ground-truth road type labels of graph vertices are used for calculating
-                a cross-entropy loss function for our multi-class road type classification problem.
-                The representation vectors received from the aggregation function are normalized by \(l_2\) normalization
-                and input to a one-layer fully connected neural network to predict class labels,
-                which are then used to calculate the supervised loss value </p>
-
-            <p><strong>Unsupervised Learning</strong></p>
-            <p>A fully unsupervised setting uses a graph-based loss function to the
-            positive case representation vectors sampled from a set of topological neighbors and negative
-            case sampling distribution, \(P_n\):
-            <p style="text-align: center;">
-            $$ J_G(z_v) = -\text{log} (\sigma (z_v^T z_u)) - \displaystyle E_{u_n \sim P_n(u)} \text{log}(\sigma(-z_v^T z_{u_n})) $$
-            </p>
-            where \(z_v\) and \(z_u\) are the output representation vectors of sampled node \(v\) and topological neighbor
-            node \(u \in N(v)\). The loss function uses a sigmoid \(\sigma\) and negative case sampling distribution \(P_n\).
-            Thus, \(z_{u_n}\) is a negatively sampled neighbor of node \(v\).</p>
-        </section>
-
-         <section id="Experiments">
-            <h3>Experiments</h3>
-             <p><strong>Feature Attributes</strong> of the input graph nodes:</p>
-             <ul>
-                 <li>The length of road segments with 1 dimension.</li>
-                 <li> The midpoint coordinates of adjacent start and end nodes in longitude and latitude with 2 dimensions.</li>
-                 <li> The geometry sampled to a fixed-length vector of 20 equally distanced points.</li>
-                      along the length of road segments, which is subtracted by the midpoint coordinate (i.e. 20 longitudinal and latitudinal distances from the midpoint) and is
-                      composed of 40 dimensions.</li>
-                 <li> The one-hot-encoding of the speed limits with 13 and 15 standard values for
-                    transductive and inductive tasks, respectively.</li>
-             </ul>
-             <p><strong>Ground-truth labels</strong>:</p>
-             <ul>
-                 <li>Class (1): Highway, yes, primary, secondary, motorway-link, trunk-link, primary-link, secondary-link.</li>
-                 <li>Class (2): Tertiary, tertiary-link.</li>
-                 <li>Class (3): Road, planned, unclassified (minor roads of lower classification than tertiary).</li>
-                 <li>Class (4): Residential.</li>
-                 <li>Class (5): Living-street</li>
-             </ul>
-             <p><strong>Learning Paradigm</strong>:</p>
-             <ul>
-                 <li>Supervised</li>
-                 <li>Unsupervised</li>
-             </ul>
-
-             <p><strong>Tasks</strong>:</p>
-             <ul>
-                  <li>Transductive: Train, validation, and test nodes sampled from a single city graph.
-                      The model can leverage information from the entire graph during learning.</li>
-                  <li>Inductive: different city graphs used for train (13 cities), validation (2 cities), and test (2 cities) sets.
-                  This requires the model to transfer knowledge to unseen graph structures.</li>
-             </ul>
-             <iframe src="tables/table_gain_trans_ind.html" style="width: 100%; height: 180px; border: none;"></iframe>
-
-             <p><strong>Exhaustive Grid Search </strong></p>
-             <iframe src="tables/table_gain_hyperparameter.html" style="width: 100%; height: 350px; border: none;"></iframe>
-            <p></p>
-        </section>
-
-         <section id="Results">
-            <h3>Results</h3>
-             <p>The Micro-Averaged F1-Score is employed to select the top-performing model from those trained
-                 through our exhaustive grid search. This selected model is then used to evaluate the performance
-                 of GAIN during inference.</p>
-             <iframe src="tables/table_gain_results.html" style="width: 100%; height: 500px; border: none;"></iframe>
-        </section>
-
-    </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Zahra Gharaee. All rights reserved.</p>
-    </footer>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="https://zahragharaee.com/" class="wordmark">Zahra <em>Gharaee</em></a>
+        <a href="mailto:zahra.gharaee@gmail.com" class="foot-mail">zahra.gharaee@gmail.com</a>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/zahragh/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/zahrag" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&amp;hl=sv" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Zahra Gharaee. All rights reserved.</span>
+      <span>Built by <a href="https://zahragharaee.com/">Zahra Gharaee</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/portfolio.js"></script>
 </body>
 </html>

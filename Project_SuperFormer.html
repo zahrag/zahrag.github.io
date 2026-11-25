@@ -1,287 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Polyfill for broader browser compatibility -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-<!-- Load MathJax to display LaTeX equations -->
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuperFormer Portfolio</title>
-<style>
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes full height */
-    line-height: 1.6;
-}
-
-header {
-    background-color: #282c34;
-    color: #ffffff;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 2px -2px gray;
-    position: relative;
-    z-index: 2; /* Ensure header is above other elements */
-}
-
-.header-container {
-    text-align: center;
-}
-
-.header-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.sidebar {
-    background-color: #f5f5f5;
-    padding: 15px;
-    padding-top: 150px; /* Add space at the top */
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.sidebar nav a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-    border-left: 3px solid transparent;
-    /*margin-bottom: 5px;
-    /*margin-top: 10px;  /*Add space above each link */
-}
-
-.sidebar nav a:first-child {
-    margin-top: 0; /* Remove margin from the first link, if needed */
-}
-
-
-.content {
-    margin-left: 270px; /* Space for the sidebar */
-    padding: 20px;
-    width: calc(100% - 350px); /* Adjust width to account for the sidebar */
-    flex-grow: 1;
-    overflow: auto; /* Ensure content scrolls if necessary */
-}
-
-
-footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #aaa;
-    }
-
-img {
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Container for centering the figure */
-.figure-container {
-    text-align: center;
-    margin: 0 auto;
-    justify-content: flex-end; /* Align caption to the bottom */
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* Styling for centered images */
-.centered-image {
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-}
-
-/* Styling for captions */
-.caption {
-    /*font-style: italic;*/
-    color: #555;
-    margin-top: 8px;
-}
-.image-row {
-    display: flex; /* Display images in a row */
-    justify-content: center; /* Center the images horizontally */
-    gap: 20px; /* Space between images */
-}
-
-h2 {
-    border-bottom: 2px solid #282c34; /* Changed from blue to top bar color */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-h3 {
-    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
-li {
-    margin-bottom: 3px; /* Adjust this value to control the vertical space */
-}
-</style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SuperFormer · Zahra Gharaee</title>
+<meta name="description" content="SuperFormer: a superpixel-based transformer for lightweight salient object detection. IEEE Access.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Computer Vision Project: SuperFormer</h1>
-        </div>
-    </header>
 
-    <aside class="sidebar">
-        <nav>
-            <a href="index.html" style="margin-right: 20px;">Home</a>
-            <a href="#Overview">Overview</a>
-            <a href="#Superpixel">Superpixel</a>
-            <a href="#Multimodal Representation">Multimodal Representation</a>
-            <a href="#DCPE">DCPE</a>
-            <a href="#Experiments">Experiments</a>
-            <a href="#Results">Results</a>
-            <a href="#Links">Links</a>
-        </nav>
-    </aside>
+<nav class="site-nav">
+  <div class="nav-wrap nav-in">
+    <a href="index.html" class="wordmark-nav">Zahra <em>Gharaee</em></a>
+    <div class="nav-center nav-links">
+      <a href="index.html" class="active">Projects</a>
+      <a href="teaching.html" target="_blank" rel="noopener">Talks and teaching</a>
+      <a href="index.html#publications">Publications</a>
+    </div>
+    <a href="https://zahragharaee.com/" class="nav-cta" target="_blank" rel="noopener">zahragharaee.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+    <button class="burger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
 
-    <main class="content">
-        <img src="images/sf.png" alt="SuperFormer Project" class="centered-image" width="1000" height="600">
-        <section id="Overview">
-            <h2>Overview</h2>
-               <span style="color: blue; font-style: italic;">
-                    Note: This project is still in progress, and the content will be updated gradually.
-               </span>
+<header class="wrap p-head">
+  <h1 class="rv">SuperFormer</h1>
+  <p class="lede rv">A superpixel-based transformer for lightweight salient object detection that reaches state-of-the-art accuracy with a fraction of the parameters, computation and inference time.</p>
+  <div class="p-meta rv"><span class="tag venue">IEEE Access</span><span class="tag">Lightweight models</span><span class="tag">SWIN Transformer</span><span class="tag">Remote sensing</span></div>
+  <div class="p-links rv">
+    <a class="btn btn-primary" href="https://github.com/jmpark0808/supertransformer" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+  </div>
 
-            <p>In this project, we propose <b>SuperFormer</b>, a novel model for addressing the core efficiency challenges
-                in Salient Object Detection (SOD). <b>Efficiency</b> is defined as achieving the desired outcome with
-                minimal waste of effort, time, or resources. While most state-of-the-art SOD methods focus primarily
-                on improving detection accuracy, <b>SuperFormer</b> treats the consumption of time and resources as
-                equally important. It is specifically designed to optimize model complexity and size, ensuring
-            a balance between accuracy and resource efficiency for faster, more sustainable learning.</p>
+  <div class="facts rv">
+    <div class="fact"><b>0.14M</b><span>parameters in the smallest model</span></div>
+    <div class="fact"><b>0.888</b><span>average max F-score, natural scenes</span></div>
+    <div class="fact"><b>3 ms</b><span>inference time per image</span></div>
+    <div class="fact"><b>7</b><span>benchmark datasets</span></div>
+  </div>
+</header>
 
-            <p>How <b>SuperFormer</b> facilitates efficient SOD?</p>
-                <ul class="bullet-points">
-                <li>Utilizing <b>Superpixels</b> segmentation, which groups image pixels based on shared descriptive
-                    attributes like color and spatial similarity.</li>
-                <li>Introducing a <b>multimodal feature representation</b> leveraging
-                        Fourier descriptors to encode superpixel shape, size, and rotation.</li>
-                <li>Proposing <b>Dynamic Centroid Positional Embedding (DCPE)</b> to address spatial heterogeneity
-                        in superpixel graphs by representing spatial relationships via Euclidean centroids.</li>
-                </ul>
-        </section>
+<div class="wrap p-body">
+  <aside class="toc" aria-label="On this page">
+    <a href="#problem">Problem</a>
+    <a href="#proposed-solution">Proposed solution</a>
+    <a href="#findings">Findings</a>
+    <a href="#my-role">My role</a>
+    <a href="#tools">Tools</a>
+    <a href="#resources">Resources</a>
+  </aside>
 
-        <section id="Superpixel">
-            <h2>Superpixel</h2>
-            <p>We utilized <b>Simple Linear Iterative Clustering (SLIC)</b>
-                <a href="https://infoscience.epfl.ch/server/api/core/bitstreams/d2580b16-3b66-498f-a8e3-473a408f51d1/content"
-                   target="_blank">Achanta et al. (2010)</a>, which groups pixels based on color similarity and
-                spatial proximity, utilizing fast, linear computational complexity to classify superpixel regions
-                as either foreground or background—essentially performing binary classification within semantic segmentation.
-                Unlike pixel-based images, which have <b>grid-like</b> structures with uniform connectivity,
-                superpixels form <b>graph-like</b> structures with irregular connectivity,
-                providing greater flexibility in representing complex shapes and regions.
+  <div class="content">
+    <section class="block" id="problem">
+      <span class="label">01 · Problem</span>
+      <h2>Accuracy <span class="accent">at a cost</span></h2>
+      <h3>The question</h3>
+      <p>Can a model find the main object in an image as well as large models do, while being small and fast enough for phones and robots?</p>
+      <div class="pxs"><div class="px"><h4>Pixels</h4><svg viewBox="0 0 200 200" aria-hidden="true"><rect width="200" height="200" fill="#e6edf3"/><circle cx="100" cy="80" r="50" fill="#5089b5"/><rect x="88" y="100" width="24" height="76" fill="#5089b5"/><defs><pattern id="px-grid" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M5 0 V5 H0" fill="none" stroke="#fff" stroke-width=".7"/></pattern></defs><rect width="200" height="200" fill="url(#px-grid)"/></svg><p>Tens of thousands of tiny squares: sharp, but costly to process.</p></div><div class="px"><h4>Downsampled</h4><svg viewBox="0 0 200 200" aria-hidden="true"><rect width="200" height="200" fill="#e6edf3"/><rect x="0" y="0" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="25" y="0" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="50" y="0" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="75" y="0" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="100" y="0" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="125" y="0" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="150" y="0" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="175" y="0" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="0" y="25" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="25" y="25" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="50" y="25" width="25" height="25" fill="#cadae7" stroke="#fff" stroke-width=".8"/><rect x="75" y="25" width="25" height="25" fill="#7aa5c6" stroke="#fff" stroke-width=".8"/><rect x="100" y="25" width="25" height="25" fill="#7aa5c6" stroke="#fff" stroke-width=".8"/><rect x="125" y="25" width="25" height="25" fill="#cadae7" stroke="#fff" stroke-width=".8"/><rect x="150" y="25" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="175" y="25" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="0" y="50" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="25" y="50" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="50" y="50" width="25" height="25" fill="#6698be" stroke="#fff" stroke-width=".8"/><rect x="75" y="50" width="25" height="25" fill="#5089b5" stroke="#fff" stroke-width=".8"/><rect x="100" y="50" width="25" height="25" fill="#5089b5" stroke="#fff" stroke-width=".8"/><rect x="125" y="50" width="25" height="25" fill="#6698be" stroke="#fff" stroke-width=".8"/><rect x="150" y="50" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="175" y="50" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="0" y="75" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="25" y="75" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="50" y="75" width="25" height="25" fill="#568db7" stroke="#fff" stroke-width=".8"/><rect x="75" y="75" width="25" height="25" fill="#5089b5" stroke="#fff" stroke-width=".8"/><rect x="100" y="75" width="25" height="25" fill="#5089b5" stroke="#fff" stroke-width=".8"/><rect x="125" y="75" width="25" height="25" fill="#568db7" stroke="#fff" stroke-width=".8"/><rect x="150" y="75" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="175" y="75" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="0" y="100" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="25" y="100" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="50" y="100" width="25" height="25" fill="#9ebdd5" stroke="#fff" stroke-width=".8"/><rect x="75" y="100" width="25" height="25" fill="#5089b5" stroke="#fff" stroke-width=".8"/><rect x="100" y="100" width="25" height="25" fill="#5089b5" stroke="#fff" stroke-width=".8"/><rect x="125" y="100" width="25" height="25" fill="#9ebdd5" stroke="#fff" stroke-width=".8"/><rect x="150" y="100" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="175" y="100" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="0" y="125" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="25" y="125" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="50" y="125" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="75" y="125" width="25" height="25" fill="#96b8d2" stroke="#fff" stroke-width=".8"/><rect x="100" y="125" width="25" height="25" fill="#96b8d2" stroke="#fff" stroke-width=".8"/><rect x="125" y="125" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="150" y="125" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="175" y="125" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="0" y="150" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="25" y="150" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="50" y="150" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="75" y="150" width="25" height="25" fill="#9bbbd4" stroke="#fff" stroke-width=".8"/><rect x="100" y="150" width="25" height="25" fill="#9bbbd4" stroke="#fff" stroke-width=".8"/><rect x="125" y="150" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="150" y="150" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="175" y="150" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="0" y="175" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="25" y="175" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="50" y="175" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="75" y="175" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="100" y="175" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="125" y="175" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="150" y="175" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/><rect x="175" y="175" width="25" height="25" fill="#e6edf3" stroke="#fff" stroke-width=".8"/></svg><p>Fewer, bigger squares: cheaper, but the edges get blurry.</p></div><div class="px"><h4>Superpixels</h4><svg viewBox="0 0 200 200" aria-hidden="true"><rect width="200" height="200" fill="#e6edf3"/><path d="M0.00 0.00h26.67v3.33h-26.67zM0.00 3.33h26.67v3.33h-26.67zM0.00 6.67h30.00v3.33h-30.00zM0.00 10.00h30.00v3.33h-30.00zM0.00 13.33h30.00v3.33h-30.00zM0.00 16.67h30.00v3.33h-30.00zM3.33 20.00h26.67v3.33h-26.67z" fill="#e6edf3"/><path d="M26.67 0.00h33.33v3.33h-33.33zM26.67 3.33h33.33v3.33h-33.33zM30.00 6.67h30.00v3.33h-30.00zM30.00 10.00h30.00v3.33h-30.00zM30.00 13.33h26.67v3.33h-26.67zM30.00 16.67h26.67v3.33h-26.67zM30.00 20.00h26.67v3.33h-26.67zM30.00 23.33h26.67v3.33h-26.67zM33.33 26.67h20.00v3.33h-20.00z" fill="#ebf0f5"/><path d="M60.00 0.00h23.33v3.33h-23.33zM60.00 3.33h23.33v3.33h-23.33zM60.00 6.67h23.33v3.33h-23.33zM60.00 10.00h23.33v3.33h-23.33zM56.67 13.33h23.33v3.33h-23.33zM56.67 16.67h23.33v3.33h-23.33zM56.67 20.00h23.33v3.33h-23.33zM56.67 23.33h23.33v3.33h-23.33zM53.33 26.67h26.67v3.33h-26.67zM60.00 30.00h20.00v3.33h-20.00zM63.33 33.33h13.33v3.33h-13.33zM70.00 36.67h3.33v3.33h-3.33z" fill="#dfe7ee"/><path d="M83.33 0.00h20.00v3.33h-20.00zM83.33 3.33h20.00v3.33h-20.00zM83.33 6.67h20.00v3.33h-20.00zM83.33 10.00h23.33v3.33h-23.33zM80.00 13.33h26.67v3.33h-26.67zM80.00 16.67h26.67v3.33h-26.67zM80.00 20.00h26.67v3.33h-26.67zM80.00 23.33h26.67v3.33h-26.67zM80.00 26.67h26.67v3.33h-26.67zM80.00 30.00h6.67v3.33h-6.67z" fill="#e1e9f0"/><path d="M103.33 0.00h30.00v3.33h-30.00zM103.33 3.33h30.00v3.33h-30.00zM103.33 6.67h30.00v3.33h-30.00zM106.67 10.00h26.67v3.33h-26.67zM106.67 13.33h30.00v3.33h-30.00zM106.67 16.67h30.00v3.33h-30.00zM106.67 20.00h26.67v3.33h-26.67zM106.67 23.33h23.33v3.33h-23.33zM106.67 26.67h16.67v3.33h-16.67zM113.33 30.00h6.67v3.33h-6.67z" fill="#e4ebf1"/><path d="M133.33 0.00h36.67v3.33h-36.67zM133.33 3.33h36.67v3.33h-36.67zM133.33 6.67h36.67v3.33h-36.67zM133.33 10.00h33.33v3.33h-33.33zM136.67 13.33h30.00v3.33h-30.00zM136.67 16.67h26.67v3.33h-26.67z" fill="#e6edf3"/><path d="M170.00 0.00h30.00v3.33h-30.00zM170.00 3.33h30.00v3.33h-30.00zM170.00 6.67h30.00v3.33h-30.00zM166.67 10.00h33.33v3.33h-33.33zM166.67 13.33h33.33v3.33h-33.33zM163.33 16.67h36.67v3.33h-36.67zM163.33 20.00h36.67v3.33h-36.67zM166.67 23.33h33.33v3.33h-33.33zM166.67 26.67h33.33v3.33h-33.33zM170.00 30.00h30.00v3.33h-30.00zM183.33 33.33h16.67v3.33h-16.67z" fill="#ebf0f5"/><path d="M0.00 20.00h3.33v3.33h-3.33zM0.00 23.33h30.00v3.33h-30.00zM0.00 26.67h33.33v3.33h-33.33zM0.00 30.00h30.00v3.33h-30.00zM0.00 33.33h30.00v3.33h-30.00zM0.00 36.67h30.00v3.33h-30.00zM0.00 40.00h26.67v3.33h-26.67zM0.00 43.33h26.67v3.33h-26.67zM0.00 46.67h23.33v3.33h-23.33zM0.00 50.00h23.33v3.33h-23.33zM0.00 53.33h13.33v3.33h-13.33z" fill="#dfe7ee"/><path d="M133.33 20.00h6.67v3.33h-6.67zM130.00 23.33h10.00v3.33h-10.00zM123.33 26.67h16.67v3.33h-16.67zM120.00 30.00h20.00v3.33h-20.00zM123.33 33.33h20.00v3.33h-20.00zM126.67 36.67h16.67v3.33h-16.67zM133.33 40.00h10.00v3.33h-10.00zM136.67 43.33h6.67v3.33h-6.67zM140.00 46.67h6.67v3.33h-6.67zM140.00 50.00h6.67v3.33h-6.67zM143.33 53.33h3.33v3.33h-3.33z" fill="#ebf0f5"/><path d="M140.00 20.00h23.33v3.33h-23.33zM140.00 23.33h26.67v3.33h-26.67zM140.00 26.67h26.67v3.33h-26.67zM140.00 30.00h30.00v3.33h-30.00zM143.33 33.33h26.67v3.33h-26.67zM143.33 36.67h23.33v3.33h-23.33zM143.33 40.00h23.33v3.33h-23.33zM143.33 43.33h20.00v3.33h-20.00zM146.67 46.67h16.67v3.33h-16.67zM146.67 50.00h16.67v3.33h-16.67z" fill="#dfe7ee"/><path d="M30.00 30.00h30.00v3.33h-30.00zM30.00 33.33h33.33v3.33h-33.33zM30.00 36.67h40.00v3.33h-40.00zM26.67 40.00h40.00v3.33h-40.00zM26.67 43.33h36.67v3.33h-36.67zM23.33 46.67h36.67v3.33h-36.67zM23.33 50.00h36.67v3.33h-36.67zM23.33 53.33h33.33v3.33h-33.33zM23.33 56.67h30.00v3.33h-30.00z" fill="#e1e9f0"/><path d="M86.67 30.00h3.33v3.33h-3.33zM76.67 33.33h13.33v3.33h-13.33zM73.33 36.67h16.67v3.33h-16.67zM66.67 40.00h26.67v3.33h-26.67zM63.33 43.33h30.00v3.33h-30.00zM60.00 46.67h30.00v3.33h-30.00zM70.00 50.00h10.00v3.33h-10.00z" fill="#4f86b1"/><path d="M90.00 30.00h23.33v3.33h-23.33zM90.00 33.33h33.33v3.33h-33.33zM90.00 36.67h36.67v3.33h-36.67zM93.33 40.00h33.33v3.33h-33.33zM93.33 43.33h26.67v3.33h-26.67zM96.67 46.67h20.00v3.33h-20.00z" fill="#4a82ae"/><path d="M170.00 33.33h13.33v3.33h-13.33zM166.67 36.67h33.33v3.33h-33.33zM166.67 40.00h33.33v3.33h-33.33zM163.33 43.33h36.67v3.33h-36.67zM163.33 46.67h36.67v3.33h-36.67zM163.33 50.00h36.67v3.33h-36.67zM163.33 53.33h36.67v3.33h-36.67zM166.67 56.67h16.67v3.33h-16.67z" fill="#e1e9f0"/><path d="M126.67 40.00h6.67v3.33h-6.67zM120.00 43.33h16.67v3.33h-16.67zM116.67 46.67h23.33v3.33h-23.33zM113.33 50.00h26.67v3.33h-26.67zM113.33 53.33h30.00v3.33h-30.00zM113.33 56.67h26.67v3.33h-26.67zM113.33 60.00h20.00v3.33h-20.00zM116.67 63.33h13.33v3.33h-13.33zM116.67 66.67h6.67v3.33h-6.67zM116.67 70.00h3.33v3.33h-3.33z" fill="#4f86b1"/><path d="M90.00 46.67h6.67v3.33h-6.67zM86.67 50.00h13.33v3.33h-13.33zM86.67 53.33h13.33v3.33h-13.33zM86.67 56.67h13.33v3.33h-13.33zM86.67 60.00h13.33v3.33h-13.33zM86.67 63.33h10.00v3.33h-10.00zM86.67 66.67h10.00v3.33h-10.00zM86.67 70.00h10.00v3.33h-10.00zM93.33 73.33h3.33v3.33h-3.33z" fill="#5c94bd"/><path d="M60.00 50.00h10.00v3.33h-10.00zM56.67 53.33h23.33v3.33h-23.33zM53.33 56.67h26.67v3.33h-26.67zM53.33 60.00h23.33v3.33h-23.33zM53.33 63.33h23.33v3.33h-23.33zM50.00 66.67h26.67v3.33h-26.67z" fill="#5a91bb"/><path d="M80.00 50.00h6.67v3.33h-6.67zM80.00 53.33h6.67v3.33h-6.67zM80.00 56.67h6.67v3.33h-6.67zM76.67 60.00h10.00v3.33h-10.00zM76.67 63.33h10.00v3.33h-10.00zM76.67 66.67h10.00v3.33h-10.00zM80.00 70.00h6.67v3.33h-6.67z" fill="#4a82ae"/><path d="M100.00 50.00h13.33v3.33h-13.33zM100.00 53.33h13.33v3.33h-13.33zM100.00 56.67h13.33v3.33h-13.33zM100.00 60.00h13.33v3.33h-13.33zM96.67 63.33h20.00v3.33h-20.00zM96.67 66.67h20.00v3.33h-20.00zM96.67 70.00h20.00v3.33h-20.00zM96.67 73.33h20.00v3.33h-20.00zM100.00 76.67h16.67v3.33h-16.67z" fill="#5c94bd"/><path d="M13.33 53.33h10.00v3.33h-10.00zM0.00 56.67h23.33v3.33h-23.33zM0.00 60.00h26.67v3.33h-26.67zM0.00 63.33h26.67v3.33h-26.67zM0.00 66.67h26.67v3.33h-26.67zM0.00 70.00h26.67v3.33h-26.67zM0.00 73.33h26.67v3.33h-26.67zM0.00 76.67h26.67v3.33h-26.67zM0.00 80.00h26.67v3.33h-26.67zM0.00 83.33h23.33v3.33h-23.33zM0.00 86.67h13.33v3.33h-13.33zM0.00 90.00h6.67v3.33h-6.67z" fill="#e4ebf1"/><path d="M146.67 53.33h16.67v3.33h-16.67zM146.67 56.67h20.00v3.33h-20.00zM146.67 60.00h20.00v3.33h-20.00zM146.67 63.33h20.00v3.33h-20.00zM150.00 66.67h20.00v3.33h-20.00zM150.00 70.00h20.00v3.33h-20.00zM150.00 73.33h20.00v3.33h-20.00zM150.00 76.67h20.00v3.33h-20.00zM150.00 80.00h20.00v3.33h-20.00zM150.00 83.33h16.67v3.33h-16.67zM150.00 86.67h13.33v3.33h-13.33z" fill="#e4ebf1"/><path d="M140.00 56.67h6.67v3.33h-6.67zM133.33 60.00h13.33v3.33h-13.33zM130.00 63.33h16.67v3.33h-16.67zM123.33 66.67h26.67v3.33h-26.67zM120.00 70.00h30.00v3.33h-30.00zM116.67 73.33h33.33v3.33h-33.33zM116.67 76.67h30.00v3.33h-30.00zM116.67 80.00h16.67v3.33h-16.67z" fill="#5089b5"/><path d="M183.33 56.67h16.67v3.33h-16.67zM166.67 60.00h33.33v3.33h-33.33zM166.67 63.33h33.33v3.33h-33.33zM170.00 66.67h30.00v3.33h-30.00zM170.00 70.00h30.00v3.33h-30.00zM170.00 73.33h30.00v3.33h-30.00zM170.00 76.67h30.00v3.33h-30.00zM170.00 80.00h30.00v3.33h-30.00zM190.00 83.33h10.00v3.33h-10.00z" fill="#e6edf3"/><path d="M26.67 60.00h26.67v3.33h-26.67zM26.67 63.33h26.67v3.33h-26.67zM26.67 66.67h23.33v3.33h-23.33zM26.67 70.00h23.33v3.33h-23.33zM26.67 73.33h23.33v3.33h-23.33zM26.67 76.67h23.33v3.33h-23.33zM26.67 80.00h23.33v3.33h-23.33zM40.00 83.33h10.00v3.33h-10.00z" fill="#e6edf3"/><path d="M50.00 70.00h30.00v3.33h-30.00zM50.00 73.33h30.00v3.33h-30.00zM50.00 76.67h30.00v3.33h-30.00zM50.00 80.00h26.67v3.33h-26.67zM50.00 83.33h26.67v3.33h-26.67zM50.00 86.67h26.67v3.33h-26.67z" fill="#5089b5"/><path d="M80.00 73.33h13.33v3.33h-13.33zM80.00 76.67h20.00v3.33h-20.00zM76.67 80.00h23.33v3.33h-23.33zM76.67 83.33h20.00v3.33h-20.00zM76.67 86.67h16.67v3.33h-16.67zM73.33 90.00h16.67v3.33h-16.67zM83.33 93.33h6.67v3.33h-6.67z" fill="#5a91bb"/><path d="M146.67 76.67h3.33v3.33h-3.33zM133.33 80.00h16.67v3.33h-16.67zM120.00 83.33h30.00v3.33h-30.00zM120.00 86.67h30.00v3.33h-30.00zM120.00 90.00h30.00v3.33h-30.00zM120.00 93.33h26.67v3.33h-26.67zM123.33 96.67h23.33v3.33h-23.33zM123.33 100.00h23.33v3.33h-23.33zM123.33 103.33h20.00v3.33h-20.00zM123.33 106.67h16.67v3.33h-16.67zM123.33 110.00h16.67v3.33h-16.67zM126.67 113.33h10.00v3.33h-10.00zM130.00 116.67h3.33v3.33h-3.33z" fill="#4a82ae"/><path d="M100.00 80.00h16.67v3.33h-16.67zM96.67 83.33h23.33v3.33h-23.33zM93.33 86.67h26.67v3.33h-26.67zM90.00 90.00h30.00v3.33h-30.00zM90.00 93.33h30.00v3.33h-30.00zM86.67 96.67h36.67v3.33h-36.67zM86.67 100.00h36.67v3.33h-36.67zM90.00 103.33h33.33v3.33h-33.33zM93.33 106.67h30.00v3.33h-30.00zM113.33 110.00h10.00v3.33h-10.00z" fill="#4f86b1"/><path d="M23.33 83.33h3.33v3.33h-3.33zM13.33 86.67h13.33v3.33h-13.33zM6.67 90.00h20.00v3.33h-20.00zM0.00 93.33h26.67v3.33h-26.67zM0.00 96.67h26.67v3.33h-26.67zM0.00 100.00h30.00v3.33h-30.00zM0.00 103.33h30.00v3.33h-30.00zM0.00 106.67h30.00v3.33h-30.00zM0.00 110.00h30.00v3.33h-30.00zM6.67 113.33h23.33v3.33h-23.33zM13.33 116.67h16.67v3.33h-16.67zM20.00 120.00h10.00v3.33h-10.00z" fill="#ebf0f5"/><path d="M26.67 83.33h13.33v3.33h-13.33zM26.67 86.67h23.33v3.33h-23.33zM26.67 90.00h23.33v3.33h-23.33zM26.67 93.33h26.67v3.33h-26.67zM26.67 96.67h26.67v3.33h-26.67zM30.00 100.00h23.33v3.33h-23.33zM30.00 103.33h26.67v3.33h-26.67zM30.00 106.67h30.00v3.33h-30.00zM30.00 110.00h23.33v3.33h-23.33zM30.00 113.33h16.67v3.33h-16.67zM30.00 116.67h6.67v3.33h-6.67z" fill="#dfe7ee"/><path d="M166.67 83.33h23.33v3.33h-23.33zM163.33 86.67h36.67v3.33h-36.67zM163.33 90.00h36.67v3.33h-36.67zM166.67 93.33h33.33v3.33h-33.33zM166.67 96.67h33.33v3.33h-33.33zM166.67 100.00h33.33v3.33h-33.33zM166.67 103.33h33.33v3.33h-33.33zM170.00 106.67h30.00v3.33h-30.00zM170.00 110.00h30.00v3.33h-30.00zM170.00 113.33h16.67v3.33h-16.67z" fill="#dfe7ee"/><path d="M50.00 90.00h23.33v3.33h-23.33zM53.33 93.33h30.00v3.33h-30.00zM53.33 96.67h33.33v3.33h-33.33zM53.33 100.00h33.33v3.33h-33.33zM56.67 103.33h33.33v3.33h-33.33zM60.00 106.67h30.00v3.33h-30.00zM60.00 110.00h26.67v3.33h-26.67zM63.33 113.33h16.67v3.33h-16.67zM66.67 116.67h3.33v3.33h-3.33z" fill="#5089b5"/><path d="M150.00 90.00h13.33v3.33h-13.33zM146.67 93.33h20.00v3.33h-20.00zM146.67 96.67h20.00v3.33h-20.00zM146.67 100.00h20.00v3.33h-20.00zM143.33 103.33h23.33v3.33h-23.33zM140.00 106.67h30.00v3.33h-30.00zM140.00 110.00h30.00v3.33h-30.00zM140.00 113.33h30.00v3.33h-30.00zM143.33 116.67h26.67v3.33h-26.67zM146.67 120.00h13.33v3.33h-13.33z" fill="#ebf0f5"/><path d="M90.00 106.67h3.33v3.33h-3.33zM90.00 110.00h23.33v3.33h-23.33zM90.00 113.33h33.33v3.33h-33.33zM90.00 116.67h26.67v3.33h-26.67zM90.00 120.00h20.00v3.33h-20.00zM90.00 123.33h16.67v3.33h-16.67zM90.00 126.67h10.00v3.33h-10.00zM90.00 130.00h3.33v3.33h-3.33z" fill="#4f86b1"/><path d="M53.33 110.00h6.67v3.33h-6.67zM46.67 113.33h16.67v3.33h-16.67zM36.67 116.67h30.00v3.33h-30.00zM30.00 120.00h43.33v3.33h-43.33zM26.67 123.33h50.00v3.33h-50.00zM26.67 126.67h46.67v3.33h-46.67zM26.67 130.00h43.33v3.33h-43.33zM26.67 133.33h40.00v3.33h-40.00zM26.67 136.67h40.00v3.33h-40.00zM26.67 140.00h36.67v3.33h-36.67zM26.67 143.33h33.33v3.33h-33.33zM43.33 146.67h13.33v3.33h-13.33z" fill="#e4ebf1"/><path d="M86.67 110.00h3.33v3.33h-3.33zM80.00 113.33h10.00v3.33h-10.00zM70.00 116.67h20.00v3.33h-20.00zM73.33 120.00h16.67v3.33h-16.67zM76.67 123.33h13.33v3.33h-13.33zM86.67 126.67h3.33v3.33h-3.33zM86.67 130.00h3.33v3.33h-3.33zM86.67 133.33h3.33v3.33h-3.33zM86.67 136.67h3.33v3.33h-3.33z" fill="#4a82ae"/><path d="M0.00 113.33h6.67v3.33h-6.67zM0.00 116.67h13.33v3.33h-13.33zM0.00 120.00h20.00v3.33h-20.00zM0.00 123.33h26.67v3.33h-26.67zM0.00 126.67h26.67v3.33h-26.67zM0.00 130.00h26.67v3.33h-26.67zM0.00 133.33h26.67v3.33h-26.67zM0.00 136.67h26.67v3.33h-26.67zM0.00 140.00h26.67v3.33h-26.67zM0.00 143.33h26.67v3.33h-26.67z" fill="#e1e9f0"/><path d="M123.33 113.33h3.33v3.33h-3.33zM116.67 116.67h13.33v3.33h-13.33zM110.00 120.00h16.67v3.33h-16.67zM106.67 123.33h16.67v3.33h-16.67zM100.00 126.67h13.33v3.33h-13.33zM93.33 130.00h20.00v3.33h-20.00zM90.00 133.33h23.33v3.33h-23.33zM90.00 136.67h23.33v3.33h-23.33zM93.33 140.00h20.00v3.33h-20.00z" fill="#5a91bb"/><path d="M136.67 113.33h3.33v3.33h-3.33zM133.33 116.67h10.00v3.33h-10.00zM126.67 120.00h20.00v3.33h-20.00zM123.33 123.33h26.67v3.33h-26.67zM113.33 126.67h33.33v3.33h-33.33zM113.33 130.00h33.33v3.33h-33.33zM113.33 133.33h30.00v3.33h-30.00zM116.67 136.67h23.33v3.33h-23.33zM123.33 140.00h13.33v3.33h-13.33z" fill="#dfe7ee"/><path d="M186.67 113.33h13.33v3.33h-13.33zM170.00 116.67h30.00v3.33h-30.00zM170.00 120.00h30.00v3.33h-30.00zM173.33 123.33h26.67v3.33h-26.67zM173.33 126.67h26.67v3.33h-26.67zM173.33 130.00h26.67v3.33h-26.67zM173.33 133.33h26.67v3.33h-26.67zM176.67 136.67h23.33v3.33h-23.33zM176.67 140.00h23.33v3.33h-23.33zM176.67 143.33h23.33v3.33h-23.33zM186.67 146.67h13.33v3.33h-13.33zM196.67 150.00h3.33v3.33h-3.33z" fill="#e4ebf1"/><path d="M160.00 120.00h10.00v3.33h-10.00zM150.00 123.33h23.33v3.33h-23.33zM146.67 126.67h26.67v3.33h-26.67zM146.67 130.00h26.67v3.33h-26.67zM150.00 133.33h23.33v3.33h-23.33zM153.33 136.67h23.33v3.33h-23.33zM156.67 140.00h20.00v3.33h-20.00zM160.00 143.33h16.67v3.33h-16.67zM160.00 146.67h13.33v3.33h-13.33zM163.33 150.00h3.33v3.33h-3.33z" fill="#e1e9f0"/><path d="M73.33 126.67h13.33v3.33h-13.33zM70.00 130.00h16.67v3.33h-16.67zM66.67 133.33h20.00v3.33h-20.00zM66.67 136.67h20.00v3.33h-20.00zM63.33 140.00h23.33v3.33h-23.33zM60.00 143.33h26.67v3.33h-26.67zM56.67 146.67h30.00v3.33h-30.00zM56.67 150.00h30.00v3.33h-30.00zM60.00 153.33h26.67v3.33h-26.67zM60.00 156.67h26.67v3.33h-26.67zM63.33 160.00h23.33v3.33h-23.33zM63.33 163.33h23.33v3.33h-23.33zM70.00 166.67h16.67v3.33h-16.67zM76.67 170.00h10.00v3.33h-10.00zM83.33 173.33h3.33v3.33h-3.33z" fill="#dfe7ee"/><path d="M143.33 133.33h6.67v3.33h-6.67zM140.00 136.67h13.33v3.33h-13.33zM136.67 140.00h20.00v3.33h-20.00zM133.33 143.33h26.67v3.33h-26.67zM133.33 146.67h26.67v3.33h-26.67zM133.33 150.00h30.00v3.33h-30.00zM136.67 153.33h26.67v3.33h-26.67zM136.67 156.67h26.67v3.33h-26.67zM136.67 160.00h23.33v3.33h-23.33zM136.67 163.33h23.33v3.33h-23.33z" fill="#e6edf3"/><path d="M113.33 136.67h3.33v3.33h-3.33zM113.33 140.00h10.00v3.33h-10.00zM113.33 143.33h20.00v3.33h-20.00zM113.33 146.67h20.00v3.33h-20.00zM113.33 150.00h20.00v3.33h-20.00zM113.33 153.33h23.33v3.33h-23.33zM113.33 156.67h23.33v3.33h-23.33zM113.33 160.00h23.33v3.33h-23.33zM113.33 163.33h23.33v3.33h-23.33zM113.33 166.67h23.33v3.33h-23.33zM113.33 170.00h20.00v3.33h-20.00zM113.33 173.33h13.33v3.33h-13.33zM116.67 176.67h3.33v3.33h-3.33z" fill="#e4ebf1"/><path d="M86.67 140.00h6.67v3.33h-6.67zM86.67 143.33h26.67v3.33h-26.67zM86.67 146.67h26.67v3.33h-26.67zM86.67 150.00h26.67v3.33h-26.67zM93.33 153.33h20.00v3.33h-20.00zM100.00 156.67h13.33v3.33h-13.33zM106.67 160.00h6.67v3.33h-6.67z" fill="#4a82ae"/><path d="M0.00 146.67h26.67v3.33h-26.67zM0.00 150.00h26.67v3.33h-26.67zM0.00 153.33h26.67v3.33h-26.67zM0.00 156.67h26.67v3.33h-26.67zM0.00 160.00h26.67v3.33h-26.67zM0.00 163.33h26.67v3.33h-26.67zM0.00 166.67h26.67v3.33h-26.67z" fill="#e6edf3"/><path d="M26.67 146.67h16.67v3.33h-16.67zM26.67 150.00h30.00v3.33h-30.00zM26.67 153.33h33.33v3.33h-33.33zM26.67 156.67h33.33v3.33h-33.33zM26.67 160.00h36.67v3.33h-36.67zM26.67 163.33h36.67v3.33h-36.67zM26.67 166.67h36.67v3.33h-36.67zM26.67 170.00h33.33v3.33h-33.33zM26.67 173.33h30.00v3.33h-30.00zM33.33 176.67h20.00v3.33h-20.00z" fill="#ebf0f5"/><path d="M173.33 146.67h13.33v3.33h-13.33zM166.67 150.00h30.00v3.33h-30.00zM163.33 153.33h36.67v3.33h-36.67zM163.33 156.67h36.67v3.33h-36.67zM160.00 160.00h40.00v3.33h-40.00zM160.00 163.33h40.00v3.33h-40.00zM160.00 166.67h40.00v3.33h-40.00zM163.33 170.00h36.67v3.33h-36.67zM166.67 173.33h30.00v3.33h-30.00zM170.00 176.67h6.67v3.33h-6.67z" fill="#ebf0f5"/><path d="M86.67 153.33h6.67v3.33h-6.67zM86.67 156.67h13.33v3.33h-13.33zM86.67 160.00h20.00v3.33h-20.00zM86.67 163.33h26.67v3.33h-26.67zM86.67 166.67h26.67v3.33h-26.67zM86.67 170.00h26.67v3.33h-26.67zM86.67 173.33h26.67v3.33h-26.67z" fill="#5089b5"/><path d="M63.33 166.67h6.67v3.33h-6.67zM60.00 170.00h16.67v3.33h-16.67zM56.67 173.33h26.67v3.33h-26.67zM53.33 176.67h30.00v3.33h-30.00zM50.00 180.00h33.33v3.33h-33.33zM50.00 183.33h33.33v3.33h-33.33zM50.00 186.67h33.33v3.33h-33.33zM53.33 190.00h26.67v3.33h-26.67zM53.33 193.33h26.67v3.33h-26.67zM56.67 196.67h23.33v3.33h-23.33z" fill="#e4ebf1"/><path d="M136.67 166.67h23.33v3.33h-23.33zM136.67 170.00h26.67v3.33h-26.67zM136.67 173.33h30.00v3.33h-30.00zM140.00 176.67h30.00v3.33h-30.00zM140.00 180.00h30.00v3.33h-30.00zM143.33 183.33h26.67v3.33h-26.67zM143.33 186.67h23.33v3.33h-23.33zM146.67 190.00h20.00v3.33h-20.00zM146.67 193.33h20.00v3.33h-20.00zM150.00 196.67h13.33v3.33h-13.33z" fill="#dfe7ee"/><path d="M0.00 170.00h26.67v3.33h-26.67zM0.00 173.33h26.67v3.33h-26.67zM0.00 176.67h26.67v3.33h-26.67zM0.00 180.00h26.67v3.33h-26.67zM0.00 183.33h23.33v3.33h-23.33zM0.00 186.67h23.33v3.33h-23.33zM0.00 190.00h23.33v3.33h-23.33zM0.00 193.33h20.00v3.33h-20.00zM0.00 196.67h20.00v3.33h-20.00z" fill="#dfe7ee"/><path d="M133.33 170.00h3.33v3.33h-3.33zM126.67 173.33h10.00v3.33h-10.00zM120.00 176.67h20.00v3.33h-20.00zM116.67 180.00h23.33v3.33h-23.33zM116.67 183.33h26.67v3.33h-26.67zM116.67 186.67h26.67v3.33h-26.67zM116.67 190.00h30.00v3.33h-30.00zM116.67 193.33h30.00v3.33h-30.00zM116.67 196.67h33.33v3.33h-33.33z" fill="#ebf0f5"/><path d="M196.67 173.33h3.33v3.33h-3.33zM176.67 176.67h23.33v3.33h-23.33zM170.00 180.00h30.00v3.33h-30.00zM170.00 183.33h30.00v3.33h-30.00zM166.67 186.67h33.33v3.33h-33.33zM166.67 190.00h33.33v3.33h-33.33zM166.67 193.33h33.33v3.33h-33.33zM163.33 196.67h36.67v3.33h-36.67z" fill="#e1e9f0"/><path d="M26.67 176.67h6.67v3.33h-6.67zM26.67 180.00h23.33v3.33h-23.33zM23.33 183.33h26.67v3.33h-26.67zM23.33 186.67h26.67v3.33h-26.67zM23.33 190.00h30.00v3.33h-30.00zM20.00 193.33h33.33v3.33h-33.33zM20.00 196.67h36.67v3.33h-36.67z" fill="#e1e9f0"/><path d="M83.33 176.67h33.33v3.33h-33.33zM83.33 180.00h33.33v3.33h-33.33zM83.33 183.33h33.33v3.33h-33.33zM83.33 186.67h33.33v3.33h-33.33zM80.00 190.00h36.67v3.33h-36.67zM80.00 193.33h36.67v3.33h-36.67zM80.00 196.67h36.67v3.33h-36.67z" fill="#e6edf3"/><path d="M26.67 0.00v3.33M60.00 0.00v3.33M83.33 0.00v3.33M103.33 0.00v3.33M133.33 0.00v3.33M170.00 0.00v3.33M26.67 3.33v3.33M26.67 6.67h3.33M60.00 3.33v3.33M83.33 3.33v3.33M103.33 3.33v3.33M133.33 3.33v3.33M170.00 3.33v3.33M30.00 6.67v3.33M60.00 6.67v3.33M83.33 6.67v3.33M103.33 6.67v3.33M103.33 10.00h3.33M133.33 6.67v3.33M170.00 6.67v3.33M166.67 10.00h3.33M30.00 10.00v3.33M60.00 10.00v3.33M56.67 13.33h3.33M83.33 10.00v3.33M80.00 13.33h3.33M106.67 10.00v3.33M133.33 10.00v3.33M133.33 13.33h3.33M166.67 10.00v3.33M30.00 13.33v3.33M56.67 13.33v3.33M80.00 13.33v3.33M106.67 13.33v3.33M136.67 13.33v3.33M166.67 13.33v3.33M163.33 16.67h3.33M0.00 20.00h3.33M30.00 16.67v3.33M56.67 16.67v3.33M80.00 16.67v3.33M106.67 16.67v3.33M136.67 16.67v3.33M133.33 20.00h3.33M136.67 20.00h3.33M140.00 20.00h3.33M143.33 20.00h3.33M146.67 20.00h3.33M150.00 20.00h3.33M153.33 20.00h3.33M156.67 20.00h3.33M163.33 16.67v3.33M160.00 20.00h3.33M3.33 20.00v3.33M3.33 23.33h3.33M6.67 23.33h3.33M10.00 23.33h3.33M13.33 23.33h3.33M16.67 23.33h3.33M20.00 23.33h3.33M23.33 23.33h3.33M30.00 20.00v3.33M26.67 23.33h3.33M56.67 20.00v3.33M80.00 20.00v3.33M106.67 20.00v3.33M133.33 20.00v3.33M130.00 23.33h3.33M140.00 20.00v3.33M163.33 20.00v3.33M163.33 23.33h3.33M30.00 23.33v3.33M30.00 26.67h3.33M56.67 23.33v3.33M53.33 26.67h3.33M80.00 23.33v3.33M106.67 23.33v3.33M123.33 26.67h3.33M130.00 23.33v3.33M126.67 26.67h3.33M140.00 23.33v3.33M166.67 23.33v3.33M33.33 26.67v3.33M30.00 30.00h3.33M33.33 30.00h3.33M36.67 30.00h3.33M40.00 30.00h3.33M43.33 30.00h3.33M46.67 30.00h3.33M53.33 26.67v3.33M50.00 30.00h3.33M53.33 30.00h3.33M56.67 30.00h3.33M80.00 26.67v3.33M86.67 30.00h3.33M90.00 30.00h3.33M93.33 30.00h3.33M96.67 30.00h3.33M100.00 30.00h3.33M106.67 26.67v3.33M103.33 30.00h3.33M106.67 30.00h3.33M110.00 30.00h3.33M123.33 26.67v3.33M120.00 30.00h3.33M140.00 26.67v3.33M166.67 26.67v3.33M166.67 30.00h3.33M30.00 30.00v3.33M60.00 30.00v3.33M60.00 33.33h3.33M80.00 30.00v3.33M76.67 33.33h3.33M80.00 33.33h3.33M86.67 30.00v3.33M83.33 33.33h3.33M90.00 30.00v3.33M113.33 30.00v3.33M113.33 33.33h3.33M120.00 30.00v3.33M116.67 33.33h3.33M120.00 33.33h3.33M140.00 30.00v3.33M140.00 33.33h3.33M170.00 30.00v3.33M170.00 33.33h3.33M173.33 33.33h3.33M176.67 33.33h3.33M180.00 33.33h3.33M30.00 33.33v3.33M63.33 33.33v3.33M63.33 36.67h3.33M66.67 36.67h3.33M76.67 33.33v3.33M73.33 36.67h3.33M90.00 33.33v3.33M123.33 33.33v3.33M123.33 36.67h3.33M143.33 33.33v3.33M170.00 33.33v3.33M166.67 36.67h3.33M183.33 33.33v3.33M183.33 36.67h3.33M186.67 36.67h3.33M190.00 36.67h3.33M193.33 36.67h3.33M196.67 36.67h3.33M30.00 36.67v3.33M26.67 40.00h3.33M70.00 36.67v3.33M66.67 40.00h3.33M73.33 36.67v3.33M70.00 40.00h3.33M90.00 36.67v3.33M90.00 40.00h3.33M126.67 36.67v3.33M126.67 40.00h3.33M130.00 40.00h3.33M143.33 36.67v3.33M166.67 36.67v3.33M26.67 40.00v3.33M66.67 40.00v3.33M63.33 43.33h3.33M93.33 40.00v3.33M120.00 43.33h3.33M126.67 40.00v3.33M123.33 43.33h3.33M133.33 40.00v3.33M133.33 43.33h3.33M143.33 40.00v3.33M166.67 40.00v3.33M163.33 43.33h3.33M26.67 43.33v3.33M23.33 46.67h3.33M63.33 43.33v3.33M60.00 46.67h3.33M93.33 43.33v3.33M90.00 46.67h3.33M93.33 46.67h3.33M120.00 43.33v3.33M116.67 46.67h3.33M136.67 43.33v3.33M136.67 46.67h3.33M143.33 43.33v3.33M143.33 46.67h3.33M163.33 43.33v3.33M23.33 46.67v3.33M60.00 46.67v3.33M60.00 50.00h3.33M63.33 50.00h3.33M66.67 50.00h3.33M80.00 50.00h3.33M83.33 50.00h3.33M90.00 46.67v3.33M86.67 50.00h3.33M96.67 46.67v3.33M96.67 50.00h3.33M100.00 50.00h3.33M103.33 50.00h3.33M106.67 50.00h3.33M110.00 50.00h3.33M116.67 46.67v3.33M113.33 50.00h3.33M140.00 46.67v3.33M146.67 46.67v3.33M163.33 46.67v3.33M13.33 53.33h3.33M16.67 53.33h3.33M23.33 50.00v3.33M20.00 53.33h3.33M60.00 50.00v3.33M56.67 53.33h3.33M70.00 50.00v3.33M70.00 53.33h3.33M73.33 53.33h3.33M80.00 50.00v3.33M76.67 53.33h3.33M86.67 50.00v3.33M100.00 50.00v3.33M113.33 50.00v3.33M140.00 50.00v3.33M140.00 53.33h3.33M146.67 50.00v3.33M146.67 53.33h3.33M150.00 53.33h3.33M153.33 53.33h3.33M156.67 53.33h3.33M163.33 50.00v3.33M160.00 53.33h3.33M0.00 56.67h3.33M3.33 56.67h3.33M6.67 56.67h3.33M13.33 53.33v3.33M10.00 56.67h3.33M23.33 53.33v3.33M56.67 53.33v3.33M53.33 56.67h3.33M80.00 53.33v3.33M86.67 53.33v3.33M100.00 53.33v3.33M113.33 53.33v3.33M143.33 53.33v3.33M140.00 56.67h3.33M146.67 53.33v3.33M143.33 56.67h3.33M163.33 53.33v3.33M163.33 56.67h3.33M183.33 56.67h3.33M186.67 56.67h3.33M190.00 56.67h3.33M193.33 56.67h3.33M196.67 56.67h3.33M23.33 56.67v3.33M23.33 60.00h3.33M26.67 60.00h3.33M30.00 60.00h3.33M33.33 60.00h3.33M36.67 60.00h3.33M40.00 60.00h3.33M43.33 60.00h3.33M46.67 60.00h3.33M53.33 56.67v3.33M50.00 60.00h3.33M80.00 56.67v3.33M76.67 60.00h3.33M86.67 56.67v3.33M100.00 56.67v3.33M113.33 56.67v3.33M133.33 60.00h3.33M140.00 56.67v3.33M136.67 60.00h3.33M146.67 56.67v3.33M166.67 56.67v3.33M166.67 60.00h3.33M170.00 60.00h3.33M173.33 60.00h3.33M176.67 60.00h3.33M183.33 56.67v3.33M180.00 60.00h3.33M26.67 60.00v3.33M53.33 60.00v3.33M76.67 60.00v3.33M86.67 60.00v3.33M100.00 60.00v3.33M96.67 63.33h3.33M113.33 60.00v3.33M113.33 63.33h3.33M133.33 60.00v3.33M130.00 63.33h3.33M146.67 60.00v3.33M166.67 60.00v3.33M26.67 63.33v3.33M53.33 63.33v3.33M50.00 66.67h3.33M76.67 63.33v3.33M86.67 63.33v3.33M96.67 63.33v3.33M116.67 63.33v3.33M123.33 66.67h3.33M130.00 63.33v3.33M126.67 66.67h3.33M146.67 63.33v3.33M146.67 66.67h3.33M166.67 63.33v3.33M166.67 66.67h3.33M26.67 66.67v3.33M50.00 66.67v3.33M50.00 70.00h3.33M53.33 70.00h3.33M56.67 70.00h3.33M60.00 70.00h3.33M63.33 70.00h3.33M66.67 70.00h3.33M70.00 70.00h3.33M76.67 66.67v3.33M73.33 70.00h3.33M76.67 70.00h3.33M86.67 66.67v3.33M96.67 66.67v3.33M116.67 66.67v3.33M123.33 66.67v3.33M120.00 70.00h3.33M150.00 66.67v3.33M170.00 66.67v3.33M26.67 70.00v3.33M50.00 70.00v3.33M80.00 70.00v3.33M80.00 73.33h3.33M86.67 70.00v3.33M83.33 73.33h3.33M86.67 73.33h3.33M90.00 73.33h3.33M96.67 70.00v3.33M116.67 70.00v3.33M120.00 70.00v3.33M116.67 73.33h3.33M150.00 70.00v3.33M170.00 70.00v3.33M26.67 73.33v3.33M50.00 73.33v3.33M80.00 73.33v3.33M93.33 73.33v3.33M96.67 73.33v3.33M93.33 76.67h3.33M96.67 76.67h3.33M116.67 73.33v3.33M150.00 73.33v3.33M146.67 76.67h3.33M170.00 73.33v3.33M26.67 76.67v3.33M50.00 76.67v3.33M80.00 76.67v3.33M76.67 80.00h3.33M100.00 76.67v3.33M100.00 80.00h3.33M103.33 80.00h3.33M106.67 80.00h3.33M110.00 80.00h3.33M116.67 76.67v3.33M113.33 80.00h3.33M133.33 80.00h3.33M136.67 80.00h3.33M140.00 80.00h3.33M146.67 76.67v3.33M143.33 80.00h3.33M150.00 76.67v3.33M170.00 76.67v3.33M26.67 80.00v3.33M23.33 83.33h3.33M26.67 83.33h3.33M30.00 83.33h3.33M33.33 83.33h3.33M36.67 83.33h3.33M50.00 80.00v3.33M76.67 80.00v3.33M100.00 80.00v3.33M96.67 83.33h3.33M116.67 80.00v3.33M116.67 83.33h3.33M120.00 83.33h3.33M123.33 83.33h3.33M126.67 83.33h3.33M133.33 80.00v3.33M130.00 83.33h3.33M150.00 80.00v3.33M170.00 80.00v3.33M166.67 83.33h3.33M170.00 83.33h3.33M173.33 83.33h3.33M176.67 83.33h3.33M180.00 83.33h3.33M183.33 83.33h3.33M186.67 83.33h3.33M13.33 86.67h3.33M16.67 86.67h3.33M23.33 83.33v3.33M20.00 86.67h3.33M26.67 83.33v3.33M40.00 83.33v3.33M40.00 86.67h3.33M43.33 86.67h3.33M50.00 83.33v3.33M46.67 86.67h3.33M76.67 83.33v3.33M96.67 83.33v3.33M93.33 86.67h3.33M120.00 83.33v3.33M150.00 83.33v3.33M166.67 83.33v3.33M163.33 86.67h3.33M190.00 83.33v3.33M190.00 86.67h3.33M193.33 86.67h3.33M196.67 86.67h3.33M6.67 90.00h3.33M13.33 86.67v3.33M10.00 90.00h3.33M26.67 86.67v3.33M50.00 86.67v3.33M50.00 90.00h3.33M53.33 90.00h3.33M56.67 90.00h3.33M60.00 90.00h3.33M63.33 90.00h3.33M66.67 90.00h3.33M70.00 90.00h3.33M76.67 86.67v3.33M73.33 90.00h3.33M93.33 86.67v3.33M90.00 90.00h3.33M120.00 86.67v3.33M150.00 86.67v3.33M150.00 90.00h3.33M153.33 90.00h3.33M156.67 90.00h3.33M163.33 86.67v3.33M160.00 90.00h3.33M0.00 93.33h3.33M6.67 90.00v3.33M3.33 93.33h3.33M26.67 90.00v3.33M50.00 90.00v3.33M50.00 93.33h3.33M73.33 90.00v3.33M73.33 93.33h3.33M76.67 93.33h3.33M80.00 93.33h3.33M90.00 90.00v3.33M120.00 90.00v3.33M150.00 90.00v3.33M146.67 93.33h3.33M163.33 90.00v3.33M163.33 93.33h3.33M26.67 93.33v3.33M53.33 93.33v3.33M83.33 93.33v3.33M83.33 96.67h3.33M90.00 93.33v3.33M86.67 96.67h3.33M120.00 93.33v3.33M120.00 96.67h3.33M146.67 93.33v3.33M166.67 93.33v3.33M26.67 96.67v3.33M26.67 100.00h3.33M53.33 96.67v3.33M86.67 96.67v3.33M123.33 96.67v3.33M146.67 96.67v3.33M166.67 96.67v3.33M30.00 100.00v3.33M53.33 100.00v3.33M53.33 103.33h3.33M86.67 100.00v3.33M86.67 103.33h3.33M123.33 100.00v3.33M146.67 100.00v3.33M143.33 103.33h3.33M166.67 100.00v3.33M30.00 103.33v3.33M56.67 103.33v3.33M56.67 106.67h3.33M90.00 103.33v3.33M90.00 106.67h3.33M123.33 103.33v3.33M143.33 103.33v3.33M140.00 106.67h3.33M166.67 103.33v3.33M166.67 106.67h3.33M30.00 106.67v3.33M53.33 110.00h3.33M60.00 106.67v3.33M56.67 110.00h3.33M90.00 106.67v3.33M86.67 110.00h3.33M93.33 106.67v3.33M93.33 110.00h3.33M96.67 110.00h3.33M100.00 110.00h3.33M103.33 110.00h3.33M106.67 110.00h3.33M110.00 110.00h3.33M123.33 106.67v3.33M140.00 106.67v3.33M170.00 106.67v3.33M0.00 113.33h3.33M3.33 113.33h3.33M30.00 110.00v3.33M46.67 113.33h3.33M53.33 110.00v3.33M50.00 113.33h3.33M60.00 110.00v3.33M60.00 113.33h3.33M80.00 113.33h3.33M86.67 110.00v3.33M83.33 113.33h3.33M90.00 110.00v3.33M113.33 110.00v3.33M113.33 113.33h3.33M116.67 113.33h3.33M123.33 110.00v3.33M120.00 113.33h3.33M123.33 113.33h3.33M140.00 110.00v3.33M136.67 113.33h3.33M170.00 110.00v3.33M186.67 113.33h3.33M190.00 113.33h3.33M193.33 113.33h3.33M196.67 113.33h3.33M6.67 113.33v3.33M6.67 116.67h3.33M10.00 116.67h3.33M30.00 113.33v3.33M36.67 116.67h3.33M40.00 116.67h3.33M46.67 113.33v3.33M43.33 116.67h3.33M63.33 113.33v3.33M63.33 116.67h3.33M70.00 116.67h3.33M73.33 116.67h3.33M80.00 113.33v3.33M76.67 116.67h3.33M90.00 113.33v3.33M116.67 116.67h3.33M123.33 113.33v3.33M120.00 116.67h3.33M126.67 113.33v3.33M126.67 116.67h3.33M136.67 113.33v3.33M133.33 116.67h3.33M140.00 113.33v3.33M140.00 116.67h3.33M170.00 113.33v3.33M170.00 116.67h3.33M173.33 116.67h3.33M176.67 116.67h3.33M180.00 116.67h3.33M186.67 113.33v3.33M183.33 116.67h3.33M13.33 116.67v3.33M13.33 120.00h3.33M16.67 120.00h3.33M30.00 116.67v3.33M30.00 120.00h3.33M36.67 116.67v3.33M33.33 120.00h3.33M66.67 116.67v3.33M70.00 116.67v3.33M66.67 120.00h3.33M70.00 120.00h3.33M90.00 116.67v3.33M110.00 120.00h3.33M116.67 116.67v3.33M113.33 120.00h3.33M130.00 116.67v3.33M126.67 120.00h3.33M133.33 116.67v3.33M130.00 120.00h3.33M143.33 116.67v3.33M143.33 120.00h3.33M160.00 120.00h3.33M163.33 120.00h3.33M170.00 116.67v3.33M166.67 120.00h3.33M20.00 120.00v3.33M20.00 123.33h3.33M23.33 123.33h3.33M30.00 120.00v3.33M26.67 123.33h3.33M73.33 120.00v3.33M73.33 123.33h3.33M90.00 120.00v3.33M110.00 120.00v3.33M106.67 123.33h3.33M126.67 120.00v3.33M123.33 123.33h3.33M146.67 120.00v3.33M146.67 123.33h3.33M150.00 123.33h3.33M153.33 123.33h3.33M160.00 120.00v3.33M156.67 123.33h3.33M170.00 120.00v3.33M170.00 123.33h3.33M26.67 123.33v3.33M76.67 123.33v3.33M73.33 126.67h3.33M76.67 126.67h3.33M80.00 126.67h3.33M83.33 126.67h3.33M90.00 123.33v3.33M100.00 126.67h3.33M106.67 123.33v3.33M103.33 126.67h3.33M113.33 126.67h3.33M116.67 126.67h3.33M123.33 123.33v3.33M120.00 126.67h3.33M150.00 123.33v3.33M146.67 126.67h3.33M173.33 123.33v3.33M26.67 126.67v3.33M73.33 126.67v3.33M70.00 130.00h3.33M86.67 126.67v3.33M90.00 126.67v3.33M93.33 130.00h3.33M100.00 126.67v3.33M96.67 130.00h3.33M113.33 126.67v3.33M146.67 126.67v3.33M173.33 126.67v3.33M26.67 130.00v3.33M70.00 130.00v3.33M66.67 133.33h3.33M86.67 130.00v3.33M90.00 130.00v3.33M93.33 130.00v3.33M90.00 133.33h3.33M113.33 130.00v3.33M146.67 130.00v3.33M143.33 133.33h3.33M146.67 133.33h3.33M173.33 130.00v3.33M26.67 133.33v3.33M66.67 133.33v3.33M86.67 133.33v3.33M90.00 133.33v3.33M113.33 133.33v3.33M113.33 136.67h3.33M143.33 133.33v3.33M140.00 136.67h3.33M150.00 133.33v3.33M150.00 136.67h3.33M173.33 133.33v3.33M173.33 136.67h3.33M26.67 136.67v3.33M66.67 136.67v3.33M63.33 140.00h3.33M86.67 136.67v3.33M90.00 136.67v3.33M86.67 140.00h3.33M90.00 140.00h3.33M113.33 136.67v3.33M116.67 136.67v3.33M116.67 140.00h3.33M120.00 140.00h3.33M140.00 136.67v3.33M136.67 140.00h3.33M153.33 136.67v3.33M153.33 140.00h3.33M176.67 136.67v3.33M26.67 140.00v3.33M63.33 140.00v3.33M60.00 143.33h3.33M86.67 140.00v3.33M93.33 140.00v3.33M93.33 143.33h3.33M96.67 143.33h3.33M100.00 143.33h3.33M103.33 143.33h3.33M106.67 143.33h3.33M113.33 140.00v3.33M110.00 143.33h3.33M123.33 140.00v3.33M123.33 143.33h3.33M126.67 143.33h3.33M130.00 143.33h3.33M136.67 140.00v3.33M133.33 143.33h3.33M156.67 140.00v3.33M156.67 143.33h3.33M176.67 140.00v3.33M0.00 146.67h3.33M3.33 146.67h3.33M6.67 146.67h3.33M10.00 146.67h3.33M13.33 146.67h3.33M16.67 146.67h3.33M20.00 146.67h3.33M26.67 143.33v3.33M23.33 146.67h3.33M26.67 146.67h3.33M30.00 146.67h3.33M33.33 146.67h3.33M36.67 146.67h3.33M40.00 146.67h3.33M60.00 143.33v3.33M56.67 146.67h3.33M86.67 143.33v3.33M113.33 143.33v3.33M133.33 143.33v3.33M160.00 143.33v3.33M176.67 143.33v3.33M173.33 146.67h3.33M176.67 146.67h3.33M180.00 146.67h3.33M183.33 146.67h3.33M26.67 146.67v3.33M43.33 146.67v3.33M43.33 150.00h3.33M46.67 150.00h3.33M50.00 150.00h3.33M56.67 146.67v3.33M53.33 150.00h3.33M86.67 146.67v3.33M113.33 146.67v3.33M133.33 146.67v3.33M160.00 146.67v3.33M160.00 150.00h3.33M166.67 150.00h3.33M173.33 146.67v3.33M170.00 150.00h3.33M186.67 146.67v3.33M186.67 150.00h3.33M190.00 150.00h3.33M193.33 150.00h3.33M26.67 150.00v3.33M56.67 150.00v3.33M56.67 153.33h3.33M86.67 150.00v3.33M86.67 153.33h3.33M90.00 153.33h3.33M113.33 150.00v3.33M133.33 150.00v3.33M133.33 153.33h3.33M163.33 150.00v3.33M166.67 150.00v3.33M163.33 153.33h3.33M196.67 150.00v3.33M196.67 153.33h3.33M26.67 153.33v3.33M60.00 153.33v3.33M86.67 153.33v3.33M93.33 153.33v3.33M93.33 156.67h3.33M96.67 156.67h3.33M113.33 153.33v3.33M136.67 153.33v3.33M163.33 153.33v3.33M26.67 156.67v3.33M60.00 156.67v3.33M60.00 160.00h3.33M86.67 156.67v3.33M100.00 156.67v3.33M100.00 160.00h3.33M103.33 160.00h3.33M113.33 156.67v3.33M136.67 156.67v3.33M163.33 156.67v3.33M160.00 160.00h3.33M26.67 160.00v3.33M63.33 160.00v3.33M86.67 160.00v3.33M106.67 160.00v3.33M106.67 163.33h3.33M113.33 160.00v3.33M110.00 163.33h3.33M136.67 160.00v3.33M160.00 160.00v3.33M26.67 163.33v3.33M63.33 163.33v3.33M63.33 166.67h3.33M66.67 166.67h3.33M86.67 163.33v3.33M113.33 163.33v3.33M136.67 163.33v3.33M136.67 166.67h3.33M140.00 166.67h3.33M143.33 166.67h3.33M146.67 166.67h3.33M150.00 166.67h3.33M153.33 166.67h3.33M160.00 163.33v3.33M156.67 166.67h3.33M0.00 170.00h3.33M3.33 170.00h3.33M6.67 170.00h3.33M10.00 170.00h3.33M13.33 170.00h3.33M16.67 170.00h3.33M20.00 170.00h3.33M26.67 166.67v3.33M23.33 170.00h3.33M63.33 166.67v3.33M60.00 170.00h3.33M70.00 166.67v3.33M70.00 170.00h3.33M73.33 170.00h3.33M86.67 166.67v3.33M113.33 166.67v3.33M136.67 166.67v3.33M133.33 170.00h3.33M160.00 166.67v3.33M160.00 170.00h3.33M26.67 170.00v3.33M60.00 170.00v3.33M56.67 173.33h3.33M76.67 170.00v3.33M76.67 173.33h3.33M80.00 173.33h3.33M86.67 170.00v3.33M113.33 170.00v3.33M126.67 173.33h3.33M133.33 170.00v3.33M130.00 173.33h3.33M136.67 170.00v3.33M163.33 170.00v3.33M163.33 173.33h3.33M196.67 173.33h3.33M26.67 173.33v3.33M26.67 176.67h3.33M30.00 176.67h3.33M56.67 173.33v3.33M53.33 176.67h3.33M83.33 173.33v3.33M86.67 173.33v3.33M83.33 176.67h3.33M86.67 176.67h3.33M90.00 176.67h3.33M93.33 176.67h3.33M96.67 176.67h3.33M100.00 176.67h3.33M103.33 176.67h3.33M106.67 176.67h3.33M113.33 173.33v3.33M110.00 176.67h3.33M113.33 176.67h3.33M120.00 176.67h3.33M126.67 173.33v3.33M123.33 176.67h3.33M136.67 173.33v3.33M136.67 176.67h3.33M166.67 173.33v3.33M166.67 176.67h3.33M176.67 176.67h3.33M180.00 176.67h3.33M183.33 176.67h3.33M186.67 176.67h3.33M190.00 176.67h3.33M196.67 173.33v3.33M193.33 176.67h3.33M26.67 176.67v3.33M33.33 176.67v3.33M33.33 180.00h3.33M36.67 180.00h3.33M40.00 180.00h3.33M43.33 180.00h3.33M46.67 180.00h3.33M53.33 176.67v3.33M50.00 180.00h3.33M83.33 176.67v3.33M116.67 176.67v3.33M120.00 176.67v3.33M116.67 180.00h3.33M140.00 176.67v3.33M170.00 176.67v3.33M170.00 180.00h3.33M176.67 176.67v3.33M173.33 180.00h3.33M26.67 180.00v3.33M23.33 183.33h3.33M50.00 180.00v3.33M83.33 180.00v3.33M116.67 180.00v3.33M140.00 180.00v3.33M140.00 183.33h3.33M170.00 180.00v3.33M23.33 183.33v3.33M50.00 183.33v3.33M83.33 183.33v3.33M116.67 183.33v3.33M143.33 183.33v3.33M170.00 183.33v3.33M166.67 186.67h3.33M23.33 186.67v3.33M50.00 186.67v3.33M50.00 190.00h3.33M83.33 186.67v3.33M80.00 190.00h3.33M116.67 186.67v3.33M143.33 186.67v3.33M143.33 190.00h3.33M166.67 186.67v3.33M23.33 190.00v3.33M20.00 193.33h3.33M53.33 190.00v3.33M80.00 190.00v3.33M116.67 190.00v3.33M146.67 190.00v3.33M166.67 190.00v3.33M20.00 193.33v3.33M53.33 193.33v3.33M53.33 196.67h3.33M80.00 193.33v3.33M116.67 193.33v3.33M146.67 193.33v3.33M146.67 196.67h3.33M166.67 193.33v3.33M163.33 196.67h3.33M20.00 196.67v3.33M56.67 196.67v3.33M80.00 196.67v3.33M116.67 196.67v3.33M150.00 196.67v3.33M163.33 196.67v3.33" stroke="#fff" stroke-width="1.1" fill="none"/></svg><p>A few hundred irregular pieces that follow the edges: cheap and sharp.</p></div></div>
+      <h3>Background</h3>
+      <p>Salient object detection finds the most visually prominent objects in an image, supporting faster image retrieval, robotics and detection of objects without predefined labels. Most research has chased accuracy with ever larger networks, which slows inference and rules out resource-constrained devices.</p>
+      <p>Lightweight models usually save effort with compact feature extractors. Reducing the spatial size of the input itself, the other big driver of computation, had remained largely unexplored.</p>
+      <p>Superpixels group neighbouring pixels with similar colour and texture into regions, shrinking the input from tens of thousands of pixels to a few hundred segments while keeping object boundaries far better than plain downsampling.</p>
+      <p>The catch is that superpixels are heterogeneous: they vary in shape, size, rotation and location, so they don't fit the regular grids standard networks expect. SuperFormer is designed around that heterogeneity.</p>
+    </section>
+    <section class="block" id="proposed-solution">
+      <span class="label">02 · Proposed solution · Method</span>
+      <h2>Describing <span class="accent">irregular regions</span></h2>
+      <p>SuperFormer describes every superpixel by three things, so a transformer can work with pieces of any shape, size or position.</p>
+      <div class="desc"><figure><svg viewBox="0 0 200 180" aria-hidden="true"><path d="M0 20 L42 70 M0 120 L50 112 M84 142 L70 180 M132 138 L160 180 M160 96 L200 90 M150 52 L190 0 M110 30 L100 0 M62 40 L20 0" stroke="#c9d6e2" stroke-width="1.4" fill="none"/><polygon points="62,40 110,30 150,52 160,96 132,138 84,142 50,112 42,70" fill="#5089b5" stroke="#16324d" stroke-width="2"/><circle cx="100" cy="88" r="5" fill="#fff" stroke="#16324d" stroke-width="2"/></svg><figcaption>One superpixel</figcaption></figure><ul><li><i class="fa-solid fa-palette"></i><div><b>Colour</b><small>The colour and texture inside the piece.</small></div></li><li><i class="fa-solid fa-shapes"></i><div><b>Shape</b><small>Its outline as a few Fourier waves; the same when the piece is moved, resized or rotated.</small></div></li><li><i class="fa-solid fa-location-crosshairs"></i><div><b>Position</b><small>Where its centre sits in the image, through a dynamic centroid positional embedding (DCPE).</small></div></li></ul></div>
+      <h3>How it works</h3>
+      <ol class="flow"><li><span class="fl-dot">1</span><b>Segment</b><small>Split the image into a few hundred superpixels with SLIC.</small></li><li><span class="fl-dot">2</span><b>Describe</b><small>Give each piece its colour, shape and position.</small></li><li><span class="fl-dot">3</span><b>Encode</b><small>SWIN Transformer encoders relate the pieces to each other.</small></li><li><span class="fl-dot">4</span><b>Decode</b><small>Mix-attention decoders turn them into a saliency map.</small></li></ol>
+      <p>It comes in three sizes: SF-XXS (0.14M parameters), SF-XS (1.12M) and SF-S (2.18M).</p>
+    </section>
+    <section class="block" id="findings">
+      <span class="label">03 · Findings</span>
+      <h2>Lighter <span class="accent">and better</span></h2>
+      <p>Tested on five natural-scene datasets (DUTS-TE, DUTS-O, ECSSD, HKU-IS and PASCAL-S) and two aerial ones, each SuperFormer size is the most accurate in its class, and the fastest.</p>
+      <div class="bas"><figure class="ba"><h4>Water tower</h4><div class="ba-pics ba-n" style="--n:3"><span><img src="images/superformer/tower-image.webp" alt="Water tower: Image" loading="lazy"><em>Image</em></span><span><img src="images/superformer/tower-truth.webp" alt="Water tower: Ground truth" loading="lazy"><em>Ground truth</em></span><span><img src="images/superformer/tower-sfs.webp" alt="Water tower: SF-S" loading="lazy"><em>SF-S</em></span></div><figcaption>SF-S ignores the pole that several small models mistake for the object.</figcaption></figure><figure class="ba"><h4>Two hay bales</h4><div class="ba-pics ba-n" style="--n:3"><span><img src="images/superformer/bales-image.webp" alt="Two hay bales: Image" loading="lazy"><em>Image</em></span><span><img src="images/superformer/bales-truth.webp" alt="Two hay bales: Ground truth" loading="lazy"><em>Ground truth</em></span><span><img src="images/superformer/bales-sfs.webp" alt="Two hay bales: SF-S" loading="lazy"><em>SF-S</em></span></div><figcaption>SF-S finds both bales; most small models miss the one on the right.</figcaption></figure></div>
+      <div class="stats"><div class="st-card"><span class="st-label">01 · Fast</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>SF-S</span><div><i class="on" style="width:12.0%"></i></div><b>3.0</b></div><div class="st-bar"><span>ISAANet</span><div><i class="" style="width:88.4%"></i></div><b>22.1</b></div></div></div><div class="st-big"><span>3.0 ms</span></div><p class="st-cap">per image for SF-S, against 22.1 ms for ISAANet, the next most accurate model</p><div class="st-second"><b>7×</b><span>faster</span></div><p class="st-cap2">Measured on one RTX 3090, one image at a time</p></div><div class="st-card"><span class="st-label">02 · Small</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>SF-S</span><div><i class="on" style="width:54.5%"></i></div><b>2.18</b></div><div class="st-bar"><span>ISAANet</span><div><i class="" style="width:89.8%"></i></div><b>3.59</b></div></div></div><div class="st-big"><span>2.18M</span></div><p class="st-cap">parameters, against 3.59M for ISAANet, with a higher max F-score (0.888 vs 0.884)</p><div class="st-second"><b>0.14M</b><span>smallest size</span></div><p class="st-cap2">SF-XXS still beats the models of its size</p></div><div class="st-card"><span class="st-label">03 · Aerial views</span><div class="st-diagram"><div class="st-flow"><span class="">Natural scenes</span><i class="fa-solid fa-arrow-right"></i><span class="on">Aerial views</span></div></div><div class="st-big"><span>0.898</span></div><p class="st-cap">average max F-score of SF-XS on the ORSSD and EORSSD aerial datasets</p><div class="st-second"><b>0.012</b><span>MAE</span></div><p class="st-cap2">Average error on the aerial images; lower is better</p></div></div>
+      <p class="muted">Max F-score: how well the found object matches the true one; higher is better. MAE: the average error per pixel; lower is better.</p>
+      <h3>Every piece counts</h3>
+      <p>Adding the proposed positional embedding and shape descriptors step by step steadily improves accuracy on DUTS-TE with the SF-XS settings.</p>
+      <div class="ladder"><p class="ld-head">MAE on DUTS-TE · lower is better</p><div class="ld-row"><span>Base</span><div><i style="width:100.0%"></i></div><b>0.099</b></div><div class="ld-row"><span>+ sinusoidal embedding</span><div><i style="width:96.0%"></i></div><b>0.095</b></div><div class="ld-row"><span>+ learned embedding</span><div><i style="width:94.9%"></i></div><b>0.094</b></div><div class="ld-row"><span>+ DCPE</span><div><i style="width:88.9%"></i></div><b>0.088</b></div><div class="ld-row on"><span>+ DCPE + Fourier shape</span><div><i style="width:81.8%"></i></div><b>0.081</b></div></div>
+      <p class="muted">Mean over five random seeds.</p>
+      <p>Further ablations show the gains come from pairing the superpixel representation with the transformer: raw pixels in the same architecture fall short, and superpixels do not help CNN-based models in the same way.</p>
+    </section>
+    <section class="block" id="my-role">
+      <span class="label">04 · My role</span>
+      <h2>What I <span class="accent">contributed</span></h2>
+      <ol class="role">
+        <li><b>Corresponding author</b> of the journal article.</li>
+        <li><b>Shaped the efficiency-first direction</b>, treating time and resource use as equal to accuracy.</li>
+        <li><b>Contributed to the method</b>: the multimodal superpixel representation with Fourier descriptors and DCPE.</li>
+        <li><b>Supported experiments, writing and revision</b> with collaborators at the VIP Lab, University of Waterloo.</li>
+      </ol>
+    </section>
+    <section class="block" id="tools">
+      <span class="label">05 · Tools</span>
+      <h2>Built <span class="accent">with</span></h2>
+      <div class="tools"><span>Python</span><span>PyTorch</span><span>SWIN Transformer</span><span>SLIC superpixels</span><span>Fourier descriptors</span><span>scikit-image</span><span>OpenCV</span></div>
+    </section>
+    <section class="block" id="resources">
+      <span class="label">06 · Resources</span>
+      <h2>Code <span class="accent">and data</span></h2>
+      <div class="res">
+        <a href="https://github.com/jmpark0808/supertransformer" target="_blank" rel="noopener"><i class="fa-brands fa-github lead"></i><span><b>Code</b><small>jmpark0808/supertransformer</small></span></a>
+      </div>
+    </section>
+  </div>
+</div>
 
-                <ul class="bullet-points">
-                <li><b>Grid-like structures:</b> Uniform, fixed connectivity between neighboring pixels,
-                    ideal for regular data but limited in adaptability.</li>
-                <li><b>Graph-like structures:</b> Irregular connectivity, allowing more flexible and adaptive representations
-                        of non-uniform regions, making them better suited for tasks like segmentation.</li>
-              </ul>
+<section class="contact" id="contact">
+  <div class="wrap contact-in">
+    <div class="rv">
+      <span class="label">Contact</span>
+      <h2>Let's <em>Connect.</em></h2>
+      <p class="lead-text">For professional opportunities, collaborations, research, consulting, or general inquiries, feel free to get in touch.</p>
+      <a class="mail" href="mailto:zahra.gharaee@gmail.com"><span class="ic"><i class="fa-regular fa-envelope"></i></span>zahra.gharaee@gmail.com</a>
+    </div>
+    <form class="cform rv" id="cform" novalidate>
+      <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="f-subject">Subject</label><input id="f-subject" name="subject" type="text"></div>
+      <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      <button class="send" type="submit">Send Message <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></button>
+      <p class="form-note" id="form-note" aria-live="polite" data-ok="Your email app should open with the message ready to send." data-error="Please add your name, a valid email and a message."></p>
+    </form>
+  </div>
+</section>
 
-            </p>
-            <div style="display: flex; justify-content: space-between;">
-                <img src="images/img_pixel.png" alt="First Image"  width="500" height="500">
-                <img src="images/img_superpixel.png" alt="Second Image"  width="500" height="500">
-            </div>
-
-        </section>
-
-        <section id="Multimodal Representation">
-            <h2>Multimodal Representation</h2>
-            <p> <b>Color</b> plays a critical role in salient object detection, with color distribution being a
-                key indicator for identifying saliency. The graph-like structure of superpixels requires a
-                statistical representation to effectively capture this color distribution.
-                Representing variable-sized superpixels in a tensor form suitable for optimization algorithms,
-                such as stochastic gradient descent, poses challenges due to the irregularity of
-                superpixel sizes and their non-uniform structure. To encode
-                the variability while maintaining compatibility with gradient-based optimization, SuperFormer takes a
-                preliminary approach using a 6-D vector representing the MEAN and Standard Deviation (STD) of each RGB channels to
-                encode color distribution.</p>
-
-            <p> <b>Shape</b> is another crucial indicator in saliency detection. To capture the shape characteristics
-            of each superpixel, we first extract the contour of the superpixel, which consists of its boundary coordinates.
-            We then apply the Fourier Transform to this contour to obtain complex coefficients that represent
-            the shape in the frequency domain. The Fourier Transformation of the contour gives us an amplitude and a phase
-            component.</p>
-            <iframe src="tables/table_superformer_ft_analysis.html" style="width: 100%; height: 660px; border: none;"></iframe>
-
-        </section>
-
-        <section id="DCPE">
-            <h2>DCPE: Dynamic Centroid Positional Embedding</h2>
-            <p>Current state-of-the-art learnable positional embeddings (e.g., BERT) typically rely on two approaches:</p>
-                <p> <b>Uniform Positional Relationship (Fixed or Sinusoidal Positional Embeddings)</b>
-                       they assume a uniform positional relationship, where token indices are consistent across spatial or sequential domains,
-                <p> <b>Learnable Dictionary of Positional Parameters (Relative Positional Embeddings)</b>
-            they use a dictionary of learnable parameters to cover all possible relative positions \citep{huang2018music}.
-
-            <p>However, due to the irregular and variable nature of superpixel locations, creating learnable parameters
-            for every possible 2D relative position is impractical.
-            Therefore, DCPE offers a solution by non-linearly projecting positional encodings based on
-            the centroids of each superpixel, adapting to their irregular spatial arrangement.</p>
-        </section>
-
-         <section id="Experiments">
-            <h2>Experiments</h2>
-            <p></p>
-        </section>
-
-         <section id="Results">
-            <h2>Results</h2>
-            <p></p>
-        </section>
-
-
-
-        <section id="Links">
-        <h2>Links</h2>
-        <p>Overview of the links related to the projects:</p>
-        <ul>
-            <p><strong>Version Control Systems:</strong>
-                <ul>
-                    <li> To add </li>
-                </ul>
-            </p>
-            <p><strong>Research Article Platforms:</strong>
-                <ul>
-                    <li> To add </li>
-                </ul>
-            </p>
-        </ul>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Zahra Gharaee. All rights reserved.</p>
-    </footer>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="https://zahragharaee.com/" class="wordmark">Zahra <em>Gharaee</em></a>
+        <a href="mailto:zahra.gharaee@gmail.com" class="foot-mail">zahra.gharaee@gmail.com</a>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/zahragh/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/zahrag" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&amp;hl=sv" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Zahra Gharaee. All rights reserved.</span>
+      <span>Built by <a href="https://zahragharaee.com/">Zahra Gharaee</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/portfolio.js"></script>
 </body>
 </html>

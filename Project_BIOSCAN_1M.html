@@ -1,386 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Polyfill for broader browser compatibility -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-<!-- Load MathJax to display LaTeX equations -->
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIOSCAN-1M Portfolio</title>
-<style>
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes full height */
-    line-height: 1.6;
-}
-
-header {
-    background-color: #282c34;
-    color: #ffffff;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 2px -2px gray;
-    position: relative;
-    z-index: 2; /* Ensure header is above other elements */
-}
-
-.header-container {
-    text-align: center;
-}
-
-.header-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.sidebar {
-    background-color: #f5f5f5;
-    padding: 15px;
-    padding-top: 150px; /* Add space at the top */
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.sidebar nav a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-    border-left: 3px solid transparent;
-    /*margin-bottom: 5px;
-    /*margin-top: 10px;  /*Add space above each link */
-}
-
-.sidebar nav a:first-child {
-    margin-top: 0; /* Remove margin from the first link, if needed */
-}
-
-
-.content {
-    margin-left: 270px; /* Space for the sidebar */
-    padding: 20px;
-    width: calc(100% - 350px); /* Adjust width to account for the sidebar */
-    flex-grow: 1;
-    overflow: auto; /* Ensure content scrolls if necessary */
-}
-
-
-footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #aaa;
-    }
-
-img {
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Container for centering the figure */
-.figure-container {
-    text-align: center;
-    margin: 0 auto;
-    justify-content: flex-end; /* Align caption to the bottom */
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* Styling for centered images */
-.centered-image {
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-}
-
-/* Styling for captions */
-.caption {
-    /*font-style: italic;*/
-    color: #555;
-    margin-top: 8px;
-}
-.image-row {
-    display: flex; /* Display images in a row */
-    justify-content: center; /* Center the images horizontally */
-    gap: 20px; /* Space between images */
-}
-
-h2 {
-    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-
-h4 {
-    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
-li {
-    margin-bottom: 3px; /* Adjust this value to control the vertical space */
-}
-@media (max-width: 768px) {
-      .sidebar { display: none; }
-      .content { margin-left: 0; padding: 100px 20px 20px; }
-    }
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIOSCAN-1M · Zahra Gharaee</title>
+<meta name="description" content="BIOSCAN-1M: a dataset of over one million insect images with DNA barcodes and taxonomy, with fine-grained classification benchmarks. NeurIPS 2023.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
-
 <body>
-  <header>
-    <h1>Data Science Project: BIOSCAN-1M</h1>
-  </header>
 
-  <aside class="sidebar">
-    <nav>
-      <a href="index.html" style="margin-right: 20px;">Home</a>
-      <a href="#description">Project Description</a>
-      <a href="#contributions">key Contributions</a>
-      <a href="#tools">Tools & Technologies</a>
-      <a href="#code">Code / Git</a>
-      <a href="#research">Research / Paper</a>
-      <a href="#presentation">Presentations</a>
-      <a href="#links">Links & Resources</a>
-      <a href="#additional-context"> Additional Context</a>
-      <ul>
-        <li><a href="#stats"> Statistical Analysis</a></li>
-        <li><a href="#ML-Benchmark"> ML Benchmarks</a></li>
-        <li><a href="#Deployment"> Deployment</a></li>
+<nav class="site-nav">
+  <div class="nav-wrap nav-in">
+    <a href="index.html" class="wordmark-nav">Zahra <em>Gharaee</em></a>
+    <div class="nav-center nav-links">
+      <a href="index.html" class="active">Projects</a>
+      <a href="teaching.html" target="_blank" rel="noopener">Talks and teaching</a>
+      <a href="index.html#publications">Publications</a>
+    </div>
+    <a href="https://zahragharaee.com/" class="nav-cta" target="_blank" rel="noopener">zahragharaee.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+    <button class="burger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
 
-      </ul>
-    </nav>
+<header class="wrap p-head">
+  <h1 class="rv">BIOSCAN-1M</h1>
+  <p class="lede rv">A large-scale insect dataset of over one million microscope images with DNA barcodes and taxonomy, with benchmarks for fine-grained classification under a long-tailed, highly imbalanced distribution.</p>
+  <div class="p-meta rv"><span class="tag venue">NeurIPS 2023 · Datasets and Benchmarks</span><span class="tag">Fine-grained classification</span><span class="tag">Transfer learning</span><span class="tag">Vision transformers</span></div>
+  <div class="p-links rv">
+    <a class="btn btn-primary" href="https://arxiv.org/abs/2307.10455" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> Paper</a>
+    <a class="btn btn-outline" href="https://github.com/bioscan-ml/BIOSCAN-1M" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+    <a class="btn btn-outline" href="https://huggingface.co/datasets/Gharaee/BIOSCAN_1M_Insect_Dataset" target="_blank" rel="noopener"><i class="fa-solid fa-database"></i> Dataset</a>
+    <a class="btn btn-outline" href="https://neurips.cc/virtual/2023/poster/73549" target="_blank" rel="noopener"><i class="fa-solid fa-chalkboard-user"></i> Poster</a>
+  </div>
+
+  <div class="facts rv">
+    <div class="fact"><b>1.13M</b><span>insect images</span></div>
+    <div class="fact"><b>99.7%</b><span>top-1 accuracy, insect order</span></div>
+    <div class="fact"><b>~80%</b><span>of samples in one order</span></div>
+    <div class="fact"><b>72</b><span>benchmark experiments</span></div>
+  </div>
+</header>
+
+<div class="wrap p-body">
+  <aside class="toc" aria-label="On this page">
+    <a href="#problem">Problem</a>
+    <a href="#proposed-solution">Proposed solution</a>
+    <a href="#findings">Findings</a>
+    <a href="#my-role">My role</a>
+    <a href="#tools">Tools</a>
+    <a href="#resources">Resources</a>
   </aside>
 
-  <main class="content">
-       <section id="description">
-             <h2>Project Description</h2>
-             <figure class="figure-container">
-                <img src="images/BIOSCAN_1M.png" alt="BIOSCAN-1M"  width="1500" height="800">
-                <figcaption class="caption">Sample image from BIOSCAN-1M Dataset</figcaption>
-            </figure>
-        <p>BIOSCAN-1M is a large-scale dataset combining over 1 million RGB microscopic images with metadata such as DNA barcode sequences and taxonomy. It supports biodiversity and AI research through multimodal learning.</p>
+  <div class="content">
+    <section class="block" id="problem">
+      <span class="label">01 · Problem</span>
+      <h2>Fine-grained, <span class="accent">long-tailed</span></h2>
+      <h3>The question</h3>
+      <p>Can a model learn to name insects from microscope images when classes grow ever more alike further down the tree, and a few groups hold almost all the examples?</p>
+      <h3>Background</h3>
+      <p>Taxonomy sorts life into a hierarchy of ranks, from domain and kingdom down to genus and species. Experts traditionally classify insects by appearance, which is slow and does not always reach consensus. About 5.5 million insect species are estimated to exist, and only around one million have been described.</p>
+      <div class="tree rv"><svg viewBox="0 0 1000 440" role="img" aria-label="Taxonomy tree from domain to species"><defs><linearGradient id="tr-grad" gradientUnits="userSpaceOnUse" x1="0" y1="20" x2="0" y2="420"><stop offset="0" stop-color="#9cc7cf"/><stop offset=".5" stop-color="#5089b5"/><stop offset="1" stop-color="#16324d"/></linearGradient></defs><path class="tr-edge" style="--i:0" d="M110 20 C 110 50, 60 50, 60 70"/><circle class="tr-tip" style="--i:0" cx="60" cy="70" r="5"/><path class="tr-edge" style="--i:0" d="M110 20 C 110 50, 250 50, 250 70"/><circle class="tr-tip" style="--i:0" cx="250" cy="70" r="5"/><path class="tr-edge" style="--i:1" d="M166 70 C 166 100, 116 100, 116 120"/><circle class="tr-tip" style="--i:1" cx="116" cy="120" r="5"/><path class="tr-edge" style="--i:1" d="M166 70 C 166 100, 306 100, 306 120"/><circle class="tr-tip" style="--i:1" cx="306" cy="120" r="5"/><path class="tr-edge" style="--i:2" d="M222 120 C 222 150, 172 150, 172 170"/><circle class="tr-tip" style="--i:2" cx="172" cy="170" r="5"/><path class="tr-edge" style="--i:2" d="M222 120 C 222 150, 362 150, 362 170"/><circle class="tr-tip" style="--i:2" cx="362" cy="170" r="5"/><path class="tr-edge" style="--i:3" d="M278 170 C 278 200, 228 200, 228 220"/><circle class="tr-tip" style="--i:3" cx="228" cy="220" r="5"/><path class="tr-edge" style="--i:3" d="M278 170 C 278 200, 418 200, 418 220"/><circle class="tr-tip" style="--i:3" cx="418" cy="220" r="5"/><path class="tr-edge" style="--i:4" d="M334 220 C 334 250, 284 250, 284 270"/><circle class="tr-tip" style="--i:4" cx="284" cy="270" r="5"/><path class="tr-edge" style="--i:4" d="M334 220 C 334 250, 474 250, 474 270"/><circle class="tr-tip" style="--i:4" cx="474" cy="270" r="5"/><path class="tr-edge" style="--i:5" d="M390 270 C 390 300, 340 300, 340 320"/><circle class="tr-tip" style="--i:5" cx="340" cy="320" r="5"/><path class="tr-edge" style="--i:5" d="M390 270 C 390 300, 530 300, 530 320"/><circle class="tr-tip" style="--i:5" cx="530" cy="320" r="5"/><path class="tr-edge" style="--i:6" d="M446 320 C 446 350, 396 350, 396 370"/><circle class="tr-tip" style="--i:6" cx="396" cy="370" r="5"/><path class="tr-edge" style="--i:6" d="M446 320 C 446 350, 586 350, 586 370"/><circle class="tr-tip" style="--i:6" cx="586" cy="370" r="5"/><path class="tr-edge" style="--i:7" d="M502 370 C 502 400, 452 400, 452 420"/><circle class="tr-tip" style="--i:7" cx="452" cy="420" r="5"/><path class="tr-edge" style="--i:7" d="M502 370 C 502 400, 642 400, 642 420"/><circle class="tr-tip" style="--i:7" cx="642" cy="420" r="5"/><path class="tr-path" pathLength="1" d="M110 20 C 110 50, 166 50, 166 70 C 166 100, 222 100, 222 120 C 222 150, 278 150, 278 170 C 278 200, 334 200, 334 220 C 334 250, 390 250, 390 270 C 390 300, 446 300, 446 320 C 446 350, 502 350, 502 370 C 502 400, 558 400, 558 420"/><circle class="tr-node" cx="110" cy="20" r="7"/><circle class="tr-on" style="--i:0;--d:0%" cx="110" cy="20" r="7"/><text class="tr-rank" x="90" y="24" text-anchor="end">DOMAIN</text><text class="tr-name" style="--i:0" x="260" y="25">Eukaryota<tspan class="tr-common" dx="12">Eukaryotes</tspan></text><circle class="tr-node" cx="166" cy="70" r="7"/><circle class="tr-on" style="--i:1;--d:12%" cx="166" cy="70" r="7"/><text class="tr-rank" x="146" y="74" text-anchor="end">KINGDOM</text><text class="tr-name" style="--i:1" x="316" y="75">Animalia<tspan class="tr-common" dx="12">Animals</tspan></text><circle class="tr-node" cx="222" cy="120" r="7"/><circle class="tr-on" style="--i:2;--d:25%" cx="222" cy="120" r="7"/><text class="tr-rank" x="202" y="124" text-anchor="end">PHYLUM</text><text class="tr-name" style="--i:2" x="372" y="125">Arthropoda<tspan class="tr-common" dx="12">Arthropods</tspan></text><circle class="tr-node" cx="278" cy="170" r="7"/><circle class="tr-on" style="--i:3;--d:38%" cx="278" cy="170" r="7"/><text class="tr-rank" x="258" y="174" text-anchor="end">CLASS</text><text class="tr-name" style="--i:3" x="428" y="175">Insecta<tspan class="tr-common" dx="12">Insects</tspan></text><circle class="tr-node" cx="334" cy="220" r="7"/><circle class="tr-on" style="--i:4;--d:50%" cx="334" cy="220" r="7"/><text class="tr-rank" x="314" y="224" text-anchor="end">ORDER</text><text class="tr-name" style="--i:4" x="484" y="225">Hymenoptera<tspan class="tr-common" dx="12">Bees, wasps, ants</tspan></text><circle class="tr-node" cx="390" cy="270" r="7"/><circle class="tr-on" style="--i:5;--d:62%" cx="390" cy="270" r="7"/><text class="tr-rank" x="370" y="274" text-anchor="end">FAMILY</text><text class="tr-name" style="--i:5" x="540" y="275">Apidae<tspan class="tr-common" dx="12">Bees</tspan></text><circle class="tr-node" cx="446" cy="320" r="7"/><circle class="tr-on" style="--i:6;--d:75%" cx="446" cy="320" r="7"/><text class="tr-rank" x="426" y="324" text-anchor="end">TRIBE</text><text class="tr-name" style="--i:6" x="596" y="325">Apini<tspan class="tr-common" dx="12">Honey bees</tspan></text><circle class="tr-node" cx="502" cy="370" r="7"/><circle class="tr-on" style="--i:7;--d:88%" cx="502" cy="370" r="7"/><text class="tr-rank" x="482" y="374" text-anchor="end">GENUS</text><text class="tr-name" style="--i:7" x="652" y="375" font-style="italic">Apis<tspan class="tr-common" dx="12">Honey bees</tspan></text><circle class="tr-node" cx="558" cy="420" r="7"/><circle class="tr-on" style="--i:8;--d:100%" cx="558" cy="420" r="7"/><text class="tr-rank" x="538" y="424" text-anchor="end">SPECIES</text><text class="tr-name" style="--i:8" x="708" y="425" font-style="italic">Apis mellifera<tspan class="tr-common" dx="12">Western honey bee</tspan></text></svg></div>
+      <p class="muted">Taxonomy places every organism on a path of ranks, from domain down to species. Here: the western honey bee.</p>
+      <p>The BIOSCAN project, led by the International Barcode of Life consortium, images, sequences and barcodes specimens at scale to discover species and track them over time. In BIOSCAN-1M, every record has a BIN, but only 7.5% are labelled to species, and there are about ten times more BINs than species labels.</p>
+      <h3>Fine-grained</h3>
+      <p>Moving down the taxonomic tree, from order to family, genus and species, classes become ever more similar and harder to tell apart, and there are more of them, with fewer labelled examples each.</p>
+      <div class="sims"><div class="sim"><div class="sim-head"><span>Genus</span><h4><em>Agromyza</em></h4><small>3 species</small></div><div class="sim-photos"><figure><img src="images/bioscan1m/species/agromyza-albipennis.webp" alt="Agromyza albipennis" loading="lazy"><figcaption><em>Agromyza albipennis</em></figcaption></figure><figure><img src="images/bioscan1m/species/agromyza-frontella.webp" alt="Agromyza frontella" loading="lazy"><figcaption><em>Agromyza frontella</em></figcaption></figure><figure><img src="images/bioscan1m/species/agromyza-idaeiana.webp" alt="Agromyza idaeiana" loading="lazy"><figcaption><em>Agromyza idaeiana</em></figcaption></figure></div></div><div class="sim"><div class="sim-head"><span>Genus</span><h4><em>Leptosciarella</em></h4><small>3 species</small></div><div class="sim-photos"><figure><img src="images/bioscan1m/species/leptosciarella-viatica.webp" alt="Leptosciarella viatica" loading="lazy"><figcaption><em>Leptosciarella viatica</em></figcaption></figure><figure><img src="images/bioscan1m/species/leptosciarella-flagellata.webp" alt="Leptosciarella flagellata" loading="lazy"><figcaption><em>Leptosciarella flagellata</em></figcaption></figure><figure><img src="images/bioscan1m/species/leptosciarella-grimmi.webp" alt="Leptosciarella grimmi" loading="lazy"><figcaption><em>Leptosciarella grimmi</em></figcaption></figure></div></div><div class="sim"><div class="sim-head"><span>Genus</span><h4><em>Atherigona</em></h4><small>3 species</small></div><div class="sim-photos"><figure><img src="images/bioscan1m/species/atherigona-orientalis.webp" alt="Atherigona orientalis" loading="lazy"><figcaption><em>Atherigona orientalis</em></figcaption></figure><figure><img src="images/bioscan1m/species/atherigona-soccata.webp" alt="Atherigona soccata" loading="lazy"><figcaption><em>Atherigona soccata</em></figcaption></figure><figure><img src="images/bioscan1m/species/atherigona-theodori.webp" alt="Atherigona theodori" loading="lazy"><figcaption><em>Atherigona theodori</em></figcaption></figure></div></div><div class="sim"><div class="sim-head"><span>Genus</span><h4><em>Drosophila</em></h4><small>3 species</small></div><div class="sim-photos"><figure><img src="images/bioscan1m/species/drosophila-camargoi.webp" alt="Drosophila camargoi" loading="lazy"><figcaption><em>Drosophila camargoi</em></figcaption></figure><figure><img src="images/bioscan1m/species/drosophila-subquinaria.webp" alt="Drosophila subquinaria" loading="lazy"><figcaption><em>Drosophila subquinaria</em></figcaption></figure><figure><img src="images/bioscan1m/species/drosophila-macroptera.webp" alt="Drosophila macroptera" loading="lazy"><figcaption><em>Drosophila macroptera</em></figcaption></figure></div></div><div class="sim"><div class="sim-head"><span>Genus</span><h4><em>Chironomus</em></h4><small>3 species</small></div><div class="sim-photos"><figure><img src="images/bioscan1m/species/chironomus-lugubris.webp" alt="Chironomus lugubris" loading="lazy"><figcaption><em>Chironomus lugubris</em></figcaption></figure><figure><img src="images/bioscan1m/species/chironomus-luridus.webp" alt="Chironomus luridus" loading="lazy"><figcaption><em>Chironomus luridus</em></figcaption></figure><figure><img src="images/bioscan1m/species/chironomus-flaviplumus.webp" alt="Chironomus flaviplumus" loading="lazy"><figcaption><em>Chironomus flaviplumus</em></figcaption></figure></div></div><div class="sim"><div class="sim-head"><span>Genus</span><h4><em>Limnophyes</em></h4><small>3 species</small></div><div class="sim-photos"><figure><img src="images/bioscan1m/species/limnophyes-ninae.webp" alt="Limnophyes ninae" loading="lazy"><figcaption><em>Limnophyes ninae</em></figcaption></figure><figure><img src="images/bioscan1m/species/limnophyes-pentaplastus.webp" alt="Limnophyes pentaplastus" loading="lazy"><figcaption><em>Limnophyes pentaplastus</em></figcaption></figure><figure><img src="images/bioscan1m/species/limnophyes-habilis.webp" alt="Limnophyes habilis" loading="lazy"><figcaption><em>Limnophyes habilis</em></figcaption></figure></div></div></div>
+      <p class="muted">Three species of the same genus: three different labels, nearly the same look. Specimens from BIOSCAN-5M.</p>
+      <h3>Long-tailed</h3>
+      <p>Real-world insect data is also highly imbalanced. One order, Diptera, holds 896,324 of the 1,128,313 specimens, about 79%, while the smallest, Embioptera, has just 6. Models trained on such data tend to favour the common classes and struggle with the rare ones.</p>
+      <div class="tiles"><div class="tile"><img src="images/bioscan1m/orders/diptera.webp" alt="Diptera" loading="lazy"><span class="tl-name">Diptera</span><span class="tl-n">896,324</span><span class="tl-bar"><i style="width:100.0%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/hymenoptera.webp" alt="Hymenoptera" loading="lazy"><span class="tl-name">Hymenoptera</span><span class="tl-n">89,311</span><span class="tl-bar"><i style="width:10.0%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/coleoptera.webp" alt="Coleoptera" loading="lazy"><span class="tl-name">Coleoptera</span><span class="tl-n">47,328</span><span class="tl-bar"><i style="width:5.3%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/hemiptera.webp" alt="Hemiptera" loading="lazy"><span class="tl-name">Hemiptera</span><span class="tl-n">46,970</span><span class="tl-bar"><i style="width:5.2%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/lepidoptera.webp" alt="Lepidoptera" loading="lazy"><span class="tl-name">Lepidoptera</span><span class="tl-n">32,538</span><span class="tl-bar"><i style="width:3.6%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/psocodea.webp" alt="Psocodea" loading="lazy"><span class="tl-name">Psocodea</span><span class="tl-n">9,635</span><span class="tl-bar"><i style="width:1.5%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/thysanoptera.webp" alt="Thysanoptera" loading="lazy"><span class="tl-name">Thysanoptera</span><span class="tl-n">2,088</span><span class="tl-bar"><i style="width:1.5%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/trichoptera.webp" alt="Trichoptera" loading="lazy"><span class="tl-name">Trichoptera</span><span class="tl-n">1,296</span><span class="tl-bar"><i style="width:1.5%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/orthoptera.webp" alt="Orthoptera" loading="lazy"><span class="tl-name">Orthoptera</span><span class="tl-n">1,057</span><span class="tl-bar"><i style="width:1.5%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/blattodea.webp" alt="Blattodea" loading="lazy"><span class="tl-name">Blattodea</span><span class="tl-n">824</span><span class="tl-bar"><i style="width:1.5%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/neuroptera.webp" alt="Neuroptera" loading="lazy"><span class="tl-name">Neuroptera</span><span class="tl-n">676</span><span class="tl-bar"><i style="width:1.5%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/ephemeroptera.webp" alt="Ephemeroptera" loading="lazy"><span class="tl-name">Ephemeroptera</span><span class="tl-n">96</span><span class="tl-bar"><i style="width:1.5%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/dermaptera.webp" alt="Dermaptera" loading="lazy"><span class="tl-name">Dermaptera</span><span class="tl-n">66</span><span class="tl-bar"><i style="width:1.5%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/archaeognatha.webp" alt="Archaeognatha" loading="lazy"><span class="tl-name">Archaeognatha</span><span class="tl-n">63</span><span class="tl-bar"><i style="width:1.5%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/plecoptera.webp" alt="Plecoptera" loading="lazy"><span class="tl-name">Plecoptera</span><span class="tl-n">30</span><span class="tl-bar"><i style="width:1.5%"></i></span></div><div class="tile"><img src="images/bioscan1m/orders/embioptera.webp" alt="Embioptera" loading="lazy"><span class="tl-name">Embioptera</span><span class="tl-n">6</span><span class="tl-bar"><i style="width:1.5%"></i></span></div></div>
+      <h3>The same tail inside Diptera</h3>
+      <p>Among flies alone, the same pattern repeats: of the 40 most common families, six hold 86% of the specimens, while the other 34 share the rest.</p>
+      <div class="counts"><div class="cnt-groups"><span style="flex-basis:85.65%"><b>6 families</b> · 86% of specimens</span><span style="flex-basis:14.35%"><b>34 families</b> · 14%</span></div><div class="cnt-bar"><i style="flex-basis:29.07%;background:#16324d" title="Cecidomyiidae: 259,104"><b>29%</b></i><i style="flex-basis:16.88%;background:#25486a" title="Chironomidae: 150,456"><b>17%</b></i><i style="flex-basis:15.26%;background:#365f86" title="Phoridae: 135,991"><b>15%</b></i><i style="flex-basis:10.35%;background:#4a77a0" title="Sciaridae: 92,276"><b>10%</b></i><i style="flex-basis:8.91%;background:#5f8db6" title="Ceratopogonidae: 79,389"><b>9%</b></i><i style="flex-basis:5.18%;background:#76a2c8" title="Psychodidae: 46,189"><b>5%</b></i><i class="tail" style="flex-basis:3.99%" title="Dolichopodidae: 35,590"></i><i class="tail" style="flex-basis:1.99%" title="Sphaeroceridae: 17,717"></i><i class="tail" style="flex-basis:1.35%" title="Drosophilidae: 12,047"></i><i class="tail" style="flex-basis:1.08%" title="Hybotidae: 9,595"></i><i class="tail" style="flex-basis:0.71%" title="Mycetophilidae: 6,363"></i><i class="tail" style="flex-basis:0.67%" title="Muscidae: 5,974"></i><i class="tail" style="flex-basis:0.60%" title="Limoniidae: 5,307"></i><i class="tail" style="flex-basis:0.58%" title="Chloropidae: 5,164"></i><i class="tail" style="flex-basis:0.42%" title="Scatopsidae: 3,764"></i><i class="tail" style="flex-basis:0.39%" title="Milichiidae: 3,496"></i><i class="tail" style="flex-basis:0.31%" title="Ephydridae: 2,756"></i><i class="tail" style="flex-basis:0.29%" title="Agromyzidae: 2,557"></i><i class="tail" style="flex-basis:0.26%" title="Tachinidae: 2,286"></i><i class="tail" style="flex-basis:0.25%" title="Empididae: 2,267"></i><i class="tail" style="flex-basis:0.24%" title="Anthomyiidae: 2,144"></i><i class="tail" style="flex-basis:0.13%" title="Heleomyzidae: 1,141"></i><i class="tail" style="flex-basis:0.13%" title="Lauxaniidae: 1,138"></i><i class="tail" style="flex-basis:0.11%" title="Sarcophagidae: 941"></i><i class="tail" style="flex-basis:0.09%" title="Ulidiidae: 833"></i><i class="tail" style="flex-basis:0.09%" title="Tephritidae: 805"></i><i class="tail" style="flex-basis:0.08%" title="Stratiomyidae: 726"></i><i class="tail" style="flex-basis:0.07%" title="Clusiidae: 665"></i><i class="tail" style="flex-basis:0.07%" title="Pipunculidae: 634"></i><i class="tail" style="flex-basis:0.06%" title="Sepsidae: 521"></i><i class="tail" style="flex-basis:0.06%" title="Syrphidae: 518"></i><i class="tail" style="flex-basis:0.05%" title="Bombyliidae: 465"></i><i class="tail" style="flex-basis:0.05%" title="Fanniidae: 402"></i><i class="tail" style="flex-basis:0.04%" title="Keroplatidae: 380"></i><i class="tail" style="flex-basis:0.04%" title="Ditomyiidae: 369"></i><i class="tail" style="flex-basis:0.04%" title="Bibionidae: 315"></i><i class="tail" style="flex-basis:0.03%" title="Richardiidae: 276"></i><i class="tail" style="flex-basis:0.03%" title="Culicidae: 270"></i><i class="tail" style="flex-basis:0.03%" title="Simuliidae: 270"></i><i class="tail" style="flex-basis:0.03%" title="Psilidae: 237"></i></div><div class="cnt-labels"><span style="flex-basis:29.07%">Cecidomyiidae</span><span style="flex-basis:16.88%">Chironomidae</span><span style="flex-basis:15.26%">Phoridae</span><span style="flex-basis:10.35%">Sciaridae</span><span style="flex-basis:8.91%">Ceratopogonidae</span><span style="flex-basis:5.18%">Psychodidae</span><span style="flex-basis:14.35%"></span></div></div>
     </section>
+    <section class="block" id="proposed-solution">
+      <span class="label">02 · Proposed solution · Dataset</span>
+      <h2>One million specimens, <span class="accent">three views each</span></h2>
+      <p>Each record pairs a high-quality microscope RGB image with the specimen's DNA barcode, Barcode Index Number and taxonomic labels, supporting multimodal research in biodiversity and AI.</p>
+      <div class="rec"><div class="rec-col"><div class="rec-card"><span class="rec-ic"><i class="fa-solid fa-camera"></i></span><div><h4>Microscope image</h4><p>High-resolution RGB photo, cropped and resized</p></div></div><div class="rec-card"><span class="rec-ic"><img src="images/bioscan5m/dna-icon.png" alt=""></span><div><h4>DNA barcode</h4><p>COI gene sequence</p><div class="rec-dna"><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#5089b5">A</span><span style="color:#16324d">T</span><span style="color:#5089b5">A</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#5089b5">A</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#739c95">G</span><span style="color:#739c95">G</span><span style="color:#5089b5">A</span><span style="color:#739c95">G</span><span style="color:#c08a4a">C</span><span class="dots">…</span></div></div></div></div><div class="rec-photo"><img src="images/bioscan1m/record-mosquito.webp" alt="Microscope photo of a mosquito specimen" loading="lazy"></div><div class="rec-col"><div class="rec-card"><span class="rec-ic"><i class="fa-solid fa-tag"></i></span><div><h4>Barcode Index Number</h4><p>Similar barcodes, one cluster</p><div class="kvs"><span>BIN</span><b>BOLD:AER5166</b></div></div></div><div class="rec-card"><span class="rec-ic"><i class="fa-solid fa-sitemap"></i></span><div><h4>Taxonomy</h4><p>Labelled by experts, as far as they could go</p><div class="kvs"><span>class</span><b>Insecta</b><span>order</span><b>Diptera</b><span>family</span><b>Culicidae</b><span>subfamily</span><b>Culicinae</b></div></div></div></div></div><p class="rec-cap">Example record from BIOSCAN-1M: a mosquito of the subfamily Culicinae.</p>
+      <h3>Built for fair comparison</h3>
+      <p>Two classification tasks were sampled from the data, each in three sizes, so the benchmark runs on anything from a laptop to a cluster.</p>
+      <div class="bench"><div class="bn-row"><div class="bn-task"><h4>Insect-Order</h4><small>16 orders</small></div><div class="bn-cell"><span>Small</span><b>50,000</b><i><em style="width:4.4%"></em></i></div><div class="bn-cell"><span>Medium</span><b>200,000</b><i><em style="width:17.7%"></em></i></div><div class="bn-cell"><span>Large</span><b>1,128,308</b><i><em style="width:100.0%"></em></i></div></div><div class="bn-row"><div class="bn-task"><h4>Diptera-Family</h4><small>40 families of flies</small></div><div class="bn-cell"><span>Small</span><b>50,000</b><i><em style="width:4.4%"></em></i></div><div class="bn-cell"><span>Medium</span><b>200,000</b><i><em style="width:17.7%"></em></i></div><div class="bn-cell"><span>Large</span><b>891,338</b><i><em style="width:79.0%"></em></i></div></div></div>
+      <p class="muted">Every subset is split class by class, so each class appears in training, validation and test.</p>
+      <div class="share"><div class="share-bar"><div class="seg light" style="flex-basis:70.0%;background:#c9d9e6" title="Train 70%"><span>TRAIN · 70%</span></div><div class="seg" style="flex-basis:10.0%;background:#16324d" title="Validation 10%"></div><div class="seg" style="flex-basis:20.0%;background:#5089b5" title="Test 20%"></div></div><div class="share-legend"><span><i style="background:#16324d"></i>Validation 10%</span><span><i style="background:#5089b5"></i>Test 20%</span></div></div>
+    </section>
+    <section class="block" id="findings">
+      <span class="label">03 · Findings</span>
+      <h2>What the <span class="accent">models learned</span></h2>
+      <p>Fine-tuned on BIOSCAN-1M, a vision transformer names insect orders almost perfectly and fly families with high accuracy. Averaged class by class, accuracy is lower: the rare classes of the long tail remain the hard part.</p>
+      <div class="stats"><div class="st-card"><span class="st-label">01 · Insect orders</span><div class="st-diagram"><div class="st-flow"><span class="">image</span><i class="fa-solid fa-arrow-right"></i><span class="on">ViT-B/16</span><i class="fa-solid fa-arrow-right"></i><span class="">order</span></div></div><div class="st-big"><span>99.7%</span></div><p class="st-cap">top-1 accuracy across 16 insect orders, on the large set</p><div class="st-second"><b>90.6%</b><span>per order</span></div><p class="st-cap2">Averaged class by class, the rare orders pull accuracy down</p></div><div class="st-card"><span class="st-label">02 · Fly families</span><div class="st-diagram"><div class="st-flow"><span class="">image</span><i class="fa-solid fa-arrow-right"></i><span class="on">ViT-B/16</span><i class="fa-solid fa-arrow-right"></i><span class="">family</span></div></div><div class="st-big"><span>97.6%</span></div><p class="st-cap">top-1 accuracy across 40 Diptera families, on the large set</p><div class="st-second"><b>91.2%</b><span>per family</span></div><p class="st-cap2">Averaged class by class, the gap is smaller than for orders</p></div><div class="st-card"><span class="st-label">03 · More data helps</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>Small</span><div><i class="" style="width:94.0%"></i></div><b>94.0%</b></div><div class="st-bar"><span>Medium</span><div><i class="" style="width:96.7%"></i></div><b>96.7%</b></div><div class="st-bar"><span>Large</span><div><i class="on" style="width:97.6%"></i></div><b>97.6%</b></div></div></div><div class="st-big"><span>94.0% → 97.6%</span></div><p class="st-cap">Diptera-family accuracy, from the small to the large training set</p><div class="st-second"><b>97.9% → 99.7%</b><span>orders</span></div><p class="st-cap2">The same rise from small to large holds for insect orders</p></div></div>
+      <p class="muted">ViT-B/16 with cross-entropy loss, on the test sets. From 72 controlled experiments: 2 tasks, 3 sizes, 2 backbones, 2 losses and 3 seeds; cross-entropy did slightly better than focal loss.</p>
+    </section>
+    <section class="block" id="my-role">
+      <span class="label">04 · My role</span>
+      <h2>What I <span class="accent">led</span></h2>
+      <ol class="role">
+        <li><b>Led dataset design</b>, defining taxonomy-aware sampling and class-balanced, stratified splits for the small, medium and large variants.</li>
+        <li><b>Built the data pipelines</b> for large-scale image preprocessing and HDF5 conversion, and structured metadata in CSV and JSON-LD.</li>
+        <li><b>Automated the ML pipeline</b> end to end, from data preparation to training and benchmarking, with reproducible configurations.</li>
+        <li><b>Fine-tuned ResNet-50 and ViT</b> with transfer learning across 72 controlled experiments.</li>
+        <li><b>Benchmarked systematically</b>, varying task, architecture, loss and seed to test robustness and generalization.</li>
+        <li><b>Ensured rigor</b> with repeated runs and standard metrics: accuracy, F1, confusion matrices and summary tables.</li>
+      </ol>
+    </section>
+    <section class="block" id="tools">
+      <span class="label">05 · Tools</span>
+      <h2>Built <span class="accent">with</span></h2>
+      <div class="tools"><span>Python</span><span>PyTorch</span><span>Pandas</span><span>NumPy</span><span>h5py</span><span>Hugging Face Datasets</span><span>Transformers</span><span>timm</span><span>OpenCV</span><span>scikit-learn</span><span>Pillow</span><span>Matplotlib</span><span>Seaborn</span><span>Plotly</span><span>Digital Research Alliance of Canada</span></div>
+    </section>
+    <section class="block" id="resources">
+      <span class="label">06 · Resources</span>
+      <h2>Data, code <span class="accent">and papers</span></h2>
+      <div class="res">
+        <a href="https://arxiv.org/abs/2307.10455" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines lead"></i><span><b>Paper</b><small>arXiv 2307.10455</small></span></a>
+        <a href="https://github.com/bioscan-ml/BIOSCAN-1M" target="_blank" rel="noopener"><i class="fa-brands fa-github lead"></i><span><b>Code</b><small>bioscan-ml/BIOSCAN-1M</small></span></a>
+        <a href="https://huggingface.co/datasets/Gharaee/BIOSCAN_1M_Insect_Dataset" target="_blank" rel="noopener"><i class="fa-solid fa-face-smile lead"></i><span><b>Hugging Face</b><small>Dataset</small></span></a>
+        <a href="https://zenodo.org/records/8030065" target="_blank" rel="noopener"><i class="fa-solid fa-box-archive lead"></i><span><b>Zenodo</b><small>Archived release</small></span></a>
+        <a href="https://www.kaggle.com/datasets/zahragharaee/bioscan-1m-insect-dataset" target="_blank" rel="noopener"><i class="fa-brands fa-kaggle lead"></i><span><b>Kaggle</b><small>Dataset mirror</small></span></a>
+        <a href="https://drive.google.com/drive/u/1/folders/1kD9cXuQ1FdL30etp7sjy_Gs_NAAJ3EXI" target="_blank" rel="noopener"><i class="fa-brands fa-google-drive lead"></i><span><b>Google Drive</b><small>Data and trained models</small></span></a>
+        <a href="https://neurips.cc/virtual/2023/poster/73549" target="_blank" rel="noopener"><i class="fa-solid fa-chalkboard-user lead"></i><span><b>NeurIPS 2023</b><small>Poster</small></span></a>
+        <a href="Project_BIOSCAN_5M.html"><i class="fa-solid fa-link lead"></i><span><b>BIOSCAN-5M</b><small>Follow-up dataset</small></span></a>
+      </div>
+    </section>
+  </div>
+</div>
 
-  <section id="contributions">
-  <h2>Key Contributions</h2>
-  <ul>
-    <li>Led dataset design and governance, defining taxonomy-aware sampling strategies and class-balanced, stratified splits for small, medium, and large dataset variants.</li>
-    <li>Developed robust ETL pipelines for large-scale image preprocessing (cropping, resizing, HDF5 conversion) and metadata structuring (CSV, JSON-LD) to support downstream ML tasks.</li>
-    <li>Implemented and automated the full ML pipeline, from data preparation through model training and benchmarking, using cloud-hosted storage and reproducible configurations.</li>
-    <li>Fine-tuned ResNet50 and Vision Transformer (ViT) backbones using transfer learning for multi-class classification, evaluating model performance across 72 controlled experiments.</li>
-    <li>Benchmarked classification models with systematic variation of task type, architecture, loss function, and random seed to assess robustness and generalization.</li>
-    <li>Ensured reproducibility and experimental rigor through repeated runs and standardized evaluation metrics, including accuracy, F1-score, confusion matrices, and tabular summaries.</li>
-  </ul>
+<section class="contact" id="contact">
+  <div class="wrap contact-in">
+    <div class="rv">
+      <span class="label">Contact</span>
+      <h2>Let's <em>Connect.</em></h2>
+      <p class="lead-text">For professional opportunities, collaborations, research, consulting, or general inquiries, feel free to get in touch.</p>
+      <a class="mail" href="mailto:zahra.gharaee@gmail.com"><span class="ic"><i class="fa-regular fa-envelope"></i></span>zahra.gharaee@gmail.com</a>
+    </div>
+    <form class="cform rv" id="cform" novalidate>
+      <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="f-subject">Subject</label><input id="f-subject" name="subject" type="text"></div>
+      <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      <button class="send" type="submit">Send Message <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></button>
+      <p class="form-note" id="form-note" aria-live="polite" data-ok="Your email app should open with the message ready to send." data-error="Please add your name, a valid email and a message."></p>
+    </form>
+  </div>
 </section>
 
-
-    <section id="tools">
-      <h2>Tools & Technologies</h2>
-    <ul>
-      <li>Python, PyTorch, Pandas, NumPy</li>
-      <li>h5py, CSV, JSON, Pickle, Hugging Face Datasets</li>
-      <li>Google API Client, PyDrive, Requests, google-auth</li>
-      <li>Transformers (e.g., ViT, DetrFeatureExtractor), timm</li>
-      <li>OpenCV, scikit-learn, PIL (Pillow)</li>
-      <li>Matplotlib, Seaborn, Plotly</li>
-      <li>Cluster Computing, Parallel Computation</li>
-      <li>Virtual Environment, Bash Environment</li>
-      <li>Digital Research Alliance of Canada</li>
-    </ul>
-    </section>
-
-    <section id="code">
-      <h2>Code / Git</h2>
-        <ul>
-      <li><a href="https://github.com/bioscan-ml/BIOSCAN-1M" target="_blank">GitHub Repository</a></li>
-        </ul>
-    </section>
-
-    <section id="research">
-      <h2>Research / Paper</h2>
-        <ul>
-      <li><a href="https://arxiv.org/abs/2307.10455" target="_blank">Paper</a></li>
-        </ul>
-    </section>
-
-    <section id="presentation">
-      <h2>Presentations</h2>
-        <ul>
-        <li><a href="https://neurips.cc/virtual/2023/poster/73549" target="_blank">Proceedings of NeurIPS 2023</a></li>
-        </ul>
-    </section>
-
-      <section id="links">
-          <h2>Links & Resources</h2>
-                <ul>
-                    <li><a href="https://drive.google.com/drive/u/1/folders/1kD9cXuQ1FdL30etp7sjy_Gs_NAAJ3EXI" target="_blank">Google Drive</a></li>
-                    <li><a href="https://huggingface.co/datasets/Gharaee/BIOSCAN_1M_Insect_Dataset" target="_blank">Hugging Face</a></li>
-                    <li><a href="https://zenodo.org/records/8030065" target="_blank">Zenodo</a></li>
-                    <li><a href="https://www.kaggle.com/datasets/zahragharaee/bioscan-1m-insect-dataset" target="_blank">Kaggle</a></li>
-                </ul>
-      </section>
-
-
-     <section id="additional-context">
-      <h2>Additional Context</h2>
-
-      <section id="stats">
-         <h3>Statistical Analysis</h3>
-         <p><strong>Fine-Grained Classification</strong></p>
-         <p>Fine-grained classification involves distinguishing between classes that are very similar to each other,
-            often requiring detailed and nuanced feature analysis. In taxonomic classification, this concept
-            is illustrated as we move from broader, less specific levels (e.g., phylum, class) to
-            more specific levels (e.g., genus, species) within the taxonomic tree.
-             This necessitates a classification model that can accurately differentiate between these closely related classes.</p>
-
-         <figure class="figure-container">
-                <img src="images/Taxonomy_horiz_upd1.png" alt="Taxonomy Classification" class="centered-image" width="1000" height="1000">
-                <figcaption class="caption">Taxonomy Classification.</figcaption>
-            </figure>
-
-         <p><strong>Long-Tailed Distribution</strong></p>
-            <p>The BIOSCAN-1M dataset exhibits a long-tailed distribution,
-                where a small number of classes have a large number of samples, while most classes have very few samples.
-                This distribution can result in models that perform well on the frequently occurring classes but
-                struggle with the underrepresented classes due to insufficient training data.
-                For instance, in the BIOSCAN-1M dataset, the order Diptera contains 896,324 samples out of
-                a total of 1,128,313, which represents approximately 80% of all samples. This illustrates how a few classes dominate the dataset,
-                    highlighting the long-tailed nature of the distribution.</p>
-
-            <figure class="figure-container">
-                <img src="images/BS_1M_Order.png" alt="Class distribution of taxonomy group order" class="centered-image" width="700" height="700">
-                <figcaption class="caption">Class Distribution of taxonomy group order.</figcaption>
-            </figure>
-
-         <p><strong>High Class Imbalance Ratio</strong></p>
-                <p>There is a significant class imbalance in the BIOSCAN-1M dataset, with some classes
-                    being heavily underrepresented compared to others. This high class imbalance ratio can lead to
-                    biases in model training, where the model becomes skewed towards the majority classes and
-                    shows poor performance on the minority classes. Addressing this imbalance is crucial
-                    for ensuring the model's effectiveness across all classes.</p>
-            <iframe src="tables/table_BIOSCAN_1M_stats.html" style="width: 100%; height: 280px; border: none;"></iframe>
-        </section>
-
-        <section id="ML-Benchmark">
-            <h3>ML Benchmarks</h3>
-            <p>This section outlines the machine learning benchmark tasks and results for the BIOSCAN-1M dataset. The benchmarks were designed to evaluate classification performance at different taxonomy levels and dataset sizes.</p>
-            <h3>Data Sampling</h3>
-            <p>The BIOSCAN-1M dataset was sampled in the following ways:</p>
-            <ul>
-                <p><strong>Taxonomy Levels:</strong> Two datasets were created:</p>
-                <ul>
-                    <li><strong>BIOSCAN-1M-Insect:</strong> Samples at the taxonomy order level.</li>
-                    <li><strong>BIOSCAN-1M-Diptera:</strong> Samples at the taxonomy family (Diptera) level.</li>
-                </ul>
-
-                <p><strong>Dataset Sizes:</strong> Each dataset was further divided into three sizes to address usability and feasibility for end users in various domains:</p>
-                <ul>
-                    <li><strong>Small:</strong> 50,000 samples</li>
-                    <li><strong>Medium:</strong> 200,000 samples</li>
-                    <li><strong>Large:</strong>
-                        <ul>
-                            <li><strong>Order:</strong> 1,100,000 samples</li>
-                            <li><strong>Diptera:</strong> 891,000 samples</li>
-                        </ul>
-                    </li>
-                </ul>
-
-            </ul>
-            <h4>Stratified Class-Based Split</h4>
-            <p>Data samples for each dataset size were split into train (70%), validation (10%), and test (20%) sets using a class-based mechanism to ensure consistent data distributions across all sets.</p>
-            <h4>Multi-class Classification</h4>
-            <p>Two image-based classification benchmark experiments were designed and conducted on all three sized datasets:</p>
-            <ul>
-                <li><strong>Insect-Order:</strong> 16 classes.</li>
-                <li><strong>Family-Diptera:</strong> 40 classes.</li>
-            </ul>
-            <figure class="figure-container">
-                <img src="images/BIOSCAN_Fig2_upd3.png" alt="Class distribution" class="centered-image" width="1000" height="1000">
-                <figcaption class="caption">Class distribution of the two sampled datasets.</figcaption>
-            </figure>
-            <h4>Transfer Learning</h4>
-            <p>Dataset was fine-tuned utilizing two pretrained backbone models to facilitate transfer learning:
-                <ul>
-                    <li><strong>ResNet50:</strong> A deep residual learning framework for image recognition. <a href="https://arxiv.org/abs/1512.03385" target="_blank">He et al. (2016)</a></li>
-                    <li><strong>Vision Transformer (ViT-B/16-224):</strong> A transformer-based model for image classification. <a href="https://arxiv.org/abs/2010.11929" target="_blank">Dosovitskiy et al. (2020)</a></li>
-                </ul>
-            </p>
-            <h4>Robustness and Generalizability</h4>
-                <p>To ensure the robustness and generalizability of the models, each experiment was repeated
-                    with 3 different random seeds. This approach allows us to account for the impact of randomness in our results.
-                    The total number of experiments conducted is given by:
-                </p>
-                <p>3 (dataset sizes) × 2 (classification tasks) × 2 (backbone models) × 2 (loss functions) × 3 (seeds) = 72</p>
-            <p>To see the results these experiments with mean and standard deviation please visit <b>Tables A3-A4</b> <a href="https://arxiv.org/abs/2307.10455" target="_blank">Gharaee et al. (2023)</a>.</p>
-
-
-            <h4>Evaluation</h4>
-             <p>The model with the best performance on the validation set is selected and used for test experiments.
-                 The metrics used for the evaluation are as follows:
-                </p>
-            <ul>
-                <li><strong>Top-1 Accuracy:</strong> The proportion of test samples where the top predicted class matches the true label.</li>
-                <li><strong>Top-5 Accuracy:</strong> The proportion of test samples where the true label is among the top five predicted classes.</li>
-                <li><strong>Macro-F1 Score:</strong> The macro-averaged F1 score, which computes the F1 score for each class and then averages these scores, giving equal weight to each class.</li>
-                <li><strong>Loss:</strong> Monitored during training and evaluated post-training to measure the effectiveness of the model’s learning.</li>
-            </ul>
-            <h4>Findings and Results</h4>
-            <p>The results indicate that:</p>
-            <ul>
-                <li><strong>Cross-Entropy:</strong> Generally performed better achieving higher accuracy.</li>
-                <li><strong>Vision Transformer:</strong> Demonstrated competitive performance, especially on larger datasets, showing its robustness and capability in handling high-dimensional image data.</li>
-            </ul>
-            <figure class="figure-container">
-                <img src="images/BIOSCAN_Fig5_upd3_.png" alt="results" class="centered-image", width="1000" height="1000">
-                <figcaption class="caption">Per-class top-1 test accuracy of the Insect-Order and Diptera-Family classification
-                    experiments of the Large dataset.</figcaption>
-            </figure>
-            <figure class="figure-container">
-                <img src="images/confusion_insect.png" alt="results" class="centered-image", width="1000" height="1000">
-                <figcaption class="caption">Confusion Matrix of insect-order experiments.</figcaption>
-            </figure>
-            <figure class="figure-container">
-                <img src="images/confusion_diptera.png" alt="results" class="centered-image", width="1300" height="1000">
-                <figcaption class="caption">Confusion Matrix of diptera-family experiments.</figcaption>
-            </figure>
-            <iframe src="tables/table_BIOSCAN_1M_results.html" style="width: 100%; height: 400px; border: none;"></iframe>
-        </section>
-
-        <section id="Deployment">
-            <h3>Deployment</h3>
-            <p>The model trained on BIOSCAN-1M datasets are stored in project's Google Drive folder.
-               The pretrained models, and its AI-based tool are utilized by biologists at the
-                Centre for Biodiversity Genomics (CBG) to streamline biological taxonomy classification.
-                Traditionally performed by human experts, this process is costly, and time-consuming.
-            </p>
-        </section>
-    </section>
-
-    <footer>
-      &copy; 2025 Zahra Gharaee. All rights reserved.
-    </footer>
-  </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="https://zahragharaee.com/" class="wordmark">Zahra <em>Gharaee</em></a>
+        <a href="mailto:zahra.gharaee@gmail.com" class="foot-mail">zahra.gharaee@gmail.com</a>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/zahragh/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/zahrag" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&amp;hl=sv" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Zahra Gharaee. All rights reserved.</span>
+      <span>Built by <a href="https://zahragharaee.com/">Zahra Gharaee</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/portfolio.js"></script>
 </body>
 </html>

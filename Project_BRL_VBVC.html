@@ -1,491 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Polyfill for broader browser compatibility -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-<!-- Load MathJax to display LaTeX equations -->
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRL-VBVC Portfolio</title>
-<style>
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes full height */
-    line-height: 1.6;
-}
-
-header {
-    background-color: #282c34;
-    color: #ffffff;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 2px -2px gray;
-    position: relative;
-    z-index: 2; /* Ensure header is above other elements */
-}
-
-.header-container {
-    text-align: center;
-}
-
-.header-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.sidebar {
-    background-color: #f5f5f5;
-    padding: 15px;
-    padding-top: 150px; /* Add space at the top */
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.sidebar nav a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-    border-left: 3px solid transparent;
-    /*margin-bottom: 5px;
-    /*margin-top: 10px;  /*Add space above each link */
-}
-
-.sidebar nav a:first-child {
-    margin-top: 0; /* Remove margin from the first link, if needed */
-}
-
-
-.content {
-    margin-left: 270px; /* Space for the sidebar */
-    padding: 20px;
-    width: calc(100% - 350px); /* Adjust width to account for the sidebar */
-    flex-grow: 1;
-    overflow: auto; /* Ensure content scrolls if necessary */
-}
-
-
-footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #aaa;
-    }
-
-img {
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Container for centering the figure */
-.figure-container {
-    text-align: center;
-    margin: 0 auto;
-    justify-content: flex-end; /* Align caption to the bottom */
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* Styling for centered images */
-.centered-image {
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-}
-
-/* Styling for captions */
-.caption {
-    /*font-style: italic;*/
-    color: #555;
-    margin-top: 8px;
-}
-.image-row {
-    display: flex; /* Display images in a row */
-    justify-content: center; /* Center the images horizontally */
-    gap: 20px; /* Space between images */
-}
-
-h2 {
-    border-bottom: 2px solid #282c34; /* Changed from blue to top bar color */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-h4 {
-    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
-li {
-    margin-bottom: 3px; /* Adjust this value to control the vertical space */
-}
-</style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRL-VBVC · Zahra Gharaee</title>
+<meta name="description" content="BRL-VBVC: a Bayesian approach to reinforcement learning of vision-based vehicular control in CARLA. ICPR 2021.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Autonomous Driving Project: BRL-VBVC</h1>
-        </div>
-    </header>
 
-    <aside class="sidebar">
-    <nav>
-      <a href="index.html" style="margin-right: 20px;">Home</a>
-      <a href="#description">Project Description</a>
-      <a href="#contributions">Key Contributions</a>
-      <a href="#tools">Tools & Technologies</a>
-      <a href="#code">Code / Git</a>
-      <a href="#research">Research / Paper</a>
-      <a href="#presentation">Presentations</a>
-      <a href="#additional-context"> Additional Context</a>
-      <ul>
-        <li><a href="#brl">Bayesian RL</a></li>
-        <li><a href="#framework">Architecture Design </a></li>
-        <li><a href="#experiment">Experiments & Results</a></li>
+<nav class="site-nav">
+  <div class="nav-wrap nav-in">
+    <a href="index.html" class="wordmark-nav">Zahra <em>Gharaee</em></a>
+    <div class="nav-center nav-links">
+      <a href="index.html" class="active">Projects</a>
+      <a href="teaching.html" target="_blank" rel="noopener">Talks and teaching</a>
+      <a href="index.html#publications">Publications</a>
+    </div>
+    <a href="https://zahragharaee.com/" class="nav-cta" target="_blank" rel="noopener">zahragharaee.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+    <button class="burger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
 
-      </ul>
-    </nav>
+<header class="wrap p-head">
+  <h1 class="rv">BRL-VBVC</h1>
+  <p class="lede rv">A Bayesian approach to reinforcement learning that teaches a car to drive from what it sees, learning steering and speed in the CARLA simulator from compact semantic views of the road.</p>
+  <div class="p-meta rv"><span class="tag venue">ICPR 2021</span><span class="tag">Reinforcement learning</span><span class="tag">Autonomous driving</span><span class="tag">Semantic segmentation</span></div>
+  <div class="p-links rv">
+    <a class="btn btn-primary" href="https://ieeexplore.ieee.org/abstract/document/9412200" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> Paper</a>
+    <a class="btn btn-outline" href="https://github.com/zahrag/BRLVBVC" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+    <a class="btn btn-outline" href="https://arxiv.org/abs/2104.03807" target="_blank" rel="noopener"><i class="fa-solid fa-book-open"></i> arXiv</a>
+  </div>
+
+  <div class="facts rv">
+    <div class="fact"><b>0.90</b><span>average driving score</span></div>
+    <div class="fact"><b>~2×</b><span>the score of a deep RL baseline</span></div>
+    <div class="fact"><b>100%</b><span>task success in the best runs</span></div>
+    <div class="fact"><b>36</b><span>models across 4 settings</span></div>
+  </div>
+</header>
+
+<div class="wrap p-body">
+  <aside class="toc" aria-label="On this page">
+    <a href="#problem">Problem</a>
+    <a href="#proposed-solution">Proposed solution</a>
+    <a href="#findings">Findings</a>
+    <a href="#my-role">My role</a>
+    <a href="#tools">Tools</a>
+    <a href="#resources">Resources</a>
   </aside>
 
+  <div class="content">
+    <section class="block" id="problem">
+      <span class="label">01 · Problem</span>
+      <h2>Learning to drive <span class="accent">by seeing</span></h2>
+      <h3>The question</h3>
+      <p>Can a small, probabilistic agent learn to drive from a compact summary of what the camera sees, and keep driving well when that summary comes from real camera images instead of the simulator?</p>
+      <div class="segs"><div class="sg-grid"><div class="sg"><h4>Ground truth</h4><svg viewBox="0 0 320 180" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="0" width="320" height="5" fill="#c08a4a"/><rect x="0" y="5" width="320" height="5" fill="#c08a4a"/><rect x="0" y="10" width="320" height="5" fill="#c08a4a"/><rect x="0" y="15" width="320" height="5" fill="#c08a4a"/><rect x="0" y="20" width="320" height="5" fill="#c08a4a"/><rect x="0" y="25" width="320" height="5" fill="#c08a4a"/><rect x="0" y="30" width="320" height="5" fill="#c08a4a"/><rect x="0" y="35" width="320" height="5" fill="#c08a4a"/><rect x="0" y="40" width="320" height="5" fill="#c08a4a"/><rect x="0" y="45" width="320" height="5" fill="#c08a4a"/><rect x="0" y="50" width="320" height="5" fill="#c08a4a"/><rect x="0" y="55" width="140" height="5" fill="#a9c9a4"/><rect x="140" y="55" width="40" height="5" fill="#7d8e9c"/><rect x="180" y="55" width="75" height="5" fill="#a9c9a4"/><rect x="255" y="55" width="10" height="5" fill="#c08a4a"/><rect x="265" y="55" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="60" width="135" height="5" fill="#a9c9a4"/><rect x="135" y="60" width="50" height="5" fill="#7d8e9c"/><rect x="185" y="60" width="70" height="5" fill="#a9c9a4"/><rect x="255" y="60" width="10" height="5" fill="#c08a4a"/><rect x="265" y="60" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="65" width="130" height="5" fill="#a9c9a4"/><rect x="130" y="65" width="60" height="5" fill="#7d8e9c"/><rect x="190" y="65" width="65" height="5" fill="#a9c9a4"/><rect x="255" y="65" width="10" height="5" fill="#c08a4a"/><rect x="265" y="65" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="70" width="125" height="5" fill="#a9c9a4"/><rect x="125" y="70" width="5" height="5" fill="#7d8e9c"/><rect x="130" y="70" width="35" height="5" fill="#b85c5c"/><rect x="165" y="70" width="30" height="5" fill="#7d8e9c"/><rect x="195" y="70" width="60" height="5" fill="#a9c9a4"/><rect x="255" y="70" width="10" height="5" fill="#c08a4a"/><rect x="265" y="70" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="75" width="115" height="5" fill="#a9c9a4"/><rect x="115" y="75" width="15" height="5" fill="#7d8e9c"/><rect x="130" y="75" width="35" height="5" fill="#b85c5c"/><rect x="165" y="75" width="40" height="5" fill="#7d8e9c"/><rect x="205" y="75" width="50" height="5" fill="#a9c9a4"/><rect x="255" y="75" width="10" height="5" fill="#c08a4a"/><rect x="265" y="75" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="80" width="110" height="5" fill="#a9c9a4"/><rect x="110" y="80" width="20" height="5" fill="#7d8e9c"/><rect x="130" y="80" width="35" height="5" fill="#b85c5c"/><rect x="165" y="80" width="45" height="5" fill="#7d8e9c"/><rect x="210" y="80" width="45" height="5" fill="#a9c9a4"/><rect x="255" y="80" width="10" height="5" fill="#c08a4a"/><rect x="265" y="80" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="85" width="105" height="5" fill="#a9c9a4"/><rect x="105" y="85" width="25" height="5" fill="#7d8e9c"/><rect x="130" y="85" width="35" height="5" fill="#b85c5c"/><rect x="165" y="85" width="50" height="5" fill="#7d8e9c"/><rect x="215" y="85" width="40" height="5" fill="#a9c9a4"/><rect x="255" y="85" width="10" height="5" fill="#c08a4a"/><rect x="265" y="85" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="90" width="100" height="5" fill="#a9c9a4"/><rect x="100" y="90" width="30" height="5" fill="#7d8e9c"/><rect x="130" y="90" width="35" height="5" fill="#b85c5c"/><rect x="165" y="90" width="55" height="5" fill="#7d8e9c"/><rect x="220" y="90" width="35" height="5" fill="#a9c9a4"/><rect x="255" y="90" width="10" height="5" fill="#c08a4a"/><rect x="265" y="90" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="95" width="95" height="5" fill="#a9c9a4"/><rect x="95" y="95" width="130" height="5" fill="#7d8e9c"/><rect x="225" y="95" width="30" height="5" fill="#a9c9a4"/><rect x="255" y="95" width="10" height="5" fill="#c08a4a"/><rect x="265" y="95" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="100" width="90" height="5" fill="#a9c9a4"/><rect x="90" y="100" width="140" height="5" fill="#7d8e9c"/><rect x="230" y="100" width="25" height="5" fill="#a9c9a4"/><rect x="255" y="100" width="10" height="5" fill="#c08a4a"/><rect x="265" y="100" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="105" width="85" height="5" fill="#a9c9a4"/><rect x="85" y="105" width="150" height="5" fill="#7d8e9c"/><rect x="235" y="105" width="20" height="5" fill="#a9c9a4"/><rect x="255" y="105" width="10" height="5" fill="#c08a4a"/><rect x="265" y="105" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="110" width="75" height="5" fill="#a9c9a4"/><rect x="75" y="110" width="80" height="5" fill="#7d8e9c"/><rect x="155" y="110" width="10" height="5" fill="#ffffff"/><rect x="165" y="110" width="80" height="5" fill="#7d8e9c"/><rect x="245" y="110" width="75" height="5" fill="#a9c9a4"/><rect x="0" y="115" width="70" height="5" fill="#a9c9a4"/><rect x="70" y="115" width="85" height="5" fill="#7d8e9c"/><rect x="155" y="115" width="10" height="5" fill="#ffffff"/><rect x="165" y="115" width="85" height="5" fill="#7d8e9c"/><rect x="250" y="115" width="70" height="5" fill="#a9c9a4"/><rect x="0" y="120" width="65" height="5" fill="#a9c9a4"/><rect x="65" y="120" width="90" height="5" fill="#7d8e9c"/><rect x="155" y="120" width="10" height="5" fill="#ffffff"/><rect x="165" y="120" width="90" height="5" fill="#7d8e9c"/><rect x="255" y="120" width="65" height="5" fill="#a9c9a4"/><rect x="0" y="125" width="60" height="5" fill="#a9c9a4"/><rect x="60" y="125" width="200" height="5" fill="#7d8e9c"/><rect x="260" y="125" width="60" height="5" fill="#a9c9a4"/><rect x="0" y="130" width="55" height="5" fill="#a9c9a4"/><rect x="55" y="130" width="210" height="5" fill="#7d8e9c"/><rect x="265" y="130" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="135" width="50" height="5" fill="#a9c9a4"/><rect x="50" y="135" width="220" height="5" fill="#7d8e9c"/><rect x="270" y="135" width="50" height="5" fill="#a9c9a4"/><rect x="0" y="140" width="45" height="5" fill="#a9c9a4"/><rect x="45" y="140" width="110" height="5" fill="#7d8e9c"/><rect x="155" y="140" width="10" height="5" fill="#ffffff"/><rect x="165" y="140" width="110" height="5" fill="#7d8e9c"/><rect x="275" y="140" width="45" height="5" fill="#a9c9a4"/><rect x="0" y="145" width="35" height="5" fill="#a9c9a4"/><rect x="35" y="145" width="120" height="5" fill="#7d8e9c"/><rect x="155" y="145" width="10" height="5" fill="#ffffff"/><rect x="165" y="145" width="120" height="5" fill="#7d8e9c"/><rect x="285" y="145" width="35" height="5" fill="#a9c9a4"/><rect x="0" y="150" width="30" height="5" fill="#a9c9a4"/><rect x="30" y="150" width="260" height="5" fill="#7d8e9c"/><rect x="290" y="150" width="30" height="5" fill="#a9c9a4"/><rect x="0" y="155" width="25" height="5" fill="#a9c9a4"/><rect x="25" y="155" width="270" height="5" fill="#7d8e9c"/><rect x="295" y="155" width="25" height="5" fill="#a9c9a4"/><rect x="0" y="160" width="20" height="5" fill="#a9c9a4"/><rect x="20" y="160" width="280" height="5" fill="#7d8e9c"/><rect x="300" y="160" width="20" height="5" fill="#a9c9a4"/><rect x="0" y="165" width="15" height="5" fill="#a9c9a4"/><rect x="15" y="165" width="140" height="5" fill="#7d8e9c"/><rect x="155" y="165" width="10" height="5" fill="#ffffff"/><rect x="165" y="165" width="140" height="5" fill="#7d8e9c"/><rect x="305" y="165" width="15" height="5" fill="#a9c9a4"/><rect x="0" y="170" width="10" height="5" fill="#a9c9a4"/><rect x="10" y="170" width="145" height="5" fill="#7d8e9c"/><rect x="155" y="170" width="10" height="5" fill="#ffffff"/><rect x="165" y="170" width="145" height="5" fill="#7d8e9c"/><rect x="310" y="170" width="10" height="5" fill="#a9c9a4"/><rect x="0" y="175" width="5" height="5" fill="#a9c9a4"/><rect x="5" y="175" width="150" height="5" fill="#7d8e9c"/><rect x="155" y="175" width="10" height="5" fill="#ffffff"/><rect x="165" y="175" width="150" height="5" fill="#7d8e9c"/><rect x="315" y="175" width="5" height="5" fill="#a9c9a4"/></svg><p>Taken straight from the simulator: clean edges, no mistakes.</p></div><div class="sg"><h4>Estimated</h4><svg viewBox="0 0 320 180" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="0" width="320" height="5" fill="#c08a4a"/><rect x="0" y="5" width="320" height="5" fill="#c08a4a"/><rect x="0" y="10" width="320" height="5" fill="#c08a4a"/><rect x="0" y="15" width="320" height="5" fill="#c08a4a"/><rect x="0" y="20" width="320" height="5" fill="#c08a4a"/><rect x="0" y="25" width="320" height="5" fill="#c08a4a"/><rect x="0" y="30" width="320" height="5" fill="#c08a4a"/><rect x="0" y="35" width="320" height="5" fill="#c08a4a"/><rect x="0" y="40" width="320" height="5" fill="#c08a4a"/><rect x="0" y="45" width="5" height="5" fill="#a9c9a4"/><rect x="5" y="45" width="10" height="5" fill="#c08a4a"/><rect x="15" y="45" width="5" height="5" fill="#a9c9a4"/><rect x="20" y="45" width="30" height="5" fill="#c08a4a"/><rect x="50" y="45" width="10" height="5" fill="#a9c9a4"/><rect x="60" y="45" width="20" height="5" fill="#c08a4a"/><rect x="80" y="45" width="10" height="5" fill="#a9c9a4"/><rect x="90" y="45" width="35" height="5" fill="#c08a4a"/><rect x="125" y="45" width="5" height="5" fill="#a9c9a4"/><rect x="130" y="45" width="40" height="5" fill="#c08a4a"/><rect x="170" y="45" width="5" height="5" fill="#a9c9a4"/><rect x="175" y="45" width="55" height="5" fill="#c08a4a"/><rect x="230" y="45" width="5" height="5" fill="#a9c9a4"/><rect x="235" y="45" width="15" height="5" fill="#c08a4a"/><rect x="250" y="45" width="5" height="5" fill="#a9c9a4"/><rect x="255" y="45" width="20" height="5" fill="#c08a4a"/><rect x="275" y="45" width="5" height="5" fill="#a9c9a4"/><rect x="280" y="45" width="15" height="5" fill="#c08a4a"/><rect x="295" y="45" width="5" height="5" fill="#a9c9a4"/><rect x="300" y="45" width="5" height="5" fill="#c08a4a"/><rect x="305" y="45" width="10" height="5" fill="#a9c9a4"/><rect x="315" y="45" width="5" height="5" fill="#c08a4a"/><rect x="0" y="50" width="10" height="5" fill="#c08a4a"/><rect x="10" y="50" width="5" height="5" fill="#a9c9a4"/><rect x="15" y="50" width="30" height="5" fill="#c08a4a"/><rect x="45" y="50" width="5" height="5" fill="#a9c9a4"/><rect x="50" y="50" width="90" height="5" fill="#c08a4a"/><rect x="140" y="50" width="5" height="5" fill="#a9c9a4"/><rect x="145" y="50" width="5" height="5" fill="#7d8e9c"/><rect x="150" y="50" width="20" height="5" fill="#c08a4a"/><rect x="170" y="50" width="5" height="5" fill="#7d8e9c"/><rect x="175" y="50" width="5" height="5" fill="#a9c9a4"/><rect x="180" y="50" width="5" height="5" fill="#c08a4a"/><rect x="185" y="50" width="5" height="5" fill="#a9c9a4"/><rect x="190" y="50" width="5" height="5" fill="#7d8e9c"/><rect x="195" y="50" width="10" height="5" fill="#c08a4a"/><rect x="205" y="50" width="5" height="5" fill="#a9c9a4"/><rect x="210" y="50" width="35" height="5" fill="#c08a4a"/><rect x="245" y="50" width="10" height="5" fill="#a9c9a4"/><rect x="255" y="50" width="10" height="5" fill="#c08a4a"/><rect x="265" y="50" width="15" height="5" fill="#a9c9a4"/><rect x="280" y="50" width="5" height="5" fill="#c08a4a"/><rect x="285" y="50" width="5" height="5" fill="#a9c9a4"/><rect x="290" y="50" width="5" height="5" fill="#c08a4a"/><rect x="295" y="50" width="5" height="5" fill="#a9c9a4"/><rect x="300" y="50" width="20" height="5" fill="#c08a4a"/><rect x="0" y="55" width="5" height="5" fill="#a9c9a4"/><rect x="5" y="55" width="10" height="5" fill="#c08a4a"/><rect x="15" y="55" width="40" height="5" fill="#a9c9a4"/><rect x="55" y="55" width="5" height="5" fill="#c08a4a"/><rect x="60" y="55" width="15" height="5" fill="#a9c9a4"/><rect x="75" y="55" width="5" height="5" fill="#c08a4a"/><rect x="80" y="55" width="45" height="5" fill="#a9c9a4"/><rect x="125" y="55" width="20" height="5" fill="#c08a4a"/><rect x="145" y="55" width="15" height="5" fill="#7d8e9c"/><rect x="160" y="55" width="5" height="5" fill="#c08a4a"/><rect x="165" y="55" width="20" height="5" fill="#7d8e9c"/><rect x="185" y="55" width="5" height="5" fill="#c08a4a"/><rect x="190" y="55" width="5" height="5" fill="#a9c9a4"/><rect x="195" y="55" width="5" height="5" fill="#7d8e9c"/><rect x="200" y="55" width="20" height="5" fill="#a9c9a4"/><rect x="220" y="55" width="20" height="5" fill="#c08a4a"/><rect x="240" y="55" width="30" height="5" fill="#a9c9a4"/><rect x="270" y="55" width="15" height="5" fill="#c08a4a"/><rect x="285" y="55" width="35" height="5" fill="#a9c9a4"/><rect x="0" y="60" width="10" height="5" fill="#a9c9a4"/><rect x="10" y="60" width="5" height="5" fill="#c08a4a"/><rect x="15" y="60" width="25" height="5" fill="#a9c9a4"/><rect x="40" y="60" width="5" height="5" fill="#c08a4a"/><rect x="45" y="60" width="5" height="5" fill="#a9c9a4"/><rect x="50" y="60" width="5" height="5" fill="#c08a4a"/><rect x="55" y="60" width="5" height="5" fill="#a9c9a4"/><rect x="60" y="60" width="5" height="5" fill="#c08a4a"/><rect x="65" y="60" width="5" height="5" fill="#a9c9a4"/><rect x="70" y="60" width="5" height="5" fill="#c08a4a"/><rect x="75" y="60" width="15" height="5" fill="#a9c9a4"/><rect x="90" y="60" width="5" height="5" fill="#c08a4a"/><rect x="95" y="60" width="25" height="5" fill="#a9c9a4"/><rect x="120" y="60" width="5" height="5" fill="#7d8e9c"/><rect x="125" y="60" width="10" height="5" fill="#a9c9a4"/><rect x="135" y="60" width="10" height="5" fill="#7d8e9c"/><rect x="145" y="60" width="5" height="5" fill="#b85c5c"/><rect x="150" y="60" width="35" height="5" fill="#7d8e9c"/><rect x="185" y="60" width="35" height="5" fill="#a9c9a4"/><rect x="220" y="60" width="5" height="5" fill="#c08a4a"/><rect x="225" y="60" width="30" height="5" fill="#a9c9a4"/><rect x="255" y="60" width="10" height="5" fill="#c08a4a"/><rect x="265" y="60" width="35" height="5" fill="#a9c9a4"/><rect x="300" y="60" width="10" height="5" fill="#c08a4a"/><rect x="310" y="60" width="10" height="5" fill="#a9c9a4"/><rect x="0" y="65" width="130" height="5" fill="#a9c9a4"/><rect x="130" y="65" width="10" height="5" fill="#7d8e9c"/><rect x="140" y="65" width="5" height="5" fill="#b85c5c"/><rect x="145" y="65" width="45" height="5" fill="#7d8e9c"/><rect x="190" y="65" width="15" height="5" fill="#a9c9a4"/><rect x="205" y="65" width="5" height="5" fill="#7d8e9c"/><rect x="210" y="65" width="35" height="5" fill="#a9c9a4"/><rect x="245" y="65" width="5" height="5" fill="#c08a4a"/><rect x="250" y="65" width="5" height="5" fill="#a9c9a4"/><rect x="255" y="65" width="10" height="5" fill="#c08a4a"/><rect x="265" y="65" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="70" width="125" height="5" fill="#a9c9a4"/><rect x="125" y="70" width="10" height="5" fill="#7d8e9c"/><rect x="135" y="70" width="10" height="5" fill="#b85c5c"/><rect x="145" y="70" width="5" height="5" fill="#7d8e9c"/><rect x="150" y="70" width="5" height="5" fill="#b85c5c"/><rect x="155" y="70" width="5" height="5" fill="#7d8e9c"/><rect x="160" y="70" width="5" height="5" fill="#b85c5c"/><rect x="165" y="70" width="10" height="5" fill="#7d8e9c"/><rect x="175" y="70" width="5" height="5" fill="#c08a4a"/><rect x="180" y="70" width="5" height="5" fill="#a9c9a4"/><rect x="185" y="70" width="5" height="5" fill="#c08a4a"/><rect x="190" y="70" width="25" height="5" fill="#a9c9a4"/><rect x="215" y="70" width="5" height="5" fill="#7d8e9c"/><rect x="220" y="70" width="25" height="5" fill="#a9c9a4"/><rect x="245" y="70" width="5" height="5" fill="#c08a4a"/><rect x="250" y="70" width="5" height="5" fill="#a9c9a4"/><rect x="255" y="70" width="20" height="5" fill="#c08a4a"/><rect x="275" y="70" width="45" height="5" fill="#a9c9a4"/><rect x="0" y="75" width="125" height="5" fill="#a9c9a4"/><rect x="125" y="75" width="5" height="5" fill="#7d8e9c"/><rect x="130" y="75" width="5" height="5" fill="#b85c5c"/><rect x="135" y="75" width="5" height="5" fill="#a9c9a4"/><rect x="140" y="75" width="20" height="5" fill="#b85c5c"/><rect x="160" y="75" width="5" height="5" fill="#7d8e9c"/><rect x="165" y="75" width="5" height="5" fill="#b85c5c"/><rect x="170" y="75" width="5" height="5" fill="#c08a4a"/><rect x="175" y="75" width="5" height="5" fill="#7d8e9c"/><rect x="180" y="75" width="5" height="5" fill="#c08a4a"/><rect x="185" y="75" width="20" height="5" fill="#7d8e9c"/><rect x="205" y="75" width="5" height="5" fill="#a9c9a4"/><rect x="210" y="75" width="5" height="5" fill="#7d8e9c"/><rect x="215" y="75" width="5" height="5" fill="#a9c9a4"/><rect x="220" y="75" width="5" height="5" fill="#7d8e9c"/><rect x="225" y="75" width="30" height="5" fill="#a9c9a4"/><rect x="255" y="75" width="10" height="5" fill="#c08a4a"/><rect x="265" y="75" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="80" width="110" height="5" fill="#a9c9a4"/><rect x="110" y="80" width="10" height="5" fill="#7d8e9c"/><rect x="120" y="80" width="5" height="5" fill="#a9c9a4"/><rect x="125" y="80" width="5" height="5" fill="#7d8e9c"/><rect x="130" y="80" width="5" height="5" fill="#a9c9a4"/><rect x="135" y="80" width="30" height="5" fill="#b85c5c"/><rect x="165" y="80" width="5" height="5" fill="#7d8e9c"/><rect x="170" y="80" width="20" height="5" fill="#c08a4a"/><rect x="190" y="80" width="15" height="5" fill="#7d8e9c"/><rect x="205" y="80" width="15" height="5" fill="#a9c9a4"/><rect x="220" y="80" width="5" height="5" fill="#7d8e9c"/><rect x="225" y="80" width="20" height="5" fill="#a9c9a4"/><rect x="245" y="80" width="25" height="5" fill="#c08a4a"/><rect x="270" y="80" width="50" height="5" fill="#a9c9a4"/><rect x="0" y="85" width="100" height="5" fill="#a9c9a4"/><rect x="100" y="85" width="35" height="5" fill="#7d8e9c"/><rect x="135" y="85" width="20" height="5" fill="#b85c5c"/><rect x="155" y="85" width="5" height="5" fill="#7d8e9c"/><rect x="160" y="85" width="10" height="5" fill="#b85c5c"/><rect x="170" y="85" width="35" height="5" fill="#7d8e9c"/><rect x="205" y="85" width="15" height="5" fill="#a9c9a4"/><rect x="220" y="85" width="5" height="5" fill="#7d8e9c"/><rect x="225" y="85" width="30" height="5" fill="#a9c9a4"/><rect x="255" y="85" width="10" height="5" fill="#c08a4a"/><rect x="265" y="85" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="90" width="80" height="5" fill="#a9c9a4"/><rect x="80" y="90" width="5" height="5" fill="#7d8e9c"/><rect x="85" y="90" width="20" height="5" fill="#a9c9a4"/><rect x="105" y="90" width="20" height="5" fill="#7d8e9c"/><rect x="125" y="90" width="45" height="5" fill="#b85c5c"/><rect x="170" y="90" width="35" height="5" fill="#7d8e9c"/><rect x="205" y="90" width="10" height="5" fill="#a9c9a4"/><rect x="215" y="90" width="10" height="5" fill="#7d8e9c"/><rect x="225" y="90" width="35" height="5" fill="#a9c9a4"/><rect x="260" y="90" width="5" height="5" fill="#c08a4a"/><rect x="265" y="90" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="95" width="85" height="5" fill="#a9c9a4"/><rect x="85" y="95" width="5" height="5" fill="#7d8e9c"/><rect x="90" y="95" width="5" height="5" fill="#a9c9a4"/><rect x="95" y="95" width="30" height="5" fill="#7d8e9c"/><rect x="125" y="95" width="10" height="5" fill="#b85c5c"/><rect x="135" y="95" width="5" height="5" fill="#7d8e9c"/><rect x="140" y="95" width="5" height="5" fill="#b85c5c"/><rect x="145" y="95" width="5" height="5" fill="#7d8e9c"/><rect x="150" y="95" width="5" height="5" fill="#b85c5c"/><rect x="155" y="95" width="10" height="5" fill="#7d8e9c"/><rect x="165" y="95" width="5" height="5" fill="#b85c5c"/><rect x="170" y="95" width="55" height="5" fill="#7d8e9c"/><rect x="225" y="95" width="30" height="5" fill="#a9c9a4"/><rect x="255" y="95" width="10" height="5" fill="#c08a4a"/><rect x="265" y="95" width="5" height="5" fill="#a9c9a4"/><rect x="270" y="95" width="5" height="5" fill="#c08a4a"/><rect x="275" y="95" width="45" height="5" fill="#a9c9a4"/><rect x="0" y="100" width="90" height="5" fill="#a9c9a4"/><rect x="90" y="100" width="15" height="5" fill="#7d8e9c"/><rect x="105" y="100" width="5" height="5" fill="#a9c9a4"/><rect x="110" y="100" width="15" height="5" fill="#7d8e9c"/><rect x="125" y="100" width="20" height="5" fill="#b85c5c"/><rect x="145" y="100" width="75" height="5" fill="#7d8e9c"/><rect x="220" y="100" width="5" height="5" fill="#a9c9a4"/><rect x="225" y="100" width="10" height="5" fill="#7d8e9c"/><rect x="235" y="100" width="20" height="5" fill="#a9c9a4"/><rect x="255" y="100" width="10" height="5" fill="#c08a4a"/><rect x="265" y="100" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="105" width="65" height="5" fill="#a9c9a4"/><rect x="65" y="105" width="5" height="5" fill="#7d8e9c"/><rect x="70" y="105" width="5" height="5" fill="#a9c9a4"/><rect x="75" y="105" width="5" height="5" fill="#7d8e9c"/><rect x="80" y="105" width="5" height="5" fill="#a9c9a4"/><rect x="85" y="105" width="10" height="5" fill="#7d8e9c"/><rect x="95" y="105" width="5" height="5" fill="#a9c9a4"/><rect x="100" y="105" width="45" height="5" fill="#7d8e9c"/><rect x="145" y="105" width="5" height="5" fill="#ffffff"/><rect x="150" y="105" width="80" height="5" fill="#7d8e9c"/><rect x="230" y="105" width="10" height="5" fill="#a9c9a4"/><rect x="240" y="105" width="5" height="5" fill="#7d8e9c"/><rect x="245" y="105" width="10" height="5" fill="#a9c9a4"/><rect x="255" y="105" width="10" height="5" fill="#c08a4a"/><rect x="265" y="105" width="5" height="5" fill="#a9c9a4"/><rect x="270" y="105" width="5" height="5" fill="#c08a4a"/><rect x="275" y="105" width="45" height="5" fill="#a9c9a4"/><rect x="0" y="110" width="60" height="5" fill="#a9c9a4"/><rect x="60" y="110" width="5" height="5" fill="#7d8e9c"/><rect x="65" y="110" width="15" height="5" fill="#a9c9a4"/><rect x="80" y="110" width="10" height="5" fill="#7d8e9c"/><rect x="90" y="110" width="20" height="5" fill="#a9c9a4"/><rect x="110" y="110" width="40" height="5" fill="#7d8e9c"/><rect x="150" y="110" width="10" height="5" fill="#ffffff"/><rect x="160" y="110" width="85" height="5" fill="#7d8e9c"/><rect x="245" y="110" width="75" height="5" fill="#a9c9a4"/><rect x="0" y="115" width="70" height="5" fill="#a9c9a4"/><rect x="70" y="115" width="20" height="5" fill="#7d8e9c"/><rect x="90" y="115" width="20" height="5" fill="#a9c9a4"/><rect x="110" y="115" width="45" height="5" fill="#7d8e9c"/><rect x="155" y="115" width="10" height="5" fill="#ffffff"/><rect x="165" y="115" width="80" height="5" fill="#7d8e9c"/><rect x="245" y="115" width="75" height="5" fill="#a9c9a4"/><rect x="0" y="120" width="45" height="5" fill="#a9c9a4"/><rect x="45" y="120" width="5" height="5" fill="#7d8e9c"/><rect x="50" y="120" width="15" height="5" fill="#a9c9a4"/><rect x="65" y="120" width="5" height="5" fill="#7d8e9c"/><rect x="70" y="120" width="15" height="5" fill="#a9c9a4"/><rect x="85" y="120" width="5" height="5" fill="#7d8e9c"/><rect x="90" y="120" width="20" height="5" fill="#a9c9a4"/><rect x="110" y="120" width="45" height="5" fill="#7d8e9c"/><rect x="155" y="120" width="10" height="5" fill="#ffffff"/><rect x="165" y="120" width="75" height="5" fill="#7d8e9c"/><rect x="240" y="120" width="10" height="5" fill="#a9c9a4"/><rect x="250" y="120" width="10" height="5" fill="#7d8e9c"/><rect x="260" y="120" width="10" height="5" fill="#a9c9a4"/><rect x="270" y="120" width="5" height="5" fill="#7d8e9c"/><rect x="275" y="120" width="45" height="5" fill="#a9c9a4"/><rect x="0" y="125" width="60" height="5" fill="#a9c9a4"/><rect x="60" y="125" width="200" height="5" fill="#7d8e9c"/><rect x="260" y="125" width="60" height="5" fill="#a9c9a4"/><rect x="0" y="130" width="55" height="5" fill="#a9c9a4"/><rect x="55" y="130" width="110" height="5" fill="#7d8e9c"/><rect x="165" y="130" width="10" height="5" fill="#ffffff"/><rect x="175" y="130" width="35" height="5" fill="#7d8e9c"/><rect x="210" y="130" width="5" height="5" fill="#b85c5c"/><rect x="215" y="130" width="5" height="5" fill="#7d8e9c"/><rect x="220" y="130" width="10" height="5" fill="#b85c5c"/><rect x="230" y="130" width="25" height="5" fill="#7d8e9c"/><rect x="255" y="130" width="5" height="5" fill="#a9c9a4"/><rect x="260" y="130" width="5" height="5" fill="#7d8e9c"/><rect x="265" y="130" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="135" width="30" height="5" fill="#a9c9a4"/><rect x="30" y="135" width="5" height="5" fill="#7d8e9c"/><rect x="35" y="135" width="10" height="5" fill="#a9c9a4"/><rect x="45" y="135" width="5" height="5" fill="#7d8e9c"/><rect x="50" y="135" width="5" height="5" fill="#a9c9a4"/><rect x="55" y="135" width="80" height="5" fill="#7d8e9c"/><rect x="135" y="135" width="20" height="5" fill="#b85c5c"/><rect x="155" y="135" width="55" height="5" fill="#7d8e9c"/><rect x="210" y="135" width="15" height="5" fill="#b85c5c"/><rect x="225" y="135" width="25" height="5" fill="#7d8e9c"/><rect x="250" y="135" width="5" height="5" fill="#a9c9a4"/><rect x="255" y="135" width="5" height="5" fill="#7d8e9c"/><rect x="260" y="135" width="5" height="5" fill="#a9c9a4"/><rect x="265" y="135" width="5" height="5" fill="#7d8e9c"/><rect x="270" y="135" width="20" height="5" fill="#a9c9a4"/><rect x="290" y="135" width="5" height="5" fill="#7d8e9c"/><rect x="295" y="135" width="25" height="5" fill="#a9c9a4"/><rect x="0" y="140" width="45" height="5" fill="#a9c9a4"/><rect x="45" y="140" width="90" height="5" fill="#7d8e9c"/><rect x="135" y="140" width="5" height="5" fill="#b85c5c"/><rect x="140" y="140" width="5" height="5" fill="#7d8e9c"/><rect x="145" y="140" width="5" height="5" fill="#ffffff"/><rect x="150" y="140" width="5" height="5" fill="#b85c5c"/><rect x="155" y="140" width="5" height="5" fill="#7d8e9c"/><rect x="160" y="140" width="5" height="5" fill="#ffffff"/><rect x="165" y="140" width="50" height="5" fill="#7d8e9c"/><rect x="215" y="140" width="15" height="5" fill="#b85c5c"/><rect x="230" y="140" width="50" height="5" fill="#7d8e9c"/><rect x="280" y="140" width="5" height="5" fill="#a9c9a4"/><rect x="285" y="140" width="5" height="5" fill="#7d8e9c"/><rect x="290" y="140" width="5" height="5" fill="#a9c9a4"/><rect x="295" y="140" width="5" height="5" fill="#7d8e9c"/><rect x="300" y="140" width="20" height="5" fill="#a9c9a4"/><rect x="0" y="145" width="15" height="5" fill="#a9c9a4"/><rect x="15" y="145" width="5" height="5" fill="#7d8e9c"/><rect x="20" y="145" width="15" height="5" fill="#a9c9a4"/><rect x="35" y="145" width="10" height="5" fill="#7d8e9c"/><rect x="45" y="145" width="5" height="5" fill="#a9c9a4"/><rect x="50" y="145" width="85" height="5" fill="#7d8e9c"/><rect x="135" y="145" width="10" height="5" fill="#b85c5c"/><rect x="145" y="145" width="5" height="5" fill="#ffffff"/><rect x="150" y="145" width="5" height="5" fill="#b85c5c"/><rect x="155" y="145" width="10" height="5" fill="#ffffff"/><rect x="165" y="145" width="125" height="5" fill="#7d8e9c"/><rect x="290" y="145" width="30" height="5" fill="#a9c9a4"/><rect x="0" y="150" width="20" height="5" fill="#a9c9a4"/><rect x="20" y="150" width="150" height="5" fill="#7d8e9c"/><rect x="170" y="150" width="5" height="5" fill="#ffffff"/><rect x="175" y="150" width="95" height="5" fill="#7d8e9c"/><rect x="270" y="150" width="5" height="5" fill="#a9c9a4"/><rect x="275" y="150" width="15" height="5" fill="#7d8e9c"/><rect x="290" y="150" width="30" height="5" fill="#a9c9a4"/><rect x="0" y="155" width="5" height="5" fill="#a9c9a4"/><rect x="5" y="155" width="5" height="5" fill="#7d8e9c"/><rect x="10" y="155" width="20" height="5" fill="#a9c9a4"/><rect x="30" y="155" width="245" height="5" fill="#7d8e9c"/><rect x="275" y="155" width="5" height="5" fill="#a9c9a4"/><rect x="280" y="155" width="15" height="5" fill="#7d8e9c"/><rect x="295" y="155" width="5" height="5" fill="#a9c9a4"/><rect x="300" y="155" width="10" height="5" fill="#7d8e9c"/><rect x="310" y="155" width="10" height="5" fill="#a9c9a4"/><rect x="0" y="160" width="35" height="5" fill="#a9c9a4"/><rect x="35" y="160" width="115" height="5" fill="#7d8e9c"/><rect x="150" y="160" width="5" height="5" fill="#ffffff"/><rect x="155" y="160" width="125" height="5" fill="#7d8e9c"/><rect x="280" y="160" width="5" height="5" fill="#a9c9a4"/><rect x="285" y="160" width="5" height="5" fill="#7d8e9c"/><rect x="290" y="160" width="5" height="5" fill="#a9c9a4"/><rect x="295" y="160" width="5" height="5" fill="#7d8e9c"/><rect x="300" y="160" width="20" height="5" fill="#a9c9a4"/><rect x="0" y="165" width="15" height="5" fill="#a9c9a4"/><rect x="15" y="165" width="140" height="5" fill="#7d8e9c"/><rect x="155" y="165" width="10" height="5" fill="#ffffff"/><rect x="165" y="165" width="5" height="5" fill="#7d8e9c"/><rect x="170" y="165" width="5" height="5" fill="#ffffff"/><rect x="175" y="165" width="130" height="5" fill="#7d8e9c"/><rect x="305" y="165" width="10" height="5" fill="#a9c9a4"/><rect x="315" y="165" width="5" height="5" fill="#7d8e9c"/><rect x="0" y="170" width="5" height="5" fill="#a9c9a4"/><rect x="5" y="170" width="5" height="5" fill="#7d8e9c"/><rect x="10" y="170" width="5" height="5" fill="#a9c9a4"/><rect x="15" y="170" width="5" height="5" fill="#7d8e9c"/><rect x="20" y="170" width="5" height="5" fill="#a9c9a4"/><rect x="25" y="170" width="125" height="5" fill="#7d8e9c"/><rect x="150" y="170" width="15" height="5" fill="#ffffff"/><rect x="165" y="170" width="135" height="5" fill="#7d8e9c"/><rect x="300" y="170" width="5" height="5" fill="#a9c9a4"/><rect x="305" y="170" width="5" height="5" fill="#7d8e9c"/><rect x="310" y="170" width="10" height="5" fill="#a9c9a4"/><rect x="0" y="175" width="5" height="5" fill="#a9c9a4"/><rect x="5" y="175" width="10" height="5" fill="#7d8e9c"/><rect x="15" y="175" width="5" height="5" fill="#a9c9a4"/><rect x="20" y="175" width="130" height="5" fill="#7d8e9c"/><rect x="150" y="175" width="5" height="5" fill="#ffffff"/><rect x="155" y="175" width="5" height="5" fill="#7d8e9c"/><rect x="160" y="175" width="5" height="5" fill="#ffffff"/><rect x="165" y="175" width="150" height="5" fill="#7d8e9c"/><rect x="315" y="175" width="5" height="5" fill="#a9c9a4"/></svg><p>Predicted from the camera image, as a real car must: noisy edges and wrong patches.</p></div></div><p class="sg-key"><span><i style="background:#7d8e9c"></i>Road</span><span><i style="background:#ffffff"></i>Road-line</span><span><i style="background:#a9c9a4"></i>Off-road</span><span><i style="background:#c08a4a"></i>Static object</span><span><i style="background:#b85c5c"></i>Dynamic object</span></p></div>
+      <p class="muted">These images are generated for illustration; in the paper, the images are taken from the CARLA simulator.</p>
+      <h3>Background</h3>
+      <p>Autonomous vehicles must turn what they see into steering and speed decisions. Deep reinforcement learning can learn this from trial and error, but it needs huge amounts of experience and is hard to interpret; imitation learning needs expert demonstrations.</p>
+      <p>This project asked whether a compact, probabilistic learner could do the job: a Bayesian reinforcement learning agent that drives in the CARLA simulator from a small summary of the scene, and that can move from virtual to real-world inputs.</p>
+      <p>Autonomous driving spans many levels, from route planning down to low-level control; this work learns the step from perception to control signals. Model-free deep reinforcement learning has mastered games and control tasks, but neural networks need vast amounts of interaction data and are sensitive to hyperparameters.</p>
+      <p>Simulators such as CARLA make safe training possible, but what is learned in simulation must survive the move to the real world; mapping camera images to a semantic segmentation narrows that gap. Imitation learning needs expert demonstrations, which rarely exist for dangerous situations, and maximum-entropy methods become unstable when rewards and entropy are scaled poorly. This project builds instead on a Bayesian approach to reinforcement learning.</p>
+    </section>
+    <section class="block" id="proposed-solution">
+      <span class="label">02 · Proposed solution · Method</span>
+      <h2>Bayesian <span class="accent">reinforcement learning</span></h2>
+      <p>The agent models what it perceives with a Gaussian mixture: each mixture component represents a kind of situation, and a learned value table links components to actions. For each new state it picks the action most likely to be right given the components that state resembles.</p>
+      <div class="regions"><figure><h4>What the agent sees</h4><svg viewBox="0 0 320 180" shape-rendering="crispEdges" aria-hidden="true"><rect x="0" y="0" width="320" height="5" fill="#c08a4a"/><rect x="0" y="5" width="320" height="5" fill="#c08a4a"/><rect x="0" y="10" width="320" height="5" fill="#c08a4a"/><rect x="0" y="15" width="320" height="5" fill="#c08a4a"/><rect x="0" y="20" width="320" height="5" fill="#c08a4a"/><rect x="0" y="25" width="320" height="5" fill="#c08a4a"/><rect x="0" y="30" width="320" height="5" fill="#c08a4a"/><rect x="0" y="35" width="320" height="5" fill="#c08a4a"/><rect x="0" y="40" width="320" height="5" fill="#c08a4a"/><rect x="0" y="45" width="320" height="5" fill="#c08a4a"/><rect x="0" y="50" width="320" height="5" fill="#c08a4a"/><rect x="0" y="55" width="140" height="5" fill="#a9c9a4"/><rect x="140" y="55" width="40" height="5" fill="#7d8e9c"/><rect x="180" y="55" width="75" height="5" fill="#a9c9a4"/><rect x="255" y="55" width="10" height="5" fill="#c08a4a"/><rect x="265" y="55" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="60" width="135" height="5" fill="#a9c9a4"/><rect x="135" y="60" width="50" height="5" fill="#7d8e9c"/><rect x="185" y="60" width="70" height="5" fill="#a9c9a4"/><rect x="255" y="60" width="10" height="5" fill="#c08a4a"/><rect x="265" y="60" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="65" width="130" height="5" fill="#a9c9a4"/><rect x="130" y="65" width="60" height="5" fill="#7d8e9c"/><rect x="190" y="65" width="65" height="5" fill="#a9c9a4"/><rect x="255" y="65" width="10" height="5" fill="#c08a4a"/><rect x="265" y="65" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="70" width="125" height="5" fill="#a9c9a4"/><rect x="125" y="70" width="5" height="5" fill="#7d8e9c"/><rect x="130" y="70" width="35" height="5" fill="#b85c5c"/><rect x="165" y="70" width="30" height="5" fill="#7d8e9c"/><rect x="195" y="70" width="60" height="5" fill="#a9c9a4"/><rect x="255" y="70" width="10" height="5" fill="#c08a4a"/><rect x="265" y="70" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="75" width="115" height="5" fill="#a9c9a4"/><rect x="115" y="75" width="15" height="5" fill="#7d8e9c"/><rect x="130" y="75" width="35" height="5" fill="#b85c5c"/><rect x="165" y="75" width="40" height="5" fill="#7d8e9c"/><rect x="205" y="75" width="50" height="5" fill="#a9c9a4"/><rect x="255" y="75" width="10" height="5" fill="#c08a4a"/><rect x="265" y="75" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="80" width="110" height="5" fill="#a9c9a4"/><rect x="110" y="80" width="20" height="5" fill="#7d8e9c"/><rect x="130" y="80" width="35" height="5" fill="#b85c5c"/><rect x="165" y="80" width="45" height="5" fill="#7d8e9c"/><rect x="210" y="80" width="45" height="5" fill="#a9c9a4"/><rect x="255" y="80" width="10" height="5" fill="#c08a4a"/><rect x="265" y="80" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="85" width="105" height="5" fill="#a9c9a4"/><rect x="105" y="85" width="25" height="5" fill="#7d8e9c"/><rect x="130" y="85" width="35" height="5" fill="#b85c5c"/><rect x="165" y="85" width="50" height="5" fill="#7d8e9c"/><rect x="215" y="85" width="40" height="5" fill="#a9c9a4"/><rect x="255" y="85" width="10" height="5" fill="#c08a4a"/><rect x="265" y="85" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="90" width="100" height="5" fill="#a9c9a4"/><rect x="100" y="90" width="30" height="5" fill="#7d8e9c"/><rect x="130" y="90" width="35" height="5" fill="#b85c5c"/><rect x="165" y="90" width="55" height="5" fill="#7d8e9c"/><rect x="220" y="90" width="35" height="5" fill="#a9c9a4"/><rect x="255" y="90" width="10" height="5" fill="#c08a4a"/><rect x="265" y="90" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="95" width="95" height="5" fill="#a9c9a4"/><rect x="95" y="95" width="130" height="5" fill="#7d8e9c"/><rect x="225" y="95" width="30" height="5" fill="#a9c9a4"/><rect x="255" y="95" width="10" height="5" fill="#c08a4a"/><rect x="265" y="95" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="100" width="90" height="5" fill="#a9c9a4"/><rect x="90" y="100" width="140" height="5" fill="#7d8e9c"/><rect x="230" y="100" width="25" height="5" fill="#a9c9a4"/><rect x="255" y="100" width="10" height="5" fill="#c08a4a"/><rect x="265" y="100" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="105" width="85" height="5" fill="#a9c9a4"/><rect x="85" y="105" width="150" height="5" fill="#7d8e9c"/><rect x="235" y="105" width="20" height="5" fill="#a9c9a4"/><rect x="255" y="105" width="10" height="5" fill="#c08a4a"/><rect x="265" y="105" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="110" width="75" height="5" fill="#a9c9a4"/><rect x="75" y="110" width="80" height="5" fill="#7d8e9c"/><rect x="155" y="110" width="10" height="5" fill="#ffffff"/><rect x="165" y="110" width="80" height="5" fill="#7d8e9c"/><rect x="245" y="110" width="75" height="5" fill="#a9c9a4"/><rect x="0" y="115" width="70" height="5" fill="#a9c9a4"/><rect x="70" y="115" width="85" height="5" fill="#7d8e9c"/><rect x="155" y="115" width="10" height="5" fill="#ffffff"/><rect x="165" y="115" width="85" height="5" fill="#7d8e9c"/><rect x="250" y="115" width="70" height="5" fill="#a9c9a4"/><rect x="0" y="120" width="65" height="5" fill="#a9c9a4"/><rect x="65" y="120" width="90" height="5" fill="#7d8e9c"/><rect x="155" y="120" width="10" height="5" fill="#ffffff"/><rect x="165" y="120" width="90" height="5" fill="#7d8e9c"/><rect x="255" y="120" width="65" height="5" fill="#a9c9a4"/><rect x="0" y="125" width="60" height="5" fill="#a9c9a4"/><rect x="60" y="125" width="200" height="5" fill="#7d8e9c"/><rect x="260" y="125" width="60" height="5" fill="#a9c9a4"/><rect x="0" y="130" width="55" height="5" fill="#a9c9a4"/><rect x="55" y="130" width="210" height="5" fill="#7d8e9c"/><rect x="265" y="130" width="55" height="5" fill="#a9c9a4"/><rect x="0" y="135" width="50" height="5" fill="#a9c9a4"/><rect x="50" y="135" width="220" height="5" fill="#7d8e9c"/><rect x="270" y="135" width="50" height="5" fill="#a9c9a4"/><rect x="0" y="140" width="45" height="5" fill="#a9c9a4"/><rect x="45" y="140" width="110" height="5" fill="#7d8e9c"/><rect x="155" y="140" width="10" height="5" fill="#ffffff"/><rect x="165" y="140" width="110" height="5" fill="#7d8e9c"/><rect x="275" y="140" width="45" height="5" fill="#a9c9a4"/><rect x="0" y="145" width="35" height="5" fill="#a9c9a4"/><rect x="35" y="145" width="120" height="5" fill="#7d8e9c"/><rect x="155" y="145" width="10" height="5" fill="#ffffff"/><rect x="165" y="145" width="120" height="5" fill="#7d8e9c"/><rect x="285" y="145" width="35" height="5" fill="#a9c9a4"/><rect x="0" y="150" width="30" height="5" fill="#a9c9a4"/><rect x="30" y="150" width="260" height="5" fill="#7d8e9c"/><rect x="290" y="150" width="30" height="5" fill="#a9c9a4"/><rect x="0" y="155" width="25" height="5" fill="#a9c9a4"/><rect x="25" y="155" width="270" height="5" fill="#7d8e9c"/><rect x="295" y="155" width="25" height="5" fill="#a9c9a4"/><rect x="0" y="160" width="20" height="5" fill="#a9c9a4"/><rect x="20" y="160" width="280" height="5" fill="#7d8e9c"/><rect x="300" y="160" width="20" height="5" fill="#a9c9a4"/><rect x="0" y="165" width="15" height="5" fill="#a9c9a4"/><rect x="15" y="165" width="140" height="5" fill="#7d8e9c"/><rect x="155" y="165" width="10" height="5" fill="#ffffff"/><rect x="165" y="165" width="140" height="5" fill="#7d8e9c"/><rect x="305" y="165" width="15" height="5" fill="#a9c9a4"/><rect x="0" y="170" width="10" height="5" fill="#a9c9a4"/><rect x="10" y="170" width="145" height="5" fill="#7d8e9c"/><rect x="155" y="170" width="10" height="5" fill="#ffffff"/><rect x="165" y="170" width="145" height="5" fill="#7d8e9c"/><rect x="310" y="170" width="10" height="5" fill="#a9c9a4"/><rect x="0" y="175" width="5" height="5" fill="#a9c9a4"/><rect x="5" y="175" width="150" height="5" fill="#7d8e9c"/><rect x="155" y="175" width="10" height="5" fill="#ffffff"/><rect x="165" y="175" width="150" height="5" fill="#7d8e9c"/><rect x="315" y="175" width="5" height="5" fill="#a9c9a4"/><path d="M106.7 0V180 M213.3 0V180 M0 90.0H320" stroke="#16324d" stroke-width="2" stroke-dasharray="6 4" fill="none"/></svg></figure><i class="fa-solid fa-arrow-right rg-arr"></i><div class="rg-hist"><div class="rg-grid"><div class="rg-cell"><div class="rg-bars"><i style="height:3%;background:#7d8e9c" title="Road: 0%"></i><i style="height:3%;background:#ffffff" title="Road-line: 0%"></i><i style="height:39%;background:#a9c9a4" title="Off-road: 39%"></i><i style="height:61%;background:#c08a4a" title="Static object: 61%"></i><i style="height:3%;background:#b85c5c" title="Dynamic object: 0%"></i></div><span>Far left</span></div><div class="rg-cell"><div class="rg-bars"><i style="height:20%;background:#7d8e9c" title="Road: 20%"></i><i style="height:3%;background:#ffffff" title="Road-line: 0%"></i><i style="height:12%;background:#a9c9a4" title="Off-road: 12%"></i><i style="height:61%;background:#c08a4a" title="Static object: 61%"></i><i style="height:7%;background:#b85c5c" title="Dynamic object: 7%"></i></div><span>Far centre</span></div><div class="rg-cell"><div class="rg-bars"><i style="height:3%;background:#7d8e9c" title="Road: 0%"></i><i style="height:3%;background:#ffffff" title="Road-line: 0%"></i><i style="height:35%;background:#a9c9a4" title="Off-road: 35%"></i><i style="height:65%;background:#c08a4a" title="Static object: 65%"></i><i style="height:3%;background:#b85c5c" title="Dynamic object: 0%"></i></div><span>Far right</span></div><div class="rg-cell"><div class="rg-bars"><i style="height:51%;background:#7d8e9c" title="Road: 51%"></i><i style="height:3%;background:#ffffff" title="Road-line: 0%"></i><i style="height:49%;background:#a9c9a4" title="Off-road: 49%"></i><i style="height:3%;background:#c08a4a" title="Static object: 0%"></i><i style="height:3%;background:#b85c5c" title="Dynamic object: 0%"></i></div><span>Near left</span></div><div class="rg-cell"><div class="rg-bars"><i style="height:52%;background:#7d8e9c" title="Road: 52%"></i><i style="height:47%;background:#ffffff" title="Road-line: 47%"></i><i style="height:3%;background:#a9c9a4" title="Off-road: 0%"></i><i style="height:3%;background:#c08a4a" title="Static object: 0%"></i><i style="height:3%;background:#b85c5c" title="Dynamic object: 1%"></i></div><span>Near centre</span></div><div class="rg-cell"><div class="rg-bars"><i style="height:53%;background:#7d8e9c" title="Road: 53%"></i><i style="height:3%;background:#ffffff" title="Road-line: 0%"></i><i style="height:45%;background:#a9c9a4" title="Off-road: 45%"></i><i style="height:3%;background:#c08a4a" title="Static object: 2%"></i><i style="height:3%;background:#b85c5c" title="Dynamic object: 0%"></i></div><span>Near right</span></div></div><p>6 regions × 5 classes = 30 numbers: the whole input. Road lines count 20 times, as they cover so few pixels.</p></div><p class="sg-key"><span><i style="background:#7d8e9c"></i>Road</span><span><i style="background:#ffffff"></i>Road-line</span><span><i style="background:#a9c9a4"></i>Off-road</span><span><i style="background:#c08a4a"></i>Static object</span><span><i style="background:#b85c5c"></i>Dynamic object</span></p></div>
+      <h3>How it works</h3>
+      <ol class="flow"><li><span class="fl-dot">1</span><b>See</b><small>Turn the camera image into a segmentation map with five classes.</small></li><li><span class="fl-dot">2</span><b>Summarize</b><small>Cut the map into six regions and measure each class in each region.</small></li><li><span class="fl-dot">3</span><b>Match</b><small>Find which kinds of situation, the parts of a Gaussian mixture, the view resembles.</small></li><li><span class="fl-dot">4</span><b>Act</b><small>A learned value table picks the action most likely to be right: forward, left, right or reverse.</small></li></ol>
+      <h3>Rewards and actions</h3>
+      <div class="cards2">
+        <div class="mini"><i class="fa-solid fa-car-burst"></i><h4>Collision</h4><p>The strongest penalty.</p></div>
+        <div class="mini"><i class="fa-solid fa-road-circle-xmark"></i><h4>Off-road and wrong lane</h4><p>Penalties scaled by how far the car strays.</p></div>
+        <div class="mini"><i class="fa-solid fa-gauge-high"></i><h4>Speed</h4><p>Reward for keeping close to a target speed.</p></div>
+        <div class="mini"><i class="fa-solid fa-arrows-up-down-left-right"></i><h4>Four actions</h4><p>Forward, left, right and reverse, mapped to steering, throttle and brake.</p></div>
+      </div>
+    </section>
+    <section class="block" id="findings">
+      <span class="label">03 · Findings</span>
+      <h2>Ground truth <span class="accent">and estimates</span></h2>
+      <p>The agent is trained in one CARLA town, Town01, in sunny weather, on a straight road and on right and left turns, without intersections or other road users. Nine models are trained for each setting.</p>
+      <ol class="role">
+        <li><b>Ground truth (G)</b>: the segmentation comes straight from the simulator, clean.</li>
+        <li><b>Estimated (E)</b>: the segmentation is predicted from the camera image by EncNet, with errors, as in a real car.</li>
+        <li><b>T and D</b>: T is the input used in training, D the input used while driving. TGDE means trained on ground truth, driving on estimates.</li>
+      </ol>
+      <div class="stats"><div class="st-card"><span class="st-label">01 · Clean input</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>TGDG</span><div><i class="on" style="width:96.8%"></i></div><b>96.8%</b></div><div class="st-bar"><span>Imitation</span><div><i class="" style="width:86.9%"></i></div><b>86.9%</b></div></div></div><div class="st-big"><span>96.8%</span></div><p class="st-cap">success, averaged over nine models trained and driving on ground truth (TGDG)</p><div class="st-second"><b>0.90</b><span>score</span></div><p class="st-cap2">The same overall score as the imitation baseline</p></div><div class="st-card"><span class="st-label">02 · Clean training, noisy driving</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>Clean</span><div><i class="on" style="width:89.0%"></i></div><b>89.0%</b></div><div class="st-bar"><span>Noisy</span><div><i class="" style="width:34.5%"></i></div><b>34.5%</b></div></div></div><div class="st-big"><span>89.0%</span></div><p class="st-cap">success when trained on ground truth and driving on estimates (TGDE), against 34.5% when trained on estimates too</p><div class="st-second"><b>0.86</b><span>score</span></div><p class="st-cap2">Close to the imitation baseline (0.90)</p></div><div class="st-card"><span class="st-label">03 · Unseen town</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>TGDG</span><div><i class="on" style="width:84.0%"></i></div><b>2.52</b></div><div class="st-bar"><span>Best</span><div><i class="" style="width:14.7%"></i></div><b>0.44</b></div></div></div><div class="st-big"><span>2.52 km</span></div><p class="st-cap">driven between hits on static objects in Town02, never seen in training, against 0.44 km for the best baseline</p><div class="st-second"><b>3 of 5</b><span>mistakes</span></div><p class="st-cap2">Better on lanes, sidewalks and static objects; the baselines avoid cars and pedestrians better</p></div></div>
+      <p class="muted">Success: the share of runs that reach the goal. Score: the paper's overall measure, from 0 to 1. Higher is better for both.</p>
+      <h3>In a town it has never seen</h3>
+      <p>On the CoRL 2017 CARLA benchmark in Town02, each bar pair shows how many km the car drives, on average, before making one kind of mistake; more km is better. Blue is the best of the four BRL-VBVC versions for that mistake; orange is the best of the three baselines: modular pipeline (MP), imitation learning (IL) and deep RL. Both are named under the bars. Each version name says what the agent was trained (T) and driving (D) on: ground truth (G) or estimated (E) input; TEDE, for example, was trained and driving on estimates.</p>
+      <div class="columns"><p class="cl-head"><span>Km between mistakes · higher is better</span><span class="cl-key"><b class="sw"></b>BRL-VBVC, best version<b class="sw b"></b>Best baseline</span></p><div class="cl-plot cl-tall"><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>4.10</em><i style="height:37.3%"></i></div><div class="cl-one b"><em>1.12</em><i style="height:10.2%"></i></div></div><span>Opposite lane<br>TGDE · IL</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>10.24</em><i style="height:93.1%"></i></div><div class="cl-one b"><em>0.76</em><i style="height:6.9%"></i></div></div><span>Sidewalk<br>TEDE · IL</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>2.52</em><i style="height:22.9%"></i></div><div class="cl-one b"><em>0.44</em><i style="height:4.0%"></i></div></div><span>Static object<br>TGDG · MP</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>0.38</em><i style="height:3.5%"></i></div><div class="cl-one b"><em>0.59</em><i style="height:5.4%"></i></div></div><span>Vehicle<br>TGDE · IL</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>1.40</em><i style="height:12.7%"></i></div><div class="cl-one b"><em>2.55</em><i style="height:23.2%"></i></div></div><span>Pedestrian<br>TGDG · RL</span></div></div></div>
+      <p class="muted">Values from the paper's benchmark table. Results with new weather follow the same pattern.</p>
+    </section>
+    <section class="block" id="my-role">
+      <span class="label">04 · My role</span>
+      <h2>What I <span class="accent">led</span></h2>
+      <ol class="role">
+        <li><b>Co-led the WASP-NTU project</b>, a multi-partner collaboration on autonomous driving.</li>
+        <li><b>Developed the framework</b> for vision-based driving with Bayesian reinforcement learning.</li>
+        <li><b>Designed and implemented</b> the architecture and ran the experiments in CARLA.</li>
+        <li><b>Evaluated generalization</b> on the CARLA benchmark, on tasks of increasing complexity in unseen environments.</li>
+        <li><b>Mentored a PhD student</b>, with shared authorship of a peer-reviewed article.</li>
+        <li><b>Presented the work</b> at ICPR.</li>
+      </ol>
+    </section>
+    <section class="block" id="tools">
+      <span class="label">05 · Tools</span>
+      <h2>Built <span class="accent">with</span></h2>
+      <div class="tools"><span>CARLA simulator</span><span>Python</span><span>NumPy</span><span>SciPy</span><span>scikit-learn</span><span>EncNet</span><span>Matplotlib</span><span>Seaborn</span><span>Plotly</span><span>Visdom</span></div>
+    </section>
+    <section class="block" id="resources">
+      <span class="label">06 · Resources</span>
+      <h2>Code <span class="accent">and papers</span></h2>
+      <div class="res">
+        <a href="https://ieeexplore.ieee.org/abstract/document/9412200" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines lead"></i><span><b>Paper</b><small>ICPR 2021, IEEE</small></span></a>
+        <a href="https://arxiv.org/abs/2104.03807" target="_blank" rel="noopener"><i class="fa-solid fa-book-open lead"></i><span><b>arXiv</b><small>2104.03807</small></span></a>
+        <a href="https://github.com/zahrag/BRLVBVC" target="_blank" rel="noopener"><i class="fa-brands fa-github lead"></i><span><b>Code</b><small>zahrag/BRLVBVC</small></span></a>
+        <a href="https://liu.diva-portal.org/smash/record.jsf?pid=diva2%3A1740415&amp;dswid=6980" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap lead"></i><span><b>PhD thesis</b><small>Holmquist, 2023</small></span></a>
+        <a href="https://proceedings.mlr.press/v78/dosovitskiy17a.html" target="_blank" rel="noopener"><i class="fa-solid fa-car lead"></i><span><b>CARLA</b><small>Dosovitskiy et al., 2017</small></span></a>
+      </div>
+    </section>
+  </div>
+</div>
 
-
-    <main class="content">
-        <section id="description">
-            <h2>Project Description</h2>
-            <figure class="figure-container">
-                <img src="images/brl_vbvc.webp" alt="brl_vbvc" class="centered-image" width="700" height="700">
-                <figcaption class="caption">Autonomous Driving.</figcaption>
-            </figure>
-            <p>Here, I will present an intriguing project in autonomous driving that bridges the gap from virtual to real-world applications.
-                In this project, I developed a Bayesian Reinforcement Learning framework that leverages visual data
-                from the environment to learn how to control a vehicle within the CARLA simulation.</p>
-        </section>
-
-
-   <section id="contributions">
-  <h2>Key Contributions</h2>
-  <ul>
-    <li>Co-led the multi-partner WASP-NTU research project, aligning academic innovation with real-world challenges in autonomous driving.</li>
-    <li>Mentored a PhD student in research direction, methodology, and publication, resulting in shared authorship of a peer-reviewed article
-        (<a href="https://liu.diva-portal.org/smash/record.jsf?pid=diva2%3A1740415&dswid=6980" target="_blank">Holmquist, K. 2023</a>).</li>
-    <li>Developed a vision-based framework for autonomous driving using reinforcement learning techniques.</li>
-    <li>Designed and implemented the model architecture, conducted experiments in the CARLA simulator, and presented findings at the ICPR 2020 conference.</li>
-    <li>Evaluated model performance using the <a href="https://proceedings.mlr.press/v78/dosovitskiy17a.html" target="_blank">CARLA benchmark (Dosovitskiy et al., 2017)</a>, addressing tasks of increasing complexity and testing generalization to unseen environments, with metrics reported in kilometers per infraction.</li>
-  </ul>
+<section class="contact" id="contact">
+  <div class="wrap contact-in">
+    <div class="rv">
+      <span class="label">Contact</span>
+      <h2>Let's <em>Connect.</em></h2>
+      <p class="lead-text">For professional opportunities, collaborations, research, consulting, or general inquiries, feel free to get in touch.</p>
+      <a class="mail" href="mailto:zahra.gharaee@gmail.com"><span class="ic"><i class="fa-regular fa-envelope"></i></span>zahra.gharaee@gmail.com</a>
+    </div>
+    <form class="cform rv" id="cform" novalidate>
+      <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="f-subject">Subject</label><input id="f-subject" name="subject" type="text"></div>
+      <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      <button class="send" type="submit">Send Message <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></button>
+      <p class="form-note" id="form-note" aria-live="polite" data-ok="Your email app should open with the message ready to send." data-error="Please add your name, a valid email and a message."></p>
+    </form>
+  </div>
 </section>
 
-    <section id="tools">
-      <h2>Tools & Technologies</h2>
-    <ul>
-      <li>CARLA simulator: https://carla.org/ </li>
-      <li>Python, Scikit-learn, Numpy, Scipy, CSV, JSON </li>
-      <li>Matplotlib, Seaborn, Plotly, Visdom </li>
-    </ul>
-    </section>
-
-    <section id="code">
-      <h2>Code / Git</h2>
-        <ul>
-        <li><a href="https://github.com/zahrag/BRLVBVC" target="_blank">BRL-VBVC GitHub Page</a></li>
-        </ul>
-    </section>
-
-    <section id="research">
-      <h2>Research / Paper</h2>
-        <ul>
-        <li><a href="https://ieeexplore.ieee.org/abstract/document/9412200" target="_blank">IEEE</a></li>
-        <li><a href="https://arxiv.org/abs/2104.03807" target="_blank">Arxiv</a></li>
-        </ul>
-    </section>
-
-    <section id="presentation">
-      <h2>Presentations</h2>
-        <ul>
-        <li><a href="https://www.computer.org/csdl/proceedings-article/icpr/2021/09412200/1tmk41XjnvG" target="_blank">Proceedings of ICPR 2021</a></li>
-        </ul>
-    </section>
-
-
-    <section id="additional-context">
-            <h2>Additional Context</h2>
-        <section id="brl">
-            <h3>Bayesian Approach to Reinforcement Learning</h3>
-            <p>In this section, I will explain the fundamentals of the Bayesian approach to reinforcement learning
-                developed in this project. </p>
-            <p>In this section, we present the Bayesian approach to Reinforcement Learning introduced by <cite>[4]</cite>. This framework integrates a Gaussian Mixture Model (GMM) with a reinforcement learning approach.</p>
-
-    <p>We assume that at each time step \(t\), the agent perceives the world through the state
-        \(s_t\) and models the action-conditioned state probability by a GMM with a set of mixture components
-        \(M\). Based on the perceived state, the agent makes a decision and performs an action \(a_t\) from the action set \(A\).
-        The agent’s decision is evaluated by a reward signal \(r_t\), which is used to train the system.</p>
-
-    <p>We assume stochastic variables \(a \in A\) and \(m \in M\) to calculate the conditional probability
-        \(p(a|s_t)\). These probabilities are used to select the best decision at a given state and are estimated as:</p>
-
-    <p style="text-align: center;">
-        \[
-         p(a|s_{t}) ∝ p(a) \sum_{m ∈ M} p(s_{t}|m)p(m|a)
-        \]
-    </p>
-
-    <p>Due to the unknown parameters of the GMM, we use the multivariate t-distribution
-        to estimate \(p(s_t|m)\), the likelihood of the state \(s_t\) given the mixture component \(m\).</p>
-
-    <h4>Estimation of Mixture Component Probability</h4>
-    <p>Next, we estimate the term \(p(m|a)\), the probability of mixture component \(m\) given the action \(a\).
-        This probability is parameterized by a state-action value function \(Q = [q_{m,a}] : (|M| × |A|)\) (where \(| · |\)
-        represents the cardinality of the respective set) and is learned through reinforcement learning.</p>
-
-    <p>To calculate the probabilities \(p(m|a)\) and \(p(a)\), the elements of \(Q\) must be non-negative.
-        Thus, we use the offset:</p>
-
-    <div style="text-align: center;">
-        <p>\( \hat{q} = \frac{| \min{Q}|}{1 + | \min{Q}| - \min{Q}} \) </p>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="https://zahragharaee.com/" class="wordmark">Zahra <em>Gharaee</em></a>
+        <a href="mailto:zahra.gharaee@gmail.com" class="foot-mail">zahra.gharaee@gmail.com</a>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/zahragh/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/zahrag" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&amp;hl=sv" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+      </div>
     </div>
-
-    <p>The expressions for the probabilities \(p(m|a)\) and \(p(a)\) are as follows:</p>
-
-    <div style="text-align: center;">
-        <p>\( p(m|a) ∝ (q_{m,a} + \hat{q}) \)</p>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Zahra Gharaee. All rights reserved.</span>
+      <span>Built by <a href="https://zahragharaee.com/">Zahra Gharaee</a></span>
     </div>
-
-    <div style="text-align: center;">
-        <p>\( p(a) ∝ \sum_{m ∈ M} (q_{m,a} + \hat{q}) \)</p>
-    </div>
-
-            <h3>Objective Function</h3>
-    <p>To train the system, a temporal difference learning (TD) approach is used with the loss:</p>
-
-    <div style="text-align: center;">
-        <p>\( TD_{error} = r_t + γQ(a_{t+1}, m_{t+1}) - Q(a_t, m_t) \)</p>
-    </div>
-
-    <p>where \(r_t\) is the reward signal and \(γ\) is the forgetting factor. The term \(a_t\) indicates the action
-        performed at time step \(t\), and \(m_t\) is the most similar component to the state \(s_t\),
-        determined by the \( \ell_{\infty} \) norm between the state \(s_t\) and the mean vectors of the existing mixture components.
-        The term \(a_{t+1}\) denotes the most probable action in the next time step \(t + 1\):</p>
-
-    <div style="text-align: center;">
-        <p>\( a_{t+1} = \arg \max_{a} p(a|s_{t+1}) \)</p>
-    </div>
-
-    <p>The most likely component is \(m_{t+1}\), based on the probability:</p>
-
-    <div style="text-align: center;">
-        <p>\( p(m|a_{t+1}, s_{t+1}) ∝ p(s_{t+1}|m)p(m|a_{t+1}) \)</p>
-    </div>
-
-    <p>Finally, the system parameters are learned by Q-Learning using:</p>
-
-    <div style="text-align: center;">
-        <p>\( Q(m_t, a_t) \leftarrow Q(m_t, a_t) + αw \cdot TD_{\text{error}} \)</p>
-    </div>
-
-    <p>where \(α\) corresponds to a decaying learning rate and \(w\) allows for soft updates despite
-        the greedy choice of component \(m_{t+1}\). To calculate \(w\), the \(TD_{\text{error}}\) is evaluated using two boundaries:
-        a lower threshold \(T_l\), indicating a bad decision, and an upper threshold \(T_u\), indicating a good one:</p>
-
-    <div  style="text-align: center;">
-        <p>\( w = \begin{cases}
-            p(m_t|a_t, s_t), & \text{if } TD_{\text{error}} > T_u \\
-            p(m_t|¬a_t, s_t), & \text{else if } TD_{\text{error}} < T_l \\
-            p(m_t|s_t), & \text{else}
-            \end{cases} \)</p>
-    </div>
-
-    <p>where \{p(m|¬a, s_t)\) is the probability for component \(m\) given that action \(a\) was not performed at state \(s_t\):</p>
-
-    <div  style="text-align: center;">
-        <p>\( p(m|¬a, s_t) ∝ p(s_t|m)(1 - p(m|a)) \)</p>
-    </div>
-
-    <p>To update the parameters, two criteria are used:</p>
-    <ol>
-        <li>Similarity measure \(d_t\) given by the \( \ell_{\infty} \) norm between the state \(s_t\) and the mean vectors of \(m\).</li>
-        <li>Evaluation criterion given by \(TD_{\text{error}} < T_l\) to determine if the action was a bad choice.</li>
-    </ol>
-    </section>
-    <section id="framework">
-    <h3>Architecture Design</h3>
-        In this section I will describe the design and implementation of the proposed model architecture.
-
-
-    <h4>Input Description</h4>
-    <p>
-        We base our input on the semantic segmented input image. The image of the segmentation map is separated into six different regions,
-        for each we calculate a weighted histogram of the class distribution. The number of regions represents basic directional information
-        (three vertical divisions) and distance information (two horizontal divisions) of the scene.
-        This approach can facilitate further studies of how the agent learns to control its attention to each region and
-        if an attention mechanism could improve the performance of the task.
-        To further reduce the dimensionality of the input, the semantic labels are clustered into five categories as:</p>
-
-        <ul>
-            <li>Road</li>
-            <li>Road-line</li>
-            <li>Off-road</li>
-            <li>Static object</li>
-            <li>Dynamic object</li>
-        </ul>
-        <p>The feature vector of each patch is concatenated into a single state-vector. The state-vector is normalized
-        by its \( \ell_{1} \)-norm. Due to the low density of road lines in the semantic segmentation input image,
-            we weighted the class, road lines, by 20 for the histogram calculations.</p>
-
-    <p>In reality, ground-truth is obviously not available, and as a result, we need to estimate the semantic segmentation
-        from available input, such as RGB. For our investigation, we utilize two different types of input data in our experimental setup:
-        the ground truth semantic segmentation input directly from the simulator and the estimated semantic segmentation generated
-        from RGB images by EncNet. The EncNet model is trained offline on images collected from the CARLA simulator.</p>
-
-    <p><strong>EncNet:</strong> We use an EncNet with the ResNet-101 as the backbone architecture on top of which
-        a special module named Context Encoding Module is stacked. The main reason behind the selection of EncNet over other
-        powerful CNNs is because of the availability of pre-trained EncNet weights on the large and diverse ADE20K.
-        In addition, EncNet has low computation complexity compared to CNNs such as PSPNet and DeepLabv3 and
-        provides better inference speed at runtime.</p>
-
-    <h4>Decision Making</h4>
-    <p>During training, the agent applies an epsilon-greedy policy to explore the world and to develop its learned concepts.
-        Our decision-making strategy is designed in a way to increase the exploration at the beginning of learning and
-        to diminish as it progresses. Therefore, the policy is gradually shifting from an epsilon-greedy to a greedy one.
-        When learning converges, the agent primarily exploits its learned concepts for decision-making rather than exploring the world.</p>
-
-    <p>Our behavior policy is implemented in two steps. First, we use a greedy approach to select
-        the greedy action \( a_{gd} = \arg \max_{a} (p(a|s_{t})) \). Second, we sample an action from the distribution:</p>
-    <div style="text-align: center;">
-        <p>
-            \( p_{\pi}(a|s_{t}) =
-            \begin{cases}
-                \frac{1 - \tau}{|A|} + \tau, & \text{if } a = a_{gd} \\
-                \frac{1 - \tau}{|A|}, & \text{else}
-            \end{cases} \)
-        </p>
-    </div>
-    <p>
-        where \( \tau \in [0, 1] \) is an increasing temperature to increase the probability of the greedy action as learning progresses.
-    </p>
-
-    <h4>Reward Design</h4>
-    <p>
-        We select four different reward signals representing important types of failures:</p>
-        <ul>
-        <li>Collision</li>
-        <li>Off-road</li>
-        <li>Opposite-lane</li>
-        <li>Low-speed</li>
-    </ul>
-        <p>These failures generate the reward signal, but only one of them is applied at a time based on its importance:</p>
-
-    <div style="text-align: center;">
-        <p>
-            \( r =
-            \begin{cases}
-                -r_{k1}, & \text{if Collision} \\
-                -r_{k2} \cdot r_{o}, & \text{else if Off-road} \\
-                -r_{k3} \cdot r_{l}, & \text{else if Opposite-lane} \\
-                r_{\text{speed}}, & \text{else}
-            \end{cases} \)
-        </p>
-    </div>
-    <p>
-        where \( r_{o} \) is calculated as the percentage of the car being off-road, and \( r_{l} \) is the percentage
-        of the car not being in the correct lane. The values of \( r_{o} \) and \( r_{l} \) are received from the CARLA simulator.
-        Finally, \( r_{speed} \) rewards the agent when it drives with a speed \( v_{t} \) relative to the target speed \( v_{target} \)
-        at time step \( t \):
-    </p>
-    <div style="text-align: center;">
-        <p>
-            \( r_{\text{speed}} =
-            \begin{cases}
-                -r_{k4} \cdot \left( \frac{v_{t} - v_{\text{target}}}{v_{\text{target}}} \right)^{2}, & \text{if } v_{t} < 0 \\
-                -r_{k5} \cdot \left( \frac{v_{t} - v_{\text{target}}}{v_{\text{target}}} \right)^{2}, & \text{if } 0 < v_{t} < v_{\text{target}} \\
-                0, & \text{else}
-            \end{cases} \)
-        </p>
-    </div>
-    <p>
-        Additionally, a reward based on the road view, the percentage of the road visible in the image input to the agent,
-        is always applied to align the agent with the road as:
-    </p>
-    <div style="text-align: center;">
-        <p>
-            \( r_{t} = r + r_{\text{road-view}} \)
-        </p>
-    </div>
-
-    <h4>Control Signals</h4>
-    <p>The control signals that the simulator receives are, similarly to a real car, steering, throttle, brake, and a flag
-        for the reverse gear. Our actions are chosen to correspond to four action primitives that are able to fully control
-        the vehicle's velocity and direction, which are:
-        <ul>
-        <li>Drive Forward</li>
-        <li>Right-Turn</li>
-        <li>Left Turn</li>
-        <li>Drive Backward</li>
-    </ul>
-        each corresponding to a certain control signal.</p>
-    </section>
-    <section id="experiment">
-        <h3> Experiments & Results</h3>
-        <p>There are multiple experiments conducted with proposed approach of this project which are presented in
-            <a href="https://arxiv.org/abs/2104.03807" target="_blank">Gharaee et. al (2021)</a>
-            We use four different settings combining training and deployment, each contains nine models and we name them
-            according to the following schedule: </p>
-        <ul>
-            <li><b>TGDG</b>: Training and Deployment w/ Ground-truth.</li>
-            <li><b>TEDE</b>: Training and Deployment w/ Estimate.</li>
-            <li><b>TGDE</b>: Training w/ Ground-truth, Deployment w/ Estimate.</li>
-            <li><b>TEDG</b>: Training w/ Estimate, Deployment w/ Ground-truth.</li>
-        </ul>
-        <p>I present the results of the models evaluated according to the following metrics:</p>
-        <ul>
-            <li><b>Off-Road</b>: Being off-road (e.g, sidewalks).</li>
-            <li><b>Other-Lane</b>: Being in the meeting lane.</li>
-            <li><b>Either</b>: Being off-road or in the meeting lane.</li>
-            <li><b>Success</b>: Accomplished tasks.</li>
-            <li><b>No Collision</b>: Tasks without collisions.</li>
-            <li><b>Score</b>: Average of Either, Success and No Collision.</li>
-            <li><b>Dist</b>: Total distance driven in meter.</li>
-        </ul>
-        <p>In these experiments BRL_VBVC is compared with conditional Imitation Learning (IL) and deep Reinforcement Learning (RL)
-            by using the provided pre-trained models and evaluating them in our validation settings.</p>
-
-        <iframe src="tables/table_brlvbvc.html" style="width: 100%; height: 550px; border: none;"></iframe>
-        <h4>Benchmark results</h4>
-        <p>The benchmark proposed in <a href="https://proceedings.mlr.press/v78/dosovitskiy17a.html" target="_blank">Dosovitskiy et. al (2017)</a>
-            is comprised by four different tasks, driving straight forward, one-turn (left or right), and two navigation tasks
-            with multiple turns, each of them using the full road-network including intersections.
-            All tasks except for the final navigation task are set in a static environment without vehicle and pedestrians
-            while the last one contains multiple instances of each kind. The reported metrics is the average kilometers driven
-            between each type of infraction. Neither our nor the other methods have been trained on the environment in Town02 from
-            the CARLA benchmark.</p>
-        <iframe src="tables/table_brlvbvc_benchmark.html" style="width: 100%; height: 350px; border: none;"></iframe>
-
-        </section>
-    </section>
-</main>
-
-    <footer>
-        <p>&copy; 2024 Zahra Gharaee. All rights reserved.</p>
-    </footer>
+  </div>
+</footer>
+<script src="assets/js/portfolio.js"></script>
 </body>
 </html>

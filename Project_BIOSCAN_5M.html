@@ -1,480 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Polyfill for broader browser compatibility -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-<!-- Load MathJax to display LaTeX equations -->
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BIOSCAN-5M Portfolio</title>
-<style>
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes full height */
-    line-height: 1.6;
-}
-
-header {
-    background-color: #282c34;
-    color: #ffffff;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 2px -2px gray;
-    position: relative;
-    z-index: 2; /* Ensure header is above other elements */
-}
-
-.header-container {
-    text-align: center;
-}
-
-.header-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.sidebar {
-    background-color: #f5f5f5;
-    padding: 15px;
-    padding-top: 150px; /* Add space at the top */
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.sidebar nav a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-    border-left: 3px solid transparent;
-    /*margin-bottom: 5px;
-    /*margin-top: 10px;  /*Add space above each link */
-}
-
-.sidebar nav a:first-child {
-    margin-top: 0; /* Remove margin from the first link, if needed */
-}
-
-
-.content {
-    margin-left: 270px; /* Space for the sidebar */
-    padding: 20px;
-    width: calc(100% - 350px); /* Adjust width to account for the sidebar */
-    flex-grow: 1;
-    overflow: auto; /* Ensure content scrolls if necessary */
-}
-
-
-footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #aaa;
-    }
-
-img {
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Container for centering the figure */
-.figure-container {
-    text-align: center;
-    margin: 0 auto;
-    justify-content: flex-end; /* Align caption to the bottom */
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* Styling for centered images */
-.centered-image {
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-}
-
-/* Styling for captions */
-.caption {
-    /*font-style: italic;*/
-    color: #555;
-    margin-top: 8px;
-}
-.image-row {
-    display: flex; /* Display images in a row */
-    justify-content: center; /* Center the images horizontally */
-    gap: 20px; /* Space between images */
-}
-
-h2 {
-    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-
-h4 {
-    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
-li {
-    margin-bottom: 3px; /* Adjust this value to control the vertical space */
-}
-@media (max-width: 768px) {
-      .sidebar { display: none; }
-      .content { margin-left: 0; padding: 100px 20px 20px; }
-    }
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BIOSCAN-5M · Zahra Gharaee</title>
+<meta name="description" content="BIOSCAN-5M: a multimodal dataset of over five million insect specimens with images, DNA barcodes and taxonomy. NeurIPS 2024.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
-
 <body>
-  <header>
-    <h1>Data Science Project: BIOSCAN-5M</h1>
-  </header>
 
-  <aside class="sidebar">
-    <nav>
-      <a href="index.html" style="margin-right: 20px;">Home</a>
-      <a href="#description">Project Description</a>
-      <a href="#contributions">Key Contributions</a>
-      <a href="#tools">Tools & Technologies</a>
-      <a href="#code">Code / Git</a>
-      <a href="#research">Research / Paper</a>
-      <a href="#presentation">Presentations</a>
-      <a href="#links">Links & Resources</a>
-      <a href="#additional-context"> Additional Context</a>
-      <ul>
-        <li><a href="#multiple-modalities"> Multiple Data Modalities</a></li>
-        <li><a href="#stats"> Statistical Analysis</a></li>
-        <li><a href="#ML-Benchmarks"> ML Benchmarks</a></li>
+<nav class="site-nav">
+  <div class="nav-wrap nav-in">
+    <a href="index.html" class="wordmark-nav">Zahra <em>Gharaee</em></a>
+    <div class="nav-center nav-links">
+      <a href="index.html" class="active">Projects</a>
+      <a href="teaching.html" target="_blank" rel="noopener">Talks and teaching</a>
+      <a href="index.html#publications">Publications</a>
+    </div>
+    <a href="https://zahragharaee.com/" class="nav-cta" target="_blank" rel="noopener">zahragharaee.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+    <button class="burger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
 
-      </ul>
-    </nav>
+<header class="wrap p-head">
+  <h1 class="rv">BIOSCAN-5M</h1>
+  <p class="lede rv">A multimodal dataset of over five million insect specimens, pairing microscope images with DNA barcodes, taxonomy and metadata, built to push machine learning for biodiversity monitoring.</p>
+  <div class="p-meta rv"><span class="tag venue">NeurIPS 2024 · Datasets and Benchmarks</span><span class="tag">Multimodal</span><span class="tag">Contrastive learning</span><span class="tag">Zero-shot clustering</span></div>
+  <div class="p-links rv">
+    <a class="btn btn-primary" href="https://arxiv.org/abs/2406.12723" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> Paper</a>
+    <a class="btn btn-outline" href="https://github.com/bioscan-ml/BIOSCAN-5M" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+    <a class="btn btn-outline" href="https://huggingface.co/datasets/bioscan-ml/BIOSCAN-5M" target="_blank" rel="noopener"><i class="fa-solid fa-database"></i> Dataset</a>
+    <a class="btn btn-outline" href="https://neurips.cc/virtual/2024/poster/97824" target="_blank" rel="noopener"><i class="fa-solid fa-chalkboard-user"></i> Poster</a>
+  </div>
+
+  <div class="facts rv">
+    <div class="fact"><b>5.15M</b><span>specimen images</span></div>
+    <div class="fact"><b>3</b><span>modalities: image, DNA, text</span></div>
+    <div class="fact"><b>8</b><span>ML-ready data splits</span></div>
+    <div class="fact"><b>3</b><span>benchmark tasks</span></div>
+  </div>
+</header>
+
+<div class="wrap p-body">
+  <aside class="toc" aria-label="On this page">
+    <a href="#problem">Problem</a>
+    <a href="#proposed-solution">Proposed solution</a>
+    <a href="#findings">Findings</a>
+    <a href="#my-role">My role</a>
+    <a href="#tools">Tools</a>
+    <a href="#resources">Resources</a>
   </aside>
 
-  <main class="content">
-    <section id="description">
-              <h2>Project Description</h2>
-    <figure class="figure-container">
-                <img src="images/BIOSCAN_5M.png" alt="BIOSCAN-5M"  width="1500" height="800">
-                <figcaption class="caption">Sample image from BIOSCAN-1M Dataset</figcaption>
-            </figure>
-        <p>
-         This project introduced a large-scale dataset of over five million samples, each consisting of
-            a high-quality microscopic RGB image, a DNA barcode sequence, and a Barcode Index Number.
-            The dataset comprises both structured and unstructured data formats.
-            Structured data, provided in CSV and JSON-LD formats, includes taxonomy labels,
-            DNA sequences, Barcode Index Numbers, geographic metadata, and specimen size information.
-            Unstructured data consists primarily of images.
-        </p>
-
-
-
+  <div class="content">
+    <section class="block" id="problem">
+      <span class="label">01 · Problem</span>
+      <h2>Why insects need <span class="accent">better data</span></h2>
+      <h3>The question</h3>
+      <p>Can one dataset, pairing insect images with DNA at the scale of millions, teach machine learning to identify the species we know and to recognize the ones we have never seen?</p>
+      <h3>Background</h3>
+      <p>Insects make up a large share of animal diversity, and many species have never been formally described. Experts cannot identify specimens at the scale needed to monitor biodiversity, so models must learn to do it from images and DNA.</p>
+      <p>A DNA barcode, a short stretch of one gene, is usually enough to tell species apart, and barcodes with similar sequences are grouped into clusters called BINs, a stand-in for species. Most collections offer images alone. BIOSCAN-1M was the first to pair images with DNA at scale, but it covered three countries and was tested on images only.</p>
     </section>
-
-    <section id="contributions">
-     <h2>Key Contributions</h2>
-        <ul>
-          <li>Led the design and coordination of a 5M-image multimodal dataset, guiding multi-partner teams through data curation, preprocessing, and machine learning experimentation.</li>
-          <li>Developed preprocessing pipelines for image cropping, resizing, and bounding box extraction to support scalable training workflows.</li>
-          <li>Structured image data and metadata for ML readiness, including split-aware subdirectories (pretrain, train, validation, test, val_unseen, test_unseen, etc.) and metadata in CSV and JSON-LD formats to ensure consistency across training and evaluation pipelines.</li>
-          <li>Created a Hugging Face-compatible loader supporting resolution variants and
-              standard ML splits (<a href="https://huggingface.co/datasets/bioscan-ml/BIOSCAN-5M" target="_blank">HuggingFace-Dataset</a>).</li>
-            <li>Uploaded and organized datasets on cloud and open-access platforms to ensure accessibility and reproducibility (<a href="#links">Links & Resources</a>).</li>
-            <li>Led benchmarking of multimodal classification and clustering models, providing baseline evaluations and performance tracking.</li>
-            <li>Computed image-level statistics including bounding box-derived size features (area fraction, scale factor) to support downstream analyses.</li>
-            <li>Provided Assistance in cleaning and standardized biological taxonomic labels to resolve annotation inconsistencies at scale.</li>
-          <li>Curated and visualized biological, geographical, and genetic statistics across millions of records using dynamic tables and distribution plots.</li>
-          <li>Analyzed taxonomic-level variation using pairwise genetic distance distributions
-                and Shannon diversity index to support downstream ML task findings (<a href="Project_BarcodeMetrics.html" target="_blank">Barcode-Metrics</a>).</li>
-        </ul>
-
+    <section class="block" id="proposed-solution">
+      <span class="label">02 · Proposed solution · Dataset</span>
+      <h2>Five million specimens, <span class="accent">many views each</span></h2>
+      <p>BIOSCAN-5M brings together over 5 million arthropod specimens, 98% of them insects. Every specimen was photographed under a microscope and DNA barcoded, then labelled as far down the taxonomy as experts could go.</p>
+      <div class="rec"><div class="rec-col"><div class="rec-card"><span class="rec-ic"><i class="fa-solid fa-camera"></i></span><div><h4>Microscope image</h4><p>High-resolution RGB photo, original, cropped and resized</p></div></div><div class="rec-card"><span class="rec-ic"><img src="images/bioscan5m/dna-icon.png" alt=""></span><div><h4>DNA barcode</h4><p>COI gene sequence</p><div class="rec-dna"><span style="color:#16324d">T</span><span style="color:#5089b5">A</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#5089b5">A</span><span style="color:#16324d">T</span><span style="color:#5089b5">A</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#c08a4a">C</span><span style="color:#5089b5">A</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#16324d">T</span><span style="color:#c08a4a">C</span><span style="color:#739c95">G</span><span style="color:#c08a4a">C</span><span class="dots">…</span></div></div></div><div class="rec-card"><span class="rec-ic"><i class="fa-solid fa-tag"></i></span><div><h4>Barcode Index Number</h4><p>Similar barcodes, one cluster</p><div class="kvs"><span>BIN</span><b>BOLD:AAA3908</b></div></div></div><div class="rec-card"><span class="rec-ic"><i class="fa-solid fa-ruler"></i></span><div><h4>Size</h4><div class="kvs"><span>pixel count</span><b>64,331</b><span>area fraction</span><b>0.40</b><span>scale factor</span><b>2.08</b></div></div></div></div><div class="rec-photo"><img src="images/bioscan5m/specimen-record.webp" alt="Microscope photo of a winged ant, Tapinoma sessile, in a sample dish" loading="lazy"></div><div class="rec-col"><div class="rec-card"><span class="rec-ic"><i class="fa-solid fa-sitemap"></i></span><div><h4>Taxonomy</h4><p>From phylum down to species</p><div class="kvs"><span>phylum</span><b>Arthropoda</b><span>class</span><b>Insecta</b><span>order</span><b>Hymenoptera</b><span>family</span><b>Formicidae</b><span>subfamily</span><b>Dolichoderinae</b><span>genus</span><b>Tapinoma</b><span>species</span><b><em>Tapinoma sessile</em></b></div></div></div><div class="rec-card"><span class="rec-ic"><i class="fa-solid fa-location-dot"></i></span><div><h4>Geography</h4><div class="kvs"><span>country</span><b>United States</b><span>province/state</span><b>California</b><span>latitude</span><b>40.10132</b><span>longitude</span><b>-122.05354</b></div></div></div></div></div><p class="rec-cap">Example record from BIOSCAN-5M: one specimen and its six kinds of data.</p>
+      <h3>Most specimens are still unnamed</h3>
+      <p class="muted">Share of BIOSCAN-5M in each species set. Each set serves a different task.</p>
+      <div class="share"><div class="share-bar"><div class="seg light" style="flex-basis:90.8%;background:#c9d9e6" title="Unknown 90.8%"><span>UNKNOWN · 90.8% · no species label · self-supervised pretraining</span></div><div class="seg" style="flex-basis:6.7%;background:#16324d" title="Seen 6.7%"></div><div class="seg" style="flex-basis:1.0%;background:#5089b5" title="Unseen 1%"></div><div class="seg" style="flex-basis:1.5%;background:#739c95" title="Heldout 1.5%"></div></div><div class="share-legend"><span><i style="background:#16324d"></i>Seen 6.7% · known species</span><span><i style="background:#5089b5"></i>Unseen 1% · new species</span><span><i style="background:#739c95"></i>Heldout 1.5%</span></div></div>
+      <h3>Splits for closed and open worlds</h3>
+      <p class="muted">Data is partitioned by how well each specimen's species is known, so the same dataset supports classification, novelty detection and self-supervised learning.</p>
+      <div class="splits">
+        <div class="split"><b>Seen</b><p>Established species names. Closed-world tasks.</p><code>train</code><code>val</code><code>test</code></div>
+        <div class="split"><b>Unseen</b><p>Known genus, placeholder species. Open-world tasks.</p><code>key_unseen</code><code>val_unseen</code><code>test_unseen</code></div>
+        <div class="split"><b>Heldout</b><p>Placeholder genus and species. Novelty detection.</p><code>other_heldout</code></div>
+        <div class="split"><b>Unknown</b><p>No species label. Self- and semi-supervised learning.</p><code>pretrain</code></div>
+      </div>
     </section>
-
-    <section id="tools">
-      <h2>Tools & Technologies</h2>
-    <ul>
-      <li>Python, PyTorch, TensorFlow, Pandas, NumPy, PySpark (pyspark.sql) </li>
-      <li>h5py, CSV, JSON, Pickle, Hugging Face Datasets</li>
-      <li>Google API Client, PyDrive, Requests, google-auth</li>
-      <li>Transformers (e.g., ViT, DetrFeatureExtractor), timm</li>
-      <li>OpenCV, scikit-learn, PIL (Pillow)</li>
-      <li>Matplotlib (mpl_toolkits), Seaborn, Plotly</li>
-      <li>Cluster Computing, Parallel Computation</li>
-      <li>Virtual Environment, Bash Environment</li>
-      <li>Digital Research Alliance of Canada</li>
-    </ul>
+    <section class="block" id="findings">
+      <span class="label">03 · Findings</span>
+      <h2>Three ways to <span class="accent">put it to work</span></h2>
+      <p>Three benchmarks show what the dataset makes possible, each tested down to species level and on species the models never saw in training.</p>
+      <div class="stats"><div class="st-card"><span class="st-label">01 · DNA classification</span><div class="st-diagram"><div class="st-flow"><span class="">barcode</span><i class="fa-solid fa-arrow-right"></i><span class="on">BarcodeBERT</span><i class="fa-solid fa-arrow-right"></i><span class="">species</span></div></div><div class="st-big"><span>99.3%</span></div><p class="st-cap">species accuracy on known species, from the DNA barcode alone</p><div class="st-second"><b>47%</b><span>vs 23%</span></div><p class="st-cap2">of new species placed in the right genus, against the next-best transformer model</p></div><div class="st-card"><span class="st-label">02 · Zero-shot clustering</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>DNA</span><div><i class="on" style="width:91.0%"></i></div><b>91%</b></div><div class="st-bar"><span>Image</span><div><i class="" style="width:21.0%"></i></div><b>21%</b></div></div></div><div class="st-big"><span>91%</span></div><p class="st-cap">species agreement when DNA groups specimens with no labels</p><div class="st-second"><b>21%</b><span>for images</span></div><p class="st-cap2">Image clusters match the taxonomy at order level, but lose it at species level</p></div><div class="st-card"><span class="st-label">03 · Multimodal retrieval</span><div class="st-diagram"><div class="st-nodes"><svg viewBox="0 0 160 80" aria-hidden="true"><path d="M80 18 L28 62 M80 18 L132 62 M28 62 H132"/></svg><span class="on" style="left:50%;top:22%">DNA</span><span style="left:17.5%;top:77%">Image</span><span style="left:82.5%;top:77%">Text</span></div></div><div class="st-big"><span>76%</span></div><p class="st-cap">species accuracy for image search after aligning images with DNA and text</p><div class="st-second"><b>24%</b><span>before</span></div><p class="st-cap2">Training on 5 million rather than 1 million records improves results at every taxonomic rank</p></div></div>
+      <ol class="role">
+        <li><b>DNA identifies species.</b> Pretrained on the BIOSCAN-5M barcodes, BarcodeBERT reaches 99.3% species accuracy, and places new species in the right genus twice as often as other transformer models.</li>
+        <li><b>DNA groups the unknown.</b> With no labels and no training on BIOSCAN-5M, DNA embeddings sort specimens by species with 91% agreement, where image embeddings reach only 21%.</li>
+        <li><b>Images learn from DNA.</b> Aligning images with DNA and taxonomic text triples species accuracy for image search, and more data helps at every rank.</li>
+      </ol>
     </section>
-
-    <section id="code">
-      <h2>Code / Git</h2>
-        <ul>
-        <li><a href="https://github.com/bioscan-ml/BIOSCAN-5M" target="_blank">BIOSCAN-5M</a></li>
-        </ul>
+    <section class="block" id="my-role">
+      <span class="label">04 · My role</span>
+      <h2>What I <span class="accent">led</span></h2>
+      <ol class="role">
+        <li><b>Led the dataset</b>, coordinating multi-partner teams through curation, preprocessing and ML experimentation.</li>
+        <li><b>Built preprocessing pipelines</b> for cropping, resizing and bounding-box extraction at scale.</li>
+        <li><b>Made the data ML-ready</b> with split-aware structure and consistent CSV and JSON-LD metadata.</li>
+        <li><b>Released it openly</b> with a Hugging Face loader and copies on Zenodo, Kaggle and Google Drive.</li>
+        <li><b>Led benchmarking</b> of multimodal classification and clustering baselines.</li>
+        <li><b>Analysed the data</b>: size features, geographic and genetic statistics, and diversity via <a href="Project_BarcodeMetrics.html" style="color:var(--brand-blue)">Barcode-Metric</a>.</li>
+      </ol>
     </section>
-
-    <section id="research">
-      <h2>Research / Paper</h2>
-        <ul>
-        <li><a href="https://arxiv.org/abs/2406.12723" target="_blank">Paper</a></li>
-        </ul>
+    <section class="block" id="tools">
+      <span class="label">05 · Tools</span>
+      <h2>Built <span class="accent">with</span></h2>
+      <div class="tools"><span>Python</span><span>PyTorch</span><span>TensorFlow</span><span>PySpark</span><span>Pandas</span><span>NumPy</span><span>Hugging Face Datasets</span><span>Transformers</span><span>timm</span><span>OpenCV</span><span>scikit-learn</span><span>Pillow</span><span>h5py</span><span>Matplotlib</span><span>Seaborn</span><span>Plotly</span><span>Digital Research Alliance of Canada</span></div>
     </section>
-
-    <section id="presentation">
-      <h2>Presentations</h2>
-        <ul>
-        <li><a href="https://neurips.cc/virtual/2024/poster/97824" target="_blank">Proceedings of NeurIPS 2024</a></li>
-        </ul>
+    <section class="block" id="resources">
+      <span class="label">06 · Resources</span>
+      <h2>Data, code <span class="accent">and papers</span></h2>
+      <div class="res">
+        <a href="https://arxiv.org/abs/2406.12723" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines lead"></i><span><b>Paper</b><small>arXiv 2406.12723</small></span></a>
+        <a href="https://github.com/bioscan-ml/BIOSCAN-5M" target="_blank" rel="noopener"><i class="fa-brands fa-github lead"></i><span><b>Code</b><small>bioscan-ml/BIOSCAN-5M</small></span></a>
+        <a href="https://huggingface.co/datasets/bioscan-ml/BIOSCAN-5M" target="_blank" rel="noopener"><i class="fa-solid fa-face-smile lead"></i><span><b>Hugging Face</b><small>Dataset and loader</small></span></a>
+        <a href="https://zenodo.org/records/11973457" target="_blank" rel="noopener"><i class="fa-solid fa-box-archive lead"></i><span><b>Zenodo</b><small>Archived release</small></span></a>
+        <a href="https://www.kaggle.com/datasets/zahragharaee/bioscan-5m" target="_blank" rel="noopener"><i class="fa-brands fa-kaggle lead"></i><span><b>Kaggle</b><small>Dataset mirror</small></span></a>
+        <a href="https://drive.google.com/drive/u/1/folders/1Jc57eKkeiYrnUBc9WlIp-ZS_L1bVlT-0" target="_blank" rel="noopener"><i class="fa-brands fa-google-drive lead"></i><span><b>Google Drive</b><small>Full download</small></span></a>
+        <a href="https://arxiv.org/abs/2311.02401" target="_blank" rel="noopener"><i class="fa-solid fa-link lead"></i><span><b>BarcodeBERT</b><small>Related paper</small></span></a>
+        <a href="https://arxiv.org/abs/2405.17537" target="_blank" rel="noopener"><i class="fa-solid fa-link lead"></i><span><b>BIOSCAN-CLIBD</b><small>Related paper</small></span></a>
+      </div>
     </section>
+  </div>
+</div>
 
-      <section id="links">
-          <h2>Links & Resources</h2>
-                 <ul>
-                    <li><a href="https://drive.google.com/drive/u/1/folders/1Jc57eKkeiYrnUBc9WlIp-ZS_L1bVlT-0" target="_blank">Google Drive</a></li>
-                    <li><a href="https://huggingface.co/datasets/Gharaee/BIOSCAN-5M" target="_blank">Hugging Face</a></li>
-                    <li><a href="https://zenodo.org/records/11973457" target="_blank">Zenodo</a></li>
-                    <li><a href="https://www.kaggle.com/datasets/zahragharaee/bioscan-5m" target="_blank">Kaggle</a></li>
-                </ul>
-      </section>
-
-   <section id="additional-context">
-  <h2>Additional Context</h2>
-
-  <section id="multiple-modalities">
-    <h3>Multiple Data Modalities</h3>
-
-    <article id="images">
-      <h4>Images</h4>
-      <p>The BIOSCAN-5M dataset contains 5,150,808 high-quality images of living organisms.</p>
-      <figure class="figure-container">
-        <img src="images/BS_5M_images.png" alt="BIOSCAN-5M Insect Project" class="centered-image" width="1300" height="1046">
-        <figcaption class="caption">BIOSCAN-5M high-quality microscopic RGB images.</figcaption>
-      </figure>
-    </article>
-
-    <article id="dna">
-      <h4>DNA Nucleotide Barcode Sequences</h4>
-      <p>The presented DNA barcode sequence illustrates the nucleotide arrangement—Adenine (A), Thymine (T), Cytosine (C), and Guanine (G)—within a designated gene region, such as the mitochondrial cytochrome c oxidase subunit I (COI) gene.</p>
-      <pre style="background-color:#f4f4f4; padding:10px; border-radius:5px; overflow:auto;">
-TTTATATTTTATTTTTGGAGCATGATCAGGAATAGTTGGAACTTCAATAAGTTTATTAATTCGAACAGAATTAAG...
-      </pre>
-      <figure>
-        <img src="images/DNA_sequence.png" alt="Visual representation of DNA sequence" style="max-width:100%; height:auto;">
-        <figcaption>This visual representation offers a glimpse into the intricate structure of DNA.</figcaption>
-      </figure>
-
-      <h5>Color Scheme</h5>
-      <ul>
-        <li><span style="color:red;">Adenine (A): Red</span></li>
-        <li><span style="color:blue;">Thymine (T): Blue</span></li>
-        <li><span style="color:green;">Cytosine (C): Green</span></li>
-        <li><span style="color:#B8860B;">Guanine (G): Yellow</span></li>
-      </ul>
-    </article>
-
-    <article id="taxonomy">
-      <h4>Textual Taxonomy Labels</h4>
-      <p>Taxonomic group ranking annotations categorize organisms hierarchically based on evolutionary relationships.</p>
-      <figure class="figure-container">
-        <img src="images/taxonomy.jpg" alt="Taxonomy" class="centered-image" width="900" height="900">
-        <figcaption class="caption">Taxonomic Classification Tree.</figcaption>
-      </figure>
-    </article>
-
-    <article id="geo">
-      <h4>Geographic Information</h4>
-      <p>Each dataset sample includes geographic information about the collection sites, captured through four key data attributes:</p>
-      <h5>1- Latitude and 2- Longitude</h5>
-      <figure class="figure-container">
-        <img src="images/BS_5M_loc.png" alt="BIOSCAN-5M-lat-lon" class="centered-image" width="1000" height="5121">
-        <figcaption class="caption">Locations associated with the sites of specimens collection.</figcaption>
-      </figure>
-      <h5>3- Country and 4- Province/State</h5>
-      <figure class="figure-container">
-        <img src="images/BS_5M_country.png" alt="BS-5M-country" class="centered-image" width="1000" height="1000">
-        <figcaption class="caption">Countries associated with the sites of collection.</figcaption>
-      </figure>
-    </article>
-
-    <article id="size">
-      <h4>Size Information</h4>
-      <p>Each dataset sample includes size information about each specimen, captured through three key data attributes:</p>
-
-      <h5>1- Image Measurement Value</h5>
-      <p>Count of pixels occupied by the organism in its image.</p>
-      <figure class="figure-container">
-        <img src="images/images_masks.png" alt="BS-5M-measu" class="centered-image" width="900" height="5121">
-        <figcaption class="caption">Pixel count.</figcaption>
-      </figure>
-
-      <h5>2- Area Fraction</h5>
-      <p>The fraction of the original image that the cropped image comprises based on bounding box information.</p>
-
-      <h5>3- Scale Factor</h5>
-      <p>The ratio of the cropped image to the cropped and resized image based on bounding box information.</p>
-
-      <figure class="figure-container">
-        <img src="images/area_frac.png" alt="BS-5M-bbx" class="centered-image" width="900" height="730">
-        <figcaption class="caption">Bounding Box detected by our cropping tool.</figcaption>
-      </figure>
-    </article>
-  </section>
-    <section id="stats">
-        <h3>Statistical Analytics</h3>
-        <h4 id="bio_stat">Biological Statistics</h4>
-        <iframe src="tables/table_BIOSCAN5M_bio.html" style="width: 100%; height: 500px; border: none;"></iframe>
-
-        <h4 id="geo_stat">Geographical Statistics</h4>
-        <iframe src="tables/table_BIOSCAN5M_geo.html" style="width: 100%; height: 300px; border: none;"></iframe>
-
-        <h4 id="dna_stat">Genetic Statistics</h4>
-        <iframe src="tables/table_BIOSCAN5M_dna.html" style="width: 100%; height: 500px; border: none;"></iframe>
-
-        <figure class="figure-container">
-            <img src="images/class_distance_distribution.png" alt="BS-5M-bbx" class="centered-image" width="900" height="730">
-            <figcaption class="caption">Distribution of pairwise distances of subgroups of class...</figcaption>
-        </figure>
-        <figure class="figure-container">
-            <img src="images/order_distance_distributions.png" alt="BS-5M-bbx" class="centered-image" width="900" height="730">
-            <figcaption class="caption">Distribution of pairwise distances of subgroups of order...</figcaption>
-        </figure>
-        <figure class="figure-container">
-            <img src="images/species_distance_distribution.png" alt="BS-5M-bbx" class="centered-image" width="900" height="730">
-            <figcaption class="caption">Distribution of pairwise distances of subgroups of species...</figcaption>
-        </figure>
-
-        <h4 id="dists">Data Distributions</h4>
-        <iframe src="tables/table_BIOSCAN5M_dists.html" style="width: 100%; height: 500px; border: none;"></iframe>
-    </section>
-
-    <section id="ML-Benchmarks">
-        <h3>ML Benchmarks</h3>
-
-        <h4>Data Partition</h4>
-            <ul>
-                <li><b>Seen:</b> Samples whose species label is an established scientific name of a species. Used in
-                closed world settings.</li>
-                <ul>
-                    <li>train</li>
-                    <li>val</li>
-                    <li>test</li>
-                </ul>
-                <li><b>Unseen:</b> labelled with an established scientific name for the genus, and a uniquely identifying placeholder name for the species.
-                Used in open world settings.</li>
-                 <ul>
-                    <li>key_unseen</li>
-                    <li>val_unseen</li>
-                    <li>test_unseen</li>
-                </ul>
-                <li><b>Heldout:</b> labelled with a placeholder genus and species name. Used in novelty detection.</li>
-                 <ul>
-                    <li>other_heldout</li>
-                </ul>
-                <li><b>Unknown:</b> samples without a species label.
-                Used in self- and semi-supervised learning.</li>
-                 <ul>
-                    <li>pretrain</li>
-                </ul>
-            </ul>
-            <figure class="figure-container">
-                    <img src="images/split_plot.png" alt="split" class="centered-image" width="500" height="500">
-                    <figcaption class="caption">Data split distribution to facilitate closed world and open world settings. </figcaption>
-            </figure>
-
-
-        <h4>Barcode-BERT: DNA Sequence Classification</h4>
-        <p>Two stages of the proposed semi-supervised learning set-up based on BarcodeBERT <a href="https://arxiv.org/abs/2311.02401" target="_blank">Arias et al. (2023)</a>.
-            (1) Pretraining: DNA sequences are tokenized using non-overlapping k-mers and 50% of the tokens
-            are masked for the MLM task. Tokens are encoded and fed into a transformer model. The output
-            embeddings are used for token-level classification. (2) Fine-tuning: All DNA sequences in a
-            dataset are tokenized using non-overlapping k-mer tokenization and all tokenized sequences, without
-            masking, are passed through the pretrained transformer model. Global mean-pooling is applied over
-                the token-level embeddings and the output is used for taxonomic classification. </p>
-
-            <p>The results are presented in <a href="https://arxiv.org/abs/2406.12723" target="_blank">Gharaee et al. (2024)</a></p>
-            <figure class="figure-container">
-                    <img src="images/barcode_bert_n2.png" alt="BS-5M-bert" class="centered-image" width="730" height="730">
-                    <figcaption class="caption">Barcode Bert model. </figcaption>
-                </figure>
-
-        <h4>Zero-shot Clustering</h4>
-        <p>Images and DNA are each passed through one of several pretrained encoders.
-                These representations are clustered with Agglomerative Clustering.</p>
-
-            <p>The results are presented in <a href="https://arxiv.org/abs/2406.12723" target="_blank">Gharaee et al. (2024)</a></p>
-            <figure class="figure-container">
-                    <img src="images/bioscan_zsc_n1.png" alt="BS-5M-bert" class="centered-image" width="730" height="730">
-                    <figcaption class="caption">Zero-shot clustering. </figcaption>
-                </figure>
-
-        <h4>BIOSCAN-CLIBD: Multi-modal Contrastive Learning</h4>
-      <p>Our experiments using the BIOSCAN-CLIBD <a href="https://arxiv.org/abs/2405.17537" target="_blank">Gong et al. (2024)</a> are conducted in two steps. (1) Training:
-            Multiple modalities, including RGB images, textual taxonomy, and DNA sequences, are encoded
-            separately, and trained using a contrastive loss function. (2) Inference: Image vs DNA embedding
-            is used as a query, and compared to the embeddings obtained from a database of image, DNA and
-            text (keys). The cosine similarity is used to find the closest key embedding, and the corresponding
-                taxonomic label is used to classify the query.</p>
-
-            <figure class="figure-container">
-                    <img src="images/bioscan_clip.png" alt="BS-5M-bert" class="centered-image" width="730" height="730">
-                    <figcaption class="caption">BIOSCAN-CLIBD model. </figcaption>
-            </figure>
-
-              <p> We report top-1 macro accuracy (%) on the test set using different amounts of pre-training data
-                (1 million vs. 5 million records from BIOSCAN-5M) and various combinations of aligned embeddings (image, DNA, and text)
-                during contrastive training. Our results include accuracy for image-to-image, DNA-to-DNA, and image-to-DNA query-key combinations.
-                As a baseline, we provide the results without contrastive learning (no alignment).
-                We report accuracy separately for seen and unseen species, along with the harmonic mean (H.M.) between these values.</p>
-
-            <h4>BIOSCAN-CLIBD predicting <b>orders</b></h4>
-            <figure class="figure-container">
-                    <img src="images/bar_Order.png" alt="split" class="centered-image" width="1000" height="1000">
-            </figure>
-            <h4>BIOSCAN-CLIBD predicting <b>families</b></h4>
-             <figure class="figure-container">
-                    <img src="images/bar_Family.png" alt="BS-5M-bert" class="centered-image" width="1000" height="1000">
-            </figure>
-            <h4>BIOSCAN-CLIBD predicting <b>genus</b></h4>
-             <figure class="figure-container">
-                    <img src="images/bar_Genus.png" alt="BS-5M-bert" class="centered-image" width="1000" height="1000">
-            </figure>
-            <p></p>
-            <h4>BIOSCAN-CLIBD predicting <b>species</b></h4>
-             <figure class="figure-container">
-                    <img src="images/bar_Species.png" alt="BS-5M-bert" class="centered-image" width="1000" height="1000">
-            </figure>
-            <p>The results details are presented in <a href="https://arxiv.org/abs/2406.12723" target="_blank">Gharaee et al. (2024)</a></p>
-
-    </section>
+<section class="contact" id="contact">
+  <div class="wrap contact-in">
+    <div class="rv">
+      <span class="label">Contact</span>
+      <h2>Let's <em>Connect.</em></h2>
+      <p class="lead-text">For professional opportunities, collaborations, research, consulting, or general inquiries, feel free to get in touch.</p>
+      <a class="mail" href="mailto:zahra.gharaee@gmail.com"><span class="ic"><i class="fa-regular fa-envelope"></i></span>zahra.gharaee@gmail.com</a>
+    </div>
+    <form class="cform rv" id="cform" novalidate>
+      <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="f-subject">Subject</label><input id="f-subject" name="subject" type="text"></div>
+      <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      <button class="send" type="submit">Send Message <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></button>
+      <p class="form-note" id="form-note" aria-live="polite" data-ok="Your email app should open with the message ready to send." data-error="Please add your name, a valid email and a message."></p>
+    </form>
+  </div>
 </section>
 
-
-
-
-    <footer>
-      &copy; 2025 Zahra Gharaee. All rights reserved.
-    </footer>
-  </main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="https://zahragharaee.com/" class="wordmark">Zahra <em>Gharaee</em></a>
+        <a href="mailto:zahra.gharaee@gmail.com" class="foot-mail">zahra.gharaee@gmail.com</a>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/zahragh/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/zahrag" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&amp;hl=sv" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Zahra Gharaee. All rights reserved.</span>
+      <span>Built by <a href="https://zahragharaee.com/">Zahra Gharaee</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/portfolio.js"></script>
 </body>
 </html>

@@ -1,243 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Polyfill for broader browser compatibility -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-<!-- Load MathJax to display LaTeX equations -->
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SuperFormer Portfolio</title>
-<style>
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes full height */
-    line-height: 1.6;
-}
-
-header {
-    background-color: #282c34;
-    color: #ffffff;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 2px -2px gray;
-    position: relative;
-    z-index: 2; /* Ensure header is above other elements */
-}
-
-.header-container {
-    text-align: center;
-}
-
-.header-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.sidebar {
-    background-color: #f5f5f5;
-    padding: 15px;
-    padding-top: 150px; /* Add space at the top */
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.sidebar nav a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-    border-left: 3px solid transparent;
-    /*margin-bottom: 5px;
-    /*margin-top: 10px;  /*Add space above each link */
-}
-
-.sidebar nav a:first-child {
-    margin-top: 0; /* Remove margin from the first link, if needed */
-}
-
-
-.content {
-    margin-left: 270px; /* Space for the sidebar */
-    padding: 20px;
-    width: calc(100% - 350px); /* Adjust width to account for the sidebar */
-    flex-grow: 1;
-    overflow: auto; /* Ensure content scrolls if necessary */
-}
-
-
-footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #aaa;
-    }
-
-img {
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Container for centering the figure */
-.figure-container {
-    text-align: center;
-    margin: 0 auto;
-    justify-content: flex-end; /* Align caption to the bottom */
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* Styling for centered images */
-.centered-image {
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-}
-
-/* Styling for captions */
-.caption {
-    /*font-style: italic;*/
-    color: #555;
-    margin-top: 8px;
-}
-.image-row {
-    display: flex; /* Display images in a row */
-    justify-content: center; /* Center the images horizontally */
-    gap: 20px; /* Space between images */
-}
-
-h2 {
-    border-bottom: 2px solid #282c34; /* Changed from blue to top bar color */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-h3 {
-    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
-li {
-    margin-bottom: 3px; /* Adjust this value to control the vertical space */
-}
-</style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Human action recognition · Zahra Gharaee</title>
+<meta name="description" content="Unsupervised, online 3D skeleton-based human action recognition with self-organizing neural networks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <h1>Machine Learning Project: Action Recognition</h1>
-        </div>
-    </header>
 
-    <aside class="sidebar">
-    <nav>
-      <a href="index.html" style="margin-right: 20px;">Home</a>
-      <a href="#description">Project Description</a>
-      <a href="#contributions">Key Contributions</a>
-      <a href="#tools">Tools & Technologies</a>
-      <a href="#code">Code / Git</a>
-      <a href="#research">Research / Paper</a>
-    </nav>
+<nav class="site-nav">
+  <div class="nav-wrap nav-in">
+    <a href="index.html" class="wordmark-nav">Zahra <em>Gharaee</em></a>
+    <div class="nav-center nav-links">
+      <a href="index.html" class="active">Projects</a>
+      <a href="teaching.html" target="_blank" rel="noopener">Talks and teaching</a>
+      <a href="index.html#publications">Publications</a>
+    </div>
+    <a href="https://zahragharaee.com/" class="nav-cta" target="_blank" rel="noopener">zahragharaee.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+    <button class="burger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
+
+<header class="wrap p-head">
+  <h1 class="rv">Human action recognition</h1>
+  <p class="lede rv">Biologically inspired, self-organizing neural networks that learn to recognize human actions from 3D skeleton data without labels, online and from continuous, unsegmented streams.</p>
+  <div class="p-meta rv"><span class="tag venue">Cognitive Systems Research 2020</span><span class="tag">Applied Soft Computing 2017</span><span class="tag">Self-organizing maps</span><span class="tag">Unsupervised learning</span></div>
+  <div class="p-links rv">
+    <a class="btn btn-primary" href="https://www.sciencedirect.com/science/article/pii/S1389041720300243" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> Paper</a>
+    <a class="btn btn-outline" href="https://github.com/zahrag/3DHARSOM" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+  </div>
+
+  <div class="facts rv">
+    <div class="fact"><b>0</b><span>action labels needed to learn</span></div>
+    <div class="fact"><b>3</b><span>public benchmark datasets</span></div>
+    <div class="fact"><b>4</b><span>journal articles</span></div>
+    <div class="fact"><b>5</b><span>international conference talks</span></div>
+  </div>
+</header>
+
+<div class="wrap p-body">
+  <aside class="toc" aria-label="On this page">
+    <a href="#problem">Problem</a>
+    <a href="#proposed-solution">Proposed solution</a>
+    <a href="#findings">Findings</a>
+    <a href="#my-role">My role</a>
+    <a href="#tools">Tools</a>
+    <a href="#resources">Resources</a>
   </aside>
 
-    <main class="content">
-        <section id="description">
-            <h2>Project Description</h2>
-            <figure class="figure-container">
-                <img src="images/hr.png" alt="HUman Action Recognition" class="centered-image" width="1200" height="500">
-                <figcaption class="caption">Self-supervised Learning of 3D Skeleton Based Human Action Recognition</figcaption>
-            </figure>
-            <p><b>3D-Skeleton Human Action Recognition:</b> This project proposed an unsupervised approach for human action recognition, conducted in multiple phases:</p>
-           <ul>
-            <li>Applied first- and second-order dynamics for 3D skeleton-based human action recognition using self-organizing neural networks.</li>
-            <li>Designed and implemented an online action recognition system.</li>
-            <li>Developed a self-organizing architecture with a growing grid network to enhance recognition performance.</li>
-            <li>Built an online action recognition framework capable of handling unsegmented streams of action frames.</li>
-        </ul>
-        </section>
+  <div class="content">
+    <section class="block" id="problem">
+      <span class="label">01 · Problem</span>
+      <h2>Seeing actions <span class="accent">as they happen</span></h2>
+      <h3>The question</h3>
+      <p>Can a system learn to recognize actions such as waving or running from body movement alone, without labels, while they happen?</p>
+      <div class="plg"><div class="plg-bar"><button type="button" data-do="names" aria-pressed="false">Show actions</button><button type="button" data-do="freeze">Freeze</button><button type="button" data-do="bones" aria-pressed="false">Show bones</button></div><div class="plg-grid"><figure class="plg-tile" data-a="wave" data-s="1.6" tabindex="0"><svg viewBox="12 0 76 102" aria-label="Point-light figure: High arm wave"></svg><figcaption><b>High arm wave</b><span class="plg-q">?</span></figcaption></figure><figure class="plg-tile" data-a="punch" data-s="1.4" tabindex="0"><svg viewBox="12 0 76 102" aria-label="Point-light figure: Forward punch"></svg><figcaption><b>Forward punch</b><span class="plg-q">?</span></figcaption></figure><figure class="plg-tile" data-a="catch" data-s="1.6" tabindex="0"><svg viewBox="12 0 76 102" aria-label="Point-light figure: Hand catch"></svg><figcaption><b>Hand catch</b><span class="plg-q">?</span></figcaption></figure><figure class="plg-tile" data-a="jog" data-s="0.8" tabindex="0"><svg viewBox="12 0 76 102" aria-label="Point-light figure: Jogging"></svg><figcaption><b>Jogging</b><span class="plg-q">?</span></figcaption></figure><figure class="plg-tile" data-a="kick" data-s="1.6" tabindex="0"><svg viewBox="12 0 76 102" aria-label="Point-light figure: Forward kick"></svg><figcaption><b>Forward kick</b><span class="plg-q">?</span></figcaption></figure><figure class="plg-tile" data-a="lift" data-s="2.4" tabindex="0"><svg viewBox="12 0 76 102" aria-label="Point-light figure: Lift"></svg><figcaption><b>Lift</b><span class="plg-q">?</span></figcaption></figure></div><p class="plg-cap">Animated illustrations of actions from my studies; the motions are drawn by code, not recorded data. Hover or tap a tile to see its name.</p></div><script>(function(){
+var B=[[0,1],[1,2],[1,3],[2,4],[4,6],[3,5],[5,7],[1,8],[8,9],[8,10],[9,11],[11,13],[10,12],[12,14]];
+function S(x){return Math.sin(2*Math.PI*x)}function E(x){return .5-.5*Math.cos(2*Math.PI*x)}
+function arm(p,a,b,L1,L2){var e=[p[0]+L1*Math.sin(a),p[1]+L1*Math.cos(a)];return [e,[e[0]+L2*Math.sin(a+b),e[1]+L2*Math.cos(a+b)]]}
+function leg(p,c,d,L3,L4){var k=[p[0]+L3*Math.sin(c),p[1]+L3*Math.cos(c)];return [k,[k[0]+L4*Math.sin(c-d),k[1]+L4*Math.cos(c-d)]]}
+function pose(q){var V=function(g){return 18*Math.cos(g[0])+18*Math.cos(g[0]-g[1])},hx=50,hy=92-Math.max(V(q.lL),V(q.lR))+(q.bob||0),lean=q.lean||0,T=26;
+ var n=[hx+T*Math.sin(lean),hy-T*Math.cos(lean)],h=[n[0]+11*Math.sin(lean),n[1]-11*Math.cos(lean)];
+ var w=q.front?9:1.5,sL=[n[0]-w,n[1]+2],sR=[n[0]+w,n[1]+2],hw=q.front?6:1,pL=[hx-hw,hy],pR=[hx+hw,hy];
+ var aL=arm(sL,q.aL[0],q.aL[1],14,13),aR=arm(sR,q.aR[0],q.aR[1],14,13),lL=leg(pL,q.lL[0],q.lL[1],18,18),lR=leg(pR,q.lR[0],q.lR[1],18,18);
+ return [h,n,sL,sR,aL[0],aR[0],aL[1],aR[1],[hx,hy-10],pL,pR,lL[0],lR[0],lL[1],lR[1]]}
+var A={
+wave:function(t){return {front:1,aL:[-.12,0],aR:[2.6,-.55*S(t*2)],lL:[-.06,0],lR:[.06,0]}},
+twowave:function(t){var s=.5*S(t*2);return {front:1,aL:[-2.6,-s],aR:[2.6,s],lL:[-.06,0],lR:[.06,0]}},
+punch:function(t){var p=E(t);return {lean:.12*p,aL:[.55,2.3],aR:[.8+.75*p,2.3*(1-p)],lL:[.3,.15],lR:[-.3,.1]}},
+catch:function(t){var p=E(t);return {lean:-.05*p,aL:[2.1-1.5*p,.1+1.9*p],aR:[2.2-1.5*p,.1+1.9*p],lL:[.2,.1],lR:[-.2,.1]}},
+jog:function(t){var s=S(t),s2=S(t+.5);return {bob:-3*Math.abs(S(t*2)),lean:.15,aL:[.6*s2,1.7],aR:[.6*s,1.7],lL:[.55*s,.25+.75*Math.max(0,-s)],lR:[.55*s2,.25+.75*Math.max(0,-s2)]}},
+kick:function(t){var k=Math.pow(E(t),1.5);return {lean:-.25*k,aL:[-.5*k,.6],aR:[.4+.3*k,.7],lL:[0,0],lR:[1.5*k,1.1*(1-k)*E(t*2)+.1]}},
+lift:function(t){var p=E(t);return {lean:.95*p,aL:[.15+.25*p,.4],aR:[.2+.25*p,.4],lL:[.55*p,1.1*p],lR:[.5*p,1.1*p]}}};
+document.querySelectorAll('.plg').forEach(function(root){
+ var tiles=[].slice.call(root.querySelectorAll('.plg-tile')),run=!matchMedia('(prefers-reduced-motion: reduce)').matches,t0=performance.now(),tf=0;
+ tiles.forEach(function(el){var svg=el.querySelector('svg'),ns='http://www.w3.org/2000/svg';
+  el._b=B.map(function(){var l=document.createElementNS(ns,'line');l.setAttribute('class','bone');svg.appendChild(l);return l});
+  el._d=[];for(var i=0;i<15;i++){var c=document.createElementNS(ns,'circle');c.setAttribute('r',i?2.3:2.8);svg.appendChild(c);el._d.push(c)}
+  el.addEventListener('click',function(){el.classList.toggle('named')})});
+ function draw(time){var tt=run?(time-t0)/1000+tf:tf;tiles.forEach(function(el){var f=A[el.dataset.a]||A.wave,P=pose(f((tt/(+el.dataset.s||1.6))%1));
+  el._d.forEach(function(c,i){c.setAttribute('cx',P[i][0].toFixed(2));c.setAttribute('cy',P[i][1].toFixed(2))});
+  el._b.forEach(function(l,i){var a=P[B[i][0]],b=P[B[i][1]];l.setAttribute('x1',a[0]);l.setAttribute('y1',a[1]);l.setAttribute('x2',b[0]);l.setAttribute('y2',b[1])})});
+  requestAnimationFrame(draw)}
+ requestAnimationFrame(draw);
+ var bf=root.querySelector('[data-do=freeze]');function lab(){bf.textContent=run?'Freeze':'Play';bf.setAttribute('aria-pressed',!run)}lab();
+ bf.addEventListener('click',function(){var now=performance.now();if(run){tf+=(now-t0)/1000}else{t0=now}run=!run;root.classList.toggle('frozen',!run);lab()});
+ root.querySelector('[data-do=bones]').addEventListener('click',function(){var on=root.classList.toggle('bones');this.setAttribute('aria-pressed',on)});
+ root.querySelector('[data-do=names]').addEventListener('click',function(){var on=root.classList.toggle('names');this.setAttribute('aria-pressed',on)});
+ if(!run)root.classList.add('frozen');});
+})();</script>
+      <h3>Background</h3>
+      <p>Waving, catching, lifting, running: people recognize actions effortlessly and continuously, without anyone labelling the start and end of each one. Machines usually need labelled, pre-cut examples.</p>
+      <p>This project, which grew out of my PhD in Cognitive Science at Lund University, asked how a system could learn actions the way the brain might: from the dynamics of the body, self-organizing without supervision, and recognizing actions online as they unfold.</p>
+      <p>In Johansson's experiments (1973), an actor dressed in black was filmed against a black background, with small reflecting patches on the main joints. About ten moving dots were enough: observers recognized walking or jogging after only about two hundred milliseconds. Yet when the film was stopped, nobody saw a body in the still dots. Only the motion carries the action.</p>
+      <p>Johansson explained this with visual vector analysis. Dots that move together are seen as the ends of rigid rods, the bones. The brain subtracts the common motion of the trunk, the shoulders and hips, and what remains are the pendulum swings of the knees and elbows and the turns of the wrists. These patterns are what we recognize.</p>
+      <p>Runesson and Frykholm called this the kinematic specification of dynamics: the movement of the dots carries the forces behind it. Observers can tell how heavy a lifted box is even when the box is invisible, how strenuous push-ups are, whether someone only pretends to paint a wall, and even the gender of a walker.</p>
+      <p>Perception works in levels: first the motion patterns of single joints, then whole actions and their goals. The order of the key postures matters too. Lift the arm and push it forward, and it is a punch or a throw; take the reverse path, pull the arm back and lower it, and it is a catch.</p>
+      <p>Building on Gärdenfors's theory of conceptual spaces, actions can be represented by these underlying force patterns, which show up in the second-order dynamics of movement, its accelerations. Self-organizing maps, which learn topology-preserving maps of their input without labels, much like maps in the cortex, offer a natural way to learn such patterns.</p>
+    </section>
+    <section class="block" id="proposed-solution">
+      <span class="label">02 · Proposed solution · Method</span>
+      <h2>One system, <span class="accent">six steps</span></h2>
+      <p>The same core runs through all the studies: a depth camera tracks the body, the joints and their movement are read, and layers of self-organizing maps learn the actions without labels. Each study then adds one thing.</p>
+      <h3>The core</h3>
+      <ol class="flow"><li><span class="fl-dot">1</span><b>Kinect input</b><small>Receive and prepare live depth-sensor data.</small></li><li><span class="fl-dot">2</span><b>3D joints</b><small>Extract the skeleton and how each joint moves.</small></li><li><span class="fl-dot">3</span><b>Self-organizing maps</b><small>Layers of maps learn action patterns, with no labels.</small></li><li><span class="fl-dot">4</span><b>Recognition</b><small>Name the action, online, as it happens.</small></li></ol>
+      <h3>From positions to forces</h3>
+      <div class="dyns"><div class="dy"><h4>Position</h4><svg viewBox="0 0 240 120" aria-hidden="true"><path d="M30.0 95.0 L60.0 58.3 L90.0 31.0 L120.0 20.0 L150.0 27.7 L180.0 51.7 L210.0 85.0" fill="none" stroke="#d6e2ec" stroke-width="2" stroke-dasharray="4 4"/><circle cx="30.0" cy="95.0" r="4" fill="#16324d"/><circle cx="60.0" cy="58.3" r="4" fill="#16324d"/><circle cx="90.0" cy="31.0" r="4" fill="#16324d"/><circle cx="120.0" cy="20.0" r="4" fill="#16324d"/><circle cx="150.0" cy="27.7" r="4" fill="#16324d"/><circle cx="180.0" cy="51.7" r="4" fill="#16324d"/><circle cx="210.0" cy="85.0" r="4" fill="#16324d"/></svg><p>Where the joint is, frame by frame.</p></div><div class="dy"><h4>Velocity</h4><svg viewBox="0 0 240 120" aria-hidden="true"><path d="M30.0 95.0 L60.0 58.3 L90.0 31.0 L120.0 20.0 L150.0 27.7 L180.0 51.7 L210.0 85.0" fill="none" stroke="#d6e2ec" stroke-width="2" stroke-dasharray="4 4"/><line x1="30.0" y1="95.0" x2="49.6" y2="71.1" stroke="#5089b5" stroke-width="2.2"/><polygon points="54.0,65.7 52.7,73.6 46.5,68.6" fill="#5089b5"/><line x1="60.0" y1="58.3" x2="78.8" y2="41.2" stroke="#5089b5" stroke-width="2.2"/><polygon points="84.0,36.5 81.5,44.2 76.1,38.3" fill="#5089b5"/><line x1="90.0" y1="31.0" x2="107.4" y2="24.6" stroke="#5089b5" stroke-width="2.2"/><polygon points="114.0,22.2 108.8,28.4 106.0,20.9" fill="#5089b5"/><line x1="120.0" y1="20.0" x2="137.2" y2="24.4" stroke="#5089b5" stroke-width="2.2"/><polygon points="144.0,26.2 136.2,28.3 138.2,20.6" fill="#5089b5"/><line x1="150.0" y1="27.7" x2="168.5" y2="42.5" stroke="#5089b5" stroke-width="2.2"/><polygon points="174.0,46.9 166.0,45.6 171.0,39.4" fill="#5089b5"/><line x1="180.0" y1="51.7" x2="199.3" y2="73.1" stroke="#5089b5" stroke-width="2.2"/><polygon points="204.0,78.3 196.3,75.8 202.3,70.5" fill="#5089b5"/><circle cx="30.0" cy="95.0" r="4" fill="#16324d"/><circle cx="60.0" cy="58.3" r="4" fill="#16324d"/><circle cx="90.0" cy="31.0" r="4" fill="#16324d"/><circle cx="120.0" cy="20.0" r="4" fill="#16324d"/><circle cx="150.0" cy="27.7" r="4" fill="#16324d"/><circle cx="180.0" cy="51.7" r="4" fill="#16324d"/><circle cx="210.0" cy="85.0" r="4" fill="#16324d"/></svg><p>How fast it moves, and in which direction.</p></div><div class="dy"><h4>Acceleration</h4><svg viewBox="0 0 240 120" aria-hidden="true"><path d="M30.0 95.0 L60.0 58.3 L90.0 31.0 L120.0 20.0 L150.0 27.7 L180.0 51.7 L210.0 85.0" fill="none" stroke="#d6e2ec" stroke-width="2" stroke-dasharray="4 4"/><line x1="60.0" y1="58.3" x2="60.0" y2="66.3" stroke="#c08a4a" stroke-width="2.2"/><polygon points="60.0,73.3 56.0,66.3 64.0,66.3" fill="#c08a4a"/><line x1="90.0" y1="31.0" x2="90.0" y2="50.0" stroke="#c08a4a" stroke-width="2.2"/><polygon points="90.0,57.0 86.0,50.0 94.0,50.0" fill="#c08a4a"/><line x1="120.0" y1="20.0" x2="120.0" y2="43.0" stroke="#c08a4a" stroke-width="2.2"/><polygon points="120.0,50.0 116.0,43.0 124.0,43.0" fill="#c08a4a"/><line x1="150.0" y1="27.7" x2="150.0" y2="46.7" stroke="#c08a4a" stroke-width="2.2"/><polygon points="150.0,53.7 146.0,46.7 154.0,46.7" fill="#c08a4a"/><line x1="180.0" y1="51.7" x2="180.0" y2="59.7" stroke="#c08a4a" stroke-width="2.2"/><polygon points="180.0,66.7 176.0,59.7 184.0,59.7" fill="#c08a4a"/><circle cx="30.0" cy="95.0" r="4" fill="#16324d"/><circle cx="60.0" cy="58.3" r="4" fill="#16324d"/><circle cx="90.0" cy="31.0" r="4" fill="#16324d"/><circle cx="120.0" cy="20.0" r="4" fill="#16324d"/><circle cx="150.0" cy="27.7" r="4" fill="#16324d"/><circle cx="180.0" cy="51.7" r="4" fill="#16324d"/><circle cx="210.0" cy="85.0" r="4" fill="#16324d"/></svg><p>How its movement changes: the force behind it.</p></div></div>
+      <h3>A map of actions</h3>
+      <figure class="somap"><svg viewBox="0 0 266 178" aria-hidden="true"><rect x="2" y="2" width="19" height="19" rx="4" fill="#16324d" opacity="0.38"/><rect x="24" y="2" width="19" height="19" rx="4" fill="#16324d" opacity="0.50"/><rect x="46" y="2" width="19" height="19" rx="4" fill="#16324d" opacity="0.55"/><rect x="68" y="2" width="19" height="19" rx="4" fill="#16324d" opacity="0.52"/><rect x="90" y="2" width="19" height="19" rx="4" fill="#16324d" opacity="0.42"/><rect x="112" y="2" width="19" height="19" rx="4" fill="#16324d" opacity="0.27"/><rect x="134" y="2" width="19" height="19" rx="4" fill="#16324d" opacity="0.25"/><rect x="156" y="2" width="19" height="19" rx="4" fill="#5089b5" opacity="0.25"/><rect x="178" y="2" width="19" height="19" rx="4" fill="#5089b5" opacity="0.33"/><rect x="200" y="2" width="19" height="19" rx="4" fill="#5089b5" opacity="0.45"/><rect x="222" y="2" width="19" height="19" rx="4" fill="#5089b5" opacity="0.51"/><rect x="244" y="2" width="19" height="19" rx="4" fill="#5089b5" opacity="0.49"/><rect x="2" y="24" width="19" height="19" rx="4" fill="#16324d" opacity="0.51"/><rect x="24" y="24" width="19" height="19" rx="4" fill="#16324d" opacity="0.67"/><rect x="46" y="24" width="19" height="19" rx="4" fill="#16324d" opacity="0.75"/><rect x="68" y="24" width="19" height="19" rx="4" fill="#16324d" opacity="0.70"/><rect x="90" y="24" width="19" height="19" rx="4" fill="#16324d" opacity="0.55"/><rect x="112" y="24" width="19" height="19" rx="4" fill="#16324d" opacity="0.37"/><rect x="134" y="24" width="19" height="19" rx="4" fill="#16324d" opacity="0.25"/><rect x="156" y="24" width="19" height="19" rx="4" fill="#5089b5" opacity="0.28"/><rect x="178" y="24" width="19" height="19" rx="4" fill="#5089b5" opacity="0.46"/><rect x="200" y="24" width="19" height="19" rx="4" fill="#5089b5" opacity="0.61"/><rect x="222" y="24" width="19" height="19" rx="4" fill="#5089b5" opacity="0.71"/><rect x="244" y="24" width="19" height="19" rx="4" fill="#5089b5" opacity="0.68"/><rect x="2" y="46" width="19" height="19" rx="4" fill="#16324d" opacity="0.57"/><rect x="24" y="46" width="19" height="19" rx="4" fill="#16324d" opacity="0.77"/><rect x="46" y="46" width="19" height="19" rx="4" fill="#16324d" opacity="0.95"/><rect x="68" y="46" width="19" height="19" rx="4" fill="#16324d" opacity="0.82"/><rect x="90" y="46" width="19" height="19" rx="4" fill="#16324d" opacity="0.62"/><rect x="112" y="46" width="19" height="19" rx="4" fill="#16324d" opacity="0.42"/><rect x="134" y="46" width="19" height="19" rx="4" fill="#16324d" opacity="0.25"/><rect x="156" y="46" width="19" height="19" rx="4" fill="#5089b5" opacity="0.34"/><rect x="178" y="46" width="19" height="19" rx="4" fill="#5089b5" opacity="0.53"/><rect x="200" y="46" width="19" height="19" rx="4" fill="#5089b5" opacity="0.73"/><rect x="222" y="46" width="19" height="19" rx="4" fill="#5089b5" opacity="0.89"/><rect x="244" y="46" width="19" height="19" rx="4" fill="#5089b5" opacity="0.83"/><rect x="2" y="68" width="19" height="19" rx="4" fill="#16324d" opacity="0.55"/><rect x="24" y="68" width="19" height="19" rx="4" fill="#16324d" opacity="0.73"/><rect x="46" y="68" width="19" height="19" rx="4" fill="#16324d" opacity="0.85"/><rect x="68" y="68" width="19" height="19" rx="4" fill="#16324d" opacity="0.77"/><rect x="90" y="68" width="19" height="19" rx="4" fill="#16324d" opacity="0.60"/><rect x="112" y="68" width="19" height="19" rx="4" fill="#16324d" opacity="0.40"/><rect x="134" y="68" width="19" height="19" rx="4" fill="#16324d" opacity="0.25"/><rect x="156" y="68" width="19" height="19" rx="4" fill="#5089b5" opacity="0.33"/><rect x="178" y="68" width="19" height="19" rx="4" fill="#5089b5" opacity="0.53"/><rect x="200" y="68" width="19" height="19" rx="4" fill="#5089b5" opacity="0.72"/><rect x="222" y="68" width="19" height="19" rx="4" fill="#5089b5" opacity="0.87"/><rect x="244" y="68" width="19" height="19" rx="4" fill="#5089b5" opacity="0.82"/><rect x="2" y="90" width="19" height="19" rx="4" fill="#16324d" opacity="0.45"/><rect x="24" y="90" width="19" height="19" rx="4" fill="#16324d" opacity="0.58"/><rect x="46" y="90" width="19" height="19" rx="4" fill="#16324d" opacity="0.65"/><rect x="68" y="90" width="19" height="19" rx="4" fill="#16324d" opacity="0.61"/><rect x="90" y="90" width="19" height="19" rx="4" fill="#16324d" opacity="0.49"/><rect x="112" y="90" width="19" height="19" rx="4" fill="#16324d" opacity="0.33"/><rect x="134" y="90" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.25"/><rect x="156" y="90" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.36"/><rect x="178" y="90" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.47"/><rect x="200" y="90" width="19" height="19" rx="4" fill="#5089b5" opacity="0.59"/><rect x="222" y="90" width="19" height="19" rx="4" fill="#5089b5" opacity="0.68"/><rect x="244" y="90" width="19" height="19" rx="4" fill="#5089b5" opacity="0.66"/><rect x="2" y="112" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.33"/><rect x="24" y="112" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.48"/><rect x="46" y="112" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.59"/><rect x="68" y="112" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.61"/><rect x="90" y="112" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.54"/><rect x="112" y="112" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.41"/><rect x="134" y="112" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.33"/><rect x="156" y="112" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.50"/><rect x="178" y="112" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.64"/><rect x="200" y="112" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.71"/><rect x="222" y="112" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.65"/><rect x="244" y="112" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.51"/><rect x="2" y="134" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.42"/><rect x="24" y="134" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.61"/><rect x="46" y="134" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.76"/><rect x="68" y="134" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.81"/><rect x="90" y="134" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.69"/><rect x="112" y="134" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.51"/><rect x="134" y="134" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.39"/><rect x="156" y="134" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.58"/><rect x="178" y="134" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.77"/><rect x="200" y="134" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.91"/><rect x="222" y="134" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.78"/><rect x="244" y="134" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.59"/><rect x="2" y="156" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.45"/><rect x="24" y="156" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.65"/><rect x="46" y="156" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.85"/><rect x="68" y="156" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.95"/><rect x="90" y="156" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.75"/><rect x="112" y="156" width="19" height="19" rx="4" fill="#7db0a8" opacity="0.55"/><rect x="134" y="156" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.38"/><rect x="156" y="156" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.58"/><rect x="178" y="156" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.77"/><rect x="200" y="156" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.89"/><rect x="222" y="156" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.78"/><rect x="244" y="156" width="19" height="19" rx="4" fill="#c08a4a" opacity="0.59"/></svg><div><p class="sm-key"><span><i style="background:#16324d"></i>Wave</span><span><i style="background:#5089b5"></i>Catch</span><span><i style="background:#7db0a8"></i>Lift</span><span><i style="background:#c08a4a"></i>Run</span></p><figcaption>Similar movements land close together on the map, so each action gets its own area, without anyone naming them. Illustration.</figcaption></div></figure>
+      <h3>Six steps, seven papers</h3>
+      <ol class="studies"><li class="sd"><span class="sd-n">1</span><div><b>Hierarchical maps</b><p>The core: layers of self-organizing maps that recognize actions online.</p><div class="sd-papers"><a href="https://scholar.google.se/citations?view_op=view_citation&amp;hl=sv&amp;user=nWe8d1MAAAAJ&amp;citation_for_view=nWe8d1MAAAAJ:u-x6o8ySG0sC" target="_blank" rel="noopener"><span class="sd-venue">SITIS 2016</span><em>Action recognition online with hierarchical self-organizing maps</em><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="https://scholar.google.se/citations?view_op=view_citation&amp;hl=sv&amp;user=nWe8d1MAAAAJ&amp;citation_for_view=nWe8d1MAAAAJ:d1gkVwhDpl0C" target="_blank" rel="noopener"><span class="sd-venue">ICAART 2017</span><em>Hierarchical Self-organizing Maps System for Action Classification</em><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div></li><li class="sd"><span class="sd-n">2</span><div><b>Dynamics</b><p>Adds velocity and acceleration, the forces behind a movement, to the joint positions.</p><div class="sd-papers"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1568494617303502" target="_blank" rel="noopener"><span class="sd-venue">Applied Soft Computing 2017</span><em>First and Second Order Dynamics in a Hierarchical SOM system for Action Recognition</em><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div></li><li class="sd"><span class="sd-n">3</span><div><b>Objects</b><p>Recognizes the action and the object it is applied to, by running two streams side by side.</p><div class="sd-papers"><a href="https://www.sciencedirect.com/science/article/abs/pii/S2212683X17301196" target="_blank" rel="noopener"><span class="sd-venue">BICA 2017</span><em>Online Recognition of Actions Involving Objects</em><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div></li><li class="sd"><span class="sd-n">4</span><div><b>No cuts</b><p>Recognizes actions in continuous video, finding where each one starts and ends.</p><div class="sd-papers"><a href="https://link.springer.com/article/10.1007/s10339-020-00986-4" target="_blank" rel="noopener"><span class="sd-venue">Cognitive Processing 2021</span><em>Online recognition of unsegmented actions with hierarchical SOM architecture</em><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div></li><li class="sd"><span class="sd-n">5</span><div><b>Growing grids</b><p>Replaces fixed maps with networks that grow to fit the data.</p><div class="sd-papers"><a href="https://www.sciencedirect.com/science/article/pii/S1389041720300243" target="_blank" rel="noopener"><span class="sd-venue">Cognitive Systems Research 2020</span><em>Hierarchical growing grid networks for skeleton based action recognition</em><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div></li><li class="sd"><span class="sd-n">6</span><div><b>Intention</b><p>Predicts how an action will continue by internally simulating what it would see next.</p><div class="sd-papers"><a href="https://www.scitepress.org/Papers/2022/109776/109776.pdf" target="_blank" rel="noopener"><span class="sd-venue">ICAART 2022</span><em>Predicting the Intended Action using Internal Simulation of Perception</em><i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></div></li></ol>
+    </section>
+    <section class="block" id="findings">
+      <span class="label">03 · Findings</span>
+      <h2>What the <span class="accent">maps learned</span></h2>
+      <p>The system was tested on three public datasets of 3D skeletons (MSRAction3D, UTKinect and Florence3DActions) and live, in front of a Kinect. Each result is tagged with the step it comes from.</p>
+      <div class="stats"><div class="st-card"><span class="st-label">01 · Live (step 4)</span><div class="st-diagram"><div class="st-flow"><span class="">Kinect</span><i class="fa-solid fa-arrow-right"></i><span class="on">Action</span></div></div><div class="st-big"><span>88.74%</span></div><p class="st-cap">of actions recognized online, live in front of a Kinect, on five actions</p><div class="st-second"><b>100%</b><span>on training data</span></div><p class="st-cap2">The same five actions, seen in training</p></div><div class="st-card"><span class="st-label">02 · Dynamics (step 2)</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>Dynamics</span><div><i class="on" style="width:67.5%"></i></div><b>87%</b></div><div class="st-bar"><span>Positions</span><div><i class="" style="width:57.5%"></i></div><b>83%</b></div></div></div><div class="st-big"><span>87%</span></div><p class="st-cap">with velocity and acceleration, against 83% with positions alone, on ten MSR-Action3D actions</p><div class="st-second"><b>90%</b><span>other ten actions</span></div><p class="st-cap2">Up from 86% with positions alone</p></div><div class="st-card"><span class="st-label">03 · No cuts (step 4)</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>Online</span><div><i class="" style="width:37.5%"></i></div><b>75%</b></div><div class="st-bar"><span>Pre-cut</span><div><i class="on" style="width:57.5%"></i></div><b>83%</b></div></div></div><div class="st-big"><span>75%</span></div><p class="st-cap">on continuous video with no cuts, against 83% when it was cut into actions in advance</p><div class="st-second"><b>10</b><span>actions</span></div><p class="st-cap2">MSRAction3D, generalization test</p></div></div>
+      <p class="muted">Recognition accuracy on test data the system had not learned from; higher is better. Without attention to the body parts most involved, accuracy was about 70%.</p>
+      <ol class="role">
+        <li><b>Objects (step 3)</b>: the system recognized 91.1% of actions (push, pull, put, lift and point) and identified the object acted on, among four, in 100% of cases, by combining the action stream with a proximity measure.</li>
+        <li><b>Intention (step 6)</b>: internally simulated perception improves recognition in all experiments, and lets the system continue an action when the input is cut short.</li>
+      </ol>
+      <h3>Growing grids against maps (step 5)</h3>
+      <p>Growing grid networks beat self-organizing maps of the same size on every dataset, and learn three to four times faster.</p>
+      <div class="columns"><p class="cl-head"><span>Accuracy (%) on test data</span><span class="cl-key"><b class="sw"></b>Growing grid<b class="sw b"></b>SOM</span></p><div class="cl-plot"><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>93.00</em><i style="height:93.0%"></i></div><div class="cl-one b"><em>90.00</em><i style="height:90.0%"></i></div></div><span>MSRAction3D (1)</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>71.20</em><i style="height:71.2%"></i></div><div class="cl-one b"><em>59.61</em><i style="height:59.6%"></i></div></div><span>MSRAction3D (2)</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>90.00</em><i style="height:90.0%"></i></div><div class="cl-one b"><em>87.31</em><i style="height:87.3%"></i></div></div><span>UTKinect</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>80.10</em><i style="height:80.1%"></i></div><div class="cl-one b"><em>75.50</em><i style="height:75.5%"></i></div></div><span>Florence3DActions</span></div></div></div>
+      <p class="muted">MSRAction3D (1): 10 actions; (2): all 20 actions. The growing grid needed 200–300 training epochs, the SOM 1,300–1,600. Values from the paper's table.</p>
+    </section>
+    <section class="block" id="my-role">
+      <span class="label">04 · My role</span>
+      <h2>What I <span class="accent">built</span></h2>
+      <ol class="role">
+        <li><b>Designed and implemented</b> the action recognition system: Kinect input, 3D joint extraction and recognition.</li>
+        <li><b>Developed the methods</b>: hierarchical self-organizing maps, growing grid networks and online recognition of unsegmented streams.</li>
+        <li><b>Validated the pipeline</b> on MSRAction3D, UTKinect and Florence3DActions.</li>
+        <li><b>Contributed as a researcher</b> to the multi-partner projects WYSIWYD, Ikaros and Thinking in Time.</li>
+        <li><b>Published and presented</b> the work in four journals and at five international conferences.</li>
+      </ol>
+    </section>
+    <section class="block" id="tools">
+      <span class="label">05 · Tools</span>
+      <h2>Built <span class="accent">with</span></h2>
+      <div class="tools"><span>C++</span><span>Python</span><span>Kinect</span><span>Self-organizing maps</span><span>Matplotlib</span><span>Seaborn</span><span>Plotly</span><span>Visdom</span><span>Docker</span><span>Singularity</span></div>
+    </section>
+    <section class="block" id="resources">
+      <span class="label">06 · Resources</span>
+      <h2>Code <span class="accent">and projects</span></h2>
+      <div class="res">
+        <a href="https://github.com/zahrag/3DHARSOM" target="_blank" rel="noopener"><i class="fa-brands fa-github lead"></i><span><b>Code: SOM</b><small>zahrag/3DHARSOM</small></span></a>
+        <a href="https://github.com/zahrag/gg3dhar" target="_blank" rel="noopener"><i class="fa-brands fa-github lead"></i><span><b>Code: growing grid</b><small>zahrag/gg3dhar</small></span></a>
+      </div>
+      <h3>Presented at</h3>
+      <div class="tools"><span>ICAART 2022</span><span>ICNN 2018</span><span>BICA 2017</span><span>ICAART 2017</span><span>SITIS 2016</span></div>
+      <h3>Part of larger projects</h3>
+      <div class="res">
+        <a href="https://cordis.europa.eu/project/id/612139" target="_blank" rel="noopener"><i class="fa-solid fa-flag lead"></i><span><b>WYSIWYD</b><small>EU FET: What You Say Is What You Did</small></span></a>
+        <a href="https://www.ikaros-project.org/" target="_blank" rel="noopener"><i class="fa-solid fa-brain lead"></i><span><b>Ikaros</b><small>System-level modelling of the brain</small></span></a>
+        <a href="https://portal.research.lu.se/en/projects/thinking-in-time-cognition-communication-and-learning/" target="_blank" rel="noopener"><i class="fa-solid fa-hourglass-half lead"></i><span><b>Thinking in Time</b><small>Cognition, communication and learning</small></span></a>
+      </div>
+    </section>
+  </div>
+</div>
 
-  <section id="contributions">
-  <h2>Key Contributions</h2>
-  <ul>
-      <li>Designed and implemented a human action recognition system that, when paired with a Kinect sensor, receives and preprocesses action data, extracts 3D joint information, and recognizes performed actions.</li>
-      <li>Validated the proposed pipeline on multiple publicly available datasets, including MSRAction3D, UTKinect, and Florence3DActions.</li>
-      <li>Collaborated as a researcher on the <a href="https://cordis.europa.eu/project/id/612139" target="_blank">What You Say Is What You Did (EU FET WYSIWYD)</a>, a multiple partner project.</li>
-      <li>Contributing to the <a href="https://www.ikaros-project.org/" target="_blank"> Ikaros: An infrastructure for system level modelling of the brain</a>, a multiple partner project.</li>
-      <li>Participating in the <a href="https://portal.research.lu.se/en/projects/thinking-in-time-cognition-communication-and-learning/" target="_blank">
-Thinking in Time: Cognition, Communication and Learning</a>, a multiple partner project.</li>
-
-  </ul>
+<section class="contact" id="contact">
+  <div class="wrap contact-in">
+    <div class="rv">
+      <span class="label">Contact</span>
+      <h2>Let's <em>Connect.</em></h2>
+      <p class="lead-text">For professional opportunities, collaborations, research, consulting, or general inquiries, feel free to get in touch.</p>
+      <a class="mail" href="mailto:zahra.gharaee@gmail.com"><span class="ic"><i class="fa-regular fa-envelope"></i></span>zahra.gharaee@gmail.com</a>
+    </div>
+    <form class="cform rv" id="cform" novalidate>
+      <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="f-subject">Subject</label><input id="f-subject" name="subject" type="text"></div>
+      <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      <button class="send" type="submit">Send Message <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></button>
+      <p class="form-note" id="form-note" aria-live="polite" data-ok="Your email app should open with the message ready to send." data-error="Please add your name, a valid email and a message."></p>
+    </form>
+  </div>
 </section>
 
-  <section id="tools">
-      <h2>Tools & Technologies</h2>
-    <ul>
-      <li>C++, Python </li>
-      <li>Matplotlib (mpl_toolkits), Seaborn, Plotly, Visdom</li>
-      <li>Container (Singularity, Docker)</li>
-      <li>Cluster Computing, Parallel Computation</li>
-      <li>Virtual Environment, Bash Environment</li>
-    </ul>
-    </section>
-
-    <section id="code">
-      <h2>Code / Git</h2>
-        <ul>
-        <li><a href="https://github.com/zahrag/3DHARSOM" target="_blank">3DHARSOM GitHub Page</a></li>
-        <li><a href="https://github.com/zahrag/gg3dhar" target="_blank">gg3dhar GitHub Page</a></li>
-
-        </ul>
-    </section>
-
-    <section id="research">
-      <h2>Research / Paper</h2>
-        <ul>
-        <li><a href="https://arxiv.org/abs/2104.06059" target="_blank">Dynamic</a></li>
-        <li><a href="https://arxiv.org/abs/2104.06070" target="_blank">Online</a></li>
-        <li><a href="https://arxiv.org/abs/2104.11165" target="_blank">GG-Network</a></li>
-        <li><a href="https://arxiv.org/abs/2104.11637" target="_blank">Unsegmented</a></li>
-        <li><a href="https://www.scitepress.org/Papers/2022/109776/109776.pdf" target="_blank">InternalSimulation</a></li>
-        </ul>
-    </section>
-
-    <section id="presentation">
-      <h2>Presentations</h2>
-        <ul>
-        <li><a href="https://icaart.scitevents.org/?y=2022" target="_blank">14th International Conference on Agents and Artificial Intelligence (ICAART 2022)</a></li>
-        <li><a href="https://ieeexplore.ieee.org/abstract/document/7907518" target="_blank">12th International Conference on Signal-Image Technology & Internet-Based Systems (SITIS 2016)</a></li>
-        <li><a href="https://icaart.scitevents.org/?y=2017" target="_blank">9th International Conference on Agents and Artificial Intelligence (ICAART 2017)</a></li>
-        <li><a href="https://www.proceedings.com/38445.html" target="_blank">8th Annual International Conference on Biologically Inspired Cognitive Architectures (BICA 2017)</a></li>
-        <li>International Conference on Neural Networks (ICNN 2018)</li>
-        </ul>
-    </section>
-
-
-
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Zahra Gharaee. All rights reserved.</p>
-    </footer>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="https://zahragharaee.com/" class="wordmark">Zahra <em>Gharaee</em></a>
+        <a href="mailto:zahra.gharaee@gmail.com" class="foot-mail">zahra.gharaee@gmail.com</a>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/zahragh/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/zahrag" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&amp;hl=sv" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Zahra Gharaee. All rights reserved.</span>
+      <span>Built by <a href="https://zahragharaee.com/">Zahra Gharaee</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/portfolio.js"></script>
 </body>
 </html>

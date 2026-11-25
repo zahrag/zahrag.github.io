@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GCRL · Zahra Gharaee</title>
+<meta name="description" content="GCRL: generative causal representation learning for out-of-distribution motion forecasting. ICML 2023.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="assets/css/portfolio.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-wrap nav-in">
+    <a href="index.html" class="wordmark-nav">Zahra <em>Gharaee</em></a>
+    <div class="nav-center nav-links">
+      <a href="index.html" class="active">Projects</a>
+      <a href="teaching.html" target="_blank" rel="noopener">Talks and teaching</a>
+      <a href="index.html#publications">Publications</a>
+    </div>
+    <a href="https://zahragharaee.com/" class="nav-cta" target="_blank" rel="noopener">zahragharaee.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+    <button class="burger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
+
+<header class="wrap p-head">
+  <h1 class="rv">GCRL</h1>
+  <p class="lede rv">Generative causal representation learning: a model that separates what stays the same across environments from what changes, so pedestrian motion forecasts hold up in places the model has never seen.</p>
+  <div class="p-meta rv"><span class="tag venue">ICML 2023</span><span class="tag">Causal inference</span><span class="tag">Domain generalization</span><span class="tag">Variational inference</span></div>
+  <div class="p-links rv">
+    <a class="btn btn-primary" href="https://proceedings.mlr.press/v202/shirahmad-gale-bagi23a.html" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> Paper</a>
+    <a class="btn btn-outline" href="https://github.com/sshirahmad/GCRL" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+    <a class="btn btn-outline" href="https://arxiv.org/abs/2302.08635" target="_blank" rel="noopener"><i class="fa-solid fa-book-open"></i> arXiv</a>
+  </div>
+
+  <div class="facts rv">
+    <div class="fact"><b>ICML</b><span>2023 main conference</span></div>
+    <div class="fact"><b>2</b><span>latent factors: invariant and variant</span></div>
+    <div class="fact"><b>do(X)</b><span>causal effect, not correlation</span></div>
+    <div class="fact"><b>OOD</b><span>forecasting in unseen domains</span></div>
+  </div>
+</header>
+
+<div class="wrap p-body">
+  <aside class="toc" aria-label="On this page">
+    <a href="#problem">Problem</a>
+    <a href="#proposed-solution">Proposed solution</a>
+    <a href="#findings">Findings</a>
+    <a href="#my-role">My role</a>
+    <a href="#tools">Tools</a>
+    <a href="#resources">Resources</a>
+  </aside>
+
+  <div class="content">
+    <section class="block" id="problem">
+      <span class="label">01 · Problem</span>
+      <h2>When the scene <span class="accent">changes</span></h2>
+      <h3>The question</h3>
+      <p>Can a model that forecasts where pedestrians will walk keep working in a place it has never seen, by learning what stays the same everywhere?</p>
+      <figure class="places"><h3>Two places, one rule</h3><div class="pp-grid"><div class="pp"><h4>Place 1 · quiet campus</h4><small>Few people · walking slowly</small><svg viewBox="0 98 440 266" aria-hidden="true"><line x1="107.0" y1="130.0" x2="115.0" y2="130.0" stroke="#9aa8b5" stroke-width="2"/><polygon points="122.0,130.0 115.0,134.0 115.0,126.0" fill="#9aa8b5"/><circle cx="100" cy="130" r="7" fill="#9aa8b5"/><line x1="313.1" y1="141.4" x2="306.9" y2="142.6" stroke="#9aa8b5" stroke-width="2"/><polygon points="300.0,144.0 306.1,138.7 307.6,146.5" fill="#9aa8b5"/><circle cx="320" cy="140" r="7" fill="#9aa8b5"/><line x1="383.0" y1="330.0" x2="379.0" y2="330.0" stroke="#9aa8b5" stroke-width="2"/><polygon points="372.0,330.0 379.0,326.0 379.0,334.0" fill="#9aa8b5"/><circle cx="390" cy="330" r="7" fill="#9aa8b5"/><path d="M60 230 C 130 230, 160 196, 220 196 S 310 230, 372 230" fill="none" stroke="#5089b5" stroke-width="3"/><path d="M380 246 C 310 246, 280 280, 220 280 S 130 246, 68 246" fill="none" stroke="#c08a4a" stroke-width="3"/><polygon points="380,230 370,224 370,236" fill="#5089b5"/><polygon points="58,246 68,240 68,252" fill="#c08a4a"/><circle cx="60" cy="230" r="9" fill="#5089b5"/><text x="60" y="234" class="pp-who">A</text><circle cx="380" cy="246" r="9" fill="#c08a4a"/><text x="380" y="250" class="pp-who">B</text><text x="220" y="186" class="pp-say" fill="#5089b5">A steps aside</text><text x="220" y="300" class="pp-say" fill="#c08a4a">B steps aside</text><rect x="110" y="326" width="220" height="28" rx="14" class="pp-pill"/><text x="220" y="345" class="pp-same">Same: they step aside</text></svg></div><div class="pp"><h4>Place 2 · busy station</h4><small>Many people · walking fast</small><svg viewBox="0 98 440 266" aria-hidden="true"><line x1="27.0" y1="120.0" x2="61.0" y2="120.0" stroke="#9aa8b5" stroke-width="2"/><polygon points="68.0,120.0 61.0,124.0 61.0,116.0" fill="#9aa8b5"/><circle cx="20" cy="120" r="7" fill="#9aa8b5"/><line x1="106.9" y1="151.3" x2="137.1" y2="156.7" stroke="#9aa8b5" stroke-width="2"/><polygon points="144.0,158.0 136.4,160.7 137.8,152.8" fill="#9aa8b5"/><circle cx="100" cy="150" r="7" fill="#9aa8b5"/><line x1="193.0" y1="118.6" x2="161.0" y2="121.4" stroke="#9aa8b5" stroke-width="2"/><polygon points="154.0,122.0 160.6,117.4 161.3,125.4" fill="#9aa8b5"/><circle cx="200" cy="118" r="7" fill="#9aa8b5"/><line x1="293.0" y1="140.0" x2="259.0" y2="140.0" stroke="#9aa8b5" stroke-width="2"/><polygon points="252.0,140.0 259.0,136.0 259.0,144.0" fill="#9aa8b5"/><circle cx="300" cy="140" r="7" fill="#9aa8b5"/><line x1="353.2" y1="126.7" x2="326.8" y2="133.3" stroke="#9aa8b5" stroke-width="2"/><polygon points="320.0,135.0 325.8,129.4 327.8,137.2" fill="#9aa8b5"/><circle cx="360" cy="125" r="7" fill="#9aa8b5"/><line x1="167.0" y1="105.0" x2="199.0" y2="105.0" stroke="#9aa8b5" stroke-width="2"/><polygon points="206.0,105.0 199.0,109.0 199.0,101.0" fill="#9aa8b5"/><circle cx="160" cy="105" r="7" fill="#9aa8b5"/><line x1="97.0" y1="172.0" x2="123.0" y2="172.0" stroke="#9aa8b5" stroke-width="2"/><polygon points="130.0,172.0 123.0,176.0 123.0,168.0" fill="#9aa8b5"/><circle cx="90" cy="172" r="7" fill="#9aa8b5"/><line x1="323.0" y1="175.0" x2="291.0" y2="175.0" stroke="#9aa8b5" stroke-width="2"/><polygon points="284.0,175.0 291.0,171.0 291.0,179.0" fill="#9aa8b5"/><circle cx="330" cy="175" r="7" fill="#9aa8b5"/><line x1="37.0" y1="320.0" x2="69.0" y2="320.0" stroke="#9aa8b5" stroke-width="2"/><polygon points="76.0,320.0 69.0,324.0 69.0,316.0" fill="#9aa8b5"/><circle cx="30" cy="320" r="7" fill="#9aa8b5"/><line x1="383.0" y1="322.0" x2="349.0" y2="322.0" stroke="#9aa8b5" stroke-width="2"/><polygon points="342.0,322.0 349.0,318.0 349.0,326.0" fill="#9aa8b5"/><circle cx="390" cy="322" r="7" fill="#9aa8b5"/><path d="M60 230 C 130 230, 160 196, 220 196 S 310 230, 372 230" fill="none" stroke="#5089b5" stroke-width="3"/><path d="M380 246 C 310 246, 280 280, 220 280 S 130 246, 68 246" fill="none" stroke="#c08a4a" stroke-width="3"/><polygon points="380,230 370,224 370,236" fill="#5089b5"/><polygon points="58,246 68,240 68,252" fill="#c08a4a"/><circle cx="60" cy="230" r="9" fill="#5089b5"/><text x="60" y="234" class="pp-who">A</text><circle cx="380" cy="246" r="9" fill="#c08a4a"/><text x="380" y="250" class="pp-who">B</text><text x="220" y="186" class="pp-say" fill="#5089b5">A steps aside</text><text x="220" y="300" class="pp-say" fill="#c08a4a">B steps aside</text><rect x="110" y="326" width="220" height="28" rx="14" class="pp-pill"/><text x="220" y="345" class="pp-same">Same: they step aside</text></svg></div></div><p class="pp-key">Arrow length = walking speed</p><p class="pp-cap">Speed and crowding change from place to place; avoiding each other does not. <b>GCRL keeps the rule and adapts only the place-specific features.</b></p><p class="pp-cap"><b>How:</b> trained in one place, GCRL learns both parts. In a new place, the rule stays fixed and only the place-specific part is fine-tuned.</p></figure>
+      <h3>Background</h3>
+      <p>Motion forecasting models learn from pedestrian trajectories recorded in particular places. Move them to a new environment, with different crowds, layouts or walking styles, and their predictions often break down, because they have learned correlations that were specific to the training data.</p>
+      <p>Some factors that shape motion hold everywhere, such as physical laws, traffic rules and social norms. Others change from place to place, such as the motion styles of the people there. A model that keeps these apart can carry what is universal into new domains.</p>
+      <h3>Causality in brief</h3>
+      <div class="cards2">
+        <div class="mini"><i class="fa-solid fa-diagram-project"></i><h4>Structural causal models</h4><p>Directed acyclic graphs where an edge X → Y means changing X can change Y, but not the reverse.</p></div>
+        <div class="mini"><i class="fa-solid fa-shuffle"></i><h4>Confounders</h4><p>Variables that influence both cause and effect, creating misleading associations.</p></div>
+        <div class="mini"><i class="fa-solid fa-door-closed"></i><h4>Backdoor criterion</h4><p>A set of variables that, controlled for, blocks confounding paths so p(Y | do(X)) can be estimated.</p></div>
+        <div class="mini"><i class="fa-solid fa-eye-slash"></i><h4>Causal representation learning</h4><p>Learning latent variables that capture causal structure, not only correlations.</p></div>
+      </div>
+    </section>
+    <section class="block" id="proposed-solution">
+      <span class="label">02 · Proposed solution · Method</span>
+      <h2>Separating the <span class="accent">invariant</span> from the <span class="accent">variant</span></h2>
+      <p>GCRL is a generative model built on a causal graph. It learns two hidden factors from past paths: one that stays the same everywhere, and one that depends on the place.</p>
+      <div class="cgraph"><svg viewBox="0 0 520 260" role="img" aria-label="Causal graph"><defs><marker id="cg-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#5089b5"/></marker></defs><line class="cg-edge" x1="129" y1="220" x2="226" y2="220" marker-end="url(#cg-arrow)"/><line class="cg-edge" x1="234" y1="205" x2="129" y2="147" marker-end="url(#cg-arrow)"/><line class="cg-edge" x1="286" y1="205" x2="391" y2="147" marker-end="url(#cg-arrow)"/><line class="cg-edge" x1="234" y1="55" x2="129" y2="113" marker-end="url(#cg-arrow)"/><line class="cg-edge" x1="286" y1="55" x2="391" y2="113" marker-end="url(#cg-arrow)"/><line class="cg-edge" x1="129" y1="130" x2="387" y2="130" marker-end="url(#cg-arrow)"/><circle class="cg-node" cx="99" cy="220" r="28"/><text class="cg-sym" x="99" y="227" text-anchor="middle">E</text><circle class="cg-node hid" cx="260" cy="220" r="28"/><text class="cg-sym hid" x="260" y="227" text-anchor="middle">S</text><circle class="cg-node hid" cx="260" cy="40" r="28"/><text class="cg-sym hid" x="260" y="47" text-anchor="middle">Z</text><circle class="cg-node" cx="99" cy="130" r="28"/><text class="cg-sym" x="99" y="137" text-anchor="middle">X</text><circle class="cg-node" cx="421" cy="130" r="28"/><text class="cg-sym" x="421" y="137" text-anchor="middle">Y</text></svg><ul class="cg-key"><li><b>E</b><div><span>Environment</span><small>Which place the data comes from. It sets the style of that place.</small></div></li><li><b>S</b><div><span>Variant features, latent</span><small>What changes from place to place, such as walking style.</small></div></li><li><b>Z</b><div><span>Invariant features, latent</span><small>What holds everywhere: physical laws, traffic rules, social norms.</small></div></li><li><b>X</b><div><span>Past path</span><small>The observed trajectory so far.</small></div></li><li><b>Y</b><div><span>Future path</span><small>The trajectory to predict.</small></div></li></ul></div>
+      <p class="muted">Filled circles are observed; dashed circles are hidden and learned by the model.</p>
+      <p>Both Z and S influence the past and the future, so they confound the link between X and Y. Using the backdoor criterion, the model estimates the true causal effect p(Y | do(X)) rather than a correlation that may not transfer.</p>
+      <h3>How it works</h3>
+      <ol class="flow"><li><span class="fl-dot">1</span><b>Encode</b><small>Read the past path of each pedestrian.</small></li><li><span class="fl-dot">2</span><b>Separate</b><small>Infer the invariant part Z and the variant part S.</small></li><li><span class="fl-dot">3</span><b>Predict</b><small>Generate the future path from the past, Z and S.</small></li><li><span class="fl-dot">4</span><b>Adapt</b><small>In a new place, keep Z and tune only S.</small></li></ol>
+      <h3>One objective, five goals</h3>
+      <ol class="role">
+        <li><b>Accurate forecasts</b>, by maximizing the likelihood of the true future trajectories.</li>
+        <li><b>No confounding</b>, by estimating the causal effect of X on Y, p(y | do(x)).</li>
+        <li><b>Faithful encoding</b>, by reconstructing the past trajectories from the latents.</li>
+        <li><b>Invariant representations</b>, by pulling the posterior of Z towards its prior.</li>
+        <li><b>Variant representations</b>, by matching the posterior of S to its environment-specific prior.</li>
+      </ol>
+    </section>
+    <section class="block" id="findings">
+      <span class="label">03 · Findings</span>
+      <h2>Steady <span class="accent">under shift</span></h2>
+      <p>Tested on real crowds (ETH-UCY: 1,536 pedestrians in five scenes) and on synthetic crowds in eight domains, GCRL holds up where other forecasters break down.</p>
+      <div class="stats"><div class="st-card"><span class="st-label">01 · Robust to noise</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>GCRL</span><div><i class="on" style="width:32.3%"></i></div><b>0.97</b></div><div class="st-bar"><span>Baseline</span><div><i class="" style="width:89.3%"></i></div><b>2.68</b></div></div></div><div class="st-big"><span>0.97</span></div><p class="st-cap">average error at every noise level, from 8 up to 64</p><div class="st-second"><b>2.68</b><span>baseline at 64</span></div><p class="st-cap2">The baseline STGAT forecaster more than triples its error as noise grows</p></div><div class="st-card"><span class="st-label">02 · Generalizes</span><div class="st-diagram"><div class="st-flow"><span class="">3 training domains</span><i class="fa-solid fa-arrow-right"></i><span class="on">GCRL</span><i class="fa-solid fa-arrow-right"></i><span class="">8 test domains</span></div></div><div class="st-big"><span>8.8%</span></div><p class="st-cap">lower average error than the invariant baseline on unseen domains</p><div class="st-second"><b>8</b><span>synthetic domains</span></div><p class="st-cap2">Trained on three, tested on all eight</p></div><div class="st-card"><span class="st-label">03 · Adapts fast</span><div class="st-diagram"><div class="st-flow"><span class="">Z kept</span><i class="fa-solid fa-arrow-right"></i><span class="on">S tuned</span></div></div><div class="st-big"><span>34.3%</span></div><p class="st-cap">better average error than the invariant baseline in a new domain</p><div class="st-second"><b>≤ 6</b><span>batches</span></div><p class="st-cap2">Only a few batches of 64 samples from the new place are needed</p></div></div>
+      <p class="muted">Average displacement error (ADE): how far predicted positions land from the true ones, on average; lower is better.</p>
+      <p>The variant features S are identifiable, while the invariant features Z cannot be recovered from trajectories alone; still, a model using only Z performs on par with the full model across domains, supporting that Z is invariant.</p>
+    </section>
+    <section class="block" id="my-role">
+      <span class="label">04 · My role</span>
+      <h2>What I <span class="accent">contributed</span></h2>
+      <ol class="role">
+        <li><b>Mentored a PhD student</b> throughout the project, from experimental design to model development.</li>
+        <li><b>Guided methodology</b> and technical implementation.</li>
+        <li><b>Collaborated with academic partners</b> to shape research directions and integrate feedback.</li>
+        <li><b>Supported writing and revision</b> through to the peer-reviewed ICML publication.</li>
+        <li><b>Co-authored</b> the paper and contributed to its dissemination and presentation.</li>
+      </ol>
+    </section>
+    <section class="block" id="tools">
+      <span class="label">05 · Tools</span>
+      <h2>Built <span class="accent">with</span></h2>
+      <div class="tools"><span>Python</span><span>PyTorch</span><span>Variational autoencoders</span><span>Coupling layers</span><span>Structural causal models</span><span>Do-calculus</span></div>
+    </section>
+    <section class="block" id="resources">
+      <span class="label">06 · Resources</span>
+      <h2>Code <span class="accent">and papers</span></h2>
+      <div class="res">
+        <a href="https://proceedings.mlr.press/v202/shirahmad-gale-bagi23a.html" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines lead"></i><span><b>Paper</b><small>PMLR, ICML 2023</small></span></a>
+        <a href="https://proceedings.mlr.press/v202/shirahmad-gale-bagi23a/shirahmad-gale-bagi23a.pdf" target="_blank" rel="noopener"><i class="fa-regular fa-file-pdf lead"></i><span><b>PDF</b><small>Full text</small></span></a>
+        <a href="https://arxiv.org/abs/2302.08635" target="_blank" rel="noopener"><i class="fa-solid fa-book-open lead"></i><span><b>arXiv</b><small>2302.08635</small></span></a>
+        <a href="https://github.com/sshirahmad/GCRL" target="_blank" rel="noopener"><i class="fa-brands fa-github lead"></i><span><b>Code</b><small>sshirahmad/GCRL</small></span></a>
+        <a href="Project_ICRL_SM.html"><i class="fa-solid fa-link lead"></i><span><b>ICRL-SM</b><small>Follow-up project</small></span></a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-in">
+    <div class="rv">
+      <span class="label">Contact</span>
+      <h2>Let's <em>Connect.</em></h2>
+      <p class="lead-text">For professional opportunities, collaborations, research, consulting, or general inquiries, feel free to get in touch.</p>
+      <a class="mail" href="mailto:zahra.gharaee@gmail.com"><span class="ic"><i class="fa-regular fa-envelope"></i></span>zahra.gharaee@gmail.com</a>
+    </div>
+    <form class="cform rv" id="cform" novalidate>
+      <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="f-subject">Subject</label><input id="f-subject" name="subject" type="text"></div>
+      <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      <button class="send" type="submit">Send Message <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></button>
+      <p class="form-note" id="form-note" aria-live="polite" data-ok="Your email app should open with the message ready to send." data-error="Please add your name, a valid email and a message."></p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="https://zahragharaee.com/" class="wordmark">Zahra <em>Gharaee</em></a>
+        <a href="mailto:zahra.gharaee@gmail.com" class="foot-mail">zahra.gharaee@gmail.com</a>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/zahragh/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/zahrag" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&amp;hl=sv" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Zahra Gharaee. All rights reserved.</span>
+      <span>Built by <a href="https://zahragharaee.com/">Zahra Gharaee</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/portfolio.js"></script>
+</body>
+</html>

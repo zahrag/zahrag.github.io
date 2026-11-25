@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ICRL-SM · Zahra Gharaee</title>
+<meta name="description" content="ICRL-SM: modeling soft intervention effects for implicit causal representation learning. Machine Learning (Springer).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="assets/css/portfolio.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-wrap nav-in">
+    <a href="index.html" class="wordmark-nav">Zahra <em>Gharaee</em></a>
+    <div class="nav-center nav-links">
+      <a href="index.html" class="active">Projects</a>
+      <a href="teaching.html" target="_blank" rel="noopener">Talks and teaching</a>
+      <a href="index.html#publications">Publications</a>
+    </div>
+    <a href="https://zahragharaee.com/" class="nav-cta" target="_blank" rel="noopener">zahragharaee.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+    <button class="burger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
+
+<header class="wrap p-head">
+  <h1 class="rv">ICRL-SM</h1>
+  <p class="lede rv">Implicit causal representation learning via switchable mechanisms: learning causal representations from real-world, soft interventions, with a causal mechanism switch variable that separates the change that matters from the noise that comes with it.</p>
+  <div class="p-meta rv"><span class="tag venue">Machine Learning · Springer</span><span class="tag">Implicit causal models</span><span class="tag">Soft interventions</span><span class="tag">Identifiability</span></div>
+  <div class="p-links rv">
+    <a class="btn btn-primary" href="https://arxiv.org/abs/2402.11124" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> Paper</a>
+    <a class="btn btn-outline" href="https://github.com/sshirahmad/ICRL" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+  </div>
+
+  <div class="facts rv">
+    <div class="fact"><b>0.86</b><span>action accuracy on ProcTHOR</span></div>
+    <div class="fact"><b>+0.19</b><span>over the best baseline</span></div>
+    <div class="fact"><b>6</b><span>explicit and implicit baselines</span></div>
+    <div class="fact"><b>70</b><span>independent experiments</span></div>
+  </div>
+</header>
+
+<div class="wrap p-body">
+  <aside class="toc" aria-label="On this page">
+    <a href="#problem">Problem</a>
+    <a href="#proposed-solution">Proposed solution</a>
+    <a href="#findings">Findings</a>
+    <a href="#my-role">My role</a>
+    <a href="#tools">Tools</a>
+    <a href="#resources">Resources</a>
+  </aside>
+
+  <div class="content">
+    <section class="block" id="problem">
+      <span class="label">01 · Problem</span>
+      <h2>Real interventions <span class="accent">are soft</span></h2>
+      <h3>The question</h3>
+      <p>Real-world interventions rarely change just one thing: they change what we want, and bring side effects we do not. Can a model still learn the true causes behind what it sees?</p>
+      <div class="effects"><div class="ef ef-observe"><h4>Observe</h4><svg viewBox="0 0 280 150" aria-hidden="true"><defs><marker id="ef-5089b5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#5089b5"/></marker><marker id="ef-b8c6d1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#b8c6d1"/></marker><marker id="ef-c08a4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#c08a4a"/></marker></defs><rect class="ef-n" x="10" y="104" width="92" height="30" rx="15"/><text class="ef-t" x="56.0" y="123.5">Exercise</text><rect class="ef-n" x="178" y="104" width="92" height="30" rx="15"/><text class="ef-t" x="224.0" y="123.5">Heart rate</text><line x1="104" y1="119" x2="174" y2="119" stroke="#5089b5" stroke-width="3.2" marker-end="url(#ef-5089b5)"/></svg><p>Heart rate rises with exercise.</p></div><div class="ef ef-hard"><h4>Hard intervention</h4><svg viewBox="0 0 280 150" aria-hidden="true"><defs><marker id="ef-5089b5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#5089b5"/></marker><marker id="ef-b8c6d1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#b8c6d1"/></marker><marker id="ef-c08a4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#c08a4a"/></marker></defs><rect class="ef-n" x="10" y="104" width="92" height="30" rx="15"/><text class="ef-t" x="56.0" y="123.5">Exercise</text><rect class="ef-n" x="178" y="104" width="92" height="30" rx="15"/><text class="ef-t" x="224.0" y="123.5">Heart rate</text><rect class="ef-n ef-in" x="170" y="14" width="108" height="30" rx="15"/><text class="ef-t" x="224.0" y="33.5">Beta-blocker</text><line x1="224" y1="46" x2="224" y2="100" stroke="#c08a4a" stroke-width="2.6" marker-end="url(#ef-c08a4a)"/><line x1="104" y1="119" x2="174" y2="119" stroke="#b8c6d1" stroke-width="2" stroke-dasharray="4 4" marker-end="url(#ef-b8c6d1)"/><path class="ef-x" d="M133 112 L145 126 M145 112 L133 126"/></svg><p>A beta-blocker under controlled conditions breaks the effect: exercise no longer raises heart rate.</p></div><div class="ef ef-soft"><h4>Soft intervention</h4><svg viewBox="0 0 280 150" aria-hidden="true"><defs><marker id="ef-5089b5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#5089b5"/></marker><marker id="ef-b8c6d1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#b8c6d1"/></marker><marker id="ef-c08a4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#c08a4a"/></marker></defs><rect class="ef-n" x="10" y="104" width="92" height="30" rx="15"/><text class="ef-t" x="56.0" y="123.5">Exercise</text><rect class="ef-n" x="178" y="104" width="92" height="30" rx="15"/><text class="ef-t" x="224.0" y="123.5">Heart rate</text><rect class="ef-n ef-in" x="170" y="14" width="108" height="30" rx="15"/><text class="ef-t" x="224.0" y="33.5">Beta-blocker</text><rect class="ef-n ef-in" x="40" y="14" width="92" height="30" rx="15"/><text class="ef-t" x="86.0" y="33.5">Caffeine</text><line x1="224" y1="46" x2="224" y2="100" stroke="#c08a4a" stroke-width="2.6" marker-end="url(#ef-c08a4a)"/><line x1="100" y1="46" x2="186" y2="102" stroke="#c08a4a" stroke-width="2" marker-end="url(#ef-c08a4a)"/><line x1="104" y1="119" x2="174" y2="119" stroke="#5089b5" stroke-width="1.6" marker-end="url(#ef-5089b5)"/></svg><p>With caffeine or other stimulants around, the effect is reduced but not removed.</p></div></div>
+      <h3>Background</h3>
+      <p>Recovering the true causal variables behind images, video or sensor data requires interventions. Most implicit methods assume hard interventions, which fully cut a variable off from its causes. In practice, interventions are usually soft: they change how a mechanism works without severing its dependencies, and bring subtle, ambiguous side effects.</p>
+      <p>A structural causal model links causal variables through mechanisms arranged in a directed acyclic graph. Interventions, deliberate changes to a variable, reveal which way cause and effect run.</p>
+      <p>Implicit models, which learn causal dependencies without estimating a causal graph, avoid the optimization traps of explicit methods. The open question was how to make them work when interventions are soft.</p>
+      <h3>Hard, soft, explicit, implicit</h3>
+      <div class="splits">
+        <div class="split"><b>Hard intervention</b><p>Sets a variable to a fixed value and cuts it off from its causes, as in a randomized trial.</p><code>do(Z = z)</code></div>
+        <div class="split"><b>Soft intervention</b><p>Changes a mechanism but keeps the variable's dependence on its causes. Closer to real life, harder to learn from.</p><code>mechanism shift</code></div>
+        <div class="split"><b>Explicit models</b><p>Learn the causal graph and the representations together, which can make training unstable.</p><code>graph + latents</code></div>
+        <div class="split"><b>Implicit models</b><p>Write each causal variable as a function of exogenous noise and never estimate the graph.</p><code>solution functions</code></div>
+      </div>
+    </section>
+    <section class="block" id="proposed-solution">
+      <span class="label">02 · Proposed solution · Method</span>
+      <h2>A switch for <span class="accent">unwanted change</span></h2>
+      <p>ICRL-SM introduces a causal mechanism switch variable, V, that captures the unwanted shifts a soft intervention causes, such as a change in camera angle while someone opens a cabinet. Isolating these lets the model focus on the variation that reflects the underlying causal structure.</p>
+      <div class="switch"><div class="sw-col"><div class="sw-box "><b>Before</b><small>The scene before the action, x.</small></div><div class="sw-box "><b>After</b><small>The scene after the action, x̃.</small></div></div><i class="fa-solid fa-arrow-right sw-arr"></i><div class="sw-col"><div class="sw-box sw-diff"><b>Difference</b><small>What changed between them, x̃ − x.</small></div></div><i class="fa-solid fa-arrow-right sw-arr"></i><div class="sw-col"><div class="sw-box on"><b>Causal variables</b><small>The change that matters, such as the bread now in the toaster.</small></div><div class="sw-box sw-side"><b>Switch V</b><small>The side changes to set aside, such as the camera moving.</small></div></div></div>
+      <h3>How it works</h3>
+      <ol class="flow"><li><span class="fl-dot">1</span><b>Encode the pair</b><small>A variational autoencoder reads the before and after images.</small></li><li><span class="fl-dot">2</span><b>Find the switch</b><small>The difference between them is encoded into the switch V.</small></li><li><span class="fl-dot">3</span><b>Solve</b><small>Solution functions map noise and V to the causal variables, with no graph to learn.</small></li><li><span class="fl-dot">4</span><b>Predict</b><small>The action and the object are predicted from the changed causal variable.</small></li></ol>
+      <p>Under stated assumptions, the causal variables are identified up to reparameterization.</p>
+    </section>
+    <section class="block" id="findings">
+      <span class="label">03 · Findings</span>
+      <h2>Robust <span class="accent">beyond the theory</span></h2>
+      <p>Tested on Causal-Triplet, real image pairs taken before and after an action on an object, in real kitchens (Epic-Kitchens) and simulated homes (ProcTHOR). ICRL-SM predicts the action best, even though real data breaks some of its assumptions.</p>
+      <div class="bas"><figure class="ba"><h4>Epic-Kitchens · real kitchens</h4><div class="ba-pics"><span><img src="images/icrl/ek-before.webp" alt="Epic-Kitchens · real kitchens before" loading="lazy"><em>Before</em></span><i class="fa-solid fa-arrow-right"></i><span><img src="images/icrl/ek-after.webp" alt="Epic-Kitchens · real kitchens after: Bread inserted" loading="lazy"><em>After</em></span></div><figcaption>Action: <b>Bread inserted</b></figcaption></figure><figure class="ba"><h4>ProcTHOR · simulated homes</h4><div class="ba-pics"><span><img src="images/icrl/pt-before.webp" alt="ProcTHOR · simulated homes before" loading="lazy"><em>Before</em></span><i class="fa-solid fa-arrow-right"></i><span><img src="images/icrl/pt-after.webp" alt="ProcTHOR · simulated homes after: TV on" loading="lazy"><em>After</em></span></div><figcaption>Action: <b>TV on</b></figcaption></figure></div>
+      <div class="stats"><div class="st-card"><span class="st-label">01 · ProcTHOR actions</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>ICRL-SM</span><div><i class="on" style="width:86.0%"></i></div><b>0.86</b></div><div class="st-bar"><span>ENCO</span><div><i class="" style="width:67.0%"></i></div><b>0.67</b></div></div></div><div class="st-big"><span>0.86</span></div><p class="st-cap">action accuracy, against 0.67 for the best other method</p><div class="st-second"><b>+0.19</b><span>over ENCO</span></div><p class="st-cap2">The best of the six other methods on this test</p></div><div class="st-card"><span class="st-label">02 · Epic-Kitchens actions</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>ICRL-SM</span><div><i class="on" style="width:69.0%"></i></div><b>0.69</b></div><div class="st-bar"><span>ENCO</span><div><i class="" style="width:62.0%"></i></div><b>0.62</b></div></div></div><div class="st-big"><span>0.69</span></div><p class="st-cap">action accuracy, against 0.62 for the best other method</p><div class="st-second"><b>+0.07</b><span>over ENCO</span></div><p class="st-cap2">Real kitchen videos, with a moving camera</p></div><div class="st-card"><span class="st-label">03 · Beats 6 methods</span><div class="st-diagram"><div class="st-flow"><span class="">6 other methods</span><i class="fa-solid fa-arrow-right"></i><span class="on">ICRL-SM</span></div></div><div class="st-big"><span>3 of 4</span></div><p class="st-cap">tests won, and tied on the fourth (Epic-Kitchens objects)</p><div class="st-second"><b>6</b><span>other methods</span></div><p class="st-cap2">3 explicit and 3 implicit, five seeds each</p></div></div>
+      <p class="muted">Accuracy of predicting the action or object from the changed causal variable, averaged over five seeds; higher is better.</p>
+      <p>Experiments on synthetic graphs also show where the approach reaches its limits: when soft interventions change mechanisms very strongly, the switch variable needs more supervision to capture them.</p>
+    </section>
+    <section class="block" id="my-role">
+      <span class="label">04 · My role</span>
+      <h2>What I <span class="accent">contributed</span></h2>
+      <ol class="role">
+        <li><b>Mentored a PhD student</b> on experimental design, data preprocessing, implementation and evaluation.</li>
+        <li><b>Guided methodology</b>, including statistical modeling, causal inference and representation learning architectures.</li>
+        <li><b>Collaborated with partners</b> to define objectives and integrate feedback into model development.</li>
+        <li><b>Supported drafting, revision and submission</b> of the journal publication, ensuring rigor and reproducibility.</li>
+        <li><b>Co-authored</b> the work and presented it to technical and applied audiences.</li>
+      </ol>
+    </section>
+    <section class="block" id="tools">
+      <span class="label">05 · Tools</span>
+      <h2>Built <span class="accent">with</span></h2>
+      <div class="tools"><span>Python</span><span>PyTorch</span><span>Variational autoencoders</span><span>ResNet-50</span><span>Structural causal models</span><span>Causal-Triplet</span><span>Epic-Kitchens</span><span>ProcTHOR</span></div>
+    </section>
+    <section class="block" id="resources">
+      <span class="label">06 · Resources</span>
+      <h2>Code <span class="accent">and papers</span></h2>
+      <div class="res">
+        <a href="https://arxiv.org/abs/2402.11124" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines lead"></i><span><b>Preprint</b><small>arXiv 2402.11124</small></span></a>
+        <a href="https://github.com/sshirahmad/ICRL" target="_blank" rel="noopener"><i class="fa-brands fa-github lead"></i><span><b>Code</b><small>sshirahmad/ICRL</small></span></a>
+        <a href="Project_GCRL.html"><i class="fa-solid fa-link lead"></i><span><b>Generative CRL</b><small>Earlier project, ICML 2023</small></span></a>
+      </div>
+    </section>
+  </div>
+</div>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-in">
+    <div class="rv">
+      <span class="label">Contact</span>
+      <h2>Let's <em>Connect.</em></h2>
+      <p class="lead-text">For professional opportunities, collaborations, research, consulting, or general inquiries, feel free to get in touch.</p>
+      <a class="mail" href="mailto:zahra.gharaee@gmail.com"><span class="ic"><i class="fa-regular fa-envelope"></i></span>zahra.gharaee@gmail.com</a>
+    </div>
+    <form class="cform rv" id="cform" novalidate>
+      <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="f-subject">Subject</label><input id="f-subject" name="subject" type="text"></div>
+      <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      <button class="send" type="submit">Send Message <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></button>
+      <p class="form-note" id="form-note" aria-live="polite" data-ok="Your email app should open with the message ready to send." data-error="Please add your name, a valid email and a message."></p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="https://zahragharaee.com/" class="wordmark">Zahra <em>Gharaee</em></a>
+        <a href="mailto:zahra.gharaee@gmail.com" class="foot-mail">zahra.gharaee@gmail.com</a>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/zahragh/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/zahrag" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&amp;hl=sv" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Zahra Gharaee. All rights reserved.</span>
+      <span>Built by <a href="https://zahragharaee.com/">Zahra Gharaee</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/portfolio.js"></script>
+</body>
+</html>

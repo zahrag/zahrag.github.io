@@ -1,469 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Polyfill for broader browser compatibility -->
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-
-<!-- Load MathJax to display LaTeX equations -->
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoE-VRD Portfolio</title>
-<style>
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes full height */
-    line-height: 1.6;
-}
-
-header {
-    background-color: #282c34;
-    color: #ffffff;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 2px -2px gray;
-    position: relative;
-    z-index: 2; /* Ensure header is above other elements */
-}
-
-.header-container {
-    text-align: center;
-}
-
-.header-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-.sidebar {
-    background-color: #f5f5f5;
-    padding: 15px;
-    padding-top: 150px; /* Add space at the top */
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
-.sidebar nav a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #333;
-    border-left: 3px solid transparent;
-    /*margin-bottom: 5px;
-    /*margin-top: 10px;  /*Add space above each link */
-}
-
-.sidebar nav a:first-child {
-    margin-top: 0; /* Remove margin from the first link, if needed */
-}
-
-
-.content {
-    margin-left: 270px; /* Space for the sidebar */
-    padding: 20px;
-    width: calc(100% - 350px); /* Adjust width to account for the sidebar */
-    flex-grow: 1;
-    overflow: auto; /* Ensure content scrolls if necessary */
-}
-
-
-footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #aaa;
-    }
-
-img {
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Container for centering the figure */
-.figure-container {
-    text-align: center;
-    margin: 0 auto;
-    justify-content: flex-end; /* Align caption to the bottom */
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* Styling for centered images */
-.centered-image {
-    display: block;
-    margin: 0 auto;
-    object-fit: cover;
-}
-
-/* Styling for captions */
-.caption {
-    /*font-style: italic;*/
-    color: #555;
-    margin-top: 8px;
-}
-.image-row {
-    display: flex; /* Display images in a row */
-    justify-content: center; /* Center the images horizontally */
-    gap: 20px; /* Space between images */
-}
-
-h2 {
-    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-h4 {
-    border-bottom: 2px solid #d3d3d3; /* Changed from blue to top bar color */
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
-
-li {
-    margin-bottom: 3px; /* Adjust this value to control the vertical space */
-}
-</style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MoE-VRD · Zahra Gharaee</title>
+<meta name="description" content="MoE-VRD: video relationship detection using a sparsely gated mixture of experts. IEEE Access 2023.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
-
 <body>
-  <header>
-    <h1>Computer Vision Project: MoE-VRD</h1>
-  </header>
 
-  <aside class="sidebar">
-    <nav>
-      <a href="index.html" style="margin-right: 20px;">Home</a>
-      <a href="#description">Project Description</a>
-      <a href="#contributions">Key Contributions</a>
-      <a href="#tools">Tools & Technologies</a>
-      <a href="#code">Code / Git</a>
-      <a href="#research">Research / Paper</a>
-      <a href="#presentation">Presentation</a>
-      <a href="#additional-context"> Additional Context</a>
-      <ul>
-        <li><a href="#VRD"> Video Relationship Detection</a></li>
-        <li><a href="#MoE"> Sparsely Gated Mixture-of-Experts</a></li>
-        <li><a href="#MoE-VRD"> Video Relationship Detection by Mixture-of-Experts</a></li>
-        <li><a href="#Experiments"> Experiments & Results</a></li>
+<nav class="site-nav">
+  <div class="nav-wrap nav-in">
+    <a href="index.html" class="wordmark-nav">Zahra <em>Gharaee</em></a>
+    <div class="nav-center nav-links">
+      <a href="index.html" class="active">Projects</a>
+      <a href="teaching.html" target="_blank" rel="noopener">Talks and teaching</a>
+      <a href="index.html#publications">Publications</a>
+    </div>
+    <a href="https://zahragharaee.com/" class="nav-cta" target="_blank" rel="noopener">zahragharaee.com <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></a>
+    <button class="burger" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</nav>
 
-      </ul>
-    </nav>
+<header class="wrap p-head">
+  <h1 class="rv">MoE-VRD</h1>
+  <p class="lede rv">Video relationship detection with a mixture of experts: a team of small, specialized networks describes who does what to whom in a video, outperforming a single large model without adding computation.</p>
+  <div class="p-meta rv"><span class="tag venue">IEEE Access 2023</span><span class="tag">Mixture of experts</span><span class="tag">Video understanding</span><span class="tag">Vision and language</span></div>
+  <div class="p-links rv">
+    <a class="btn btn-primary" href="https://ieeexplore.ieee.org/abstract/document/10070773" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> Paper</a>
+    <a class="btn btn-outline" href="https://github.com/shibshib/Moe-VRD" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Code</a>
+    <a class="btn btn-outline" href="https://arxiv.org/abs/2403.03994" target="_blank" rel="noopener"><i class="fa-solid fa-book-open"></i> arXiv</a>
+  </div>
+
+  <div class="facts rv">
+    <div class="fact"><b>33.0</b><span>detection mAP on ImageNet-VidVRD</span></div>
+    <div class="fact"><b>+3.7</b><span>mAP over the previous best</span></div>
+    <div class="fact"><b>2 of 10</b><span>experts active per input</span></div>
+    <div class="fact"><b>11K</b><span>benchmark videos</span></div>
+  </div>
+</header>
+
+<div class="wrap p-body">
+  <aside class="toc" aria-label="On this page">
+    <a href="#problem">Problem</a>
+    <a href="#proposed-solution">Proposed solution</a>
+    <a href="#findings">Findings</a>
+    <a href="#my-role">My role</a>
+    <a href="#tools">Tools</a>
+    <a href="#resources">Resources</a>
   </aside>
 
-
-    <main class="content">
-    <section id="description">
-      <h2>Project Description</h2>
-      <figure class="figure-container">
-                <img src="images/ViDVRD_MoE.webp" alt="SLOP-KP" class="centered-image" width="500" height="500">
-                <figcaption class="caption">\(< \text{The human} >\) \(< \text{kicks} >\) \(< \text{the ball} >\).</figcaption>
-      </figure>
-        <b>ViDVRD-MoE: Video Relationship Detection Using Mixture of Experts</b> introduces a novel approach for detecting
-                relationships in video data by addressing key challenges at the intersection of vision and language.
-                Traditional monolithic classifiers often struggle with generalization and stability,
-                particularly in capturing object interactions and their linguistic representations. MoE-VRD tackles
-                this by using a mixture of lightweight expert models, each specialized in visual relationship learning
-                and object tagging. Relationships are expressed as language triplets (\(<\)subject, predicate, object\(>\)),
-                enhancing action recognition between entities. Through sparsely-gated conditional computation,
-                MoE-VRD boosts model capacity without increasing computational complexity.
-            </p>
+  <div class="content">
+    <section class="block" id="problem">
+      <span class="label">01 · Problem</span>
+      <h2>Who does what <span class="accent">to whom</span></h2>
+      <h3>The question</h3>
+      <p>Can a model describe what happens in a video as simple sentences, such as person – ride – bicycle, and stay reliable across the many possible combinations?</p>
+      <div class="triplets"><div class="tp-row tp-head"><span>Subject</span><span>Predicate</span><span>Object</span></div><div class="tp-row"><b class="tp-s">person</b><i class="fa-solid fa-arrow-right"></i><b class="tp-p">ride</b><i class="fa-solid fa-arrow-right"></i><b class="tp-o">bicycle</b></div><div class="tp-row"><b class="tp-s">dog</b><i class="fa-solid fa-arrow-right"></i><b class="tp-p">chase</b><i class="fa-solid fa-arrow-right"></i><b class="tp-o">ball</b></div><div class="tp-row"><b class="tp-s">person</b><i class="fa-solid fa-arrow-right"></i><b class="tp-p">stand next to</b><i class="fa-solid fa-arrow-right"></i><b class="tp-o">car</b></div></div>
+      <p class="muted">Every subject can meet every predicate and every object, so the possible sentences multiply quickly.</p>
+      <h3>Background</h3>
+      <p>Video relationship detection describes interactions in a video as language triplets of subject, predicate and object, such as person–ride–bicycle. It sits where vision meets language, and single monolithic classifiers often struggle to generalize and stay stable across the many possible combinations.</p>
+      <p>Video relationship detection must solve object, subject and action recognition at once, while relationships change over time. Since the first approach and dataset in 2017, methods have used segment-wise prediction with greedy association, spatio-temporal graphs, sliding windows and, more recently, transformers. VidVRD-II added preferential predictors that refine each part of the triplet using the other two; it serves as the expert here.</p>
+      <p>These are single, monolithic networks. Their training cost grows roughly quadratically with size, and they tend to be brittle when the data shifts. A sparsely gated mixture of experts offers a way around this: many small networks, with a gate that activates only a few of them for each input, adding capacity without adding computation.</p>
     </section>
+    <section class="block" id="proposed-solution">
+      <span class="label">02 · Proposed solution · Method</span>
+      <h2>A team of <span class="accent">small experts</span></h2>
+      <p>MoE-VRD splits the problem across a mixture of lightweight experts, each specialized in relationship learning and object tagging. Sparse gating means only a few experts run for each input, adding capacity without adding computation.</p>
+      <div class="experts"><div class="ex-box"><b>Video</b></div><i class="fa-solid fa-arrow-right ex-arr"></i><div class="ex-box ex-gate"><b>Gate</b><small>keeps the top 2</small></div><i class="fa-solid fa-arrow-right ex-arr"></i><div class="ex-grid"><small>10 experts · 2 active</small><div><span class="ex">E1</span><span class="ex">E2</span><span class="ex on">E3</span><span class="ex">E4</span><span class="ex">E5</span><span class="ex">E6</span><span class="ex on">E7</span><span class="ex">E8</span><span class="ex">E9</span><span class="ex">E10</span></div></div><i class="fa-solid fa-arrow-right ex-arr"></i><div class="ex-box ex-out"><b>Combine</b><small>person – ride – bicycle</small></div></div>
+      <h3>How it works</h3>
+      <ol class="flow"><li><span class="fl-dot">1</span><b>Track objects</b><small>Faster R-CNN detections are linked over time into tracklets with Seq-NMS.</small></li><li><span class="fl-dot">2</span><b>Describe them</b><small>Deep features of what subject and object look like, plus where they are relative to each other.</small></li><li><span class="fl-dot">3</span><b>Gate</b><small>A gating network scores all 10 experts and keeps the top 2 for this input.</small></li><li><span class="fl-dot">4</span><b>Predict</b><small>Each active expert predicts subject, predicate and object, using two parts to refine the third.</small></li></ol>
+      <p>A gating network scores all experts for each input and keeps only the top K. Learnable noise makes the selection trainable, and an importance loss keeps the load balanced so a few favoured experts don't take over.</p>
+    </section>
+    <section class="block" id="findings">
+      <span class="label">03 · Findings</span>
+      <h2>More experts, <span class="accent">better answers</span></h2>
+      <p>Tested on ImageNet-VidVRD (1,000 videos) and VidOR (10,000 social media videos) with the VidVRD-II setup, each configuration run ten times, and compared with ten recent methods.</p>
+      <div class="stats"><div class="st-card"><span class="st-label">01 · ImageNet-VidVRD</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>Experts</span><div><i class="on" style="width:82.6%"></i></div><b>33.02</b></div><div class="st-bar"><span>Single</span><div><i class="" style="width:73.4%"></i></div><b>29.37</b></div></div></div><div class="st-big"><span>33.02</span></div><p class="st-cap">detection mAP, against 29.37 for VidVRD-II, its single-model version</p><div class="st-second"><b>+3.65</b><span>mAP</span></div><p class="st-cap2">A new state of the art on this benchmark</p></div><div class="st-card"><span class="st-label">02 · Recall</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>Experts</span><div><i class="on" style="width:75.9%"></i></div><b>22.77</b></div><div class="st-bar"><span>Single</span><div><i class="" style="width:65.4%"></i></div><b>19.63</b></div></div></div><div class="st-big"><span>22.77</span></div><p class="st-cap">R@50: true relationships found among the top 50, against 19.63 for VidVRD-II</p><div class="st-second"><b>56.47</b><span>tagging P@5</span></div><p class="st-cap2">Best on two of the three tagging measures</p></div><div class="st-card"><span class="st-label">03 · VidOR</span><div class="st-diagram"><div class="st-bars"><div class="st-bar"><span>Experts</span><div><i class="on" style="width:78.7%"></i></div><b>9.44</b></div><div class="st-bar"><span>Single</span><div><i class="" style="width:72.1%"></i></div><b>8.65</b></div></div></div><div class="st-big"><span>9.44</span></div><p class="st-cap">detection mAP on 10,000 social media videos, against 8.65 for VidVRD-II</p><div class="st-second"><b>6 of 6</b><span>measures</span></div><p class="st-cap2">Better than VidVRD-II on every measure reported</p></div></div>
+      <p class="muted">mAP: how precisely relationships are detected; R@50: how many true ones are found among the top 50; higher is better. On VidOR, SFE scores higher (mAP 11.21).</p>
+      <h3>How many experts to use</h3>
+      <p>With 10 experts in total, using the top 2 for each input works best on both benchmarks; using more lowers accuracy.</p>
+      <div class="columns"><p class="cl-head"><span>mAP by number of active experts · 10 in total</span><span class="cl-key"><b class="sw"></b>ImageNet-VidVRD<b class="sw b"></b>VidOR</span></p><div class="cl-plot"><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>29.5</em><i style="height:73.8%"></i></div><div class="cl-one b"><em>9.0</em><i style="height:22.5%"></i></div></div><span>1</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>34.7</em><i style="height:86.8%"></i></div><div class="cl-one b"><em>10.5</em><i style="height:26.2%"></i></div></div><span>2</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>27.5</em><i style="height:68.8%"></i></div><div class="cl-one b"><em>7.0</em><i style="height:17.5%"></i></div></div><span>3</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>23.0</em><i style="height:57.5%"></i></div><div class="cl-one b"><em>6.0</em><i style="height:15.0%"></i></div></div><span>4</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>15.0</em><i style="height:37.5%"></i></div><div class="cl-one b"><em>4.0</em><i style="height:10.0%"></i></div></div><span>5</span></div><div class="cl-bar cl-two"><div class="cl-pair"><div class="cl-one"><em>8.0</em><i style="height:20.0%"></i></div><div class="cl-one b"><em>2.7</em><i style="height:6.8%"></i></div></div><span>6</span></div></div></div>
+      <p class="muted">Each pair of bars is one choice of how many experts are active. Values are read from the paper's chart.</p>
+    </section>
+    <section class="block" id="my-role">
+      <span class="label">04 · My role</span>
+      <h2>What I <span class="accent">contributed</span></h2>
+      <ol class="role">
+        <li><b>Corresponding author</b>: led the major revisions, rewriting the article and presentation for publication.</li>
+        <li><b>Refined the architecture</b> and implementation for better scene understanding, and reviewed the experimental design.</li>
+        <li><b>Worked with Microsoft Media Group</b> as industry partner, aligning project goals and communicating research capabilities.</li>
+        <li><b>Presented progress weekly</b> to multi-partner teams, exchanging ideas and feedback.</li>
+        <li><b>Strengthened the research context</b> with a comprehensive literature review.</li>
+      </ol>
+    </section>
+    <section class="block" id="tools">
+      <span class="label">05 · Tools</span>
+      <h2>Built <span class="accent">with</span></h2>
+      <div class="tools"><span>Python</span><span>PyTorch</span><span>TensorFlow</span><span>Torchvision</span><span>NumPy</span><span>Pandas</span><span>OpenCV</span><span>scikit-learn</span><span>Matplotlib</span><span>Seaborn</span><span>Plotly</span></div>
+    </section>
+    <section class="block" id="resources">
+      <span class="label">06 · Resources</span>
+      <h2>Code <span class="accent">and papers</span></h2>
+      <div class="res">
+        <a href="https://ieeexplore.ieee.org/abstract/document/10070773" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines lead"></i><span><b>Paper</b><small>IEEE Access</small></span></a>
+        <a href="https://arxiv.org/abs/2403.03994" target="_blank" rel="noopener"><i class="fa-solid fa-book-open lead"></i><span><b>arXiv</b><small>2403.03994</small></span></a>
+        <a href="https://github.com/shibshib/Moe-VRD" target="_blank" rel="noopener"><i class="fa-brands fa-github lead"></i><span><b>Code</b><small>shibshib/Moe-VRD</small></span></a>
+        <a href="https://arxiv.org/abs/1602.08465" target="_blank" rel="noopener"><i class="fa-solid fa-link lead"></i><span><b>Seq-NMS</b><small>Related work</small></span></a>
+      </div>
+    </section>
+  </div>
+</div>
 
-<section id="contributions">
-  <h2>Key Contributions</h2>
-    <ul>
-    <li>Developed a framework for contextualizing visual data through textual descriptions by identifying actions in scenes and modeling relationships between subjects and objects.</li>
-        <li>Collaborated with cross-industry, multi-partner teams, including Microsoft Media Group, on video analysis and image processing research.</li>
-        <li>Participated in regular meetings with the industry partner (Microsoft Media Group) to align project goals with their needs and communicate our capabilities.</li>
-        <li>Attended weekly project meetings to present progress, exchange ideas, and provide feedback to other research teams.</li>
-        <li>Evaluated and refined the MoE-VRD architecture and implementation for improved scene understanding.</li>
-        <li>Reviewed experimental design and reported key findings.</li>
-        <li>Led major revisions and served as the corresponding author, rewriting the article and presentation for publication.</li>
-        <li>Conducted a comprehensive literature review to strengthen the research context and support dissemination.</li>
-    </ul>
+<section class="contact" id="contact">
+  <div class="wrap contact-in">
+    <div class="rv">
+      <span class="label">Contact</span>
+      <h2>Let's <em>Connect.</em></h2>
+      <p class="lead-text">For professional opportunities, collaborations, research, consulting, or general inquiries, feel free to get in touch.</p>
+      <a class="mail" href="mailto:zahra.gharaee@gmail.com"><span class="ic"><i class="fa-regular fa-envelope"></i></span>zahra.gharaee@gmail.com</a>
+    </div>
+    <form class="cform rv" id="cform" novalidate>
+      <div><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+      <div><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div><label for="f-subject">Subject</label><input id="f-subject" name="subject" type="text"></div>
+      <div><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      <button class="send" type="submit">Send Message <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 9L9 3M4 3h5v5"/></svg></button>
+      <p class="form-note" id="form-note" aria-live="polite" data-ok="Your email app should open with the message ready to send." data-error="Please add your name, a valid email and a message."></p>
+    </form>
+  </div>
 </section>
 
-    <section id="tools">
-      <h2>Tools & Technologies</h2>
-    <ul>
-      <li>Python, PyTorch, TensorFlow, Pandas, NumPy, Torchvision </li>
-      <li>OpenCV, scikit-learn, PIL (Pillow)</li>
-      <li>Matplotlib (mpl_toolkits), Seaborn, Plotly</li>
-    </ul>
-    </section>
-
-    <section id="code">
-      <h2>Code / Git</h2>
-        <ul>
-       <li><a href="https://github.com/shibshib/Moe-VRD" target="_blank">GitHub Page</a></li>
-        </ul>
-    </section>
-
-    <section id="research">
-      <h2>Research / Paper</h2>
-        <ul>
-        <li><a href="https://ieeexplore.ieee.org/abstract/document/10070773" target="_blank">IEEE</a></li>
-        <li><a href="https://arxiv.org/abs/2403.03994" target="_blank">Arxiv</a></li>
-        </ul>
-    </section>
-
-    <section id="presentation">
-      <h2>Presentation</h2>
-        <ul>
-        <li>Microsoft Media group & Dept. of Systems Design Engineering, University of Waterloo</li>
-        </ul>
-    </section>
-
-
-
-<section id="additional-context" >
-    <h2>Additional Context </h2>
-<section id="VRD">
-    <h3>Video Relationship Detection</h3>
-    <p>In this section, I will explain the fundamentals of the video relationship detection approach utilized in
-        our model architecture. </p>
-     <p></p>
-    <figure class="figure-container">
-        <img src="images/VRD_new.png" alt="mean_shape" class="centered-image" width="1000" height="700">
-        <figcaption class="caption">Video Visual Relationship Detection Module.</figcaption>
-    </figure>
-
-    <h4> Problem Formulation </h4>
-    <p>Assume a set of three entities \( \mathbb{E} = \{e_1, e_2, e_3\} \), which represent Subject \(e_1\), predicate
-    \(e_2\), and object \(e_3\), with their corresponding features \( \mathbb{F} = \{f_{e_1}, f_{e_2}, f_{e_3}\} \)
-    to build the language triplet \( < \text{subject}, \text{predicate}, \text{object}>\). We model the problem of
-        video visual relationship detection as the joint probability of:</p>
-    <p style="text-align: center;">
-    \( \text{P}(< e_1, e_2, e_3 > | < f_{e_1}, f_{e_2}, f_{e_3} >)  \),
-    </p>
-
-    <p>where we factorized this joint probability as follows:</p>
-
-    <p style="text-align: center;">
-    \( \text{P}(e_1| f_{e_1}, e_2, e_3) \cdot \text{P}(e_2| f_{e_2}, e_1, e_3) \cdot \text{P}(e_3| f_{e_3}, e_1, e_2) \),
-    </p>
-    <p>to aid in inference time when there is ambiguous visual information, since the classes of any two components
-        imply a preference over the class of the third. Each of these three conditional probabilities is
-        modelled by a classifier consisting of a <b>visual predictor</b> and a <b>preferential predictor</b>.</p>
-
-    <p>The visual predictor is a deep neural network, which learns visual patterns of the subject, predicate, and object.
-        The preferential predictor applies learnable dependency tensors to refine the
-        prediction of one variable conditioned on the values of the other two:</p>
-
-    <p style="text-align: center;">
-        \[
-        e_{pr} = \left\{
-        \begin{aligned}
-        \text{P}(e_1| f_{e_1}, e_2, e_3) &= \Phi (\text{V}_{e_1} \cdot f_{e_1}) + p_{e_2} \cdot \text{W}_{e_1} \cdot p_{e_3} \\
-        \text{P}(e_2| f_{e_2}, e_1, e_3) &= \Phi (\text{V}_{e_2} \cdot f_{e_2}) + p_{e_1} \cdot \text{W}_{e_2} \cdot p_{e_3} \\
-        \text{P}(e_3| f_{e_3}, e_1, e_2) &= \Phi (\text{V}_{e_3} \cdot f_{e_3}) + p_{e_1} \cdot \text{W}_{e_3} \cdot p_{e_2}
-        \end{aligned}
-        \right\}
-        \]
-    </p>
-
-    <p>where \(\text{V}_{e_1}\), \(\text{V}_{e_2}\), and \(\text{V}_{e_3}\) are the learnable weights of
-        the visual predictors. In our case study, the weights of the subject and object classifiers are shared, thus
-    \(\text{V}_{e_1} = \text{V}_{e_2}\). On the other hand, for preferential prediction \(\text{W}_{e_1}\), \(\text{W}_{e_2}\),
-        and \(\text{W}_{e_3}\) model the dependency of one class over the other two, separately parametrized for each classifier.
-        \(\Phi\) represents the nonlinear activation, here implemented by a \(\text{Softmax}\) function for the subject and object classes,
-        and a \(\text{Sigmoid}\) function for the predicate class.  </p>
-
-</section>
-
- <section id="MoE">
-    <h3>Sparsely Gated Mixture-of-Experts</h3>
-     <p>Our MoE-VRD The MoE consists of a set of N expert networks \(\text{E}_1, \text{E}_2, ..., \text{E}_N\)
-     and one gating network, G, whose output is a sparse binary N -dimensional vector.
-     The experts are themselves identical feed-forward neural networks, each with their own parameters. </p>
-      <figure class="figure-container">
-        <img src="images/MoE.png" alt="mean_shape" class="centered-image" width="900" height="500">
-        <figcaption class="caption">Sparsely Gated Mixture-of-Experts Module.</figcaption>
-    </figure>
-     <p>Given an input \(x\), the output of the ith expert’s function is denoted as \(E_i(x)\).
-         These N outputs are combined in the MoE layer as:</p>
-     <p style="text-align: center;">
-        \( y = \sum_{i=1}^{N} G(x)_i \cdot E_i(x) \),
-    </p>
-     <p>where \(G(x)_i\) represents the output of the gating network. The sparsity in computation, one of
-         the key strengths of the MoE approach, is realized by the explicit sparsity of the gating output:
-     </p>
-     <p style="text-align: center;">
-        \( G(x)_i = 0 \quad \text{for most} \quad i \),
-    </p>
-     <p>where if  \( G(x)_i = 0 \) the corresponding expert is eliminated from learning procedure.</p>
-     <p> We adopt a single–layer gating function:</p>
-
-     <p style="text-align: center;">
-        \[
-        G(x)_i = \text{Softmax}\left( {\text{top}_{K}}  \left( \text{W}^{i}_{g} \cdot x + N_g (\text{W}^{i}_{n} \cdot x) \right)  \right),
-        \]
-    </p>
-     <p>where \(\text{top}_K\) selects the K largest values (the best experts), and \(\text{W}^{i}_{g}\) and
-         \(\text{W}^{i}_{n}\) are trainable gating and noise weight matrices, respectively, which are parametrized for each expert i.
-         Since the number of samples sent to the gating layer is discrete, and therefore not applicable to
-         back-propagation, the inclusion of the noise term Ng (x) allows for a smooth estimate of the number
-         of samples used for each expert in each batch, thus allowing for the back-propagation of gradients. </p>
-
-     <p>The noise function is defined as:</p>
-
-     <p style="text-align: center;">
-        \[
-         \text{N}_g (x) = \text{StandardNormal}() · \text{Softplus}(x), \quad \text{where} \quad \text{Softplus}(x) = \frac{1}{\beta}
-         \text{log}(1 + \beta x)
-        \]
-    </p>
-     <p>where \(\text{Softplus}\) is a smooth approximation of the \(\text{ReLU}\) function to constrain the output to be positive.</p>
-     <p>Moreover, an importance term is considered in the overall loss to address imbalances resulting from
-         the <b>self-reinforcing effect</b> <a href="https://ieeexplore.ieee.org/abstract/document/9362270" target="_blank">Lu et. al (2021)</a>, which occurs when certain favoured experts are trained more rapidly
-         and thus are selected even more by the gating network.</p>
-     <p>The importance loss is calculated as follows:</p>
-     <p style="text-align: center;">
-        \[
-         L_{\text{importance}} (x) = \alpha \left( \text{CV}(g) + \text{CV}(l) \right),
-        \]
-    </p>
-     <p>where \(\alpha\) is a hand-tuned scaling factor, g is the batch-wise sum of gate values (over batch B):</p>
-     <p style="text-align: center;">
-        \[
-         g = \sum_{x\in B} G(x).
-        \]
-    </p>
-     <p>The load \(l\) the load, summed over the positive gate values is computed as:</p>
-      <p style="text-align: center;">
-        \[
-         l = \sum_{x\in B, g>0} G(x),
-        \]
-    </p>
-     <p>Finally, we applied \(\text{CV}(·)\), the coefficient of variation:</p>
-      <p style="text-align: center;">
-        \[
-         \text{CV} = \frac{\text{var}(x)}{\text{mean}(x)^2 + \epsilon},
-        \]
-    </p>
-     to encourage experts to have a more balanced (equal) importance.
-</section>
- <section id="MoE-VRD">
-    <h3>Video Relationship Detection Using Mixture-of-Experts</h3>
-     Finally, we have the full model architecture of MoE-VRD.
-     <figure class="figure-container">
-        <img src="images/MoE_VRD.png" alt="moe_vrd" class="centered-image" width="900" height="500">
-        <figcaption class="caption">Video Relationship Detection Using Mixture-of-Experts.</figcaption>
-    </figure>
-     <h4>Object Tracklet Proposals</h4>
-     <p>We employ Seq-NMS <a href="https://arxiv.org/abs/1602.08465" target="_blank">Han et. al (2016)</a>
-         to generate object tracklet proposals as a pre-processing step for the relational classifier experts.
-         For frame-level object detection, we use a Faster-RCNN with an Inception-ResNet backbone
-         <a href="https://ojs.aaai.org/index.php/aaai/article/view/11231" target="_blank">Szegedy, et. al (2017)</a>,
-         pretrained on the Open Images dataset, providing a robust, generic object detector. Bounding boxes and
-         corresponding region features are then extracted, and Seq-NMS compacts these into a set of
-         object tracklets that serve as inputs to the expert neural networks.</p>
-     <h4>Feature Extraction</h4>
-     <p>Applying the object tracklet proposals, we generate two types of features: Visual Features and Relative Positional Features.</p>
-     <h4>Visual Features</h4>
-     <p>To generate the visual features \(f\), the bounding boxes are applied to extract the pretrained deep visual features
-         of the subject and object entities, and the predicate’s visual feature is computed through a concatenation
-         of the subject and object visual feature vectors.</p>
-     <h4>Relative Positional Features</h4>
-     <p>We extract a relative positional feature to represent the spatio-temporal relationship between the entities.
-         For each pair of object tracklets, the algorithm computes the relative distance between the subject and object
-         by encoding the spatial and temporal relative positional feature:</p>
-      <p style="text-align: center;">
-        \[
-         f^{p}_{r} = \left[ \frac{x^{p}_{e_1}-x^{p}_{e_3}}{x^{p}_{e_3}}, \frac{y^{p}_{e_1}-y^{p}_{e_3}}{y^{p}_{e_3}}, \text{log}\frac{w^{p}_{e_1}}{w^{p}_{e_3}}, \text{log}\frac{h^{p}_{e_1}}{h^{p}_{e_3}}, \text{log}\frac{w^{p}_{e_1} h^{p}_{e_1}}{w^{p}_{e_3} h^{p}_{e_3}}, \frac{t^{p}_{e_1}-t^{p}_{e_3}}{30} \right],
-        \]
-    </p>
-     <p>where \(p \in [b, e]\) represents the beginning or ending bounding box, characterized
-         by coordinates \((x, y)\), width \(w\), height \(h\), and time \(t\) for subject \(e_1\) and object \(e_3\) .
-         A feed-forward network is used to fuse the subject’s and object’s visual features \(f_{e_1}\) , \(f_{e_3}\)
-         with the relative positional features of the beginning and ending bounding boxes \(f^{b}_r\) , \(f^{e}_r\) ,
-         where the relative positional feature \(f^{p}_r\) provides the expert with additional information to recognize visual relationships.</p>
-
-
-    <p>In summary, each encapsulated expert consists of an object predictor, a subject predictor, and a predicate predictor —
-    each of which is a basic feed-forward network, allowing for a set of modestly-sized, nimble experts to speed up training
-    and inference, when compared to an equivalent single monolithic network.</p>
-     </section>
-
- <section id="Experiments">
-    <h3>Experiments and Results</h3>
-
-     <h4>Datasets</h4>
-     <p>We used two VidVRD benchmark datasets:</p>
-     <ul>
-         <li><b>ImageNet-VidVRD</b> <a href="https://dl.acm.org/doi/abs/10.1145/3123266.3123380" target="_blank">Shang et. al (2017)</a>:
-             is the first dataset for video visual relation detection. It consists of 1,000 videos,
-             which are manually annotated with video relation instances.</li>
-         <li><b>VidOR </b><a href="https://dl.acm.org/doi/abs/10.1145/3323873.3325056" target="_blank">Shang et. al (2019)</a>:
-             is a recently-released large-scale benchmark, which contains 10,000 social media videos.</li>
-     </ul>
-     <h4>Evaluation Metrics</h4>
-     <p>In object detection, two key tasks must be addressed: localization and classification.
-     Localization involves determining the precise position of an object, such as its bounding box,
-         while classification identifies the object’s category or type.</p>
-     <p>In object detection, precision and recall are typically calculated using a specified Intersection over Union (IoU) threshold,
-         which quantifies the overlap between predicted and actual bounding boxes. When the IoU for
-         a predicted bounding box exceeds this threshold, the prediction is classified as a true positive;
-         otherwise, it is a false positive. Metrics such as Recall@50 evaluate recall at an IoU threshold of 50%,
-         permitting bounding boxes to overlap by at least 50%. Other metrics, like Recall@100 and Precision@10,
-         are similarly defined based on their respective thresholds.</p>
-
-     <p>To evaluate how well the mixture of experts detects ground truth relation instances in each test video,
-         we use two types of metrics: relation tagging and relation detection.
-         <ul>
-
-     <li><b>Relation tagging</b> assesses the precision of detected relation triplets without considering
-            their spatio-temporal accuracy. This metric simply checks if the relation was detected, ignoring precise
-         timing or spatial details. Tagging performance is measured by Precision@1 (P@1), Precision@5 (P@5), and Precision@10 (P@10).</li>
-
-         <li><b>Relation detection</b>, on the other hand, considers both the relation triplet and the trajectories
-             of the subject and object. A detected relation instance is only correct if it matches the
-             ground-truth relation instance and the volumetric Intersection-over-Union (vIoU) of both
-             subject and object trajectories exceeds a threshold of 50%. This performance is quantified
-             using Mean Average Precision (mAP), Recall@50 (R@50), and Recall@100 (R@100).</li>
-         </ul>
-    <p>All experiments are repeated ten times with varied random seeds for each expert, and we report the mean and standard deviation scores for each metric.</p>
-     <h4>Multi-expert Performance</h4>
-     <p>Our proposed MoE-VRD with \(K = 2\) and a total of \(N = 10\) experts,experts significantly outperforms
-     state-of-the-art approaches on the ImageNet-VidVRD dataset across all evaluation criteria.
-     The substantial performance boost is directly attributed to the mixture-of-experts strategy.
-     Notably, the performance of our individual expert is comparable to the VidVRD-II method,
-         as demonstrated in Table 1. The symbol "−" indicates that no corresponding results were reported for those entries.</p>
-     <iframe src="tables/table_MoE_VRD.html" style="width: 100%; height: 1100px; border: none;"></iframe>
-
-     <figure class="figure-container">
-        <img src="images/moe_vrd_result.png" alt="moe_vrd" class="centered-image" width="900" height="500">
-        <figcaption class="caption">\(\text{mAP}\) of the MoE-VRD approach having \(N = 10\) experts,
-            as a function of K during training. Note that performance drops after \(K = 2\); due to
-            the averaging nature of the architecture before the final output, such that well-performing experts
-            may become drowned out by more poorly performing peers if K is set too large.</figcaption>
-    </figure>
- </section>
-</section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Zahra Gharaee. All rights reserved.</p>
-    </footer>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="https://zahragharaee.com/" class="wordmark">Zahra <em>Gharaee</em></a>
+        <a href="mailto:zahra.gharaee@gmail.com" class="foot-mail">zahra.gharaee@gmail.com</a>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/zahragh/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/zahrag" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://scholar.google.se/citations?user=nWe8d1MAAAAJ&amp;hl=sv" target="_blank" rel="noopener"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr">2026</span> Zahra Gharaee. All rights reserved.</span>
+      <span>Built by <a href="https://zahragharaee.com/">Zahra Gharaee</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/portfolio.js"></script>
 </body>
 </html>
